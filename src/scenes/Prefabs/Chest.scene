@@ -1,0 +1,48 @@
+{
+    "id": "387e70b4-bcbc-496f-ae01-c1605019684c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "687a297a-be73-4fcb-8b84-2c11e29f930e",
+            "label": "openChestAnimation",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "OpenChestanimation",
+                "frame": "OpenChestAnimation0001.png"
+            },
+            "animationKey": "OpenChest",
+            "animationCustomConfig": true,
+            "animationShowOnStart": true
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "IsOpen",
+            "label": "IsOpen",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

@@ -1,0 +1,198 @@
+{
+    "id": "96426011-f183-4ac4-b45d-9e24250e5e7a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "SpineGameObject",
+            "id": "a6f109f1-50f2-41f9-8fc5-ade8810f642a",
+            "label": "spinegameobject_1",
+            "scope": "CLASS",
+            "hitArea.shape": "CIRCLE",
+            "hitArea.x": 34,
+            "hitArea.y": 34,
+            "hitArea.radius": 40,
+            "dataKey": "KittenPlayer",
+            "atlasKey": "KittenPlayer-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "bpSkin": 0,
+            "bpAnimation": "Idle",
+            "enablePreview": true,
+            "previewAnimation": "Idle",
+            "previewTime": 10,
+            "ArcadeComponent.active": true,
+            "body.friction.x": 0,
+            "body.friction.y": 1,
+            "body.bounce.x": 0.1,
+            "body.bounce.y": 0.1,
+            "collideWorldBounds": true,
+            "bodyGeometry": 0,
+            "radius": 35,
+            "body.width": 128,
+            "body.height": 128
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "targetPos",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "null;",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "moveSpeed",
+            "label": "moveSpeed",
+            "tooltip": "",
+            "defValue": 200,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "originalGravityY",
+            "label": "originalGravityY",
+            "tooltip": "",
+            "defValue": -300,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "reducedGravityY",
+            "label": "reducedGravityY",
+            "tooltip": "",
+            "defValue": -50,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "gravityRestoreDelay",
+            "label": "gravityRestoreDelay",
+            "tooltip": "",
+            "defValue": 1000,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "gravityTimerActive",
+            "label": "gravityTimerActive",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "OriginalMoveSpeed",
+            "label": "OriginalMoveSpeed",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "CanMove",
+            "label": "CanMove",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "IsDead",
+            "label": "IsDead",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "OriginalX",
+            "label": "OriginalX",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "followParticles",
+            "label": "followParticles",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "dieParticles",
+            "label": "dieParticles",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "OriginalY",
+            "label": "OriginalY",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "lastMoveTime",
+            "label": "lastMoveTime",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        }
+    ]
+}

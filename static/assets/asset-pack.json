@@ -1,0 +1,153 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "assets/animations/animations.json",
+                "type": "animation",
+                "key": "animations"
+            },
+            {
+                "url": "assets/bg1.png",
+                "type": "image",
+                "key": "bg1"
+            },
+            {
+                "url": "assets/bg2.png",
+                "type": "image",
+                "key": "bg2"
+            },
+            {
+                "url": "assets/bg3.png",
+                "type": "image",
+                "key": "bg3"
+            },
+            {
+                "url": "assets/bg4.png",
+                "type": "image",
+                "key": "bg4"
+            },
+            {
+                "url": "assets/BubbleParticle.png",
+                "type": "image",
+                "key": "BubbleParticle"
+            },
+            {
+                "atlasURL": "assets/animations/BubblePop/Atlas/BubblePop.json",
+                "textureURL": "assets/animations/BubblePop/Atlas/BubblePop.png",
+                "type": "atlas",
+                "key": "BubblePop"
+            },
+            {
+                "url": "assets/CarboardEffect.png",
+                "type": "image",
+                "key": "CarboardEffect"
+            },
+            {
+                "atlasURL": "assets/animations/CloseChest/CloseChestanimation.json",
+                "textureURL": "assets/animations/CloseChest/CloseChestanimation.png",
+                "type": "atlas",
+                "key": "CloseChestanimation"
+            },
+            {
+                "url": "assets/Curtain1.png",
+                "type": "image",
+                "key": "Curtain1"
+            },
+            {
+                "url": "assets/Curtain2.png",
+                "type": "image",
+                "key": "Curtain2"
+            },
+            {
+                "url": "assets/door.png",
+                "type": "image",
+                "key": "door"
+            },
+            {
+                "atlasURL": "assets/animations/DoorAppear/DoorAppear.json",
+                "textureURL": "assets/animations/DoorAppear/DoorAppear.png",
+                "type": "atlas",
+                "key": "DoorAppear"
+            },
+            {
+                "atlasURL": "assets/animations/DoorShine/DoorShine.json",
+                "textureURL": "assets/animations/DoorShine/DoorShine.png",
+                "type": "atlas",
+                "key": "DoorShine"
+            },
+            {
+                "url": "assets/FrontLayer.png",
+                "type": "image",
+                "key": "FrontLayer"
+            },
+            {
+                "url": "assets/GameBg.png",
+                "type": "image",
+                "key": "GameBg"
+            },
+            {
+                "url": "assets/spine/KittenPlayer.json",
+                "type": "spineJson",
+                "key": "KittenPlayer",
+                "previewAtlasKey": "KittenPlayer-atlas"
+            },
+            {
+                "url": "assets/spine/KittenPlayer.atlas",
+                "type": "spineAtlas",
+                "key": "KittenPlayer-atlas"
+            },
+            {
+                "url": [
+                    "assets/music/music1.mp3"
+                ],
+                "type": "audio",
+                "key": "music1"
+            },
+            {
+                "atlasURL": "assets/animations/OpenChest/OpenChestanimation.json",
+                "textureURL": "assets/animations/OpenChest/OpenChestanimation.png",
+                "type": "atlas",
+                "key": "OpenChestanimation"
+            },
+            {
+                "atlasURL": "assets/animations/OpenDoor/OpenDoor.json",
+                "textureURL": "assets/animations/OpenDoor/OpenDoor.png",
+                "type": "atlas",
+                "key": "OpenDoor"
+            },
+            {
+                "url": "assets/Platform1.png",
+                "type": "image",
+                "key": "Platform1"
+            },
+            {
+                "url": "assets/Player.png",
+                "type": "image",
+                "key": "Player"
+            },
+            {
+                "url": "assets/spikes.png",
+                "type": "image",
+                "key": "spikes"
+            },
+            {
+                "url": "assets/star.png",
+                "type": "image",
+                "key": "star"
+            },
+            {
+                "url": "assets/Vinete.png",
+                "type": "image",
+                "key": "Vinete"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false,
+        "visible": true
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "id": "c7290d2e-581c-4279-9e2d-264508f38274",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "8ddadddd-de8f-411a-b34e-7be8af9495d5",
+            "label": "door",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 92,
+            "hitArea.height": 136,
+            "texture": {
+                "key": "DoorShine",
+                "frame": "DoorShine0018.png"
+            },
+            "ArcadeComponent.active": true,
+            "moves": false,
+            "allowGravity": false,
+            "allowDrag": false,
+            "allowRotation": false,
+            "pushable": false,
+            "immovable": true,
+            "body.width": 92,
+            "body.height": 136,
+            "animationKey": "DoorAppear"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "IsOpen",
+            "label": "IsOpen",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "shineTimer",
+            "label": "shineTimer",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "IsVisible",
+            "label": "IsVisible",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

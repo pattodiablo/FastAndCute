@@ -1,0 +1,1291 @@
+{
+    "anims": [
+        {
+            "key": "BubblePop",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0000_bubble7.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0001_bubble6.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0002_bubble5.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0003_bubble4.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0004_bubble3.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0005_bubble2.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0006_bubble1.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 48,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "randomFrame": false
+        },
+        {
+            "key": "BubblePop2",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0006_bubble1.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0005_bubble2.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0004_bubble3.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0003_bubble4.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0002_bubble5.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0001_bubble6.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BubblePop",
+                    "frame": "BubblePop_0000_bubble7.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 30,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false,
+            "hideOnComplete": true
+        },
+        {
+            "key": "OpenChest",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0025.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0026.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0027.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0028.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0029.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0030.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0031.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0032.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0033.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0034.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0035.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0036.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0037.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0038.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0039.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0040.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0041.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0042.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0043.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0044.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0045.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0046.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenChestanimation",
+                    "frame": "OpenChestAnimation0047.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false
+        },
+        {
+            "key": "CloseChest",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0025.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0026.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0027.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0028.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0029.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0030.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0031.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0032.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0033.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0034.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0035.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0036.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0037.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0038.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0039.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0040.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0041.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0042.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0043.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0044.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0045.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "CloseChestanimation",
+                    "frame": "CloseChest0046.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false
+        },
+        {
+            "key": "OpenDoor",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0025.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0026.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0027.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0028.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0029.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0030.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0031.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0032.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0033.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0034.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "OpenDoor",
+                    "frame": "OpenDoor0035.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false
+        },
+        {
+            "key": "DoorShine",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0025.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0026.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0027.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0028.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0029.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0030.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0031.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0032.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0033.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0034.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorShine",
+                    "frame": "DoorShine0035.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false
+        },
+        {
+            "key": "DoorAppear",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "DoorAppear",
+                    "frame": "DoorAppear0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "showOnStart": true,
+            "randomFrame": false
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}
