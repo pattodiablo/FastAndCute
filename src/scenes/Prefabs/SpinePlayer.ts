@@ -41,9 +41,16 @@ export default class SpinePlayer extends SpineGameObject {
 		this.setVisible(false);
 
 		this.setInteractive(); // asegúrate de que el gato sea interactivo
+		this.floatFX = this.scene.sound.add("sound8");
+		(this.scene as any).addFx(this.floatFX);
+
+		this.explodeFx = this.scene.sound.add("click4");
+		(this.scene as any).addFx(this.explodeFx);
+
 		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 
 			this.setScale(1.1, 1.1);
+
 
 
 			this.scene.time.delayedCall(100, () => {
@@ -72,6 +79,9 @@ export default class SpinePlayer extends SpineGameObject {
 
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+			// En Player.ts (constructor)
+
+			this.floatFX.play();
 			this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
 			this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
 			if (!this.gravityTimerActive) {
@@ -81,25 +91,25 @@ export default class SpinePlayer extends SpineGameObject {
 
 
 			this.followParticles = this.scene.add.particles(0, 0, 'BubbleParticle', {
-			x: this.x,
-			y: this.y,
-			speed: { min: 0, max: 0 },
-			angle: { min: 0, max: 360 },
-			lifespan: { min: 1000, max: 2500 },
-			scale: { start: 0, end: 1 },
-			quantity: 1,
-			maxParticles: 1,
-			frequency: 100,
-			gravityY: -100
+				x: this.x,
+				y: this.y,
+				speed: { min: 0, max: 0 },
+				angle: { min: 0, max: 360 },
+				lifespan: { min: 1000, max: 2500 },
+				scale: { start: 0, end: 1 },
+				quantity: 1,
+				maxParticles: 1,
+				frequency: 100,
+				gravityY: -100
 
-		});
-		// Emite solo unas pocas burbujas y destruye el sistema después
-		this.scene.time.delayedCall(400, () => {
-			this.followParticles?.stop();
-			this.scene.time.delayedCall(1200, () => {
-				this.followParticles?.destroy();
 			});
-		});
+			// Emite solo unas pocas burbujas y destruye el sistema después
+			this.scene.time.delayedCall(400, () => {
+				this.followParticles?.stop();
+				this.scene.time.delayedCall(1200, () => {
+					this.followParticles?.destroy();
+				});
+			});
 
 		});
 		/* END-USER-CTR-CODE */
@@ -119,6 +129,8 @@ export default class SpinePlayer extends SpineGameObject {
 	public dieParticles!: any;
 	public OriginalY: number = 0;
 	public lastMoveTime!: any;
+	public floatFX!: any;
+	public explodeFx!: any;
 
 	/* START-USER-CODE */
 
@@ -130,7 +142,7 @@ export default class SpinePlayer extends SpineGameObject {
 		this.CanMove = true;
 		this.body.setGravityY(this.originalGravityY);
 		this.moveSpeed = this.OriginalMoveSpeed;
-			this.body.collideWorldBounds = true;
+		this.body.collideWorldBounds = true;
 		this.skeleton.setAttachment("Bubble", "Bubble");
 		//this.CanMove = true;
 		this.moveSpeed = this.OriginalMoveSpeed;
@@ -234,6 +246,8 @@ export default class SpinePlayer extends SpineGameObject {
 		);
 		bubblePop.setRotation(Math.random() * Math.PI * 2);
 
+		this.explodeFx.play();
+
 		// --- SISTEMA DE PARTICULAS DE BURBUJAS ---
 
 
@@ -287,22 +301,22 @@ export default class SpinePlayer extends SpineGameObject {
 		this.body.setVelocity(0, 0);
 		this.body.setGravityY(0); // Aplica gravedad fuerte
 
-			this.scene.tweens.add({
+		this.scene.tweens.add({
 			targets: this,
 			x: xdoor,
 			y: ydoor,
 			duration: 1000,
 			ease: 'Quad.Out',
 			onComplete: () => {
-			  this.scene.time.delayedCall(1000, () => {
-				(this.scene as any).closeCurtains();
-                this.scene.tweens.add({
-                    targets: this.skeleton.color,
-                    a: 0,
-                    duration: 500,
-                    ease: 'Quad.Out'
-                });
-            });
+				this.scene.time.delayedCall(1000, () => {
+					(this.scene as any).closeCurtains();
+					this.scene.tweens.add({
+						targets: this.skeleton.color,
+						a: 0,
+						duration: 500,
+						ease: 'Quad.Out'
+					});
+				});
 			}
 		});
 

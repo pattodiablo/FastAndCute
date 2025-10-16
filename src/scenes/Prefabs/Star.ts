@@ -7,15 +7,10 @@
 
 export default interface Star {
 
-	body: Phaser.Physics.Arcade.Body;
+	 body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Star extends Phaser.GameObjects.Image {
-
-	private shakeTween?: Phaser.Tweens.Tween;
-	private moveTween?: Phaser.Tweens.Tween;
-	private shakeTimer?: Phaser.Time.TimerEvent;
-	private isCollected = false;
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "star", frame);
@@ -43,11 +38,20 @@ export default class Star extends Phaser.GameObjects.Image {
 		/* END-USER-CTR-CODE */
 	}
 
+	public collectFx!: any;
+	public isCollected: boolean = false;
+	public moveTween!: any;
+	public shakeTween!: any;
+	public shakeTimer!: any;
+
 	/* START-USER-CODE */
 
 	create() {
 		this.scene.physics.add.overlap((this.scene as any).player, this, this.collectStar, undefined, this);
 		this.addStarToSceneStarsGroup();
+		this.collectFx = this.scene.sound.add("sound3");
+		(this.scene as any).addFx(this.collectFx);
+
 	}
 
 	addStarToSceneStarsGroup() {
@@ -63,6 +67,7 @@ export default class Star extends Phaser.GameObjects.Image {
 		if (this.isCollected) return; // Evita ejecuciones múltiples
 		this.isCollected = true;
 
+			this.collectFx.play();
 		// Elimina tweens y timers antes de destruir
 		if (this.moveTween) this.moveTween.stop();
 		if (this.shakeTween) this.shakeTween.stop();

@@ -8,6 +8,8 @@ import Chest from "./Prefabs/Chest";
 import Door from "./Prefabs/Door";
 import SpinePlayer from "./Prefabs/SpinePlayer";
 import Star from "./Prefabs/Star";
+import FxButton from "./Prefabs/FxButton";
+import MusicBtn from "./Prefabs/MusicBtn";
 import { SpineGameObject } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -94,6 +96,14 @@ export default class Level extends Phaser.Scene {
 		const star_2 = new Star(this, 887, 474);
 		this.add.existing(star_2);
 
+		// fxON
+		const fxON = new FxButton(this, 918, 46);
+		this.add.existing(fxON);
+
+		// musicON
+		const musicON = new MusicBtn(this, 987, 46);
+		this.add.existing(musicON);
+
 		// carboardEffect
 		const carboardEffect = this.add.image(0, 0, "CarboardEffect");
 		carboardEffect.blendMode = Phaser.BlendModes.MULTIPLY;
@@ -114,6 +124,7 @@ export default class Level extends Phaser.Scene {
 		this.chest = chest;
 		this.door = door;
 		this.player = player;
+		this.musicON = musicON;
 		this.carboardEffect = carboardEffect;
 		this.curtain1 = curtain1;
 		this.curtain2 = curtain2;
@@ -129,6 +140,7 @@ export default class Level extends Phaser.Scene {
 	public chest!: Chest;
 	public door!: Door;
 	public player!: SpinePlayer;
+	private musicON!: MusicBtn;
 	private carboardEffect!: Phaser.GameObjects.Image;
 	private curtain1!: Phaser.GameObjects.Image;
 	private curtain2!: Phaser.GameObjects.Image;
@@ -136,6 +148,8 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
 	public starsGroup!: Phaser.Physics.Arcade.Group;
+	public music!: Phaser.Sound.BaseSound;
+	public fxList: Phaser.Sound.BaseSound[] = [];
 	// Write your code here
 
 	create() {
@@ -190,9 +204,21 @@ export default class Level extends Phaser.Scene {
 			blendMode: 'ADD'
 		});
 		rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos
+
+	}
+
+	addFx(fx: Phaser.Sound.BaseSound) {
+		this.fxList.push(fx);
+	}
+
+	public muteAllFx(mute: boolean) {
+		this.fxList.forEach(fx => (fx as any).setMute(mute));
 	}
 	openCurtains() {
-		    this.sound.play("music1", { loop: false });
+
+		this.music = this.sound.add("WholeMusic", { loop: true });
+		this.music.play();
+
 		this.tweens.add({
 			targets: this.curtain1,
 			y: -150,
@@ -209,23 +235,36 @@ export default class Level extends Phaser.Scene {
 	}
 
 public closeCurtains() {
-		this.tweens.add({
-			targets: this.curtain1,
-			y: 144,
-			duration: 700,
-			ease: 'Quad.Out'
-		});
-		this.tweens.add({
-			targets: this.curtain2,
-			y: 434,
-			duration: 700,
-			ease: 'Quad.Out'
-		});
+    this.tweens.add({
+        targets: this.curtain1,
+        y: 144,
+        duration: 700,
+        ease: 'Quad.Out'
+    });
+    this.tweens.add({
+        targets: this.curtain2,
+        y: 434,
+        duration: 700,
+        ease: 'Quad.Out'
+    });
 
-		this.time.delayedCall(1000, () => {
-			this.scene.restart();
+    // Fade out de la música
+    if (this.music) {
+        this.tweens.add({
+            targets: this.music,
+            volume: 0,
+            duration: 1000,
+            ease: 'Quad.Out',
+            onComplete: () => {
+                this.music.stop();
+            }
         });
-	}
+    }
+
+    this.time.delayedCall(1000, () => {
+        this.scene.restart();
+    });
+}
 
 	update() {
     if (!this.player) return;

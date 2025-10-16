@@ -43,6 +43,48 @@
                 "key": "CarboardEffect"
             },
             {
+                "url": [
+                    "assets/fx/click.mp3"
+                ],
+                "type": "audio",
+                "key": "click"
+            },
+            {
+                "url": [
+                    "assets/fx/click1.mp3"
+                ],
+                "type": "audio",
+                "key": "click1"
+            },
+            {
+                "url": [
+                    "assets/fx/click2.mp3"
+                ],
+                "type": "audio",
+                "key": "click2"
+            },
+            {
+                "url": [
+                    "assets/fx/click3.mp3"
+                ],
+                "type": "audio",
+                "key": "click3"
+            },
+            {
+                "url": [
+                    "assets/fx/click4.mp3"
+                ],
+                "type": "audio",
+                "key": "click4"
+            },
+            {
+                "url": [
+                    "assets/fx/click5.mp3"
+                ],
+                "type": "audio",
+                "key": "click5"
+            },
+            {
                 "atlasURL": "assets/animations/CloseChest/CloseChestanimation.json",
                 "textureURL": "assets/animations/CloseChest/CloseChestanimation.png",
                 "type": "atlas",
@@ -81,6 +123,16 @@
                 "key": "FrontLayer"
             },
             {
+                "url": "assets/FxOff.png",
+                "type": "image",
+                "key": "FxOff"
+            },
+            {
+                "url": "assets/FxON.png",
+                "type": "image",
+                "key": "FxON"
+            },
+            {
                 "url": "assets/GameBg.png",
                 "type": "image",
                 "key": "GameBg"
@@ -102,6 +154,16 @@
                 ],
                 "type": "audio",
                 "key": "music1"
+            },
+            {
+                "url": "assets/MusicOff.png",
+                "type": "image",
+                "key": "MusicOff"
+            },
+            {
+                "url": "assets/MusicON.png",
+                "type": "image",
+                "key": "MusicON"
             },
             {
                 "atlasURL": "assets/animations/OpenChest/OpenChestanimation.json",
@@ -126,6 +188,62 @@
                 "key": "Player"
             },
             {
+                "url": [
+                    "assets/fx/sound1.mp3"
+                ],
+                "type": "audio",
+                "key": "sound1"
+            },
+            {
+                "url": [
+                    "assets/fx/sound2.mp3"
+                ],
+                "type": "audio",
+                "key": "sound2"
+            },
+            {
+                "url": [
+                    "assets/fx/sound3.mp3"
+                ],
+                "type": "audio",
+                "key": "sound3"
+            },
+            {
+                "url": [
+                    "assets/fx/sound4.mp3"
+                ],
+                "type": "audio",
+                "key": "sound4"
+            },
+            {
+                "url": [
+                    "assets/fx/sound5.mp3"
+                ],
+                "type": "audio",
+                "key": "sound5"
+            },
+            {
+                "url": [
+                    "assets/fx/sound6.mp3"
+                ],
+                "type": "audio",
+                "key": "sound6"
+            },
+            {
+                "url": [
+                    "assets/fx/sound7.mp3"
+                ],
+                "type": "audio",
+                "key": "sound7"
+            },
+            {
+                "url": [
+                    "assets/fx/sound8.mp3"
+                ],
+                "type": "audio",
+                "key": "sound8"
+            },
+            {
                 "url": "assets/spikes.png",
                 "type": "image",
                 "key": "spikes"
@@ -139,6 +257,13 @@
                 "url": "assets/Vinete.png",
                 "type": "image",
                 "key": "Vinete"
+            },
+            {
+                "url": [
+                    "assets/music/WholeMusic.mp3"
+                ],
+                "type": "audio",
+                "key": "WholeMusic"
             }
         ]
     },

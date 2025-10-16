@@ -214,6 +214,29 @@
             "y": 474
         },
         {
+            "prefabId": "62edb865-658d-4b2d-a734-e4df12924f89",
+            "id": "1d80be80-2954-4aee-85e5-9be66cdfad85",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fxON",
+            "x": 918,
+            "y": 46
+        },
+        {
+            "prefabId": "9a79b676-87b4-4c3c-b62e-5e06335d1815",
+            "id": "c56e6520-a2a3-48ad-8e02-b337b9c68ad2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "musicON",
+            "scope": "CLASS",
+            "x": 987,
+            "y": 46
+        },
+        {
             "type": "Image",
             "id": "0c7e049c-dbeb-4c22-867d-ef2ff4cdbf4c",
             "label": "carboardEffect",

@@ -36,5 +36,61 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "collectFx",
+            "label": "collectFx",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "isCollected",
+            "label": "isCollected",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "moveTween",
+            "label": "moveTween",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "shakeTween",
+            "label": "shakeTween",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "shakeTimer",
+            "label": "shakeTimer",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        }
+    ]
 }

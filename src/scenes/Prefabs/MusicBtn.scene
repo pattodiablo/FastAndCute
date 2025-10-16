@@ -1,0 +1,44 @@
+{
+    "id": "9a79b676-87b4-4c3c-b62e-5e06335d1815",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "3b30b47f-a40d-4b36-8ae3-9729cd27e44b",
+            "label": "musicON",
+            "scope": "CLASS",
+            "texture": {
+                "key": "MusicON"
+            }
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "isMuted",
+            "label": "isMuted",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

@@ -193,6 +193,28 @@
                 "id": "expression",
                 "expressionType": "any"
             }
+        },
+        {
+            "name": "floatFX",
+            "label": "floatFX",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "explodeFx",
+            "label": "explodeFx",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
         }
     ]
 }
