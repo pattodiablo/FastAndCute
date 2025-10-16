@@ -5,7 +5,7 @@
 import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Chest from "./Prefabs/Chest";
-import Door from "./Door";
+import Door from "./Prefabs/Door";
 import SpinePlayer from "./Prefabs/SpinePlayer";
 import Star from "./Prefabs/Star";
 import { SpineGameObject } from "@esotericsoftware/spine-phaser";
