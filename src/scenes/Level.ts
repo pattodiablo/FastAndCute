@@ -192,7 +192,7 @@ export default class Level extends Phaser.Scene {
 		});
 
 		// Partículas de lluvia
-		const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
+		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
 			x: { min: 0, max: this.scale.width },
 			y: 0,
 			lifespan: 1200,
@@ -203,7 +203,7 @@ export default class Level extends Phaser.Scene {
 			frequency: 30,
 			blendMode: 'ADD'
 		});
-		rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos
+			rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos */
 
 	}
 
@@ -216,7 +216,9 @@ export default class Level extends Phaser.Scene {
 	}
 	openCurtains() {
 
+
 		this.music = this.sound.add("WholeMusic", { loop: true });
+		
 		this.music.play();
 
 		this.tweens.add({

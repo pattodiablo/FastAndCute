@@ -44,7 +44,7 @@ export default class SpinePlayer extends SpineGameObject {
 		this.floatFX = this.scene.sound.add("sound8");
 		(this.scene as any).addFx(this.floatFX);
 
-		this.explodeFx = this.scene.sound.add("click4");
+		this.explodeFx = this.scene.sound.add("realPop");
 		(this.scene as any).addFx(this.explodeFx);
 
 		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {

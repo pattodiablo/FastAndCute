@@ -24,7 +24,7 @@ class Boot extends Phaser.Scene {
 window.addEventListener('load', function () {
 	
 	const game = new Phaser.Game({
-		type: Phaser.CANVAS, // 👈 Forzado a Canvas
+		type: Phaser.AUTO, // 👈 Forzado a Canvas
 		width: 1031,
 		height: 580,
 		backgroundColor: "#D7E3E7",
