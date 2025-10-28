@@ -24,10 +24,12 @@ class Boot extends Phaser.Scene {
 window.addEventListener('load', function () {
 	
 	const game = new Phaser.Game({
-		type: Phaser.AUTO, // 👈 Forzado a Canvas
+    type: Phaser.WEBGL,
 		width: 1031,
 		height: 580,
 		backgroundColor: "#D7E3E7",
+         roundPixels: true,         // <- importante
+    antialias: true,           // puedes dejarlo en true
 		scale: {
 			mode: Phaser.Scale.ScaleModes.FIT,
 			autoCenter: Phaser.Scale.Center.CENTER_BOTH

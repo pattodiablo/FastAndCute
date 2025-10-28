@@ -218,7 +218,7 @@ export default class Level extends Phaser.Scene {
 
 
 		this.music = this.sound.add("WholeMusic", { loop: true });
-		
+
 		this.music.play();
 
 		this.tweens.add({
