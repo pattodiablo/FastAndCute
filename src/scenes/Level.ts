@@ -6,6 +6,7 @@ import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Chest from "./Prefabs/Chest";
 import Door from "./Prefabs/Door";
+import Enemy1 from "./Prefabs/Enemy1";
 import SpinePlayer from "./Prefabs/SpinePlayer";
 import Star from "./Prefabs/Star";
 import FxButton from "./Prefabs/FxButton";
@@ -76,6 +77,10 @@ export default class Level extends Phaser.Scene {
 		// Door
 		const door = new Door(this, 938, 177);
 		this.add.existing(door);
+
+		// Enemy1
+		const enemy1 = new Enemy1(this, 541, 395);
+		this.add.existing(enemy1);
 
 		// Player
 		const player = new SpinePlayer(this, this.spine, 133, 149);
@@ -148,6 +153,7 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
 	public starsGroup!: Phaser.Physics.Arcade.Group;
+
 	public music!: Phaser.Sound.BaseSound;
 	public fxList: Phaser.Sound.BaseSound[] = [];
 	// Write your code here
@@ -162,7 +168,7 @@ export default class Level extends Phaser.Scene {
 		this.vinete.visible = true;
 		this.carboardEffect.visible = true;
 		this.starsGroup = this.physics.add.group();
-		this.physics.add.collider(this.plataformas, this.player);
+
 
 		this.input.once('pointerdown', () => {
 			if (

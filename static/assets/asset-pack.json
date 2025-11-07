@@ -118,6 +118,24 @@
                 "key": "DoorShine"
             },
             {
+                "atlasURL": "assets/animations/EnemyBullet/EnemyBullet.json",
+                "textureURL": "assets/animations/EnemyBullet/EnemyBullet.png",
+                "type": "atlas",
+                "key": "EnemyBullet"
+            },
+            {
+                "atlasURL": "assets/animations/EnemyCannon/EnemyCannon.json",
+                "textureURL": "assets/animations/EnemyCannon/EnemyCannon.png",
+                "type": "atlas",
+                "key": "EnemyCannon"
+            },
+            {
+                "atlasURL": "assets/animations/EnemyFace/EnemyFace.json",
+                "textureURL": "assets/animations/EnemyFace/EnemyFace.png",
+                "type": "atlas",
+                "key": "EnemyFace"
+            },
+            {
                 "url": "assets/FrontLayer.png",
                 "type": "image",
                 "key": "FrontLayer"

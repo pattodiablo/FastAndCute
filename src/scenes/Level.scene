@@ -159,6 +159,17 @@
             "y": 177
         },
         {
+            "prefabId": "af839178-cccb-4df1-ab7b-f3aa7aea4f6d",
+            "id": "ba786c3a-89cb-4668-8097-09aef07aa4f0",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "Enemy1",
+            "x": 541,
+            "y": 395
+        },
+        {
             "prefabId": "96426011-f183-4ac4-b45d-9e24250e5e7a",
             "id": "26e9f298-1e1a-4013-a189-065292f76e37",
             "unlock": [

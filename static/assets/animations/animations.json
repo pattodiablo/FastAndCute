@@ -1276,6 +1276,468 @@
             "skipMissedFrames": true,
             "showOnStart": true,
             "randomFrame": false
+        },
+        {
+            "key": "EnemyCannon",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyCannon",
+                    "frame": "EnemyCannon0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "randomFrame": false
+        },
+        {
+            "key": "EnemyFace",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyFace",
+                    "frame": "Enemy10024.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "randomFrame": false
+        },
+        {
+            "key": "EnemyBullet",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "EnemyBullet",
+                    "frame": "Bullet0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "showOnStart": true,
+            "randomFrame": false
         }
     ],
     "globalTimeScale": 1,

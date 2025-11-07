@@ -20,7 +20,7 @@ export default class SpinePlayer extends SpineGameObject {
 	constructor(scene: Phaser.Scene, plugin: SpinePlugin, x: number, y: number, dataKey?: string, atlasKey?: string, skin?: string, boundsProvider?: SpineGameObjectBoundsProvider, xargs?: any) {
 		super(scene, plugin, x ?? 0, y ?? 0, dataKey ?? "KittenPlayer", atlasKey ?? "KittenPlayer-atlas", boundsProvider ?? new SkinsAndAnimationBoundsProvider("Idle", ["default"]));
 
-		this.setInteractive(new Phaser.Geom.Circle(34, 34, 40), Phaser.Geom.Circle.Contains);
+		this.setInteractive(new Phaser.Geom.Circle(32, 32, 40), Phaser.Geom.Circle.Contains);
 		this.skeleton.setSkinByName(skin ?? "default");
 		scene.physics.add.existing(this, false);
 		this.body.friction.x = 0;
@@ -28,7 +28,7 @@ export default class SpinePlayer extends SpineGameObject {
 		this.body.bounce.x = 0.1;
 		this.body.bounce.y = 0.1;
 		this.body.collideWorldBounds = true;
-		this.body.setCircle(35);
+		this.body.setCircle(30, 5, 5);
 
 		/* START-USER-CTR-CODE */
 		// this.scene.input.enableDebug(this);

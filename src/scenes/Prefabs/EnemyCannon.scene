@@ -1,0 +1,33 @@
+{
+    "id": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "cfc497b1-9e1f-41c6-a12f-765fffb8a2a1",
+            "label": "enemyCannon0001_png",
+            "texture": {
+                "key": "EnemyCannon",
+                "frame": "EnemyCannon0001.png"
+            },
+            "animationKey": "EnemyCannon"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

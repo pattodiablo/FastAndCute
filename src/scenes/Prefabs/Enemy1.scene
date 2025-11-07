@@ -1,0 +1,156 @@
+{
+    "id": "af839178-cccb-4df1-ab7b-f3aa7aea4f6d",
+    "sceneType": "PREFAB",
+    "settings": {
+        "snapWidth": 23,
+        "snapHeight": 55,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "cf0fadd2-8d9e-49f0-940b-363f60d946f2",
+            "label": "container_1",
+            "list": [
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "12dfa130-cc04-4fb8-a77c-c6ef91e0b573",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "cannon1",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": -55
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "f6efa220-5b3a-418b-a529-afb53f96c009",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon2",
+                    "scope": "CLASS",
+                    "x": 38,
+                    "y": -39,
+                    "angle": 45
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "77d30e2f-56da-4d87-84b8-a581fa47af3e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon3",
+                    "scope": "CLASS",
+                    "x": 54,
+                    "y": 0,
+                    "angle": 90
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "7abcc023-4cf3-497f-bcf6-5e42b5471c6e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon4",
+                    "scope": "CLASS",
+                    "x": 38,
+                    "y": 39,
+                    "angle": 135
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "8d9e3812-1106-413e-a50f-2c1c31cba82d",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon5",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 53,
+                    "angle": -180
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "73e1b497-2bb1-4fb3-b8e6-e60ed3d19dc2",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon6",
+                    "scope": "CLASS",
+                    "x": -40,
+                    "y": 40,
+                    "angle": -135
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "0998234d-7c1e-4fcf-af0a-b8fd976b8cdc",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon7",
+                    "scope": "CLASS",
+                    "x": -54,
+                    "y": 0,
+                    "angle": -90
+                },
+                {
+                    "prefabId": "24177d16-a2d9-4bc0-b21e-6eed465bde2d",
+                    "id": "9282a522-b36a-4fe5-921a-972f0e71b964",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "angle"
+                    ],
+                    "label": "cannon8",
+                    "scope": "CLASS",
+                    "x": -41,
+                    "y": -36,
+                    "angle": -45.00000000000006
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0e39a11c-522e-4a8a-a6e9-2b0e1fa730cb",
+                    "label": "enemyFace",
+                    "texture": {
+                        "key": "EnemyFace",
+                        "frame": "Enemy10001.png"
+                    },
+                    "animationPlayMethod": 1,
+                    "animationKey": "EnemyFace",
+                    "animationCustomConfig": true,
+                    "animationFrameRate": 12,
+                    "animationYoyo": true
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
