@@ -152,6 +152,11 @@ export default class SpinePlayer extends SpineGameObject {
 		this.animationState.setAnimation(0, "Idle", true);
 
 	}
+
+	public SetOriginalPosition(x: number, y: number) {
+		this.OriginalX = x;
+		this.OriginalY = y;
+	}
 	private startBlinkLoop() {
 		// Si ya hay un timer, no crees otro
 		if (this.blinkTimer) return;

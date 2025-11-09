@@ -1,0 +1,202 @@
+{
+    "id": "b11049e2-fabb-4f17-a653-c62e4d220db8",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "TileSprite",
+            "id": "17005b0a-ff3d-40bb-8b38-a0679bc0db1c",
+            "label": "gameBg",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "bg1"
+            },
+            "x": -48,
+            "y": -22,
+            "scaleX": 1.1,
+            "scaleY": 1.1,
+            "originX": 0,
+            "originY": 0,
+            "width": 1031,
+            "height": 580
+        },
+        {
+            "type": "TileSprite",
+            "id": "0cd80bcd-fce0-49ed-9ba1-015ba3c95631",
+            "label": "bg2",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "bg2"
+            },
+            "x": -215,
+            "y": 47,
+            "originX": 0,
+            "originY": 0,
+            "width": 1500,
+            "height": 580
+        },
+        {
+            "type": "TileSprite",
+            "id": "8e8788b8-b794-4e58-8c87-5d22b79032fd",
+            "label": "bg3",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "bg3"
+            },
+            "x": -215,
+            "y": 57,
+            "originX": 0,
+            "originY": 0,
+            "width": 1500,
+            "height": 580
+        },
+        {
+            "type": "TileSprite",
+            "id": "093d1648-3ceb-439d-80d0-8dfcbe025580",
+            "label": "bg4",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "bg4"
+            },
+            "x": -223,
+            "y": 108,
+            "originX": 0,
+            "originY": 0,
+            "width": 1500,
+            "height": 580
+        },
+        {
+            "type": "Image",
+            "id": "4a5bb62e-3873-4b43-a0cd-d2eb052e7b26",
+            "label": "vinete",
+            "scope": "PUBLIC",
+            "blendMode": 2,
+            "texture": {
+                "key": "Vinete"
+            },
+            "x": 516,
+            "y": 270,
+            "visible": false
+        },
+        {
+            "prefabId": "387e70b4-bcbc-496f-ae01-c1605019684c",
+            "id": "1bef2fde-ecec-443f-a728-794f464b3a6f",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "Chest",
+            "scope": "PUBLIC",
+            "x": 133,
+            "y": 192
+        },
+        {
+            "prefabId": "c7290d2e-581c-4279-9e2d-264508f38274",
+            "id": "73d0af2c-04b7-4ed5-bfcc-ef2e1230e310",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "Door",
+            "scope": "PUBLIC",
+            "x": 938,
+            "y": 177
+        },
+        {
+            "prefabId": "96426011-f183-4ac4-b45d-9e24250e5e7a",
+            "id": "c6c06d7a-be90-4a2b-9488-1df3f91dd647",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "Player",
+            "scope": "PUBLIC",
+            "x": 133,
+            "y": 149
+        },
+        {
+            "type": "Image",
+            "id": "0db32fa4-c990-4043-877c-fcc206f44c73",
+            "label": "frontLayer",
+            "texture": {
+                "key": "FrontLayer"
+            },
+            "x": 511,
+            "y": 568
+        },
+        {
+            "prefabId": "62edb865-658d-4b2d-a734-e4df12924f89",
+            "id": "13873326-1594-4043-a6a2-79721ea378f1",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fxON",
+            "scope": "PUBLIC",
+            "x": 918,
+            "y": 46
+        },
+        {
+            "prefabId": "9a79b676-87b4-4c3c-b62e-5e06335d1815",
+            "id": "f748f76e-79c9-49f4-9fcc-9e313a11019e",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "musicON",
+            "scope": "PUBLIC",
+            "x": 987,
+            "y": 46
+        },
+        {
+            "type": "Image",
+            "id": "540789f4-b4c6-4741-a603-141412683fe1",
+            "label": "carboardEffect",
+            "scope": "PUBLIC",
+            "blendMode": 2,
+            "texture": {
+                "key": "CarboardEffect"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "0fef2146-279f-4a24-b9d1-5c53486d6c99",
+            "label": "curtain1",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "Curtain1"
+            },
+            "x": 515,
+            "y": -218
+        },
+        {
+            "type": "Image",
+            "id": "6c768dd5-4004-4d6d-aefd-a4637e22ef05",
+            "label": "curtain2",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "Curtain2"
+            },
+            "x": 515,
+            "y": 743
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

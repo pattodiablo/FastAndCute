@@ -4,6 +4,7 @@
     "settings": {
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "BaseEscene",
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "Level",
@@ -13,77 +14,15 @@
     },
     "displayList": [
         {
-            "type": "TileSprite",
-            "id": "cde92e9e-997c-428c-bc59-ff2e52d0dd1e",
-            "label": "gameBg",
-            "scope": "CLASS",
-            "texture": {
-                "key": "bg1"
-            },
-            "x": -48,
-            "y": -22,
-            "scaleX": 1.1,
-            "scaleY": 1.1,
-            "originX": 0,
-            "originY": 0,
-            "width": 1031,
-            "height": 580
-        },
-        {
-            "type": "TileSprite",
-            "id": "04b01b85-b435-4489-b9ff-94983793c4e3",
-            "label": "bg2",
-            "scope": "CLASS",
-            "texture": {
-                "key": "bg2"
-            },
-            "x": -215,
-            "y": 47,
-            "originX": 0,
-            "originY": 0,
-            "width": 1500,
-            "height": 580
-        },
-        {
-            "type": "TileSprite",
-            "id": "33e6dd3a-df6c-4414-a1f1-efdd0aa13b11",
-            "label": "bg3",
-            "scope": "CLASS",
-            "texture": {
-                "key": "bg3"
-            },
-            "x": -215,
-            "y": 57,
-            "originX": 0,
-            "originY": 0,
-            "width": 1500,
-            "height": 580
-        },
-        {
-            "type": "TileSprite",
-            "id": "d7feb8b3-f9ff-4779-8eba-9f8744db16bf",
-            "label": "bg4",
-            "scope": "CLASS",
-            "texture": {
-                "key": "bg4"
-            },
-            "x": -223,
-            "y": 108,
-            "originX": 0,
-            "originY": 0,
-            "width": 1500,
-            "height": 580
-        },
-        {
             "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
-            "id": "cee5d53c-8f3b-433e-8684-fc878e9f9907",
+            "id": "202cb244-a0df-48c2-9a00-1438cc493fdd",
             "unlock": [
                 "x",
                 "y"
             ],
             "label": "spikes",
-            "x": 543,
-            "y": 144
+            "x": 549,
+            "y": 150
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -93,8 +32,8 @@
                 "y"
             ],
             "label": "platform_3",
-            "x": 92,
-            "y": 320
+            "x": 116,
+            "y": 322
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -121,67 +60,6 @@
             "angle": -180
         },
         {
-            "type": "Image",
-            "id": "949bd0a4-e5e0-43e1-98cc-6175fe429416",
-            "label": "vinete",
-            "scope": "CLASS",
-            "blendMode": 2,
-            "texture": {
-                "key": "Vinete"
-            },
-            "x": 516,
-            "y": 270,
-            "visible": false
-        },
-        {
-            "prefabId": "387e70b4-bcbc-496f-ae01-c1605019684c",
-            "id": "2e449a89-356d-4562-99ec-da79d27048ff",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "Chest",
-            "useGameObjectName": true,
-            "scope": "PUBLIC",
-            "x": 135,
-            "y": 164
-        },
-        {
-            "prefabId": "c7290d2e-581c-4279-9e2d-264508f38274",
-            "id": "0a8834fe-6918-4225-b8ec-26dda6e03602",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "Door",
-            "scope": "PUBLIC",
-            "x": 938,
-            "y": 177
-        },
-        {
-            "prefabId": "af839178-cccb-4df1-ab7b-f3aa7aea4f6d",
-            "id": "ba786c3a-89cb-4668-8097-09aef07aa4f0",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "Enemy1",
-            "x": 541,
-            "y": 395
-        },
-        {
-            "prefabId": "96426011-f183-4ac4-b45d-9e24250e5e7a",
-            "id": "26e9f298-1e1a-4013-a189-065292f76e37",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "Player",
-            "scope": "PUBLIC",
-            "x": 133,
-            "y": 149
-        },
-        {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
             "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
             "unlock": [
@@ -196,6 +74,7 @@
             "type": "Image",
             "id": "342c300e-7046-4fcd-b9bc-c39de864a873",
             "label": "frontLayer",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "FrontLayer"
             },
@@ -225,62 +104,16 @@
             "y": 474
         },
         {
-            "prefabId": "62edb865-658d-4b2d-a734-e4df12924f89",
-            "id": "1d80be80-2954-4aee-85e5-9be66cdfad85",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "fxON",
-            "x": 918,
-            "y": 46
-        },
-        {
-            "prefabId": "9a79b676-87b4-4c3c-b62e-5e06335d1815",
-            "id": "c56e6520-a2a3-48ad-8e02-b337b9c68ad2",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "musicON",
-            "scope": "CLASS",
-            "x": 987,
-            "y": 46
-        },
-        {
             "type": "Image",
-            "id": "0c7e049c-dbeb-4c22-867d-ef2ff4cdbf4c",
-            "label": "carboardEffect",
-            "scope": "CLASS",
-            "blendMode": 2,
+            "id": "a58b948e-57d3-417a-a712-4af137abcdc7",
+            "label": "ChestOrigin",
+            "scope": "PUBLIC",
             "texture": {
-                "key": "CarboardEffect"
+                "key": "CloseChestanimation",
+                "frame": "CloseChest0031.png"
             },
-            "originX": 0,
-            "originY": 0,
-            "visible": false
-        },
-        {
-            "type": "Image",
-            "id": "5eb4d7c0-5201-4411-adaf-8418367515b7",
-            "label": "curtain1",
-            "scope": "CLASS",
-            "texture": {
-                "key": "Curtain1"
-            },
-            "x": 515,
-            "y": -218
-        },
-        {
-            "type": "Image",
-            "id": "62f0d84a-a06c-469c-96f0-3ceeb9db4dd6",
-            "label": "curtain2",
-            "scope": "CLASS",
-            "texture": {
-                "key": "Curtain2"
-            },
-            "x": 515,
-            "y": 743
+            "x": 137,
+            "y": 164
         }
     ],
     "plainObjects": [],
