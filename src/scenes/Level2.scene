@@ -1,29 +1,20 @@
 {
-    "id": "b685c081-ee5f-4b67-b583-415922c9e2c4",
+    "id": "7834277f-632a-4f2d-9a52-407acde78f1e",
     "sceneType": "SCENE",
     "settings": {
+        "snapWidth": 261,
+        "snapHeight": 154,
         "exportClass": true,
         "autoImport": true,
         "superClassName": "BaseEscene",
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "Level",
+        "sceneKey": "Level2",
         "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 1031,
         "borderHeight": 580
     },
     "displayList": [
-        {
-            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
-            "id": "202cb244-a0df-48c2-9a00-1438cc493fdd",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "spikes",
-            "x": 549,
-            "y": 150
-        },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
@@ -43,21 +34,8 @@
                 "y"
             ],
             "label": "platform",
-            "x": 939,
-            "y": 320
-        },
-        {
-            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
-            "id": "880fe86b-9316-4b3d-b03f-52d9e8c7aa37",
-            "unlock": [
-                "x",
-                "y",
-                "angle"
-            ],
-            "label": "platform_1",
-            "x": 545,
-            "y": 65,
-            "angle": -180
+            "x": 946,
+            "y": 509
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -67,8 +45,8 @@
                 "y"
             ],
             "label": "star",
-            "x": 539,
-            "y": 290
+            "x": 132,
+            "y": 481
         },
         {
             "type": "Image",
@@ -89,8 +67,8 @@
                 "y"
             ],
             "label": "star_1",
-            "x": 143,
-            "y": 469
+            "x": 927,
+            "y": 106
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -100,8 +78,8 @@
                 "y"
             ],
             "label": "star_2",
-            "x": 887,
-            "y": 474
+            "x": 530,
+            "y": 117
         },
         {
             "type": "Image",
@@ -116,15 +94,26 @@
             "y": 164
         },
         {
+            "prefabId": "af839178-cccb-4df1-ab7b-f3aa7aea4f6d",
+            "id": "b4aca84a-06ff-45b9-832f-e3a3371a97c8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "enemy1",
+            "x": 539,
+            "y": 321
+        },
+        {
             "type": "Image",
-            "id": "63f3ba1a-3a86-40a6-8842-181d2853f4d0",
+            "id": "481168fb-b158-4787-9461-c9d93fa3135a",
             "label": "DoorOrigin",
             "scope": "PUBLIC",
             "texture": {
                 "key": "door"
             },
-            "x": 921,
-            "y": 186
+            "x": 947,
+            "y": 376
         }
     ],
     "plainObjects": [],

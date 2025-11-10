@@ -106,6 +106,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	/* START-USER-CODE */
 
+	public nextLevel: string = "Level";
 BaseCreate(): void {
 
 		// gameBg
@@ -197,6 +198,7 @@ create() {
 
         this.plataformas = this.physics.add.staticGroup();
 
+		this.loadPlayerPrefs();
 		this.BaseCreate();
 		this.editorCreate();
 		this.resolveDepths();
@@ -237,9 +239,7 @@ create() {
         });
 
 
-        const fxMuted = !!this.registry.get("fxMuted");
-        console.log("Efectos de sonido muteados:", fxMuted);
-        this.muteAllFx(fxMuted);
+
         // Partículas de lluvia
         /* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
             x: { min: 0, max: this.scale.width },
@@ -266,6 +266,7 @@ create() {
 
 startingPositions() {
 const chestOrigin = (this as any).chestOrigin;
+const doorOrigin = (this as any).doorOrigin;
 	try {
 	
 		if (chestOrigin && this.chest) {
@@ -282,6 +283,17 @@ const chestOrigin = (this as any).chestOrigin;
 			// eliminar la referencia opcionalmente
 			try { delete (this as any).chestOrigin; } catch {}
 		}
+		if (doorOrigin && this.door) {
+			// usar setPosition si está disponible
+			(this.door as any).setPosition?.(doorOrigin.x, doorOrigin.y);
+			// fallback directo
+			(this.door as any).x = doorOrigin.x;
+			(this.door as any).y = doorOrigin.y;
+			// destruir el objeto origin para que no quede en la escena
+			if (typeof doorOrigin.destroy === "function") doorOrigin.destroy();
+			// eliminar la referencia opcionalmente
+			try { delete (this as any).doorOrigin; } catch {}
+		}
 	} catch {}
 
 	
@@ -292,22 +304,37 @@ const chestOrigin = (this as any).chestOrigin;
         this.fxList.push(fx);
     }
 
+
+	private loadPlayerPrefs() {
+		try {
+			const musicMutedRaw = localStorage.getItem("musicMuted");
+			const fxMutedRaw = localStorage.getItem("fxMuted");
+			const musicMuted = musicMutedRaw === "true";
+			const fxMuted = fxMutedRaw === "true";
+			console.log("Preferencias cargadas - Música muteada:", musicMuted, "Efectos de sonido muteados:", fxMuted);
+	
+			if(fxMuted) {
+				console.log("Aplicando mute a FX desde preferencias guardadas");
+				this.fxON.setMuted(true);
+				this.muteAllFx(true);
+			}
+		} catch {
+		
+		}
+	}
+
+
+
     public muteAllFx(mute: boolean) {
         console.log("Muteando efectos de sonido:", mute);
         // Aplicar mute a todos los FX en la escena
         this.fxList.forEach(fx => (fx as any).setMute(mute));
 
-        // Actualizar registry para que otras escenas lo lean
-        try {
-            this.registry.set("fxMuted", !!mute);
-        } catch {
-            // registry debería existir, pero evitamos que rompa si no
-        }
-
         // Persistir preferencia (safe localStorage)
         try {
             localStorage.setItem("fxMuted", String(!!mute));
         } catch {
+			console.warn("No se pudo guardar la preferencia de FX muteados");
             // Si localStorage no está disponible (p. ej. modo privado), ignorar
         }
     }
@@ -361,8 +388,14 @@ public closeCurtains() {
     }
 
     this.time.delayedCall(1000, () => {
-        this.scene.start("Level");
+
+        this.gotoLevel();
     });
+}
+
+gotoLevel() {
+	 this.scene.start((this.nextLevel as any));
+	  
 }
 
     update() {

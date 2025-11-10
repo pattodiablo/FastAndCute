@@ -3,16 +3,16 @@
 /* START OF COMPILED CODE */
 
 import BaseEscene from "./BaseEscene";
-import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
+import Enemy1 from "./Prefabs/Enemy1";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class Level extends BaseEscene {
+export default class Level2 extends BaseEscene {
 
 	constructor() {
-		super("Level");
+		super("Level2");
 
 		/* START-USER-CTR-CODE */
         // Write your code here.
@@ -21,43 +21,38 @@ export default class Level extends BaseEscene {
 
 	editorCreate(): void {
 
-		// spikes
-		const spikes = new Spikes(this, 549, 150);
-		this.add.existing(spikes);
-
 		// platform_3
 		const platform_3 = new DefaultPlatform(this, 116, 322);
 		this.add.existing(platform_3);
 
 		// platform
-		const platform = new DefaultPlatform(this, 939, 320);
+		const platform = new DefaultPlatform(this, 946, 509);
 		this.add.existing(platform);
 
-		// platform_1
-		const platform_1 = new DefaultPlatform(this, 545, 65);
-		this.add.existing(platform_1);
-		platform_1.angle = -180;
-
 		// star
-		const star = new Star(this, 539, 290);
+		const star = new Star(this, 132, 481);
 		this.add.existing(star);
 
 		// frontLayer
 		const frontLayer = this.add.image(511, 568, "FrontLayer");
 
 		// star_1
-		const star_1 = new Star(this, 143, 469);
+		const star_1 = new Star(this, 927, 106);
 		this.add.existing(star_1);
 
 		// star_2
-		const star_2 = new Star(this, 887, 474);
+		const star_2 = new Star(this, 530, 117);
 		this.add.existing(star_2);
 
 		// ChestOrigin
 		const chestOrigin = this.add.image(137, 164, "CloseChestanimation", "CloseChest0031.png");
 
+		// enemy1
+		const enemy1 = new Enemy1(this, 539, 321);
+		this.add.existing(enemy1);
+
 		// DoorOrigin
-		const doorOrigin = this.add.image(921, 186, "door");
+		const doorOrigin = this.add.image(947, 376, "door");
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
@@ -72,7 +67,7 @@ export default class Level extends BaseEscene {
 
 	/* START-USER-CODE */
 
-		public nextLevel: string = "Level2";
+		public nextLevel: string = "Level";
 
     // Write your code here
 

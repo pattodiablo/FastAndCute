@@ -33,7 +33,11 @@ export default class FxButton extends Phaser.GameObjects.Image {
 
 	/* START-USER-CODE */
 
-	// Write your code here.
+ public setMuted(muted: boolean) {
+	console.log("FxButton setMuted called with:", muted);
+		this.isMuted = muted;
+		this.setTexture(this.isMuted ? "FxOff" : "FxON");
+	}
 
 	/* END-USER-CODE */
 }

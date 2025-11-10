@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import Level from "./scenes/Level";
+import Level2 from "./scenes/Level2";
 import BaseEscene from "./scenes/BaseEscene";
 import preloadAssetPackUrl from "../static/assets/preload-asset-pack.json";
 import Preload from "./scenes/Preload";
@@ -54,7 +55,7 @@ window.addEventListener('load', function () {
                 
             },
         
-		scene: [Boot, Preload,BaseEscene, Level]
+		scene: [Boot, Preload,BaseEscene, Level, Level2]
 	});
 
 	game.scene.start("Boot");
