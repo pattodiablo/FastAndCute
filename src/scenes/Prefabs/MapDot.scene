@@ -1,0 +1,73 @@
+{
+    "id": "56cea80c-2200-42e2-8000-1e55a39af588",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": true,
+        "displayName": "",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "bba5d6a8-d632-4fab-a138-cc0a09033539",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "1f63dd1a-3e17-4ddd-847f-bca1a844876e",
+                    "label": "mapDot",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "MapDot"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "a7504b6f-90bc-4cb1-8a67-41927cd156ea",
+                    "label": "mapSelector",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "MapSelector"
+                    },
+                    "y": -34
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "Level",
+            "label": "Level",
+            "tooltip": "",
+            "defValue": 1,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "IsDotActive",
+            "label": "IsDotActive",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

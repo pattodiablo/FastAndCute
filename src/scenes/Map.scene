@@ -1,0 +1,465 @@
+{
+    "id": "e238d39d-a5cd-4b3c-896b-2b4ccb50ad4d",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 1032,
+        "snapHeight": 580,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Map",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "6d788dc7-2c76-4c20-932d-a88ae016c3ed",
+            "label": "mapBase",
+            "texture": {
+                "key": "MapBase"
+            },
+            "x": 515,
+            "y": 290,
+            "scaleX": 1.05,
+            "scaleY": 1.05
+        },
+        {
+            "type": "Image",
+            "id": "8d3098b8-c17b-42d2-b17c-d68516c74e63",
+            "label": "mapIsland3",
+            "texture": {
+                "key": "MapIsland3"
+            },
+            "x": 971,
+            "y": 459
+        },
+        {
+            "prefabId": "6cf9d21e-dd2b-423a-a7fb-9d91ea51d500",
+            "id": "8b057442-3de4-42b5-b5af-817c1e730191",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapStar_3",
+            "x": 789,
+            "y": 220
+        },
+        {
+            "type": "Image",
+            "id": "9a8799b0-5876-4e09-903e-59f3e94d2de0",
+            "label": "mapRoute",
+            "texture": {
+                "key": "MapRoute"
+            },
+            "x": 518,
+            "y": 293
+        },
+        {
+            "type": "Image",
+            "id": "f51222f6-de28-437b-91f0-2f9c7dcbb65b",
+            "label": "mapIsland2",
+            "texture": {
+                "key": "MapIsland2"
+            },
+            "x": 42,
+            "y": 117
+        },
+        {
+            "type": "Image",
+            "id": "8f6823dc-9805-432e-8b1b-898c916ccb5e",
+            "label": "mapIsland",
+            "texture": {
+                "key": "MapIsland2"
+            },
+            "x": 40,
+            "y": 540
+        },
+        {
+            "type": "Image",
+            "id": "84dec97d-df31-4e28-896b-68173a1c1415",
+            "label": "mapIsland_1",
+            "texture": {
+                "key": "MapIsland2"
+            },
+            "x": 836,
+            "y": 550
+        },
+        {
+            "type": "Image",
+            "id": "13d2e403-bd15-404b-89bf-c43f57f106dc",
+            "label": "mapStar2",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 806,
+            "y": 342
+        },
+        {
+            "type": "Image",
+            "id": "8a958162-a339-4513-8cc8-d4106f7a5662",
+            "label": "mapStar_4",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 245,
+            "y": 313
+        },
+        {
+            "type": "Image",
+            "id": "83fdc9e6-f957-48f6-aab5-201df2f3917d",
+            "label": "mapStar_5",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 291,
+            "y": 117
+        },
+        {
+            "type": "Image",
+            "id": "eb001fd5-764a-4cf1-9faa-6886e3e5863d",
+            "label": "mapStar_6",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 533,
+            "y": 105
+        },
+        {
+            "type": "Image",
+            "id": "b000b979-0008-46c1-beaf-c28cf6f7c6f5",
+            "label": "mapStar_7",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 685,
+            "y": 553
+        },
+        {
+            "type": "Image",
+            "id": "1879858e-ddde-490d-9b57-9f9e49ad1373",
+            "label": "mapStar_8",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 68,
+            "y": 399
+        },
+        {
+            "type": "Image",
+            "id": "6e119eed-83d7-4aa5-a257-1c8d966fed0b",
+            "label": "mapStar_9",
+            "texture": {
+                "key": "MapStar2"
+            },
+            "x": 1008,
+            "y": 184
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "ee415cae-abc6-4147-8ca9-f2edddc332e9",
+            "unlock": [
+                "x",
+                "y",
+                "IsDotActive"
+            ],
+            "label": "mapDot1",
+            "scope": "PUBLIC",
+            "IsDotActive": true,
+            "x": 119,
+            "y": 300
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "559a76c5-613c-4d27-a2e8-e0cb75880bf2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot2",
+            "scope": "PUBLIC",
+            "x": 209,
+            "y": 458
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "c9961420-f65f-40ec-9f6c-501125e2ca86",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot3",
+            "scope": "PUBLIC",
+            "x": 355,
+            "y": 400
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "b4939bae-b008-4710-a943-895dbde6ff0b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot4",
+            "scope": "PUBLIC",
+            "x": 354,
+            "y": 199
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "8990ccf9-21bc-42b0-864d-1a03602eae1c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot5",
+            "scope": "PUBLIC",
+            "x": 498,
+            "y": 234
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "f435fed6-768a-424b-bdb9-834d6fc31fd5",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot6",
+            "scope": "PUBLIC",
+            "x": 638,
+            "y": 391
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "b55d96c7-ecdc-416e-84f3-71958bafc6d2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot7",
+            "scope": "PUBLIC",
+            "x": 686,
+            "y": 202
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "8606744d-6008-495b-9642-3ac86bed08d8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot8",
+            "scope": "PUBLIC",
+            "x": 789,
+            "y": 98
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "04e1d196-ec87-423a-ab7e-525d8b972290",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot9",
+            "scope": "PUBLIC",
+            "x": 913,
+            "y": 208
+        },
+        {
+            "prefabId": "56cea80c-2200-42e2-8000-1e55a39af588",
+            "id": "11192b18-f36a-41a1-bbbe-f58544b263da",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapDot10",
+            "scope": "PUBLIC",
+            "x": 994,
+            "y": 436
+        },
+        {
+            "type": "Image",
+            "id": "d1fe345a-c8dc-4df5-99ce-d4730a77dbbb",
+            "label": "mapDot1",
+            "texture": {
+                "key": "MapDot1"
+            },
+            "x": 117,
+            "y": 296
+        },
+        {
+            "type": "Image",
+            "id": "442a2703-a65a-482e-b327-beb5a954f417",
+            "label": "mapDot2",
+            "texture": {
+                "key": "MapDot2"
+            },
+            "x": 207,
+            "y": 453
+        },
+        {
+            "type": "Image",
+            "id": "55b490a9-4ef8-4982-ab74-c75a69d6b450",
+            "label": "mapDot3",
+            "texture": {
+                "key": "MapDot3"
+            },
+            "x": 358,
+            "y": 400
+        },
+        {
+            "type": "Image",
+            "id": "5335d4a9-3700-4ac0-a533-47a9b7cc5dd9",
+            "label": "mapDot4",
+            "texture": {
+                "key": "MapDot4"
+            },
+            "x": 354,
+            "y": 199
+        },
+        {
+            "type": "Image",
+            "id": "e7b5df6b-efb5-434a-bca7-8f9755d1da97",
+            "label": "mapDot5",
+            "texture": {
+                "key": "MapDot5"
+            },
+            "x": 498,
+            "y": 228
+        },
+        {
+            "type": "Image",
+            "id": "0722ee5b-c024-426c-80ba-5d0a34cbd449",
+            "label": "mapDot6",
+            "texture": {
+                "key": "MapDot6"
+            },
+            "x": 637,
+            "y": 392
+        },
+        {
+            "type": "Image",
+            "id": "fce9c6b6-4625-4cf4-a929-61331b9c5395",
+            "label": "mapDot7",
+            "texture": {
+                "key": "MapDot7"
+            },
+            "x": 688,
+            "y": 202
+        },
+        {
+            "type": "Image",
+            "id": "1740904e-4c1a-4f06-8107-289c3b37b250",
+            "label": "mapDot8",
+            "texture": {
+                "key": "MapDot8"
+            },
+            "x": 789,
+            "y": 98
+        },
+        {
+            "type": "Image",
+            "id": "dbec9a3d-b4d7-4867-84b6-f50996ef4242",
+            "label": "mapDot9",
+            "texture": {
+                "key": "MapDot9"
+            },
+            "x": 914,
+            "y": 208
+        },
+        {
+            "type": "Image",
+            "id": "50117035-8891-46e8-97f6-cc7e23e5342e",
+            "label": "mapDot10",
+            "texture": {
+                "key": "MapDot10"
+            },
+            "x": 996,
+            "y": 432
+        },
+        {
+            "type": "Image",
+            "id": "fbce1db8-65ac-4e3d-84f2-25c5a9271bad",
+            "label": "mapIsland_2",
+            "texture": {
+                "key": "MapIsland"
+            },
+            "x": 241,
+            "y": 290
+        },
+        {
+            "type": "Image",
+            "id": "fb4b512e-0263-4c44-9f78-94a70cc7fb0a",
+            "label": "mapIsland_3",
+            "texture": {
+                "key": "MapIsland"
+            },
+            "x": 517,
+            "y": 553
+        },
+        {
+            "type": "Image",
+            "id": "6a33787b-6198-4188-a211-2d7a8432c423",
+            "label": "mapIsland_4",
+            "texture": {
+                "key": "MapIsland"
+            },
+            "x": 819,
+            "y": 297
+        },
+        {
+            "prefabId": "986c9c22-6920-4188-965b-fae29d144cad",
+            "id": "380268fc-b862-426b-9012-3eee63b44b36",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapPlayer",
+            "scope": "PUBLIC",
+            "x": 118,
+            "y": 248
+        },
+        {
+            "prefabId": "6cf9d21e-dd2b-423a-a7fb-9d91ea51d500",
+            "id": "4ad3b70b-7094-4752-9783-5481b51bb681",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapStar",
+            "x": 479,
+            "y": 444
+        },
+        {
+            "prefabId": "6cf9d21e-dd2b-423a-a7fb-9d91ea51d500",
+            "id": "33c4c652-4c80-4fce-ada4-508cda8d1b59",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapStar_1",
+            "x": 232,
+            "y": 203
+        },
+        {
+            "prefabId": "6cf9d21e-dd2b-423a-a7fb-9d91ea51d500",
+            "id": "e90f07fb-9069-4ea6-82e3-9ff29217039c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapStar_2",
+            "x": 574,
+            "y": 138
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

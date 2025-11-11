@@ -167,6 +167,106 @@
                 "key": "KittenPlayer-atlas"
             },
             {
+                "url": "assets/MapBase.png",
+                "type": "image",
+                "key": "MapBase"
+            },
+            {
+                "url": "assets/MapDot.png",
+                "type": "image",
+                "key": "MapDot"
+            },
+            {
+                "url": "assets/MapDot1.png",
+                "type": "image",
+                "key": "MapDot1"
+            },
+            {
+                "url": "assets/MapDot10.png",
+                "type": "image",
+                "key": "MapDot10"
+            },
+            {
+                "url": "assets/MapDot2.png",
+                "type": "image",
+                "key": "MapDot2"
+            },
+            {
+                "url": "assets/MapDot3.png",
+                "type": "image",
+                "key": "MapDot3"
+            },
+            {
+                "url": "assets/MapDot4.png",
+                "type": "image",
+                "key": "MapDot4"
+            },
+            {
+                "url": "assets/MapDot5.png",
+                "type": "image",
+                "key": "MapDot5"
+            },
+            {
+                "url": "assets/MapDot6.png",
+                "type": "image",
+                "key": "MapDot6"
+            },
+            {
+                "url": "assets/MapDot7.png",
+                "type": "image",
+                "key": "MapDot7"
+            },
+            {
+                "url": "assets/MapDot8.png",
+                "type": "image",
+                "key": "MapDot8"
+            },
+            {
+                "url": "assets/MapDot9.png",
+                "type": "image",
+                "key": "MapDot9"
+            },
+            {
+                "url": "assets/MapIsland.png",
+                "type": "image",
+                "key": "MapIsland"
+            },
+            {
+                "url": "assets/MapIsland2.png",
+                "type": "image",
+                "key": "MapIsland2"
+            },
+            {
+                "url": "assets/MapIsland3.png",
+                "type": "image",
+                "key": "MapIsland3"
+            },
+            {
+                "url": "assets/MapPlayer.png",
+                "type": "image",
+                "key": "MapPlayer"
+            },
+            {
+                "url": "assets/MapRoute.png",
+                "type": "image",
+                "key": "MapRoute"
+            },
+            {
+                "url": "assets/MapSelector.png",
+                "type": "image",
+                "key": "MapSelector"
+            },
+            {
+                "url": "assets/MapStar.png",
+                "type": "image",
+                "key": "MapStar"
+            },
+            {
+                "url": "assets/MapStar2.png",
+                "type": "image",
+                "key": "MapStar2"
+            },
+            {
                 "url": [
                     "assets/music/music1.mp3"
                 ],
