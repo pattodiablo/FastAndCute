@@ -176,10 +176,12 @@
             "id": "559a76c5-613c-4d27-a2e8-e0cb75880bf2",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot2",
             "scope": "PUBLIC",
+            "Level": 2,
             "x": 209,
             "y": 458
         },
@@ -188,10 +190,12 @@
             "id": "c9961420-f65f-40ec-9f6c-501125e2ca86",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot3",
             "scope": "PUBLIC",
+            "Level": 3,
             "x": 355,
             "y": 400
         },
@@ -200,10 +204,12 @@
             "id": "b4939bae-b008-4710-a943-895dbde6ff0b",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot4",
             "scope": "PUBLIC",
+            "Level": 4,
             "x": 354,
             "y": 199
         },
@@ -212,10 +218,12 @@
             "id": "8990ccf9-21bc-42b0-864d-1a03602eae1c",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot5",
             "scope": "PUBLIC",
+            "Level": 5,
             "x": 498,
             "y": 234
         },
@@ -224,10 +232,12 @@
             "id": "f435fed6-768a-424b-bdb9-834d6fc31fd5",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot6",
             "scope": "PUBLIC",
+            "Level": 6,
             "x": 638,
             "y": 391
         },
@@ -236,10 +246,12 @@
             "id": "b55d96c7-ecdc-416e-84f3-71958bafc6d2",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot7",
             "scope": "PUBLIC",
+            "Level": 7,
             "x": 686,
             "y": 202
         },
@@ -248,10 +260,12 @@
             "id": "8606744d-6008-495b-9642-3ac86bed08d8",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot8",
             "scope": "PUBLIC",
+            "Level": 8,
             "x": 789,
             "y": 98
         },
@@ -260,10 +274,12 @@
             "id": "04e1d196-ec87-423a-ab7e-525d8b972290",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot9",
             "scope": "PUBLIC",
+            "Level": 9,
             "x": 913,
             "y": 208
         },
@@ -272,10 +288,12 @@
             "id": "11192b18-f36a-41a1-bbbe-f58544b263da",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "Level"
             ],
             "label": "mapDot10",
             "scope": "PUBLIC",
+            "Level": 10,
             "x": 994,
             "y": 436
         },

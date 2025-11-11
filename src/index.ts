@@ -1,11 +1,12 @@
 import Phaser from "phaser";
-import Level from "./scenes/Level";
+import Level from "./scenes/Level1";
 import Level2 from "./scenes/Level2";
 import Map from "./scenes/Map";
 import BaseEscene from "./scenes/BaseEscene";
 import preloadAssetPackUrl from "../static/assets/preload-asset-pack.json";
 import Preload from "./scenes/Preload";
 import { SpinePlugin } from "@esotericsoftware/spine-phaser";
+import Level1 from "./scenes/Level1";
 
 class Boot extends Phaser.Scene {
 
@@ -56,7 +57,7 @@ window.addEventListener('load', function () {
                 
             },
         
-		scene: [Boot, Preload,BaseEscene, Map, Level, Level2]
+		scene: [Boot, Preload,BaseEscene, Map, Level1, Level2]
 	});
 
 	game.scene.start("Boot");

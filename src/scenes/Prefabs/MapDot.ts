@@ -61,7 +61,10 @@ export default class MapDot extends Phaser.GameObjects.Container {
 		this.mapDot.on('pointerout', out);
 		// en touch también mostrar al tocar
 		this.mapDot.on('pointerdown', () => {
+			console.log("MapDot clicked for level", this.Level);
 			this.mapSelector.setVisible(true);
+			this.scene.scene.start("Level" + this.Level);
+		
 		});
 
 		// Limpiar listeners si se destruye el container
@@ -84,6 +87,9 @@ export default class MapDot extends Phaser.GameObjects.Container {
 	if (this.IsDotActive) {
 			console.log("MapDot is active, enabling interactivity.");
 			this.mapDot.setInteractive({ useHandCursor: true });
+					this.mapDot.setTint(0xffffff);
+		this.setAlpha(1);
+
 		} else {
 			console.log("MapDot is inactive, disabling interactivity.");
 			this.mapDot.disableInteractive();

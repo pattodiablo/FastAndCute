@@ -67,7 +67,7 @@ export default class Level2 extends BaseEscene {
 
 	/* START-USER-CODE */
 
-		public nextLevel: string = "Level";
+		public nextLevel: string = "Level1";
 
     // Write your code here
 

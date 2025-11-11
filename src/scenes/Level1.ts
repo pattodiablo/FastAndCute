@@ -9,10 +9,10 @@ import Star from "./Prefabs/Star";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class Level extends BaseEscene {
+export default class Level1 extends BaseEscene {
 
 	constructor() {
-		super("Level");
+		super("Level1");
 
 		/* START-USER-CTR-CODE */
         // Write your code here.

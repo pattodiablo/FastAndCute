@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -164,6 +163,33 @@ export default class Map extends Phaser.Scene {
 		// mapDot1 (prefab fields)
 		mapDot1.IsDotActive = true;
 
+		// mapDot2 (prefab fields)
+		mapDot2.Level = 2;
+
+		// mapDot3 (prefab fields)
+		mapDot3.Level = 3;
+
+		// mapDot4 (prefab fields)
+		mapDot4.Level = 4;
+
+		// mapDot5 (prefab fields)
+		mapDot5.Level = 5;
+
+		// mapDot6 (prefab fields)
+		mapDot6.Level = 6;
+
+		// mapDot7 (prefab fields)
+		mapDot7.Level = 7;
+
+		// mapDot8 (prefab fields)
+		mapDot8.Level = 8;
+
+		// mapDot9 (prefab fields)
+		mapDot9.Level = 9;
+
+		// mapDot10 (prefab fields)
+		mapDot10.Level = 10;
+
 		this.mapDot1 = mapDot1;
 		this.mapDot2 = mapDot2;
 		this.mapDot3 = mapDot3;
@@ -197,7 +223,66 @@ export default class Map extends Phaser.Scene {
 
 	create() {
 
-		this.editorCreate();
+        this.editorCreate();
+
+        // Fade desde negro (1.2s)
+        this.cameras.main.fadeIn(1200, 0, 0, 0);
+
+        this.loadMapState();
+        this.locatePlayerOnMap();
+    }
+
+	private locatePlayerOnMap() {
+		// Mover el mapPlayer al MapDot del nivel actual
+		const currentLevel = this.registry.get('PlayerMaxLevel') as number || 1;
+		const targetMapDot = this.getMapDot(currentLevel);
+		if (targetMapDot) {
+			this.mapPlayer.x = targetMapDot.x;
+			this.mapPlayer.y = targetMapDot.y - 20; // Ajuste vertical para que no se superponga
+			console.log(`Player located on MapDot for level ${currentLevel}`);
+			this.mapPlayer.startFloating(targetMapDot.y - 40);
+		} else {
+			console.warn(`No MapDot found for level ${currentLevel}`);
+		}
+	}
+	loadMapState() {
+
+		let PlayerMaxLevel = 1;
+		try {
+			const raw = localStorage.getItem('PlayerMaxLevel');
+			PlayerMaxLevel = raw ? Math.max(1, Number(raw)) : 1;
+		} catch {
+			// fallback al registry si localStorage falla
+			const regVal = this.registry.get('PlayerMaxLevel');
+			if (typeof regVal === 'number') PlayerMaxLevel = Math.max(1, regVal);
+		}
+		// opcional: sincronizar al registry para otras escenas
+		try { this.registry.set('PlayerMaxLevel', PlayerMaxLevel); } catch {}
+		console.log(`PlayerMaxLevel (localStorage): ${PlayerMaxLevel}`);
+        // Activar los MapDots según el nivel máximo del jugador
+        for (let i = 1; i <= 10; i++) {
+            const mapDot = this.getMapDot(i);
+            if (mapDot) {
+                mapDot.IsDotActive = i <= PlayerMaxLevel;
+                mapDot.awake();
+            }
+        }
+    }
+
+	private getMapDot(index: number): MapDot | undefined {
+		switch (index) {
+			case 1: return this.mapDot1;
+			case 2: return this.mapDot2;
+			case 3: return this.mapDot3;
+			case 4: return this.mapDot4;
+			case 5: return this.mapDot5;
+			case 6: return this.mapDot6;
+			case 7: return this.mapDot7;
+			case 8: return this.mapDot8;
+			case 9: return this.mapDot9;
+			case 10: return this.mapDot10;
+			default: return undefined;
+		}
 	}
 
 	/* END-USER-CODE */

@@ -107,7 +107,7 @@ export default class BaseEscene extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	public nextLevel: string = "Level";
-BaseCreate(): void {
+	BaseCreate(): void {
 
 		// gameBg
 		const gameBg = this.add.tileSprite(-48, -22, 1031, 580, "bg1");
@@ -186,75 +186,75 @@ BaseCreate(): void {
 		this.events.emit("scene-awake");
 	}
 
-    public plataformas!: Phaser.Physics.Arcade.StaticGroup;
-    public starsGroup!: Phaser.Physics.Arcade.Group;
+	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
+	public starsGroup!: Phaser.Physics.Arcade.Group;
 
-    public music!: Phaser.Sound.BaseSound;
-    public fxList: Phaser.Sound.BaseSound[] = [];
-    // Write your code here
+	public music!: Phaser.Sound.BaseSound;
+	public fxList: Phaser.Sound.BaseSound[] = [];
+	// Write your code here
 
-create() {
+	create() {
 
 
-        this.plataformas = this.physics.add.staticGroup();
+		this.plataformas = this.physics.add.staticGroup();
 
-		this.loadPlayerPrefs();
 		this.BaseCreate();
 		this.editorCreate();
 		this.resolveDepths();
 		this.startingPositions();
 
-        this.curtain1.y = 144;
-        this.curtain2.y = 434;
-        this.vinete.visible = true;
-        this.carboardEffect.visible = true;
-        this.starsGroup = this.physics.add.group();
+		this.loadPlayerPrefs();
+		this.curtain1.y = 144;
+		this.curtain2.y = 434;
+		this.vinete.visible = true;
+		this.carboardEffect.visible = true;
+		this.starsGroup = this.physics.add.group();
 
 
-        this.input.once('pointerdown', () => {
-            if (
-                !this.sys.game.device.os.desktop &&
-                !this.scale.isFullscreen &&
-                this.scale.fullscreen.available
-            ) {
-                this.scale.startFullscreen();
-            }
-        });
+		this.input.once('pointerdown', () => {
+			if (
+				!this.sys.game.device.os.desktop &&
+				!this.scale.isFullscreen &&
+				this.scale.fullscreen.available
+			) {
+				this.scale.startFullscreen();
+			}
+		});
 
-        // --- FADE IN DESDE NEGRO ---
-        const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
-            .setOrigin(0, 0)
-            .setDepth(1000)
-            .setAlpha(1);
+		// --- FADE IN DESDE NEGRO ---
+		const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
+			.setOrigin(0, 0)
+			.setDepth(1000)
+			.setAlpha(1);
 
-        this.tweens.add({
-            targets: fadeRect,
-            alpha: 0,
-            duration: 700,
-            ease: 'Quad.Out',
-            onComplete: () => {
-                fadeRect.destroy();
-                this.openCurtains();
-            }
-        });
+		this.tweens.add({
+			targets: fadeRect,
+			alpha: 0,
+			duration: 700,
+			ease: 'Quad.Out',
+			onComplete: () => {
+				fadeRect.destroy();
+				this.openCurtains();
+			}
+		});
 
 
 
-        // Partículas de lluvia
-        /* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
-            x: { min: 0, max: this.scale.width },
-            y: 0,
-            lifespan: 1200,
-            speedY: { min: 400, max: 600 },
-            scale: { start: 0.15, end: 0.05 },
-            alpha: { start: 0.7, end: 0 },
-            quantity: 2,
-            frequency: 30,
-            blendMode: 'ADD'
-        });
-            rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos */
+		// Partículas de lluvia
+		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
+			x: { min: 0, max: this.scale.width },
+			y: 0,
+			lifespan: 1200,
+			speedY: { min: 400, max: 600 },
+			scale: { start: 0.15, end: 0.05 },
+			alpha: { start: 0.7, end: 0 },
+			quantity: 2,
+			frequency: 30,
+			blendMode: 'ADD'
+		});
+			rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos */
 
-    }
+	}
 
 
 	resolveDepths() {
@@ -264,45 +264,45 @@ create() {
 		this.player.setDepth(10);
 	}
 
-startingPositions() {
-const chestOrigin = (this as any).chestOrigin;
-const doorOrigin = (this as any).doorOrigin;
-	try {
-	
-		if (chestOrigin && this.chest) {
-			// usar setPosition si está disponible
-			(this.chest as any).setPosition?.(chestOrigin.x, chestOrigin.y);
-			// fallback directo
-			(this.chest as any).x = chestOrigin.x;
-			(this.chest as any).y = chestOrigin.y;
-			(this.player as any).x = chestOrigin.x;
-			(this.player as any).y = chestOrigin.y;
-			(this.player as any).SetOriginalPosition?.(chestOrigin.x, chestOrigin.y);
-			// destruir el objeto origin para que no quede en la escena
-			if (typeof chestOrigin.destroy === "function") chestOrigin.destroy();
-			// eliminar la referencia opcionalmente
-			try { delete (this as any).chestOrigin; } catch {}
-		}
-		if (doorOrigin && this.door) {
-			// usar setPosition si está disponible
-			(this.door as any).setPosition?.(doorOrigin.x, doorOrigin.y);
-			// fallback directo
-			(this.door as any).x = doorOrigin.x;
-			(this.door as any).y = doorOrigin.y;
-			// destruir el objeto origin para que no quede en la escena
-			if (typeof doorOrigin.destroy === "function") doorOrigin.destroy();
-			// eliminar la referencia opcionalmente
-			try { delete (this as any).doorOrigin; } catch {}
-		}
-	} catch {}
+	startingPositions() {
+		const chestOrigin = (this as any).chestOrigin;
+		const doorOrigin = (this as any).doorOrigin;
+		try {
 
-	
-}
+			if (chestOrigin && this.chest) {
+				// usar setPosition si está disponible
+				(this.chest as any).setPosition?.(chestOrigin.x, chestOrigin.y);
+				// fallback directo
+				(this.chest as any).x = chestOrigin.x;
+				(this.chest as any).y = chestOrigin.y;
+				(this.player as any).x = chestOrigin.x;
+				(this.player as any).y = chestOrigin.y;
+				(this.player as any).SetOriginalPosition?.(chestOrigin.x, chestOrigin.y);
+				// destruir el objeto origin para que no quede en la escena
+				if (typeof chestOrigin.destroy === "function") chestOrigin.destroy();
+				// eliminar la referencia opcionalmente
+				try { delete (this as any).chestOrigin; } catch { }
+			}
+			if (doorOrigin && this.door) {
+				// usar setPosition si está disponible
+				(this.door as any).setPosition?.(doorOrigin.x, doorOrigin.y);
+				// fallback directo
+				(this.door as any).x = doorOrigin.x;
+				(this.door as any).y = doorOrigin.y;
+				// destruir el objeto origin para que no quede en la escena
+				if (typeof doorOrigin.destroy === "function") doorOrigin.destroy();
+				// eliminar la referencia opcionalmente
+				try { delete (this as any).doorOrigin; } catch { }
+			}
+		} catch { }
 
 
-    addFx(fx: Phaser.Sound.BaseSound) {
-        this.fxList.push(fx);
-    }
+	}
+
+
+	addFx(fx: Phaser.Sound.BaseSound) {
+		this.fxList.push(fx);
+	}
 
 
 	private loadPlayerPrefs() {
@@ -312,124 +312,149 @@ const doorOrigin = (this as any).doorOrigin;
 			const musicMuted = musicMutedRaw === "true";
 			const fxMuted = fxMutedRaw === "true";
 			console.log("Preferencias cargadas - Música muteada:", musicMuted, "Efectos de sonido muteados:", fxMuted);
-	
-			if(fxMuted) {
+
+			if (fxMuted) {
 				console.log("Aplicando mute a FX desde preferencias guardadas");
 				this.fxON.setMuted(true);
 				this.muteAllFx(true);
+			
+			}
+
+			if (musicMuted) {
+				console.log("Aplicando mute a música desde preferencias guardadas");
+				this.musicON.setMuted(true);
+				this.sound.setMute(true);
 			}
 		} catch {
-		
+
 		}
 	}
 
 
 
-    public muteAllFx(mute: boolean) {
-        console.log("Muteando efectos de sonido:", mute);
-        // Aplicar mute a todos los FX en la escena
-        this.fxList.forEach(fx => (fx as any).setMute(mute));
+	public muteAllFx(mute: boolean) {
+		console.log("Muteando efectos de sonido:", mute);
+		// Aplicar mute a todos los FX en la escena
+		this.fxList.forEach(fx => (fx as any).setMute(mute));
 
-        // Persistir preferencia (safe localStorage)
-        try {
-            localStorage.setItem("fxMuted", String(!!mute));
-        } catch {
+		// Persistir preferencia (safe localStorage)
+		try {
+			localStorage.setItem("fxMuted", String(!!mute));
+		} catch {
 			console.warn("No se pudo guardar la preferencia de FX muteados");
-            // Si localStorage no está disponible (p. ej. modo privado), ignorar
-        }
-    }
-    openCurtains() {
+			// Si localStorage no está disponible (p. ej. modo privado), ignorar
+		}
+	}
+
+	
+	openCurtains() {
 
 
-        this.music = this.sound.add("WholeMusic", { loop: true });
+		this.music = this.sound.add("WholeMusic", { loop: true });
 
-        this.music.play();
+		this.music.play();
 
-        this.tweens.add({
-            targets: this.curtain1,
-            y: -150,
-            duration: 700,
-            ease: 'Quad.Out'
-        });
-            this.tweens.add({
-            targets: this.curtain2,
-            y: 740,
-            duration: 700,
-            ease: 'Quad.Out'
-        });
+		this.tweens.add({
+			targets: this.curtain1,
+			y: -150,
+			duration: 700,
+			ease: 'Quad.Out'
+		});
+		this.tweens.add({
+			targets: this.curtain2,
+			y: 740,
+			duration: 700,
+			ease: 'Quad.Out'
+		});
 
-    }
+	}
 
-public closeCurtains() {
-    this.tweens.add({
-        targets: this.curtain1,
-        y: 144,
-        duration: 700,
-        ease: 'Quad.Out'
-    });
-    this.tweens.add({
-        targets: this.curtain2,
-        y: 434,
-        duration: 700,
-        ease: 'Quad.Out'
-    });
+	public closeCurtains() {
+		this.tweens.add({
+			targets: this.curtain1,
+			y: 144,
+			duration: 700,
+			ease: 'Quad.Out'
+		});
+		this.tweens.add({
+			targets: this.curtain2,
+			y: 434,
+			duration: 700,
+			ease: 'Quad.Out'
+		});
 
-    // Fade out de la música
-    if (this.music) {
-        this.tweens.add({
-            targets: this.music,
-            volume: 0,
-            duration: 1000,
-            ease: 'Quad.Out',
-            onComplete: () => {
-                this.music.stop();
-            }
-        });
-    }
+		// Fade out de la música
+		if (this.music) {
+			this.tweens.add({
+				targets: this.music,
+				volume: 0,
+				duration: 1000,
+				ease: 'Quad.Out',
+				onComplete: () => {
+					this.music.stop();
+				}
+			});
+		}
 
-    this.time.delayedCall(1000, () => {
+		this.time.delayedCall(1000, () => {
 
-        this.gotoLevel();
-    });
-}
+			this.gotoLevel();
+		});
+	}
 
-gotoLevel() {
-	 this.scene.start((this.nextLevel as any));
-	  
-}
+	public gotoLevel(): void {
+		const key = this.nextLevel || "Level1";
+		// Extraer número final del nombre de la escena (Level1, Level2, etc.)
+		const m = key.match(/(\d+)$/);
+		const targetLevel = m ? Number(m[1]) : (key === "Level" ? 1 : 1);
 
-    update() {
-    if (!this.player) return;
+		let prev = 1;
+		try {
+			const raw = localStorage.getItem("PlayerMaxLevel");
+			prev = raw ? Math.max(1, Number(raw)) : 1;
+		} catch {}
 
-    const playerX = this.player.x;
-    const playerY = this.player.y;
+		const newMax = Math.max(prev, targetLevel);
 
-    // Factores muy bajos para un parallax sutil
+		// Persistir y sincronizar
+		try { localStorage.setItem("PlayerMaxLevel", String(newMax)); } catch {}
+		try { this.registry.set("PlayerMaxLevel", newMax); } catch {}
 
-    this.bg2.x    = -100    + (playerX - 299) * 0.05;
-    this.bg2.y    = 40    + (playerY - 322) * 0.05;
+		this.scene.start(key);
+	}
 
-    this.bg3.x    = -100    + (playerX - 299) * 0.08;
-    this.bg3.y    = 40    + (playerY - 322) * 0.08;
+	update() {
+		if (!this.player) return;
 
-    this.bg4.x    = -100    + (playerX - 299) * 0.12;
-    this.bg4.y    = 40    + (playerY - 322) * 0.12;
-}
+		const playerX = this.player.x;
+		const playerY = this.player.y;
+
+		// Factores muy bajos para un parallax sutil
+
+		this.bg2.x = -100 + (playerX - 299) * 0.05;
+		this.bg2.y = 40 + (playerY - 322) * 0.05;
+
+		this.bg3.x = -100 + (playerX - 299) * 0.08;
+		this.bg3.y = 40 + (playerY - 322) * 0.08;
+
+		this.bg4.x = -100 + (playerX - 299) * 0.12;
+		this.bg4.y = 40 + (playerY - 322) * 0.12;
+	}
 
 
-public collectStar() {
-    console.log("Estrella recogida");
-        // Aquí puedes agregar efectos de sonido o partículas si lo deseas
-        // Por ejemplo: this.sound.play('star-collect-sound');
+	public collectStar() {
+		console.log("Estrella recogida");
+		// Aquí puedes agregar efectos de sonido o partículas si lo deseas
+		// Por ejemplo: this.sound.play('star-collect-sound');
 
-        // Verifica si quedan estrellas en la escena
-        if (this.starsGroup.countActive(true) === 0) {
-            // Todas las estrellas han sido recogidas
-            console.log("Todas las estrellas recogidas, aparece la puerta");
-            this.door.AppearDoor();
-        }
-    }
-    /* END-USER-CODE */
+		// Verifica si quedan estrellas en la escena
+		if (this.starsGroup.countActive(true) === 0) {
+			// Todas las estrellas han sido recogidas
+			console.log("Todas las estrellas recogidas, aparece la puerta");
+			this.door.AppearDoor();
+		}
+	}
+	/* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */

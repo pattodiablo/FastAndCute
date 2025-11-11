@@ -15,7 +15,7 @@ export default class MapPlayer extends Phaser.GameObjects.Image {
         // Asegurar que la imagen queda en la escena y arrancar el tween de flotación
         scene.add.existing(this);
 
-        this.startFloating();
+       // this.startFloating();
         /* END-USER-CTR-CODE */
     }
 
@@ -25,7 +25,10 @@ export default class MapPlayer extends Phaser.GameObjects.Image {
     private originalY!: number;
     private floatTween?: Phaser.Tweens.Tween;
 
-    private startFloating(amplitude = 6, baseDuration = 1000) {
+    public startFloating(fromY?: number) {
+        const amplitude = 40;
+        const baseDuration = 1000;
+        let fromYFinal = fromY; 
         // Guardar la posición original (si no está definida)
         this.originalY = this.originalY ?? this.y;
 
@@ -37,12 +40,12 @@ export default class MapPlayer extends Phaser.GameObjects.Image {
 
         this.floatTween = this.scene.tweens.add({
             targets: this,
-            y: this.originalY + amplitude,
+            y: (fromYFinal ?? this.originalY) + amplitude,
             ease: "Sine.InOut",
             duration: dur,
             yoyo: true,
             repeat: -1,
-            delay: 200,
+            delay: 500,
         });
     }
 
