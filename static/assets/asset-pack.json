@@ -172,6 +172,11 @@
                 "key": "MapBase"
             },
             {
+                "url": "assets/MapBtn.png",
+                "type": "image",
+                "key": "MapBtn"
+            },
+            {
                 "url": "assets/MapDot.png",
                 "type": "image",
                 "key": "MapDot"

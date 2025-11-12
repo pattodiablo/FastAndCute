@@ -157,6 +157,18 @@
             "y": 46
         },
         {
+            "prefabId": "1b2d1940-0399-47e1-8ffe-9e6983c97a53",
+            "id": "b86516c3-a63e-48fc-8ee6-0dc89572ab93",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapBtn",
+            "scope": "PUBLIC",
+            "x": 44,
+            "y": 46
+        },
+        {
             "type": "Image",
             "id": "540789f4-b4c6-4741-a603-141412683fe1",
             "label": "carboardEffect",

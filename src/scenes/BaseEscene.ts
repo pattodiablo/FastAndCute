@@ -7,6 +7,7 @@ import Door from "./Prefabs/Door";
 import SpinePlayer from "./Prefabs/SpinePlayer";
 import FxButton from "./Prefabs/FxButton";
 import MusicBtn from "./Prefabs/MusicBtn";
+import MapBtn from "./Prefabs/MapBtn";
 import { SpineGameObject } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -61,6 +62,10 @@ export default class BaseEscene extends Phaser.Scene {
 		const musicON = new MusicBtn(this, 987, 46);
 		this.add.existing(musicON);
 
+		// mapBtn
+		const mapBtn = new MapBtn(this, 44, 46);
+		this.add.existing(mapBtn);
+
 		// carboardEffect
 		const carboardEffect = this.add.image(0, 0, "CarboardEffect");
 		carboardEffect.blendMode = Phaser.BlendModes.MULTIPLY;
@@ -83,6 +88,7 @@ export default class BaseEscene extends Phaser.Scene {
 		this.player = player;
 		this.fxON = fxON;
 		this.musicON = musicON;
+		this.mapBtn = mapBtn;
 		this.carboardEffect = carboardEffect;
 		this.curtain1 = curtain1;
 		this.curtain2 = curtain2;
@@ -100,14 +106,18 @@ export default class BaseEscene extends Phaser.Scene {
 	public player!: SpinePlayer;
 	public fxON!: FxButton;
 	public musicON!: MusicBtn;
+	public mapBtn!: MapBtn;
 	public carboardEffect!: Phaser.GameObjects.Image;
 	public curtain1!: Phaser.GameObjects.Image;
 	public curtain2!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
-	public nextLevel: string = "Level";
-	BaseCreate(): void {
+    public nextLevel: string = "Level";
+	private _mapVisible = false;
+	private _mapFromTop = true; // true: entra por arriba; false: por abajo
+
+    BaseCreate(): void {
 
 		// gameBg
 		const gameBg = this.add.tileSprite(-48, -22, 1031, 580, "bg1");
@@ -128,7 +138,8 @@ export default class BaseEscene extends Phaser.Scene {
 		bg4.setOrigin(0, 0);
 
 
-
+		const mapBtn = new MapBtn(this, 44, 46);
+		this.add.existing(mapBtn);
 
 		// vinete
 		const vinete = this.add.image(516, 270, "Vinete");
@@ -189,8 +200,9 @@ export default class BaseEscene extends Phaser.Scene {
 	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
 	public starsGroup!: Phaser.Physics.Arcade.Group;
 
-	public music!: Phaser.Sound.BaseSound;
+	public music?: Phaser.Sound.BaseSound;
 	public fxList: Phaser.Sound.BaseSound[] = [];
+
 	// Write your code here
 
 	create() {
@@ -202,6 +214,8 @@ export default class BaseEscene extends Phaser.Scene {
 		this.editorCreate();
 		this.resolveDepths();
 		this.startingPositions();
+		this.initMapOverlay();
+		
 
 		this.loadPlayerPrefs();
 		this.curtain1.y = 144;
@@ -254,6 +268,94 @@ export default class BaseEscene extends Phaser.Scene {
 		});
 			rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos */
 
+		// Al dormir o apagar esta escena, parar su audio propio
+		this.events.on(Phaser.Scenes.Events.SLEEP, () => {
+			try { this.music?.stop(); } catch {}
+			this.fxList.forEach(s => { try { s.stop(); } catch {} });
+		});
+		this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => {
+			try { this.music?.stop(); } catch {}
+			this.fxList.forEach(s => { try { s.stop(); } catch {} });
+		});
+	}
+
+	// Lanza la escena Map (si no está activa) y coloca su viewport fuera de pantalla
+	private initMapOverlay() {
+		const key = 'Map';
+		const w = this.scale.width;
+		const h = this.scale.height;
+		const ensure = () => {
+			let mapScene: Phaser.Scene | undefined;
+			try { mapScene = this.scene.get(key) as Phaser.Scene; } catch {}
+			if (!mapScene) return;
+			// Comienza oculta (arriba)
+			mapScene.cameras.main.setViewport(0, -h, w, h);
+			mapScene.input.enabled = false;
+			this.scene.bringToTop(this.scene.key); // mantener este nivel arriba por defecto
+
+		};
+		if (!this.scene.isActive(key) && !this.scene.isSleeping(key) && !this.scene.isPaused(key)) {
+			this.scene.launch(key);
+			// configurar después de que arranque
+			this.time.delayedCall(0, ensure);
+		} else {
+			ensure();
+		}
+	}
+
+	// Muestra el mapa deslizándolo dentro (desde arriba o abajo)
+	public showMapOverlay(fromTop: boolean = true) {
+        this._mapFromTop = fromTop;
+        const mapScene = this.scene.get('Map') as Phaser.Scene;
+        const w = this.scale.width;
+        const h = this.scale.height;
+        const startY = fromTop ? -h : h;
+
+        // preparar viewport del mapa y traerlo al frente
+        mapScene.cameras.main.setViewport(0, startY, w, h);
+        this.scene.bringToTop('Map');
+        mapScene.input.enabled = true;
+
+        // guardar la escena activa para que Map la reactive
+        try { this.registry.set('LastActiveSceneKey', this.scene.key); } catch {}
+
+        // animar usando el tween manager de Map (así podemos pausar esta escena)
+        const base = this;
+        mapScene.tweens.add({
+            targets: mapScene.cameras.main as any,
+            props: { y: 0 },
+            duration: 400,
+            ease: 'Cubic.Out',
+            onComplete: () => { base._mapVisible = true; }
+        });
+
+        // deshabilitar input y pausar esta escena (update/physics/timers)
+        this.input.enabled = false;
+        try { this.physics.world.pause(); } catch {}
+        this.scene.pause(this.scene.key);
+	}
+
+	// Oculta el mapa deslizándolo fuera de pantalla
+	public hideMapOverlay(toTop: boolean = this._mapFromTop) {
+		const mapScene = this.scene.get('Map') as Phaser.Scene;
+		const h = this.scale.height;
+		const endY = toTop ? -h : h;
+		this.tweens.add({
+			targets: mapScene.cameras.main as any,
+			props: { y: endY },
+			duration: 350,
+			ease: 'Cubic.In',
+			onComplete: () => {
+				mapScene.input.enabled = false;
+				this.scene.bringToTop(this.scene.key);
+				this.input.enabled = true;
+				this._mapVisible = false;
+			}
+		});
+	}
+
+	public toggleMapOverlay() {
+		this.showMapOverlay(this._mapFromTop);
 	}
 
 
@@ -317,7 +419,7 @@ export default class BaseEscene extends Phaser.Scene {
 				console.log("Aplicando mute a FX desde preferencias guardadas");
 				this.fxON.setMuted(true);
 				this.muteAllFx(true);
-			
+
 			}
 
 			if (musicMuted) {
@@ -346,7 +448,7 @@ export default class BaseEscene extends Phaser.Scene {
 		}
 	}
 
-	
+
 	openCurtains() {
 
 
@@ -391,7 +493,7 @@ export default class BaseEscene extends Phaser.Scene {
 				duration: 1000,
 				ease: 'Quad.Out',
 				onComplete: () => {
-					this.music.stop();
+					this.music?.stop();
 				}
 			});
 		}

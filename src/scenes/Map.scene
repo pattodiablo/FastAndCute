@@ -471,6 +471,17 @@
             "label": "mapStar_2",
             "x": 574,
             "y": 138
+        },
+        {
+            "prefabId": "1b2d1940-0399-47e1-8ffe-9e6983c97a53",
+            "id": "d9fe07ef-a7e7-487b-8aa3-fef1128055a1",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapBtn",
+            "x": 44,
+            "y": 46
         }
     ],
     "plainObjects": [],

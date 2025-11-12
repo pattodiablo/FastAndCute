@@ -5,6 +5,7 @@
 import MapStar from "./Prefabs/MapStar";
 import MapDot from "./Prefabs/MapDot";
 import MapPlayer from "./Prefabs/MapPlayer";
+import MapBtn from "./Prefabs/MapBtn";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -160,6 +161,10 @@ export default class Map extends Phaser.Scene {
 		const mapStar_2 = new MapStar(this, 574, 138);
 		this.add.existing(mapStar_2);
 
+		// mapBtn
+		const mapBtn = new MapBtn(this, 44, 46);
+		this.add.existing(mapBtn);
+
 		// mapDot1 (prefab fields)
 		mapDot1.IsDotActive = true;
 
@@ -219,14 +224,15 @@ export default class Map extends Phaser.Scene {
 
 	/* START-USER-CODE */
 
-	// Write your code here
+	private _lastSceneKey?: string;
 
 	create() {
-
         this.editorCreate();
 
-        // Fade desde negro (1.2s)
         this.cameras.main.fadeIn(1200, 0, 0, 0);
+
+        // Captura la escena previa (si BaseEscene la dejó en el registry) o dedúcela
+        this._lastSceneKey = (this.registry.get('LastActiveSceneKey') as string) || this.findUnderlyingActiveSceneKey();
 
         this.loadMapState();
         this.locatePlayerOnMap();
@@ -285,9 +291,55 @@ export default class Map extends Phaser.Scene {
 		}
 	}
 
-	/* END-USER-CODE */
+	
+	
+	// Llamar esto desde tu botón (MapBtn) o desde BaseEscene
+	public toggleMapOverlay() {
+    this.closeToTopAndResume();
 }
 
-/* END OF COMPILED CODE */
+private closeToTopAndResume() {
+    const h = this.scale.height;
+    const cam = this.cameras.main as any;
 
-// You can write more code here
+    this.tweens.add({
+        targets: cam,
+        y: -h,
+        duration: 350,
+        ease: 'Cubic.In',
+        onComplete: () => {
+            this.input.enabled = false;
+
+            // Reactivar la escena que estaba funcionando (pausada por BaseEscene)
+            const key = this._lastSceneKey || this.findUnderlyingActiveSceneKey();
+            if (key) {
+                this.scene.resume(key);
+                const target = this.scene.get(key) as Phaser.Scene;
+                try { (target as any).physics?.world?.resume?.(); } catch {}
+                try { (target as any).input.enabled = true; } catch {}
+                this.scene.bringToTop(key);
+            }
+
+            this.scene.sendToBack(this.scene.key);
+        }
+    });
+}
+
+// Intenta detectar cuál escena activa no es "Map"
+private findUnderlyingActiveSceneKey(): string | undefined {
+    const mgr: any = this.scene.manager || (this.game as any).scene;
+    const list: Phaser.Scene[] =
+        (mgr.getScenes ? mgr.getScenes(true) : mgr.scenes) || [];
+    // devuelve la última activa distinta de "Map"
+    for (let i = list.length - 1; i >= 0; i--) {
+        const s = list[i] as any;
+        if (s && s.sys && s.sys.settings && s.sys.settings.key !== 'Map' && s.sys.isActive()) {
+            return s.sys.settings.key as string;
+        }
+    }
+    return undefined;
+}
+
+/* END-USER-CODE */
+
+}

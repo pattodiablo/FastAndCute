@@ -61,10 +61,25 @@ export default class MapDot extends Phaser.GameObjects.Container {
 		this.mapDot.on('pointerout', out);
 		// en touch también mostrar al tocar
 		this.mapDot.on('pointerdown', () => {
-			console.log("MapDot clicked for level", this.Level);
-			this.mapSelector.setVisible(true);
-			this.scene.scene.start("Level" + this.Level);
-		
+			if (!this.IsDotActive) return;
+
+			const targetKey = "Level" + this.Level;
+
+			// Detener cualquier música/FX sonando del nivel anterior
+			this.scene.sound.stopAll();
+
+			// (Opcional) Dormir otros niveles activos pero conservar su estado en memoria
+			const mgr = this.scene.game.scene as Phaser.Scenes.SceneManager;
+			const actives = (mgr.getScenes ? mgr.getScenes(true) : []) as Phaser.Scene[];
+			for (const s of actives) {
+				const key = (s as any)?.sys?.settings?.key as string;
+				if (key && key.startsWith('Level') && key !== targetKey) {
+					try { this.scene.scene.sleep(key); } catch {}
+				}
+			}
+
+			// Iniciar el nivel seleccionado
+			this.scene.scene.start(targetKey);
 		});
 
 		// Limpiar listeners si se destruye el container
