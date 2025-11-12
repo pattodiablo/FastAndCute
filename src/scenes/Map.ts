@@ -308,10 +308,11 @@ private closeToTopAndResume() {
         duration: 350,
         ease: 'Cubic.In',
         onComplete: () => {
-            this.input.enabled = false;
+this.input.enabled = false;
 
-            // Reactivar la escena que estaba funcionando (pausada por BaseEscene)
-            const key = this._lastSceneKey || this.findUnderlyingActiveSceneKey();
+// Leer la escena a reanudar en ese momento (siempre fresco)
+			const regKey = this.registry.get('LastActiveSceneKey') as string | undefined;
+			const key = regKey || this.findUnderlyingActiveSceneKey();
             if (key) {
                 this.scene.resume(key);
                 const target = this.scene.get(key) as Phaser.Scene;

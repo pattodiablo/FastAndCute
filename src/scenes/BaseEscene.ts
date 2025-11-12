@@ -404,7 +404,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	addFx(fx: Phaser.Sound.BaseSound) {
 		this.fxList.push(fx);
-	}
+}
 
 
 	private loadPlayerPrefs() {
