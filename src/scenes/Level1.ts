@@ -30,7 +30,7 @@ export default class Level1 extends BaseEscene {
 		this.add.existing(platform_3);
 
 		// platform
-		const platform = new DefaultPlatform(this, 939, 320);
+		const platform = new DefaultPlatform(this, 939, 573);
 		this.add.existing(platform);
 
 		// platform_1
@@ -50,14 +50,14 @@ export default class Level1 extends BaseEscene {
 		this.add.existing(star_1);
 
 		// star_2
-		const star_2 = new Star(this, 887, 474);
+		const star_2 = new Star(this, 944, 74);
 		this.add.existing(star_2);
 
 		// ChestOrigin
 		const chestOrigin = this.add.image(137, 164, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(921, 186, "door");
+		const doorOrigin = this.add.image(941, 439, "door");
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

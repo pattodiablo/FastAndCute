@@ -7,6 +7,16 @@
                 "key": "animations"
             },
             {
+                "url": "assets/BackToGameTxt.png",
+                "type": "image",
+                "key": "BackToGameTxt"
+            },
+            {
+                "url": "assets/BasePlayer.png",
+                "type": "image",
+                "key": "BasePlayer"
+            },
+            {
                 "url": "assets/bg1.png",
                 "type": "image",
                 "key": "bg1"
@@ -25,6 +35,11 @@
                 "url": "assets/bg4.png",
                 "type": "image",
                 "key": "bg4"
+            },
+            {
+                "url": "assets/BigCassette.png",
+                "type": "image",
+                "key": "BigCassette"
             },
             {
                 "url": "assets/BubbleParticle.png",
@@ -156,6 +171,11 @@
                 "key": "GameBg"
             },
             {
+                "url": "assets/gameButtons.png",
+                "type": "image",
+                "key": "gameButtons"
+            },
+            {
                 "url": "assets/spine/KittenPlayer.json",
                 "type": "spineJson",
                 "key": "KittenPlayer",
@@ -172,9 +192,34 @@
                 "key": "MapBase"
             },
             {
+                "url": "assets/MapBg.png",
+                "type": "image",
+                "key": "MapBg"
+            },
+            {
                 "url": "assets/MapBtn.png",
                 "type": "image",
                 "key": "MapBtn"
+            },
+            {
+                "url": "assets/MapBtnOff.png",
+                "type": "image",
+                "key": "MapBtnOff"
+            },
+            {
+                "url": "assets/MapBtnOn.png",
+                "type": "image",
+                "key": "MapBtnOn"
+            },
+            {
+                "url": "assets/MapContainer.png",
+                "type": "image",
+                "key": "MapContainer"
+            },
+            {
+                "url": "assets/MapDeviceBase.png",
+                "type": "image",
+                "key": "MapDeviceBase"
             },
             {
                 "url": "assets/MapDot.png",
@@ -289,6 +334,16 @@
                 "key": "MusicON"
             },
             {
+                "url": "assets/new_txt.png",
+                "type": "image",
+                "key": "new_txt"
+            },
+            {
+                "url": "assets/NextBtn.png",
+                "type": "image",
+                "key": "NextBtn"
+            },
+            {
                 "atlasURL": "assets/animations/OpenChest/OpenChestanimation.json",
                 "textureURL": "assets/animations/OpenChest/OpenChestanimation.png",
                 "type": "atlas",
@@ -306,9 +361,19 @@
                 "key": "Platform1"
             },
             {
+                "url": "assets/PlayBtn.png",
+                "type": "image",
+                "key": "PlayBtn"
+            },
+            {
                 "url": "assets/Player.png",
                 "type": "image",
                 "key": "Player"
+            },
+            {
+                "url": "assets/PrevBtn.png",
+                "type": "image",
+                "key": "PrevBtn"
             },
             {
                 "url": [
@@ -316,6 +381,26 @@
                 ],
                 "type": "audio",
                 "key": "realPop"
+            },
+            {
+                "url": "assets/song1Almbum.png",
+                "type": "image",
+                "key": "song1Almbum"
+            },
+            {
+                "url": "assets/SongPortrait.png",
+                "type": "image",
+                "key": "SongPortrait"
+            },
+            {
+                "url": "assets/SongStatusHandle.png",
+                "type": "image",
+                "key": "SongStatusHandle"
+            },
+            {
+                "url": "assets/SongTimeline.png",
+                "type": "image",
+                "key": "SongTimeline"
             },
             {
                 "url": [
@@ -384,6 +469,11 @@
                 "key": "star"
             },
             {
+                "url": "assets/unlocks_txt.png",
+                "type": "image",
+                "key": "unlocks_txt"
+            },
+            {
                 "url": "assets/Vinete.png",
                 "type": "image",
                 "key": "Vinete"
@@ -394,6 +484,11 @@
                 ],
                 "type": "audio",
                 "key": "WholeMusic"
+            },
+            {
+                "url": "assets/world_Txt.png",
+                "type": "image",
+                "key": "world_Txt"
             }
         ]
     },

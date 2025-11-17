@@ -215,7 +215,7 @@ export default class BaseEscene extends Phaser.Scene {
 		this.resolveDepths();
 		this.startingPositions();
 		this.initMapOverlay();
-		
+
 
 		this.loadPlayerPrefs();
 		this.curtain1.y = 144;

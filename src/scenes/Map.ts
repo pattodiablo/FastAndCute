@@ -2,10 +2,10 @@
 
 /* START OF COMPILED CODE */
 
+import MapBtn from "./Prefabs/MapBtn";
 import MapStar from "./Prefabs/MapStar";
 import MapDot from "./Prefabs/MapDot";
 import MapPlayer from "./Prefabs/MapPlayer";
-import MapBtn from "./Prefabs/MapBtn";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -21,149 +21,295 @@ export default class Map extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// mapBase
-		const mapBase = this.add.image(515, 290, "MapBase");
-		mapBase.scaleX = 1.05;
-		mapBase.scaleY = 1.05;
+		// mapBg
+		const mapBg = this.add.image(0, 0, "MapBg");
+		mapBg.setOrigin(0, 0);
 
-		// mapIsland3
-		this.add.image(971, 459, "MapIsland3");
+		// mapDeviceBase
+		this.add.image(494, 323, "MapDeviceBase");
 
-		// mapStar_3
-		const mapStar_3 = new MapStar(this, 789, 220);
-		this.add.existing(mapStar_3);
+		// mapBtnOn
+		this.add.image(274, 136, "MapBtnOn");
 
-		// mapRoute
-		this.add.image(518, 293, "MapRoute");
+		// bigCassette
+		this.add.image(821, 118, "BigCassette");
 
-		// mapIsland2
-		this.add.image(42, 117, "MapIsland2");
-
-		// mapIsland
-		this.add.image(40, 540, "MapIsland2");
-
-		// mapIsland_1
-		this.add.image(836, 550, "MapIsland2");
-
-		// mapStar2
-		this.add.image(806, 342, "MapStar2");
-
-		// mapStar_4
-		this.add.image(245, 313, "MapStar2");
-
-		// mapStar_5
-		this.add.image(291, 117, "MapStar2");
-
-		// mapStar_6
-		this.add.image(533, 105, "MapStar2");
-
-		// mapStar_7
-		this.add.image(685, 553, "MapStar2");
-
-		// mapStar_8
-		this.add.image(68, 399, "MapStar2");
-
-		// mapStar_9
-		this.add.image(1008, 184, "MapStar2");
-
-		// mapDot1
-		const mapDot1 = new MapDot(this, 119, 300);
-		this.add.existing(mapDot1);
-
-		// mapDot2
-		const mapDot2 = new MapDot(this, 209, 458);
-		this.add.existing(mapDot2);
-
-		// mapDot3
-		const mapDot3 = new MapDot(this, 355, 400);
-		this.add.existing(mapDot3);
-
-		// mapDot4
-		const mapDot4 = new MapDot(this, 354, 199);
-		this.add.existing(mapDot4);
-
-		// mapDot5
-		const mapDot5 = new MapDot(this, 498, 234);
-		this.add.existing(mapDot5);
-
-		// mapDot6
-		const mapDot6 = new MapDot(this, 638, 391);
-		this.add.existing(mapDot6);
-
-		// mapDot7
-		const mapDot7 = new MapDot(this, 686, 202);
-		this.add.existing(mapDot7);
-
-		// mapDot8
-		const mapDot8 = new MapDot(this, 789, 98);
-		this.add.existing(mapDot8);
-
-		// mapDot9
-		const mapDot9 = new MapDot(this, 913, 208);
-		this.add.existing(mapDot9);
-
-		// mapDot10
-		const mapDot10 = new MapDot(this, 994, 436);
-		this.add.existing(mapDot10);
-
-		// mapDot1
-		this.add.image(117, 296, "MapDot1");
-
-		// mapDot2
-		this.add.image(207, 453, "MapDot2");
-
-		// mapDot3
-		this.add.image(358, 400, "MapDot3");
-
-		// mapDot4
-		this.add.image(354, 199, "MapDot4");
-
-		// mapDot5
-		this.add.image(498, 228, "MapDot5");
-
-		// mapDot6
-		this.add.image(637, 392, "MapDot6");
-
-		// mapDot7
-		this.add.image(688, 202, "MapDot7");
-
-		// mapDot8
-		this.add.image(789, 98, "MapDot8");
-
-		// mapDot9
-		this.add.image(914, 208, "MapDot9");
-
-		// mapDot10
-		this.add.image(996, 432, "MapDot10");
-
-		// mapIsland_2
-		this.add.image(241, 290, "MapIsland");
-
-		// mapIsland_3
-		this.add.image(517, 553, "MapIsland");
-
-		// mapIsland_4
-		this.add.image(819, 297, "MapIsland");
-
-		// mapPlayer
-		const mapPlayer = new MapPlayer(this, 118, 248);
-		this.add.existing(mapPlayer);
-
-		// mapStar
-		const mapStar = new MapStar(this, 479, 444);
-		this.add.existing(mapStar);
-
-		// mapStar_1
-		const mapStar_1 = new MapStar(this, 232, 203);
-		this.add.existing(mapStar_1);
-
-		// mapStar_2
-		const mapStar_2 = new MapStar(this, 574, 138);
-		this.add.existing(mapStar_2);
+		// basePlayer
+		this.add.image(821, 319, "BasePlayer");
 
 		// mapBtn
 		const mapBtn = new MapBtn(this, 44, 46);
 		this.add.existing(mapBtn);
+
+		// mapBtnOn_1
+		this.add.image(487, 136, "MapBtnOn");
+
+		// WholeMap
+		const wholeMap = this.add.container(143, 116);
+
+		// mapBase
+		const mapBase = this.add.image(237, 223, "MapBase");
+		wholeMap.add(mapBase);
+
+		// mapIsland3
+		const mapIsland3 = this.add.image(420, 277, "MapIsland3");
+		mapIsland3.scaleX = 0.485148175624755;
+		mapIsland3.scaleY = 0.485148175624755;
+		wholeMap.add(mapIsland3);
+
+		// mapStar_3
+		const mapStar_3 = new MapStar(this, 251, 138);
+		wholeMap.add(mapStar_3);
+
+		// mapRoute
+		const mapRoute = this.add.image(237, 228, "MapRoute");
+		mapRoute.scaleX = 0.4839260914617205;
+		mapRoute.scaleY = 0.4839260914617205;
+		wholeMap.add(mapRoute);
+
+		// mapIsland2
+		const mapIsland2 = this.add.image(-6, 114, "MapIsland2");
+		mapIsland2.scaleX = 0.4200679672068577;
+		mapIsland2.scaleY = 0.4200679672068577;
+		wholeMap.add(mapIsland2);
+
+		// mapIsland_1
+		const mapIsland_1 = this.add.image(363, 330, "MapIsland2");
+		mapIsland_1.scaleX = 0.4314879593255744;
+		mapIsland_1.scaleY = 0.4314879593255744;
+		wholeMap.add(mapIsland_1);
+
+		// mapStar2
+		const mapStar2 = this.add.image(196, 105, "MapStar2");
+		wholeMap.add(mapStar2);
+
+		// mapStar_4
+		const mapStar_4 = this.add.image(163, 111, "MapStar2");
+		wholeMap.add(mapStar_4);
+
+		// mapStar_5
+		const mapStar_5 = this.add.image(355, 262, "MapStar2");
+		wholeMap.add(mapStar_5);
+
+		// mapStar_6
+		const mapStar_6 = this.add.image(8, 271, "MapStar2");
+		wholeMap.add(mapStar_6);
+
+		// mapStar_7
+		const mapStar_7 = this.add.image(74, 352, "MapStar2");
+		wholeMap.add(mapStar_7);
+
+		// mapStar_8
+		const mapStar_8 = this.add.image(188, 325, "MapStar2");
+		wholeMap.add(mapStar_8);
+
+		// mapStar_9
+		const mapStar_9 = this.add.image(267, 198, "MapStar2");
+		wholeMap.add(mapStar_9);
+
+		// mapDot1
+		const mapDot1 = new MapDot(this, 27, 196);
+		mapDot1.scaleX = 0.6174998739057824;
+		mapDot1.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot1);
+
+		// mapDot2
+		const mapDot2 = new MapDot(this, 67, 284);
+		mapDot2.scaleX = 0.6174998739057824;
+		mapDot2.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot2);
+
+		// mapDot3
+		const mapDot3 = new MapDot(this, 151, 296);
+		mapDot3.scaleX = 0.6174998739057824;
+		mapDot3.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot3);
+
+		// mapDot4
+		const mapDot4 = new MapDot(this, 149, 193);
+		mapDot4.scaleX = 0.6174998739057824;
+		mapDot4.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot4);
+
+		// mapDot5
+		const mapDot5 = new MapDot(this, 220, 205);
+		mapDot5.scaleX = 0.6174998739057824;
+		mapDot5.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot5);
+
+		// mapDot6
+		const mapDot6 = new MapDot(this, 281, 276);
+		mapDot6.scaleX = 0.6174998739057824;
+		mapDot6.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot6);
+
+		// mapDot7
+		const mapDot7 = new MapDot(this, 317, 188);
+		mapDot7.scaleX = 0.6174998739057824;
+		mapDot7.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot7);
+
+		// mapDot8
+		const mapDot8 = new MapDot(this, 381, 133);
+		mapDot8.scaleX = 0.6174998739057824;
+		mapDot8.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot8);
+
+		// mapDot9
+		const mapDot9 = new MapDot(this, 439, 199);
+		mapDot9.scaleX = 0.6174998739057824;
+		mapDot9.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot9);
+
+		// mapDot10
+		const mapDot10 = new MapDot(this, 466, 294);
+		mapDot10.scaleX = 0.6174998739057824;
+		mapDot10.scaleY = 0.6174998739057824;
+		wholeMap.add(mapDot10);
+
+		// mapDot1Number
+		const mapDot1Number = this.add.image(25, 195, "MapDot1");
+		mapDot1Number.scaleX = 0.5345951773847478;
+		mapDot1Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot1Number);
+
+		// mapDot2Number
+		const mapDot2Number = this.add.image(67, 282, "MapDot2");
+		mapDot2Number.scaleX = 0.5482835545204905;
+		mapDot2Number.scaleY = 0.5482835545204905;
+		wholeMap.add(mapDot2Number);
+
+		// mapDot3Number
+		const mapDot3Number = this.add.image(151, 294, "MapDot3");
+		mapDot3Number.scaleX = 0.5345951773847478;
+		mapDot3Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot3Number);
+
+		// mapDot4Number
+		const mapDot4Number = this.add.image(147, 191, "MapDot4");
+		mapDot4Number.scaleX = 0.5345951773847478;
+		mapDot4Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot4Number);
+
+		// mapDot5Number
+		const mapDot5Number = this.add.image(220, 201, "MapDot5");
+		mapDot5Number.scaleX = 0.5345951773847478;
+		mapDot5Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot5Number);
+
+		// mapDot6Number
+		const mapDot6Number = this.add.image(281, 272, "MapDot6");
+		mapDot6Number.scaleX = 0.5482835545204905;
+		mapDot6Number.scaleY = 0.5482835545204905;
+		wholeMap.add(mapDot6Number);
+
+		// mapDot7Number
+		const mapDot7Number = this.add.image(317, 182, "MapDot7");
+		mapDot7Number.scaleX = 0.5345951773847478;
+		mapDot7Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot7Number);
+
+		// mapDot8Number
+		const mapDot8Number = this.add.image(381, 129, "MapDot8");
+		mapDot8Number.scaleX = 0.5345951773847478;
+		mapDot8Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot8Number);
+
+		// mapDot9Number
+		const mapDot9Number = this.add.image(441, 192, "MapDot9");
+		mapDot9Number.scaleX = 0.5345951773847478;
+		mapDot9Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot9Number);
+
+		// mapDot10Number
+		const mapDot10Number = this.add.image(466, 293, "MapDot10");
+		mapDot10Number.scaleX = 0.5345951773847478;
+		mapDot10Number.scaleY = 0.5345951773847478;
+		wholeMap.add(mapDot10Number);
+
+		// mapIsland
+		const mapIsland = this.add.image(36, 325, "MapIsland2");
+		mapIsland.scaleX = 0.41868662442697524;
+		mapIsland.scaleY = 0.41868662442697524;
+		wholeMap.add(mapIsland);
+
+		// mapIsland_2
+		const mapIsland_2 = this.add.image(93, 203, "MapIsland");
+		mapIsland_2.scaleX = 0.606880368437767;
+		mapIsland_2.scaleY = 0.606880368437767;
+		wholeMap.add(mapIsland_2);
+
+		// mapIsland_3
+		const mapIsland_3 = this.add.image(271, 347, "MapIsland");
+		mapIsland_3.scaleX = 0.606880368437767;
+		mapIsland_3.scaleY = 0.606880368437767;
+		wholeMap.add(mapIsland_3);
+
+		// mapIsland_4
+		const mapIsland_4 = this.add.image(378, 218, "MapIsland");
+		mapIsland_4.scaleX = 0.606880368437767;
+		mapIsland_4.scaleY = 0.606880368437767;
+		wholeMap.add(mapIsland_4);
+
+		// mapPlayer
+		const mapPlayer = new MapPlayer(this, 26, 174);
+		mapPlayer.scaleX = 0.5248733321815928;
+		mapPlayer.scaleY = 0.5248733321815928;
+		wholeMap.add(mapPlayer);
+
+		// mapStar
+		const mapStar = new MapStar(this, 226, 323);
+		mapStar.scaleX = 0.5493458055294465;
+		mapStar.scaleY = 0.5493458055294465;
+		wholeMap.add(mapStar);
+
+		// mapStar_1
+		const mapStar_1 = new MapStar(this, 86, 168);
+		mapStar_1.scaleX = 0.5493458055294465;
+		mapStar_1.scaleY = 0.5493458055294465;
+		wholeMap.add(mapStar_1);
+
+		// mapStar_2
+		const mapStar_2 = new MapStar(this, 462, 128);
+		mapStar_2.scaleX = 0.5493458055294465;
+		mapStar_2.scaleY = 0.5493458055294465;
+		wholeMap.add(mapStar_2);
+
+		// new_txt
+		this.add.image(486, 83, "new_txt");
+
+		// world_Txt
+		this.add.image(272, 136, "world_Txt");
+
+		// unlocks_txt
+		this.add.image(483, 134, "unlocks_txt");
+
+		// nextBtn
+		const nextBtn = this.add.image(886, 409, "NextBtn");
+		nextBtn.scaleX = 1.2;
+		nextBtn.scaleY = 1.2;
+
+		// playBtn
+		const playBtn = this.add.image(827, 409, "PlayBtn");
+		playBtn.scaleX = 1.2;
+		playBtn.scaleY = 1.2;
+
+		// prevBtn
+		const prevBtn = this.add.image(766, 409, "PrevBtn");
+		prevBtn.scaleX = 1.2;
+		prevBtn.scaleY = 1.2;
+
+		// songTimeline
+		this.add.image(824, 339, "SongTimeline");
+
+		// songStatusHandle
+		this.add.image(773, 339, "SongStatusHandle");
+
+		// song1Almbum
+		this.add.image(821, 216, "song1Almbum");
+
+		// songPortrait
+		this.add.image(821, 215, "SongPortrait");
 
 		// mapDot1 (prefab fields)
 		mapDot1.IsDotActive = true;
@@ -291,8 +437,8 @@ export default class Map extends Phaser.Scene {
 		}
 	}
 
-	
-	
+
+
 	// Llamar esto desde tu botón (MapBtn) o desde BaseEscene
 	public toggleMapOverlay() {
     this.closeToTopAndResume();
@@ -342,5 +488,8 @@ private findUnderlyingActiveSceneKey(): string | undefined {
 }
 
 /* END-USER-CODE */
-
 }
+
+/* END OF COMPILED CODE */
+
+// You can write more code here

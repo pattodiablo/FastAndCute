@@ -44,7 +44,7 @@
             ],
             "label": "platform",
             "x": 939,
-            "y": 320
+            "y": 573
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -100,8 +100,8 @@
                 "y"
             ],
             "label": "star_2",
-            "x": 887,
-            "y": 474
+            "x": 944,
+            "y": 74
         },
         {
             "type": "Image",
@@ -123,8 +123,8 @@
             "texture": {
                 "key": "door"
             },
-            "x": 921,
-            "y": 186
+            "x": 941,
+            "y": 439
         }
     ],
     "plainObjects": [],
