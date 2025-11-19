@@ -239,7 +239,7 @@ export default class BaseEscene extends Phaser.Scene {
 		const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
 			.setOrigin(0, 0)
 			.setDepth(1000)
-			.setAlpha(1);
+			.setAlpha(0);
 
 		this.tweens.add({
 			targets: fadeRect,
@@ -252,7 +252,7 @@ export default class BaseEscene extends Phaser.Scene {
 			}
 		});
 
-
+	this.openCurtains();
 
 		// Partículas de lluvia
 		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {

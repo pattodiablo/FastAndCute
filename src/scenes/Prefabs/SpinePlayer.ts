@@ -20,7 +20,7 @@ export default class SpinePlayer extends SpineGameObject {
 	constructor(scene: Phaser.Scene, plugin: SpinePlugin, x: number, y: number, dataKey?: string, atlasKey?: string, skin?: string, boundsProvider?: SpineGameObjectBoundsProvider, xargs?: any) {
 		super(scene, plugin, x ?? 0, y ?? 0, dataKey ?? "KittenPlayer", atlasKey ?? "KittenPlayer-atlas", boundsProvider ?? new SkinsAndAnimationBoundsProvider("Idle", ["default"]));
 
-		this.setInteractive(new Phaser.Geom.Circle(32, 32, 40), Phaser.Geom.Circle.Contains);
+		this.setInteractive(new Phaser.Geom.Circle(34, 34, 40), Phaser.Geom.Circle.Contains);
 		this.skeleton.setSkinByName(skin ?? "default");
 		scene.physics.add.existing(this, false);
 		this.body.friction.x = 0;
@@ -28,7 +28,7 @@ export default class SpinePlayer extends SpineGameObject {
 		this.body.bounce.x = 0.1;
 		this.body.bounce.y = 0.1;
 		this.body.collideWorldBounds = true;
-		this.body.setCircle(30, 5, 5);
+		this.body.setCircle(35);
 
 		/* START-USER-CTR-CODE */
 		// this.scene.input.enableDebug(this);
@@ -80,43 +80,81 @@ export default class SpinePlayer extends SpineGameObject {
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 			// En Player.ts (constructor)
+			if (!this.MovementLinear) {
+					this.floatFX.play();
+					this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
+					this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
+					if (!this.gravityTimerActive) {
+						this.moveSpeed = this.OriginalMoveSpeed;
+						this.body.setVelocityY(speedY);
+					}
 
-			this.floatFX.play();
-			this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
-			this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
-			if (!this.gravityTimerActive) {
-				this.moveSpeed = this.OriginalMoveSpeed;
-				this.body.setVelocityY(speedY);
+
+					this.followParticles = this.scene.add.particles(0, 0, 'BubbleParticle', {
+						x: this.x,
+						y: this.y,
+						speed: { min: 0, max: 0 },
+						angle: { min: 0, max: 360 },
+						lifespan: { min: 1000, max: 2500 },
+						scale: { start: 0, end: 1 },
+						quantity: 1,
+						maxParticles: 1,
+						frequency: 100,
+						gravityY: -100
+
+					});
+					// Emite solo unas pocas burbujas y destruye el sistema después
+					this.scene.time.delayedCall(400, () => {
+						this.followParticles?.stop();
+						this.scene.time.delayedCall(1200, () => {
+							this.followParticles?.destroy();
+						});
+					});
+			}else{
+
+				this.decelTween?.stop();
+					this.scene.tweens.add({
+			targets: this,
+	
+			scale: 1.1,
+			ease: 'Quad.Out',
+				duration: 100,
+			onComplete: () => {
+				this.scene.time.delayedCall(100, () => {
+			
+					this.scene.tweens.add({
+						targets: this,
+						scale: 1,
+						duration: 100,
+						ease: 'Quad.Out'
+					});
+				});
+			}
+		});
+
+
+
+				this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
+
+				this.lastMoveTime = this.scene.time.now;
+
+				this.floatFX.play();
+
+				// Asegura movimiento activo
+				if (this.CanMove && !this.gravityTimerActive) {
+					this.moveSpeed = this.OriginalMoveSpeed || this.moveSpeed;
+				}
+
+				this.startBubbleTrail();
 			}
 
-
-			this.followParticles = this.scene.add.particles(0, 0, 'BubbleParticle', {
-				x: this.x,
-				y: this.y,
-				speed: { min: 0, max: 0 },
-				angle: { min: 0, max: 360 },
-				lifespan: { min: 1000, max: 2500 },
-				scale: { start: 0, end: 1 },
-				quantity: 1,
-				maxParticles: 1,
-				frequency: 100,
-				gravityY: -100
-
-			});
-			// Emite solo unas pocas burbujas y destruye el sistema después
-			this.scene.time.delayedCall(400, () => {
-				this.followParticles?.stop();
-				this.scene.time.delayedCall(1200, () => {
-					this.followParticles?.destroy();
-				});
-			});
 
 		});
 		/* END-USER-CTR-CODE */
 	}
 
 	public targetPos: any = null;;
-	public moveSpeed: number = 200;
+	public moveSpeed: number = 150;
 	public originalGravityY: number = -300;
 	public reducedGravityY: number = -50;
 	public gravityRestoreDelay: number = 1000;
@@ -131,25 +169,80 @@ export default class SpinePlayer extends SpineGameObject {
 	public lastMoveTime!: any;
 	public floatFX!: any;
 	public explodeFx!: any;
+	public MovementLinear: boolean = true;
+	public idleFloatPhase: number = 0;
+	public bubbleTrail!: any;
 
 	/* START-USER-CODE */
 
-	private blinkTimer?: Phaser.Time.TimerEvent;
+    private blinkTimer?: Phaser.Time.TimerEvent;
+decelTween?: Phaser.Tweens.Tween;
+	// Estela de burbujas
+
+
+
+	// Arranca (o reactiva) la estela
+	private startBubbleTrail() {
+
+			this.bubbleTrail = this.scene.add.particles(0, 0, 'BubbleParticle', {
+			x: this.x,
+			y: this.y,
+			speed: { min: 0, max: -100 },
+			angle: { min: 0, max: 360 },
+			lifespan: { min: 500, max: 2000 },
+			scale: { start: 0.5, end: 0 },
+			quantity: 5,
+			maxParticles: 5,
+			frequency: 100,
+			gravityY: -300
+
+		});
+
+	}
+
+	// Detiene la estela (opcionalmente destruye todo)
+	private stopBubbleTrail(destroyAll = false) {
+		if (this.bubbleTrail) {
+			this.bubbleTrail.stop();
+			if (destroyAll) {
+				this.bubbleTrail.destroy();
+				this.bubbleTrail = undefined;
+			}
+		}
+
+	}
+
+	// Dispara la estela por un tiempo; si se vuelve a hacer click, reinicia el contador
+
 
 	public startMoving() {
-		console.log("Player starts moving");
-		this.setVisible(true);
-		this.CanMove = true;
-		this.body.setGravityY(this.originalGravityY);
-		this.moveSpeed = this.OriginalMoveSpeed;
-		this.body.collideWorldBounds = true;
-		this.skeleton.setAttachment("Bubble", "Bubble");
-		//this.CanMove = true;
-		this.moveSpeed = this.OriginalMoveSpeed;
-		this.setActive(true);
-		this.IsDead = false;
-		this.body.setGravityY(this.originalGravityY);
-		this.animationState.setAnimation(0, "Idle", true);
+
+		if(!this.MovementLinear){
+			console.log("Player starts moving");
+			this.setVisible(true);
+			this.CanMove = true;
+			this.body.setGravityY(this.originalGravityY);
+			this.moveSpeed = this.OriginalMoveSpeed;
+			this.body.collideWorldBounds = true;
+			this.skeleton.setAttachment("Bubble", "Bubble");
+			//this.CanMove = true;
+			this.moveSpeed = this.OriginalMoveSpeed;
+			this.setActive(true);
+			this.IsDead = false;
+			this.animationState.setAnimation(0, "Idle", true);
+
+		}else{
+
+			this.body.collideWorldBounds = true;
+			this.CanMove = true;
+			this.setVisible(true);
+			this.skeleton.setAttachment("Bubble", "Bubble");
+			this.animationState.setAnimation(0, "Idle", true);
+			this.IsDead = false;
+			this.setActive(true);
+
+		}
+
 
 	}
 
@@ -187,35 +280,88 @@ export default class SpinePlayer extends SpineGameObject {
 	preUpdate(time: number, delta: number) {
 		super.preUpdate(time, delta);
 
-		const maxTilt = 0.25;
 
-		if (this.targetPos && this.CanMove) {
-			const toTarget = new Phaser.Math.Vector2(
-				this.targetPos.x - this.x,
-			);
-			const distance = toTarget.length();
+		if(!this.MovementLinear) {
+			const maxTilt = 0.25;
 
-			if (distance < 5) {
-				this.targetPos = null;
-				this.lastMoveTime = time; // Marca el tiempo en que terminó de moverse
+			if (this.targetPos && this.CanMove) {
+				const toTarget = new Phaser.Math.Vector2(
+					this.targetPos.x - this.x,
+				);
+				const distance = toTarget.length();
+
+				if (distance < 5) {
+					this.targetPos = null;
+					this.lastMoveTime = time; // Marca el tiempo en que terminó de moverse
+				} else {
+					toTarget.normalize();
+					if (!this.gravityTimerActive) {
+						this.body.setVelocityX(toTarget.x * this.moveSpeed);
+					}
+					if (Math.abs(toTarget.x) > 0.1) {
+						this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.2);
+					}
+					this.lastMoveTime = time; // Actualiza el tiempo de último movimiento
+				}
 			} else {
-				toTarget.normalize();
-				if (!this.gravityTimerActive) {
-					this.body.setVelocityX(toTarget.x * this.moveSpeed);
+				// Si han pasado más de 0.5 segundos desde el último movimiento, vuelve a rotación 0
+				if (!this.lastMoveTime || time - this.lastMoveTime > 500) {
+					this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.1);
 				}
-				if (Math.abs(toTarget.x) > 0.1) {
-					this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.2);
-				}
-				this.lastMoveTime = time; // Actualiza el tiempo de último movimiento
 			}
-		} else {
-			// Si han pasado más de 0.5 segundos desde el último movimiento, vuelve a rotación 0
-			if (!this.lastMoveTime || time - this.lastMoveTime > 500) {
-				this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.1);
-			}
+		}else{
+
+			  if (this.CanMove && this.targetPos) {
+						const toTarget = new Phaser.Math.Vector2(
+						this.targetPos.x - this.x,
+						this.targetPos.y - this.y
+					);
+					const dist = toTarget.length();
+					if (dist < 4) {
+
+						this.targetPos = null;
+						//this.body.setVelocity(0, 0);
+						const proxy = { vx: this.body.velocity.x, vy: this.body.velocity.y };
+							this.decelTween =this.scene.tweens.add({
+							targets: proxy,
+							vx: 0,
+							vy: 0,
+							duration: 1500,
+							ease: 'Quad.Out',
+							onUpdate: () => this.body.setVelocity(proxy.vx, proxy.vy)
+						
+						});
+						
+						this.lastMoveTime = time;
+					} else {
+						toTarget.normalize();
+						// Movimiento flotado (ligero “ease” en rotación)
+						this.body.setVelocity(toTarget.x * this.moveSpeed, toTarget.y * this.moveSpeed);
+						const maxTilt = 0.25;
+						if (Math.abs(toTarget.x) > 0.05) {
+							this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.15);
+						}
+					}
+				}else {
+				// Flotado idle (oscilación vertical suave)
+				this.idleFloatPhase += delta * 0.0025;
+				const vy = Math.sin(this.idleFloatPhase) * 25; // amplitud
+				//this.body.setVelocityX(0);
+				this.body.setVelocityY(vy);
+				this.body.setGravityY(this.originalGravityY);
+				// Relajar rotación progresivamente
+				this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.08);
+    }
+
 		}
 
-		this.startBlinkLoop();
+		// Activar/desactivar la estela según se esté moviendo realmente
+		const vx = this.body.velocity.x || 0;
+		const vy = this.body.velocity.y || 0;
+		const speed = Math.hypot(vx, vy);
+
+
+        this.startBlinkLoop();
 	}
 
 	Die() {
@@ -286,6 +432,7 @@ export default class SpinePlayer extends SpineGameObject {
 	resetPlayer() {
 		(this.scene as any).chest.resetChest(); // Llama al método resetChest del cofre
 		this.setVisible(false);
+
 
 
 

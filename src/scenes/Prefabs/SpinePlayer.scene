@@ -52,7 +52,7 @@
     "prefabProperties": [
         {
             "name": "targetPos",
-            "label": "Property",
+            "label": "targetPos",
             "tooltip": "",
             "defValue": "null;",
             "customDefinition": false,
@@ -65,7 +65,7 @@
             "name": "moveSpeed",
             "label": "moveSpeed",
             "tooltip": "",
-            "defValue": 200,
+            "defValue": 150,
             "customDefinition": false,
             "type": {
                 "id": "number"
@@ -208,6 +208,37 @@
         {
             "name": "explodeFx",
             "label": "explodeFx",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "MovementLinear",
+            "label": "MovementLinear",
+            "tooltip": "",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "idleFloatPhase",
+            "label": "idleFloatPhase",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "bubbleTrail",
+            "label": "bubbleTrail",
             "tooltip": "",
             "defValue": "",
             "customDefinition": false,
