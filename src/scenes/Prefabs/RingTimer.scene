@@ -1,0 +1,34 @@
+{
+    "id": "29fb5399-3cf3-496a-9953-176d5c763150",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "ce99d372-3bd7-4eaf-9f5d-7ea322cd4fd5",
+            "label": "RingTimer",
+            "texture": {
+                "key": "RingLoad",
+                "frame": "Ring20012.png"
+            },
+            "animationPlayMethod": 1,
+            "animationKey": "RingLoad"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -383,6 +383,12 @@
                 "key": "realPop"
             },
             {
+                "atlasURL": "assets/animations/RingLoad/RingLoad.json",
+                "textureURL": "assets/animations/RingLoad/RingLoad.png",
+                "type": "atlas",
+                "key": "RingLoad"
+            },
+            {
                 "url": "assets/song1Almbum.png",
                 "type": "image",
                 "key": "song1Almbum"
