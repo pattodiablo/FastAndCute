@@ -1,0 +1,108 @@
+{"frames": {
+
+"RingStay0001.png":
+{
+	"frame": {"x":2,"y":2,"w":169,"h":177},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":169,"h":177},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0002.png":
+{
+	"frame": {"x":173,"y":2,"w":169,"h":169},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":8,"w":169,"h":169},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0003.png":
+{
+	"frame": {"x":344,"y":2,"w":179,"h":169},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":179,"h":169},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0004.png":
+{
+	"frame": {"x":525,"y":2,"w":173,"h":169},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":8,"w":173,"h":169},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0005.png":
+{
+	"frame": {"x":700,"y":2,"w":169,"h":171},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":7,"w":169,"h":171},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0006.png":
+{
+	"frame": {"x":2,"y":181,"w":169,"h":181},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":8,"w":169,"h":181},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0007.png":
+{
+	"frame": {"x":173,"y":181,"w":169,"h":169},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":8,"w":169,"h":169},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0008.png":
+{
+	"frame": {"x":344,"y":181,"w":175,"h":169},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":8,"w":175,"h":169},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0009.png":
+{
+	"frame": {"x":521,"y":181,"w":185,"h":181},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":185,"h":181},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0010.png":
+{
+	"frame": {"x":708,"y":181,"w":181,"h":181},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":2,"w":181,"h":181},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0011.png":
+{
+	"frame": {"x":2,"y":364,"w":169,"h":177},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":169,"h":177},
+	"sourceSize": {"w":187,"h":189}
+},
+"RingStay0012.png":
+{
+	"frame": {"x":2,"y":364,"w":169,"h":177},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":169,"h":177},
+	"sourceSize": {"w":187,"h":189}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "RingStay.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:218de264fd2eb48004a920eb01bf9fc9:598437da7a4965846527a6fd484dedf1:56423cfe7195d5a183f8d9b82629e454$"
+}
+}
