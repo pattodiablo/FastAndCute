@@ -66,18 +66,18 @@
 },
 "RingStay0009.png":
 {
-	"frame": {"x":521,"y":181,"w":185,"h":181},
+	"frame": {"x":521,"y":181,"w":179,"h":169},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":2,"w":185,"h":181},
+	"spriteSourceSize": {"x":8,"y":8,"w":179,"h":169},
 	"sourceSize": {"w":187,"h":189}
 },
 "RingStay0010.png":
 {
-	"frame": {"x":708,"y":181,"w":181,"h":181},
+	"frame": {"x":702,"y":181,"w":169,"h":169},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":3,"y":2,"w":181,"h":181},
+	"spriteSourceSize": {"x":9,"y":8,"w":169,"h":169},
 	"sourceSize": {"w":187,"h":189}
 },
 "RingStay0011.png":
@@ -103,6 +103,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:218de264fd2eb48004a920eb01bf9fc9:598437da7a4965846527a6fd484dedf1:56423cfe7195d5a183f8d9b82629e454$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3cec88b446c793c82f20e63ed81aa0b7:ccfd3bf3208afd3734e9c02a49d1f6de:56423cfe7195d5a183f8d9b82629e454$"
 }
 }
