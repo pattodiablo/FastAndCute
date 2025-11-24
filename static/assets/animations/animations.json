@@ -1820,6 +1820,89 @@
             "skipMissedFrames": true,
             "showOnStart": true,
             "randomFrame": false
+        },
+        {
+            "key": "RingStay",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay",
+                    "frame": "RingStay0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "showOnStart": true,
+            "randomFrame": false
         }
     ],
     "globalTimeScale": 1,

@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -14,7 +13,12 @@ export default class RingTimer extends Phaser.GameObjects.Sprite {
 		this.play("RingLoad");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		// Al terminar RingLoad reproducir inmediatamente RingStay
+		this.on(Phaser.Animations.Events.ANIMATION_COMPLETE, (anim: Phaser.Animations.Animation) => {
+			if (anim.key === "RingLoad") {
+				this.play("RingStay");
+			}
+		});
 		/* END-USER-CTR-CODE */
 	}
 

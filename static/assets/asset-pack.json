@@ -389,6 +389,12 @@
                 "key": "RingLoad"
             },
             {
+                "atlasURL": "assets/animations/RingStay/RingStay.json",
+                "textureURL": "assets/animations/RingStay/RingStay.png",
+                "type": "atlas",
+                "key": "RingStay"
+            },
+            {
                 "url": "assets/song1Almbum.png",
                 "type": "image",
                 "key": "song1Almbum"
