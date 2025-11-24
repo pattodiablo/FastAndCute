@@ -47,8 +47,14 @@ export default class SpinePlayer extends SpineGameObject {
 		this.explodeFx = this.scene.sound.add("realPop");
 		(this.scene as any).addFx(this.explodeFx);
 
-		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+		this.on('pointerup', () => this.cancelLongPress());
+		this.on('pointerout', () => this.cancelLongPress());
+		this.scene.input.on('pointerup', () => this.cancelLongPress());
 
+
+		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+			
+			this.startLongPressCountdown();
 			this.setScale(1.1, 1.1);
 
 
@@ -115,13 +121,13 @@ export default class SpinePlayer extends SpineGameObject {
 				this.decelTween?.stop();
 					this.scene.tweens.add({
 			targets: this,
-	
+
 			scale: 1.1,
 			ease: 'Quad.Out',
 				duration: 100,
 			onComplete: () => {
 				this.scene.time.delayedCall(100, () => {
-			
+
 					this.scene.tweens.add({
 						targets: this,
 						scale: 1,
@@ -154,7 +160,7 @@ export default class SpinePlayer extends SpineGameObject {
 	}
 
 	public targetPos: any = null;;
-	public moveSpeed: number = 150;
+	public moveSpeed: number = 175;
 	public originalGravityY: number = -300;
 	public reducedGravityY: number = -50;
 	public gravityRestoreDelay: number = 1000;
@@ -177,8 +183,42 @@ export default class SpinePlayer extends SpineGameObject {
 
     private blinkTimer?: Phaser.Time.TimerEvent;
 decelTween?: Phaser.Tweens.Tween;
+private longPressTimer?: Phaser.Time.TimerEvent;
+private isPressing: boolean = false;
+public LONG_PRESS_THRESHOLD = 500; // ms
 	// Estela de burbujas
 
+private startLongPressCountdown() {
+    this.cancelLongPress();
+    this.isPressing = true;
+    this.longPressTimer = this.scene.time.delayedCall(this.LONG_PRESS_THRESHOLD, () => {
+        if (this.isPressing) {
+            this.onLongPress();
+            this.emit('longpress');
+        }
+    });
+}
+
+private cancelLongPress() {
+    this.isPressing = false;
+    if (this.longPressTimer) {
+        this.longPressTimer.remove(false);
+        this.longPressTimer = undefined;
+    }
+}
+
+protected onLongPress() {
+    // Acción al mantener presionado (personaliza)
+    console.log('Long press del jugador');
+    // Ejemplo: pequeña pulsación extra
+    this.scene.tweens.add({
+        targets: this,
+        scale: 1.2,
+        duration: 120,
+        yoyo: true,
+        ease: 'Quad.Out'
+    });
+}
 
 
 	// Arranca (o reactiva) la estela
@@ -329,9 +369,9 @@ decelTween?: Phaser.Tweens.Tween;
 							duration: 1500,
 							ease: 'Quad.Out',
 							onUpdate: () => this.body.setVelocity(proxy.vx, proxy.vy)
-						
+
 						});
-						
+
 						this.lastMoveTime = time;
 					} else {
 						toTarget.normalize();

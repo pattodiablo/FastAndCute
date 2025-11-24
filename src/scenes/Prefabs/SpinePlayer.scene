@@ -65,7 +65,7 @@
             "name": "moveSpeed",
             "label": "moveSpeed",
             "tooltip": "",
-            "defValue": 150,
+            "defValue": 175,
             "customDefinition": false,
             "type": {
                 "id": "number"
