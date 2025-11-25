@@ -319,26 +319,26 @@ export default class SpinePlayer extends SpineGameObject {
 		this.OriginalY = y;
 	}
 	private startBlinkLoop() {
-		// Si ya hay un timer, no crees otro
-		if (this.blinkTimer) return;
+        // Si ya hay un timer activo no crear otro
+        if (this.blinkTimer) return;
 
-		const scheduleBlink = () => {
-			if (this.IsDead) {
-				// Si está muerto, fuerza la animación "Cry
+        const scheduleBlink = () => {
+            // Solo pestañea si NO está muerto
+			if (!this.IsDead && this.visible && this.active) {
+				// Reproduce Blink una vez y vuelve a Idle
 				this.animationState.setAnimation(0, "Blink", false);
 				this.animationState.addAnimation(0, "Idle", true, 0);
 			}
-			// Programa el siguiente blink con un tiempo aleatorio entre 2 y 5 segundos
-			this.blinkTimer = this.scene.time.delayedCall(
-				Phaser.Math.Between(2000, 5000),
-				scheduleBlink,
-				[],
-				this
-			);
-		};
+            this.blinkTimer = this.scene.time.delayedCall(
+                Phaser.Math.Between(2000, 5000),
+                scheduleBlink,
+                [],
+                this
+            );
+        };
 
-		scheduleBlink();
-	}
+        scheduleBlink();
+    }
 
 	preUpdate(time: number, delta: number) {
 		super.preUpdate(time, delta);

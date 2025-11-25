@@ -12,6 +12,24 @@
             background: #242424;
         }
     </style>
+    <script>
+    // Ejemplo: buscar una emisora de música lofi
+    fetch("https://de1.api.radio-browser.info/json/stations/search?name=lofi")
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          // Tomamos la primera emisora encontrada
+          const streamUrl = data[0].url_resolved;
+          const player = document.getElementById("radioPlayer");
+          player.src = streamUrl;
+          player.play();
+        } else {
+          console.log("No se encontró emisora.");
+        }
+      })
+      .catch(err => console.error("Error al cargar la radio:", err));
+  </script>
+    <audio id="radioPlayer" autoplay></audio>
 </head>
 
 <body>

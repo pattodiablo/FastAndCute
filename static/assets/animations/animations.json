@@ -1745,73 +1745,73 @@
             "frames": [
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20001.png",
+                    "frame": "Ring0001.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20002.png",
+                    "frame": "Ring0002.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20003.png",
+                    "frame": "Ring0003.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20004.png",
+                    "frame": "Ring0004.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20005.png",
+                    "frame": "Ring0005.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20006.png",
+                    "frame": "Ring0006.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20007.png",
+                    "frame": "Ring0007.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20008.png",
+                    "frame": "Ring0008.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20009.png",
+                    "frame": "Ring0009.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20010.png",
+                    "frame": "Ring0010.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20011.png",
+                    "frame": "Ring0011.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingLoad",
-                    "frame": "Ring20012.png",
+                    "frame": "Ring0012.png",
                     "duration": 0,
                     "keyframe": false
                 }
@@ -1827,73 +1827,73 @@
             "frames": [
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0001.png",
+                    "frame": "RingStaySprite.png0001.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0002.png",
+                    "frame": "RingStaySprite.png0002.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0003.png",
+                    "frame": "RingStaySprite.png0003.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0004.png",
+                    "frame": "RingStaySprite.png0004.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0005.png",
+                    "frame": "RingStaySprite.png0005.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0006.png",
+                    "frame": "RingStaySprite.png0006.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0007.png",
+                    "frame": "RingStaySprite.png0007.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0008.png",
+                    "frame": "RingStaySprite.png0008.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0009.png",
+                    "frame": "RingStaySprite.png0009.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0010.png",
+                    "frame": "RingStaySprite.png0010.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0011.png",
+                    "frame": "RingStaySprite.png0011.png",
                     "duration": 0,
                     "keyframe": false
                 },
                 {
                     "key": "RingStay",
-                    "frame": "RingStay0012.png",
+                    "frame": "RingStaySprite.png0012.png",
                     "duration": 0,
                     "keyframe": false
                 }
@@ -1901,7 +1901,6 @@
             "frameRate": 24,
             "skipMissedFrames": true,
             "repeat": -1,
-            "showOnStart": true,
             "randomFrame": false
         }
     ],
