@@ -6,7 +6,6 @@ import BaseEscene from "./BaseEscene";
 import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
-import RingTimer from "./Prefabs/RingTimer";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -59,10 +58,6 @@ export default class Level1 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(941, 439, "door");
-
-		// RingTimer
-		const ringTimer = new RingTimer(this, 417, 391);
-		this.add.existing(ringTimer);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

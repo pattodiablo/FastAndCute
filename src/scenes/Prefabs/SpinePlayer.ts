@@ -8,11 +8,12 @@ import { SpineGameObjectBoundsProvider } from "@esotericsoftware/spine-phaser";
 import { SkinsAndAnimationBoundsProvider } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 import BubblePop from "./BubblePop";
+import RingTimer from "./RingTimer";
 /* END-USER-IMPORTS */
 
 export default interface SpinePlayer {
 
-	 body: Phaser.Physics.Arcade.Body;
+	body: Phaser.Physics.Arcade.Body;
 }
 
 export default class SpinePlayer extends SpineGameObject {
@@ -25,9 +26,9 @@ export default class SpinePlayer extends SpineGameObject {
 		scene.physics.add.existing(this, false);
 		this.body.friction.x = 0;
 		this.body.friction.y = 1;
-		this.body.bounce.x = 0.1;
-		this.body.bounce.y = 0.1;
+	
 		this.body.collideWorldBounds = true;
+		this.body.setBounce(0.5, 0.5); // rebote horizontal / vertical
 		this.body.setCircle(35);
 
 		/* START-USER-CTR-CODE */
@@ -53,8 +54,8 @@ export default class SpinePlayer extends SpineGameObject {
 
 
 		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
-			
-			this.startLongPressCountdown();
+
+	
 			this.setScale(1.1, 1.1);
 
 
@@ -86,69 +87,78 @@ export default class SpinePlayer extends SpineGameObject {
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 			// En Player.ts (constructor)
+		this.startLongPressCountdown();
+			// BOOST si hay Ring activo (antes de fijar targetPos)
+			if (this.currentRing && this.currentRing.active) {
+				this.currentRing.destroy();
+				this.currentRing = undefined;
+				this.nextClickBoost = true; // habilita boost SOLO para el siguiente click de movimiento
+			}
+
 			if (!this.MovementLinear) {
-					this.floatFX.play();
-					this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
-					this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
-					if (!this.gravityTimerActive) {
-						this.moveSpeed = this.OriginalMoveSpeed;
-						this.body.setVelocityY(speedY);
-					}
+				this.floatFX.play();
+				this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
+				this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
+				if (!this.gravityTimerActive) {
+					this.moveSpeed = this.OriginalMoveSpeed;
+					this.body.setVelocityY(speedY);
+				}
 
 
-					this.followParticles = this.scene.add.particles(0, 0, 'BubbleParticle', {
-						x: this.x,
-						y: this.y,
-						speed: { min: 0, max: 0 },
-						angle: { min: 0, max: 360 },
-						lifespan: { min: 1000, max: 2500 },
-						scale: { start: 0, end: 1 },
-						quantity: 1,
-						maxParticles: 1,
-						frequency: 100,
-						gravityY: -100
+				this.followParticles = this.scene.add.particles(0, 0, 'BubbleParticle', {
+					x: this.x,
+					y: this.y,
+					speed: { min: 0, max: 0 },
+					angle: { min: 0, max: 360 },
+					lifespan: { min: 1000, max: 2500 },
+					scale: { start: 0, end: 1 },
+					quantity: 1,
+					maxParticles: 1,
+					frequency: 100,
+					gravityY: -100
 
-					});
-					// Emite solo unas pocas burbujas y destruye el sistema después
-					this.scene.time.delayedCall(400, () => {
-						this.followParticles?.stop();
-						this.scene.time.delayedCall(1200, () => {
-							this.followParticles?.destroy();
-						});
-					});
-			}else{
-
-				this.decelTween?.stop();
-					this.scene.tweens.add({
-			targets: this,
-
-			scale: 1.1,
-			ease: 'Quad.Out',
-				duration: 100,
-			onComplete: () => {
-				this.scene.time.delayedCall(100, () => {
-
-					this.scene.tweens.add({
-						targets: this,
-						scale: 1,
-						duration: 100,
-						ease: 'Quad.Out'
+				});
+				// Emite solo unas pocas burbujas y destruye el sistema después
+				this.scene.time.delayedCall(400, () => {
+					this.followParticles?.stop();
+					this.scene.time.delayedCall(1200, () => {
+						this.followParticles?.destroy();
 					});
 				});
-			}
-		});
+			} else {
+
+				this.decelTween?.stop();
+				this.scene.tweens.add({
+					targets: this,
+
+					scale: 1.1,
+					ease: 'Quad.Out',
+					duration: 100,
+					onComplete: () => {
+						this.scene.time.delayedCall(100, () => {
+
+							this.scene.tweens.add({
+								targets: this,
+								scale: 1,
+								duration: 100,
+								ease: 'Quad.Out'
+							});
+						});
+					}
+				});
 
 
 
 				this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
-
 				this.lastMoveTime = this.scene.time.now;
-
 				this.floatFX.play();
 
-				// Asegura movimiento activo
-				if (this.CanMove && !this.gravityTimerActive) {
-					this.moveSpeed = this.OriginalMoveSpeed || this.moveSpeed;
+				// Consumir boost (si está activo) y fijar moveSpeed
+				if (this.nextClickBoost) {
+					this.moveSpeed = this.OriginalMoveSpeed * 2.5;
+					this.nextClickBoost = false; // se consume aquí; siguiente click ya normal
+				} else {
+					this.moveSpeed = this.OriginalMoveSpeed;
 				}
 
 				this.startBubbleTrail();
@@ -181,50 +191,68 @@ export default class SpinePlayer extends SpineGameObject {
 
 	/* START-USER-CODE */
 
-    private blinkTimer?: Phaser.Time.TimerEvent;
-decelTween?: Phaser.Tweens.Tween;
-private longPressTimer?: Phaser.Time.TimerEvent;
-private isPressing: boolean = false;
-public LONG_PRESS_THRESHOLD = 500; // ms
+	private blinkTimer?: Phaser.Time.TimerEvent;
+	decelTween?: Phaser.Tweens.Tween;
+	private longPressTimer?: Phaser.Time.TimerEvent;
+	private isPressing: boolean = false;
+	public LONG_PRESS_THRESHOLD = 500; // ms
+	private currentRing?: RingTimer;
+
+	private nextClickBoost: boolean = false;
+
 	// Estela de burbujas
 
-private startLongPressCountdown() {
-    this.cancelLongPress();
-    this.isPressing = true;
-    this.longPressTimer = this.scene.time.delayedCall(this.LONG_PRESS_THRESHOLD, () => {
-        if (this.isPressing) {
-            this.onLongPress();
-            this.emit('longpress');
-        }
-    });
-}
+	private startLongPressCountdown() {
+		// Si ya hay ring activo, no iniciar otro long press
+		if (this.currentRing && this.currentRing.active) return;
 
-private cancelLongPress() {
-    this.isPressing = false;
-    if (this.longPressTimer) {
-        this.longPressTimer.remove(false);
-        this.longPressTimer = undefined;
-    }
-}
+		this.cancelLongPress();
+		this.isPressing = true;
 
-protected onLongPress() {
-    // Acción al mantener presionado (personaliza)
-    console.log('Long press del jugador');
-    // Ejemplo: pequeña pulsación extra
-    this.scene.tweens.add({
-        targets: this,
-        scale: 1.2,
-        duration: 120,
-        yoyo: true,
-        ease: 'Quad.Out'
-    });
-}
+		this.longPressTimer = this.scene.time.delayedCall(this.LONG_PRESS_THRESHOLD, () => {
+			if (this.isPressing && (!this.currentRing || !this.currentRing.active)) {
+				this.onLongPress();
+				this.emit('longpress');
+			}
+		});
+	}
+
+	private cancelLongPress() {
+		this.isPressing = false;
+		if (this.longPressTimer) {
+			this.longPressTimer.remove(false);
+			this.longPressTimer = undefined;
+		}
+	}
+
+	protected onLongPress() {
+		// Si ya existe, no crear otro
+		if (this.currentRing && this.currentRing.active) return;
+
+		const ring = new RingTimer(this.scene, this.x, this.y);
+		this.scene.add.existing(ring);
+		ring.attachTo(this, 0.18);
+		ring.setDepth(this.depth + 1);
+		this.currentRing = ring;
+
+		ring.once(Phaser.GameObjects.Events.DESTROY, () => {
+			if (this.currentRing === ring) this.currentRing = undefined;
+		});
+
+		this.scene.tweens.add({
+			targets: this,
+			scale: 1.2,
+			duration: 120,
+			yoyo: true,
+			ease: 'Quad.Out'
+		});
+	}
 
 
 	// Arranca (o reactiva) la estela
 	private startBubbleTrail() {
 
-			this.bubbleTrail = this.scene.add.particles(0, 0, 'BubbleParticle', {
+		this.bubbleTrail = this.scene.add.particles(0, 0, 'BubbleParticle', {
 			x: this.x,
 			y: this.y,
 			speed: { min: 0, max: -100 },
@@ -257,7 +285,7 @@ protected onLongPress() {
 
 	public startMoving() {
 
-		if(!this.MovementLinear){
+		if (!this.MovementLinear) {
 			console.log("Player starts moving");
 			this.setVisible(true);
 			this.CanMove = true;
@@ -271,7 +299,7 @@ protected onLongPress() {
 			this.IsDead = false;
 			this.animationState.setAnimation(0, "Idle", true);
 
-		}else{
+		} else {
 
 			this.body.collideWorldBounds = true;
 			this.CanMove = true;
@@ -296,12 +324,7 @@ protected onLongPress() {
 
 		const scheduleBlink = () => {
 			if (this.IsDead) {
-				// Si está muerto, fuerza la animación "Cry" y no programa más parpadeos
-				this.animationState.setAnimation(0, "Cry", true);
-				return;
-			}
-			// Solo parpadea si está en Idle
-			if (this.animationState.getCurrent(0)?.animation?.name === "Idle") {
+				// Si está muerto, fuerza la animación "Cry
 				this.animationState.setAnimation(0, "Blink", false);
 				this.animationState.addAnimation(0, "Idle", true, 0);
 			}
@@ -321,7 +344,7 @@ protected onLongPress() {
 		super.preUpdate(time, delta);
 
 
-		if(!this.MovementLinear) {
+		if (!this.MovementLinear) {
 			const maxTilt = 0.25;
 
 			if (this.targetPos && this.CanMove) {
@@ -349,40 +372,40 @@ protected onLongPress() {
 					this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.1);
 				}
 			}
-		}else{
+		} else {
 
-			  if (this.CanMove && this.targetPos) {
-						const toTarget = new Phaser.Math.Vector2(
-						this.targetPos.x - this.x,
-						this.targetPos.y - this.y
-					);
-					const dist = toTarget.length();
-					if (dist < 4) {
+			if (this.CanMove && this.targetPos) {
+				const toTarget = new Phaser.Math.Vector2(
+					this.targetPos.x - this.x,
+					this.targetPos.y - this.y
+				);
+				const dist = toTarget.length();
+				if (dist < 4) {
 
-						this.targetPos = null;
-						//this.body.setVelocity(0, 0);
-						const proxy = { vx: this.body.velocity.x, vy: this.body.velocity.y };
-							this.decelTween =this.scene.tweens.add({
-							targets: proxy,
-							vx: 0,
-							vy: 0,
-							duration: 1500,
-							ease: 'Quad.Out',
-							onUpdate: () => this.body.setVelocity(proxy.vx, proxy.vy)
+					this.targetPos = null;
+					//this.body.setVelocity(0, 0);
+					const proxy = { vx: this.body.velocity.x, vy: this.body.velocity.y };
+					this.decelTween = this.scene.tweens.add({
+						targets: proxy,
+						vx: 0,
+						vy: 0,
+						duration: 1500,
+						ease: 'Quad.Out',
+						onUpdate: () => this.body.setVelocity(proxy.vx, proxy.vy)
 
-						});
+					});
 
-						this.lastMoveTime = time;
-					} else {
-						toTarget.normalize();
-						// Movimiento flotado (ligero “ease” en rotación)
-						this.body.setVelocity(toTarget.x * this.moveSpeed, toTarget.y * this.moveSpeed);
-						const maxTilt = 0.25;
-						if (Math.abs(toTarget.x) > 0.05) {
-							this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.15);
-						}
+					this.lastMoveTime = time;
+				} else {
+					toTarget.normalize();
+					// Movimiento flotado (ligero “ease” en rotación)
+					this.body.setVelocity(toTarget.x * this.moveSpeed, toTarget.y * this.moveSpeed);
+					const maxTilt = 0.25;
+					if (Math.abs(toTarget.x) > 0.05) {
+						this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.15);
 					}
-				}else {
+				}
+			} else {
 				// Flotado idle (oscilación vertical suave)
 				this.idleFloatPhase += delta * 0.0025;
 				const vy = Math.sin(this.idleFloatPhase) * 25; // amplitud
@@ -391,7 +414,7 @@ protected onLongPress() {
 				this.body.setGravityY(this.originalGravityY);
 				// Relajar rotación progresivamente
 				this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.08);
-    }
+			}
 
 		}
 
@@ -401,7 +424,7 @@ protected onLongPress() {
 		const speed = Math.hypot(vx, vy);
 
 
-        this.startBlinkLoop();
+		this.startBlinkLoop();
 	}
 
 	Die() {
@@ -465,7 +488,11 @@ protected onLongPress() {
 		});
 
 
-
+		this.cancelLongPress();
+		if (this.currentRing && this.currentRing.active) {
+			this.currentRing.destroy();
+			this.currentRing = undefined;
+		}
 		// Lógica para la muerte del jugador
 	}
 
@@ -486,6 +513,14 @@ protected onLongPress() {
 				//this.body.setGravityY(1000); // Aplica gravedad fuerte después del tween
 			}
 		});
+
+		this.cancelLongPress();
+		if (this.currentRing && this.currentRing.active) {
+			this.currentRing.destroy();
+			this.currentRing = undefined;
+		}
+
+
 	}
 
 	public CompleteLevel(xdoor: number, ydoor: number) {

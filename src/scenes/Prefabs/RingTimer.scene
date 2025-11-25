@@ -2,6 +2,8 @@
     "id": "29fb5399-3cf3-496a-9953-176d5c763150",
     "sceneType": "PREFAB",
     "settings": {
+        "snapWidth": 192,
+        "snapHeight": 192,
         "exportClass": true,
         "autoImport": true,
         "preloadMethodName": "",
@@ -20,6 +22,8 @@
                 "key": "RingLoad",
                 "frame": "Ring20012.png"
             },
+            "scaleX": 0.5104166666666667,
+            "scaleY": 0.5104166666666667,
             "animationPlayMethod": 1,
             "animationKey": "RingLoad"
         }
