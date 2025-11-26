@@ -22,8 +22,8 @@
                 "key": "RingLoad",
                 "frame": "Ring20012.png"
             },
-            "scaleX": 0.5104166666666667,
-            "scaleY": 0.5104166666666667,
+            "scaleX": 0.4322736032890191,
+            "scaleY": 0.4322736032890191,
             "animationPlayMethod": 1,
             "animationKey": "RingLoad"
         }

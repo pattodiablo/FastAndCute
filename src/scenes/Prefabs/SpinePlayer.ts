@@ -55,7 +55,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 		this.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 
-	
+		this.clickingOnPlayer = true;
 			this.setScale(1.1, 1.1);
 
 
@@ -84,10 +84,24 @@ export default class SpinePlayer extends SpineGameObject {
 			}
 		});
 
+		
+
+			this.on('pointerup', () => {
+				this.clickingOnPlayer = false;
+				this.cancelLongPress();
+			});
+
+			this.on('pointerout', () => {
+				this.clickingOnPlayer = false;
+				this.cancelLongPress();
+			});
+
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 			// En Player.ts (constructor)
+		
 		this.startLongPressCountdown();
+			if (this.clickingOnPlayer) return; // Ignora si el click fue sobre el jugador
 			// BOOST si hay Ring activo (antes de fijar targetPos)
 			if (this.currentRing && this.currentRing.active) {
 				this.currentRing.destroy();
@@ -197,7 +211,7 @@ export default class SpinePlayer extends SpineGameObject {
 	private isPressing: boolean = false;
 	public LONG_PRESS_THRESHOLD = 500; // ms
 	private currentRing?: RingTimer;
-
+	private clickingOnPlayer: boolean = false;
 	private nextClickBoost: boolean = false;
 
 	// Estela de burbujas

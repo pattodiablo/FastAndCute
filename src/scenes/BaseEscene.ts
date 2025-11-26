@@ -8,6 +8,7 @@ import SpinePlayer from "./Prefabs/SpinePlayer";
 import FxButton from "./Prefabs/FxButton";
 import MusicBtn from "./Prefabs/MusicBtn";
 import MapBtn from "./Prefabs/MapBtn";
+import HomePlayer from "./Prefabs/HomePlayer";
 import { SpineGameObject } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -37,7 +38,6 @@ export default class BaseEscene extends Phaser.Scene {
 		// vinete
 		const vinete = this.add.image(516, 270, "Vinete");
 		vinete.blendMode = Phaser.BlendModes.MULTIPLY;
-		vinete.visible = false;
 
 		// Chest
 		const chest = new Chest(this, 133, 192);
@@ -78,6 +78,10 @@ export default class BaseEscene extends Phaser.Scene {
 		// curtain2
 		const curtain2 = this.add.image(515, 743, "Curtain2");
 
+		// HomePlayer
+		const homePlayer = new HomePlayer(this, 61, 543);
+		this.add.existing(homePlayer);
+
 		this.gameBg = gameBg;
 		this.bg2 = bg2;
 		this.bg3 = bg3;
@@ -92,6 +96,7 @@ export default class BaseEscene extends Phaser.Scene {
 		this.carboardEffect = carboardEffect;
 		this.curtain1 = curtain1;
 		this.curtain2 = curtain2;
+		this.homePlayer = homePlayer;
 
 		this.events.emit("scene-awake");
 	}
@@ -110,6 +115,7 @@ export default class BaseEscene extends Phaser.Scene {
 	public carboardEffect!: Phaser.GameObjects.Image;
 	public curtain1!: Phaser.GameObjects.Image;
 	public curtain2!: Phaser.GameObjects.Image;
+	public homePlayer!: HomePlayer;
 
 	/* START-USER-CODE */
 
@@ -144,7 +150,7 @@ export default class BaseEscene extends Phaser.Scene {
 		// vinete
 		const vinete = this.add.image(516, 270, "Vinete");
 		vinete.blendMode = Phaser.BlendModes.MULTIPLY;
-		vinete.visible = false;
+
 
 		// Chest
 		const chest = new Chest(this, 135, 164);
@@ -179,6 +185,11 @@ export default class BaseEscene extends Phaser.Scene {
 
 		// curtain2
 		const curtain2 = this.add.image(515, 743, "Curtain2");
+
+		const homePlayer = new HomePlayer(this, 44, 543);
+		this.add.existing(homePlayer);
+		this.homePlayer = homePlayer;
+		this.homePlayer.depth = 20;	
 
 		this.gameBg = gameBg;
 		this.bg2 = bg2;
@@ -239,20 +250,19 @@ export default class BaseEscene extends Phaser.Scene {
 		const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
 			.setOrigin(0, 0)
 			.setDepth(1000)
-			.setAlpha(0);
+			.setAlpha(1);
 
-		this.tweens.add({
-			targets: fadeRect,
-			alpha: 0,
-			duration: 700,
-			ease: 'Quad.Out',
-			onComplete: () => {
-				fadeRect.destroy();
-				this.openCurtains();
-			}
-		});
+        this.tweens.add({
+            targets: fadeRect,
+            alpha: 0,
+            duration: 700,
+            ease: 'Quad.Out',
+            onComplete: () => {
+                fadeRect.destroy();
+                this.openCurtains();
+            }
+        });
 
-	this.openCurtains();
 
 		// Partículas de lluvia
 		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
@@ -415,21 +425,18 @@ export default class BaseEscene extends Phaser.Scene {
 			const fxMuted = fxMutedRaw === "true";
 			console.log("Preferencias cargadas - Música muteada:", musicMuted, "Efectos de sonido muteados:", fxMuted);
 
+			// Asegura que el SoundManager NO esté muteado globalmente (para que suenen los FX)
+			this.sound.setMute(false);
+
 			if (fxMuted) {
-				console.log("Aplicando mute a FX desde preferencias guardadas");
 				this.fxON.setMuted(true);
 				this.muteAllFx(true);
-
 			}
 
-			if (musicMuted) {
-				console.log("Aplicando mute a música desde preferencias guardadas");
-				this.musicON.setMuted(true);
-				this.sound.setMute(true);
-			}
-		} catch {
-
-		}
+			// No silencies el SoundManager aquí. Aplica el mute de música cuando se cree this.music (en openCurtains)
+			// Guarda la preferencia si quieres consultarla luego
+			this.registry.set("musicMuted", musicMuted);
+		} catch {}
 	}
 
 

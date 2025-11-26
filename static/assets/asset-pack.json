@@ -344,6 +344,11 @@
                 "key": "NextBtn"
             },
             {
+                "url": "assets/NextHomeBtn.png",
+                "type": "image",
+                "key": "NextHomeBtn"
+            },
+            {
                 "atlasURL": "assets/animations/OpenChest/OpenChestanimation.json",
                 "textureURL": "assets/animations/OpenChest/OpenChestanimation.png",
                 "type": "atlas",
@@ -354,6 +359,16 @@
                 "textureURL": "assets/animations/OpenDoor/OpenDoor.png",
                 "type": "atlas",
                 "key": "OpenDoor"
+            },
+            {
+                "url": "assets/PauseBtn.png",
+                "type": "image",
+                "key": "PauseBtn"
+            },
+            {
+                "url": "assets/PauseHomeBtn.png",
+                "type": "image",
+                "key": "PauseHomeBtn"
             },
             {
                 "url": "assets/Platform1.png",
@@ -369,6 +384,11 @@
                 "url": "assets/Player.png",
                 "type": "image",
                 "key": "Player"
+            },
+            {
+                "url": "assets/PlayHomeBtn.png",
+                "type": "image",
+                "key": "PlayHomeBtn"
             },
             {
                 "url": "assets/PrevBtn.png",
@@ -479,6 +499,11 @@
                 "url": "assets/star.png",
                 "type": "image",
                 "key": "star"
+            },
+            {
+                "url": "assets/StopHomeBtn.png",
+                "type": "image",
+                "key": "StopHomeBtn"
             },
             {
                 "url": "assets/unlocks_txt.png",

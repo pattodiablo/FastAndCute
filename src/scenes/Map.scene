@@ -676,6 +676,7 @@
             "type": "Image",
             "id": "ed2f111a-b238-4830-9b0d-1d650783ae71",
             "label": "nextBtn",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "NextBtn"
             },
@@ -687,9 +688,10 @@
         {
             "type": "Image",
             "id": "7330c48a-9111-431b-bce7-b822b9747417",
-            "label": "playBtn",
+            "label": "PlayPauseBtn",
+            "scope": "PUBLIC",
             "texture": {
-                "key": "PlayBtn"
+                "key": "PauseBtn"
             },
             "x": 827,
             "y": 409,
@@ -700,6 +702,7 @@
             "type": "Image",
             "id": "a89882dc-e6da-4e13-b7f8-052965a1660c",
             "label": "prevBtn",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "PrevBtn"
             },

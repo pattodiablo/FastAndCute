@@ -289,10 +289,10 @@ export default class Map extends Phaser.Scene {
 		nextBtn.scaleX = 1.2;
 		nextBtn.scaleY = 1.2;
 
-		// playBtn
-		const playBtn = this.add.image(827, 409, "PlayBtn");
-		playBtn.scaleX = 1.2;
-		playBtn.scaleY = 1.2;
+		// PlayPauseBtn
+		const playPauseBtn = this.add.image(827, 409, "PauseBtn");
+		playPauseBtn.scaleX = 1.2;
+		playPauseBtn.scaleY = 1.2;
 
 		// prevBtn
 		const prevBtn = this.add.image(766, 409, "PrevBtn");
@@ -352,6 +352,9 @@ export default class Map extends Phaser.Scene {
 		this.mapDot9 = mapDot9;
 		this.mapDot10 = mapDot10;
 		this.mapPlayer = mapPlayer;
+		this.nextBtn = nextBtn;
+		this.playPauseBtn = playPauseBtn;
+		this.prevBtn = prevBtn;
 
 		this.events.emit("scene-awake");
 	}
@@ -367,22 +370,66 @@ export default class Map extends Phaser.Scene {
 	public mapDot9!: MapDot;
 	public mapDot10!: MapDot;
 	public mapPlayer!: MapPlayer;
+	public nextBtn!: Phaser.GameObjects.Image;
+	public playPauseBtn!: Phaser.GameObjects.Image;
+	public prevBtn!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
 	private _lastSceneKey?: string;
+	private currentStationUrl?: string;
+	private radioAudio?: HTMLAudioElement;
+	private radioLog: string[] = [];
+
+	
 
 	create() {
-        this.editorCreate();
+    this.editorCreate();
+    this.cameras.main.fadeIn(1200, 0, 0, 0);
 
-        this.cameras.main.fadeIn(1200, 0, 0, 0);
+    this._lastSceneKey = (this.registry.get('LastActiveSceneKey') as string) || this.findUnderlyingActiveSceneKey();
 
-        // Captura la escena previa (si BaseEscene la dejó en el registry) o dedúcela
-        this._lastSceneKey = (this.registry.get('LastActiveSceneKey') as string) || this.findUnderlyingActiveSceneKey();
+    this.prepareRadioElement();
 
-        this.loadMapState();
-        this.locatePlayerOnMap();
+    // Inicializar y exponer el buffer de logs
+    const existing = this.registry.get('RadioLog');
+    this.radioLog = Array.isArray(existing) ? existing.slice() : [];
+    this.registry.set('RadioLog', this.radioLog);
+
+    this.loadMapState();
+    this.locatePlayerOnMap();
+    this.loadRadio("lofi");
+    this.hookRadioButtons();
+
+    // Asegurar estado inicial y sincronizar botón
+    this.registry.set('PlayerPaused', this.registry.get('PlayerPaused') ?? false);
+    const pausedInit = this.registry.get('PlayerPaused') === true;
+    if (this.playPauseBtn) {
+        this.playPauseBtn.setTexture(pausedInit ? "PlayBtn" : "PauseBtn");
     }
+
+    // Escucha el estado de pausa para audio y botón
+    this.registry.events.on('changedata', (_parent: any, key: string, value: any) => {
+        if (key === 'PlayerPaused') {
+            const paused = value === true;
+            if (paused) this.pauseRadio(); else this.playRadio();
+            // actualizar textura del botón
+            if (this.playPauseBtn) {
+                this.playPauseBtn.setTexture(paused ? "PlayBtn" : "PauseBtn");
+            }
+        }
+    }, this);
+}
+
+	// Log con persistencia en registry (y límite de tamaño)
+	private logRadio(message: string) {
+		const entry = `[Radio] ${message}`;
+		console.log(entry);
+		this.radioLog.push(entry);
+		if (this.radioLog.length > 100) this.radioLog.shift();
+		// set para que otras escenas (HomePlayer) puedan leerlo
+		this.registry.set('RadioLog', this.radioLog);
+	}
 
 	private locatePlayerOnMap() {
 		// Mover el mapPlayer al MapDot del nivel actual
@@ -485,6 +532,93 @@ private findUnderlyingActiveSceneKey(): string | undefined {
         }
     }
     return undefined;
+}
+
+private prepareRadioElement() {
+    if (!this.radioAudio) {
+        this.radioAudio = document.createElement("audio");
+        this.radioAudio.id = "radioPlayer";
+        this.radioAudio.style.position = "absolute";
+        this.radioAudio.style.left = "-9999px"; // oculto
+        this.radioAudio.style.width = "1px";
+        this.radioAudio.style.height = "1px";
+        this.radioAudio.autoplay = false;
+        this.radioAudio.controls = false;
+        document.body.appendChild(this.radioAudio);
+    }
+}
+
+
+private loadRadio(name: string) {
+    const stylePretty = name.replace(/\b\w/g, c => c.toUpperCase());
+    this.logRadio(`Loading music style: ${stylePretty}...`);
+
+     fetch(`https://de1.api.radio-browser.info/json/stations/search?name=${encodeURIComponent(name)}&limit=1`)
+         .then(r => r.json())
+         .then(list => {
+             if (Array.isArray(list) && list.length) {
+                 const station = list[0];
+                 this.currentStationUrl = station.url_resolved;
+                 this.logRadio(`Station loaded: ${station.name}`);
+                if (!this.radioAudio || !this.currentStationUrl) return;
+                if (this.radioAudio.src !== this.currentStationUrl) {
+                    this.radioAudio.src = this.currentStationUrl;
+                }
+                // Log cuando el <audio> esté listo o empiece a reproducir
+                const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty}`);
+                try {
+                    // @ts-ignore - add once listeners (TS dom lib puede no tiparlo)
+                    this.radioAudio.addEventListener('playing', onNowPlaying, { once: true });
+                    // fallback si solo llega a canplay primero
+                    // @ts-ignore
+                    this.radioAudio.addEventListener('canplay', onNowPlaying, { once: true });
+                } catch { /* noop */ }
+                const playPromise = this.radioAudio.play();
+                if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
+             } else {
+                this.logRadio(`No station found for: ${name}`);
+             }
+         })
+        .catch(err => this.logRadio(`Error loading style ${name}: ${err?.message || err}`));
+}
+private pauseRadio() {
+    if (this.radioAudio) {
+		this.radioAudio.pause();
+		this.logRadio("Paused");
+	}
+}
+private playRadio() {
+    if (!this.radioAudio || !this.currentStationUrl) return;
+    if (this.radioAudio.src !== this.currentStationUrl) {
+        this.radioAudio.src = this.currentStationUrl;
+    }
+    const playPromise = this.radioAudio.play();
+    if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
+		this.logRadio("Play requested");
+}
+
+private hookRadioButtons() {
+    if (this.playPauseBtn) {
+        this.playPauseBtn.setInteractive({ useHandCursor: true });
+        this.playPauseBtn.on("pointerdown", () => {
+            if (!this.radioAudio) return;
+            if (this.radioAudio.paused) {
+                this.playRadio();
+                this.playPauseBtn.setTexture("PauseBtn");
+            } else {
+                this.pauseRadio();
+                this.playPauseBtn.setTexture("PlayBtn");
+            }
+        });
+    }
+    if (this.nextBtn) {
+        this.nextBtn.setInteractive({ useHandCursor: true });
+        this.nextBtn.on("pointerdown", () => this.loadRadio("chill")); // ejemplo cambia categoría
+    }
+    if (this.prevBtn) {
+        this.prevBtn.setInteractive({ useHandCursor: true });
+        this.prevBtn.on("pointerdown", () => this.loadRadio("lofi"));
+    }
 }
 
 /* END-USER-CODE */

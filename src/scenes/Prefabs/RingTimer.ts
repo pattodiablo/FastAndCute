@@ -12,8 +12,8 @@ export default class RingTimer extends Phaser.GameObjects.Sprite {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "RingLoad", frame ?? "Ring20012.png");
 
-		this.scaleX = 0.5104166666666667;
-		this.scaleY = 0.5104166666666667;
+		this.scaleX = 0.4322736032890191;
+		this.scaleY = 0.4322736032890191;
 		this.play("RingLoad");
 
 		/* START-USER-CTR-CODE */
@@ -52,6 +52,8 @@ export default class RingTimer extends Phaser.GameObjects.Sprite {
 		this.followTarget = undefined;
 		super.destroy(fromScene);
 	}
+
+	
 
 	/* END-USER-CODE */
 }

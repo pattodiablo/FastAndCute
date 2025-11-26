@@ -83,8 +83,7 @@
                 "key": "Vinete"
             },
             "x": 516,
-            "y": 270,
-            "visible": false
+            "y": 270
         },
         {
             "prefabId": "387e70b4-bcbc-496f-ae01-c1605019684c",
@@ -202,6 +201,18 @@
             },
             "x": 515,
             "y": 743
+        },
+        {
+            "prefabId": "8053c17b-ed0c-4a0f-85cb-c04fc1eafcf2",
+            "id": "42191c34-82d7-4a3e-96fe-6a79608b0139",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "HomePlayer",
+            "scope": "PUBLIC",
+            "x": 61,
+            "y": 543
         }
     ],
     "plainObjects": [],
