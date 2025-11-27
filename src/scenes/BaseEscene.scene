@@ -140,7 +140,7 @@
             ],
             "label": "fxON",
             "scope": "PUBLIC",
-            "x": 918,
+            "x": 987,
             "y": 46
         },
         {
@@ -152,7 +152,7 @@
             ],
             "label": "musicON",
             "scope": "PUBLIC",
-            "x": 987,
+            "x": 1179,
             "y": 46
         },
         {

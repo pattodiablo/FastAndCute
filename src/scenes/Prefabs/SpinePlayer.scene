@@ -246,6 +246,61 @@
                 "id": "expression",
                 "expressionType": "any"
             }
+        },
+        {
+            "name": "meowFxs",
+            "label": "meowFxs",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "floatFX1",
+            "label": "floatFX1",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "floatFX2",
+            "label": "floatFX2",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "floatFX3",
+            "label": "floatFX3",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "floatFX4",
+            "label": "floatFX4",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
         }
     ]
 }

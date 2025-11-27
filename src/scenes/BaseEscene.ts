@@ -55,11 +55,11 @@ export default class BaseEscene extends Phaser.Scene {
 		this.add.image(511, 568, "FrontLayer");
 
 		// fxON
-		const fxON = new FxButton(this, 918, 46);
+		const fxON = new FxButton(this, 987, 46);
 		this.add.existing(fxON);
 
 		// musicON
-		const musicON = new MusicBtn(this, 987, 46);
+		const musicON = new MusicBtn(this, 1179, 46);
 		this.add.existing(musicON);
 
 		// mapBtn
@@ -167,11 +167,11 @@ export default class BaseEscene extends Phaser.Scene {
 
 
 		// fxON
-		const fxON = new FxButton(this, 918, 46);
+		const fxON = new FxButton(this, 987, 46);
 		this.add.existing(fxON);
 
 		// musicON
-		const musicON = new MusicBtn(this, 987, 46);
+		const musicON = new MusicBtn(this, 1179, 46);
 		this.add.existing(musicON);
 
 		// carboardEffect
@@ -213,6 +213,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	public music?: Phaser.Sound.BaseSound;
 	public fxList: Phaser.Sound.BaseSound[] = [];
+	public UseInternetMusic: boolean = true;
 
 	// Write your code here
 
@@ -459,9 +460,16 @@ export default class BaseEscene extends Phaser.Scene {
 	openCurtains() {
 
 
-		this.music = this.sound.add("WholeMusic", { loop: true });
-
-		this.music.play();
+	  if (!this.UseInternetMusic) {
+        // Música local del pack
+        this.music = this.sound.add("WholeMusic", { loop: true });
+        this.music.play();
+    } else {
+        // Usando música por Internet (Map controla el <audio>), no reproducir música local
+        // Opcional: asegura que cualquier música previa esté parada
+        try { this.music?.stop(); } catch {}
+        this.music = undefined;
+    }
 
 		this.tweens.add({
 			targets: this.curtain1,

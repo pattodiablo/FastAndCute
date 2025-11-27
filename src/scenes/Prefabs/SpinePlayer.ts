@@ -13,7 +13,7 @@ import RingTimer from "./RingTimer";
 
 export default interface SpinePlayer {
 
-	body: Phaser.Physics.Arcade.Body;
+	 body: Phaser.Physics.Arcade.Body;
 }
 
 export default class SpinePlayer extends SpineGameObject {
@@ -26,9 +26,9 @@ export default class SpinePlayer extends SpineGameObject {
 		scene.physics.add.existing(this, false);
 		this.body.friction.x = 0;
 		this.body.friction.y = 1;
-	
+		this.body.bounce.x = 0.1;
+		this.body.bounce.y = 0.1;
 		this.body.collideWorldBounds = true;
-		this.body.setBounce(0.5, 0.5); // rebote horizontal / vertical
 		this.body.setCircle(35);
 
 		/* START-USER-CTR-CODE */
@@ -42,6 +42,15 @@ export default class SpinePlayer extends SpineGameObject {
 		this.setVisible(false);
 
 		this.setInteractive(); // asegúrate de que el gato sea interactivo
+			this.floatFX1 = this.scene.sound.add("meow1");
+			this.floatFX2 = this.scene.sound.add("meow2");
+			this.floatFX3 = this.scene.sound.add("meow3");
+			this.floatFX4 = this.scene.sound.add("meow4");
+				(this.scene as any).addFx(this.floatFX1);
+				(this.scene as any).addFx(this.floatFX2);
+				(this.scene as any).addFx(this.floatFX3);
+				(this.scene as any).addFx(this.floatFX4);		
+
 		this.floatFX = this.scene.sound.add("sound8");
 		(this.scene as any).addFx(this.floatFX);
 
@@ -84,7 +93,7 @@ export default class SpinePlayer extends SpineGameObject {
 			}
 		});
 
-		
+
 
 			this.on('pointerup', () => {
 				this.clickingOnPlayer = false;
@@ -99,7 +108,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 			// En Player.ts (constructor)
-		
+
 		this.startLongPressCountdown();
 			if (this.clickingOnPlayer) return; // Ignora si el click fue sobre el jugador
 			// BOOST si hay Ring activo (antes de fijar targetPos)
@@ -110,7 +119,10 @@ export default class SpinePlayer extends SpineGameObject {
 			}
 
 			if (!this.MovementLinear) {
-				this.floatFX.play();
+			
+
+				this.addFloatingSound();
+
 				this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
 				this.lastMoveTime = this.scene.time.now; // <-- Actualiza aquí también
 				if (!this.gravityTimerActive) {
@@ -165,7 +177,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 				this.targetPos = new Phaser.Math.Vector2(pointer.x, pointer.y);
 				this.lastMoveTime = this.scene.time.now;
-				this.floatFX.play();
+				this.addFloatingSound();
 
 				// Consumir boost (si está activo) y fijar moveSpeed
 				if (this.nextClickBoost) {
@@ -202,6 +214,11 @@ export default class SpinePlayer extends SpineGameObject {
 	public MovementLinear: boolean = true;
 	public idleFloatPhase: number = 0;
 	public bubbleTrail!: any;
+	public meowFxs!: any;
+	public floatFX1!: any;
+	public floatFX2!: any;
+	public floatFX3!: any;
+	public floatFX4!: any;
 
 	/* START-USER-CODE */
 
@@ -296,7 +313,22 @@ export default class SpinePlayer extends SpineGameObject {
 
 	// Dispara la estela por un tiempo; si se vuelve a hacer click, reinicia el contador
 
+	addFloatingSound() {
+        // 20% de probabilidad de sonar (si no, salir)
+        if (Phaser.Math.FloatBetween(0, 1) < 0.20){
+			const rand = Phaser.Math.Between(1, 4);
+					switch (rand) {
+						case 1: this.floatFX1.play(); break;
+						case 2: this.floatFX2.play(); break;
+						case 3: this.floatFX3.play(); break;
+						case 4: this.floatFX4.play(); break;
+					}
+		}else{
+			this.floatFX.play()
+		}
 
+      
+    }
 	public startMoving() {
 
 		if (!this.MovementLinear) {

@@ -318,6 +318,34 @@
             },
             {
                 "url": [
+                    "assets/fx/meow1.mp3"
+                ],
+                "type": "audio",
+                "key": "meow1"
+            },
+            {
+                "url": [
+                    "assets/fx/meow2.mp3"
+                ],
+                "type": "audio",
+                "key": "meow2"
+            },
+            {
+                "url": [
+                    "assets/fx/meow3.mp3"
+                ],
+                "type": "audio",
+                "key": "meow3"
+            },
+            {
+                "url": [
+                    "assets/fx/meow4.mp3"
+                ],
+                "type": "audio",
+                "key": "meow4"
+            },
+            {
+                "url": [
                     "assets/music/music1.mp3"
                 ],
                 "type": "audio",
