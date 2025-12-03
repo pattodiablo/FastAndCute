@@ -59,6 +59,20 @@
             },
             {
                 "url": [
+                    "assets/fx/charging.mp3"
+                ],
+                "type": "audio",
+                "key": "ChargingSound"
+            },
+            {
+                "url": [
+                    "assets/fx/chestOpening.mp3"
+                ],
+                "type": "audio",
+                "key": "chestOpening"
+            },
+            {
+                "url": [
                     "assets/fx/click.mp3"
                 ],
                 "type": "audio",
@@ -100,10 +114,24 @@
                 "key": "click5"
             },
             {
+                "url": [
+                    "assets/fx/closeChest.mp3"
+                ],
+                "type": "audio",
+                "key": "closeChest"
+            },
+            {
                 "atlasURL": "assets/animations/CloseChest/CloseChestanimation.json",
                 "textureURL": "assets/animations/CloseChest/CloseChestanimation.png",
                 "type": "atlas",
                 "key": "CloseChestanimation"
+            },
+            {
+                "url": [
+                    "assets/fx/collectStar.mp3"
+                ],
+                "type": "audio",
+                "key": "collectStar"
             },
             {
                 "url": "assets/Curtain1.png",
@@ -116,6 +144,13 @@
                 "key": "Curtain2"
             },
             {
+                "url": [
+                    "assets/fx/CurtainOpen.mp3"
+                ],
+                "type": "audio",
+                "key": "CurtainOpen"
+            },
+            {
                 "url": "assets/door.png",
                 "type": "image",
                 "key": "door"
@@ -124,6 +159,13 @@
                 "atlasURL": "assets/animations/DoorAppear/DoorAppear.json",
                 "textureURL": "assets/animations/DoorAppear/DoorAppear.png",
                 "type": "atlas",
+                "key": "DoorAppear"
+            },
+            {
+                "url": [
+                    "assets/fx/DoorAppear.mp3"
+                ],
+                "type": "audio",
                 "key": "DoorAppear"
             },
             {

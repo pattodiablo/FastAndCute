@@ -19,23 +19,32 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 			}
 	
 		});
-
+	this.OpenChestSound = this.scene.sound.add("chestOpening");
+	this.CloseChestSound = this.scene.sound.add("closeChest");		
+				(this.scene as any).addFx(this.OpenChestSound);
 
 		/* END-USER-CTR-CODE */
 	}
 
 	public IsOpen: boolean = false;
-
+	private OpenChestSound?: Phaser.Sound.BaseSound;	
+	private CloseChestSound?: Phaser.Sound.BaseSound;
 	/* START-USER-CODE */
 
 		OpenChest() {
 			// Aquí va la lógica para abrir el cofre, por ejemplo:
 
-			
+		
 			this.play("OpenChest");
+
+	  	this.scene.time.delayedCall(1500, () => this.OpenChestSound?.play());
+	
 			this.once("animationcomplete-OpenChest", () => {
 				// Aquí va la lógica para abrir el cofre (por ejemplo, mostrar el premio, etc.)
 				(this.scene as any).player.startMoving(); // Llama al método startMoving del jugador
+			
+			
+
 				this.IsOpen = true;
 				this.scene.add.particles(0, 0, 'BubbleParticle', {
 				x: this.x,
@@ -58,6 +67,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 		public resetChest() {
 			this.IsOpen = false;
 			this.play("CloseChest");
+				this.CloseChestSound?.play()	
 		}
 	/* END-USER-CODE */
 }

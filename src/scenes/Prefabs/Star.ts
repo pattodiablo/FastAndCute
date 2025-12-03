@@ -49,7 +49,7 @@ export default class Star extends Phaser.GameObjects.Image {
 	create() {
 		this.scene.physics.add.overlap((this.scene as any).player, this, this.collectStar, undefined, this);
 		this.addStarToSceneStarsGroup();
-		this.collectFx = this.scene.sound.add("sound3");
+		this.collectFx = this.scene.sound.add("collectStar");
 		(this.scene as any).addFx(this.collectFx);
 
 	}

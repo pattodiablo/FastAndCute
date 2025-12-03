@@ -57,6 +57,9 @@ export default class SpinePlayer extends SpineGameObject {
 		this.explodeFx = this.scene.sound.add("realPop");
 		(this.scene as any).addFx(this.explodeFx);
 
+		this.ChargingSound = this.scene.sound.add("ChargingSound");
+		(this.scene as any).addFx(this.ChargingSound);
+
 		this.on('pointerup', () => this.cancelLongPress());
 		this.on('pointerout', () => this.cancelLongPress());
 		this.scene.input.on('pointerup', () => this.cancelLongPress());
@@ -230,6 +233,7 @@ export default class SpinePlayer extends SpineGameObject {
 	private currentRing?: RingTimer;
 	private clickingOnPlayer: boolean = false;
 	private nextClickBoost: boolean = false;
+	private ChargingSound?: Phaser.Sound.BaseSound;
 
 	// Estela de burbujas
 
@@ -244,6 +248,7 @@ export default class SpinePlayer extends SpineGameObject {
 			if (this.isPressing && (!this.currentRing || !this.currentRing.active)) {
 				this.onLongPress();
 				this.emit('longpress');
+				this.ChargingSound?.play();
 			}
 		});
 	}

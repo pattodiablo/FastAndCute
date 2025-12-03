@@ -35,10 +35,15 @@ export default class Door extends Phaser.GameObjects.Sprite {
 	public IsOpen: boolean = false;
 	public shineTimer!: any;
 	public IsVisible: boolean = false;
-
+    public AppearDoorSound?: Phaser.Sound.BaseSound;
 	/* START-USER-CODE */
 
     create() {
+this.AppearDoorSound = this.scene.sound.add("DoorAppear");
+		
+				(this.scene as any).addFx(this.AppearDoorSound);
+
+
 
         this.scene.physics.add.overlap((this.scene as any).player, this, this.OpenDoor, undefined, this);
 
@@ -63,7 +68,7 @@ export default class Door extends Phaser.GameObjects.Sprite {
         this.setVisible(true);
         this.body.enable = true;
         this.play("DoorAppear");
-
+		this.AppearDoorSound?.play();
         // Espera a que termine la animación DoorAppear para iniciar el brillo
         this.once("animationcomplete-DoorAppear", () => {
             if (!this.IsOpen) {

@@ -206,6 +206,11 @@ export default class BaseEscene extends Phaser.Scene {
 		this.curtain2 = curtain2;
 
 		this.events.emit("scene-awake");
+
+
+			this.curtainOpen = this.sound.add("CurtainOpen");
+			(this as any).addFx(this.curtainOpen);
+			
 	}
 
 	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
@@ -214,7 +219,7 @@ export default class BaseEscene extends Phaser.Scene {
 	public music?: Phaser.Sound.BaseSound;
 	public fxList: Phaser.Sound.BaseSound[] = [];
 	public UseInternetMusic: boolean = true;
-
+	private curtainOpen?: Phaser.Sound.BaseSound;
 	// Write your code here
 
 	create() {
@@ -245,10 +250,11 @@ export default class BaseEscene extends Phaser.Scene {
 			) {
 				this.scale.startFullscreen();
 			}
+
 		});
 
 		// --- FADE IN DESDE NEGRO ---
-		const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
+		/* const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
 			.setOrigin(0, 0)
 			.setDepth(1000)
 			.setAlpha(1);
@@ -263,8 +269,9 @@ export default class BaseEscene extends Phaser.Scene {
                 this.openCurtains();
             }
         });
-
-
+*/
+  this.openCurtains();
+	
 		// Partículas de lluvia
 		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
 			x: { min: 0, max: this.scale.width },
@@ -414,8 +421,9 @@ export default class BaseEscene extends Phaser.Scene {
 
 
 	addFx(fx: Phaser.Sound.BaseSound) {
-		this.fxList.push(fx);
-}
+
+			this.fxList.push(fx);
+	}
 
 
 	private loadPlayerPrefs() {
@@ -459,7 +467,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	openCurtains() {
 
-
+	this.curtainOpen?.play();
 	  if (!this.UseInternetMusic) {
         // Música local del pack
         this.music = this.sound.add("WholeMusic", { loop: true });
