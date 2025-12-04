@@ -273,19 +273,7 @@ export default class BaseEscene extends Phaser.Scene {
   this.openCurtains();
 	
 		// Partículas de lluvia
-		/* const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
-			x: { min: 0, max: this.scale.width },
-			y: 0,
-			lifespan: 1200,
-			speedY: { min: 400, max: 600 },
-			scale: { start: 0.15, end: 0.05 },
-			alpha: { start: 0.7, end: 0 },
-			quantity: 2,
-			frequency: 30,
-			blendMode: 'ADD'
-		});
-			rainParticles.setDepth(999); // Para que la lluvia esté por encima de los fondos */
-
+		//this.startRain();
 		// Al dormir o apagar esta escena, parar su audio propio
 		this.events.on(Phaser.Scenes.Events.SLEEP, () => {
 			try { this.music?.stop(); } catch {}
@@ -376,6 +364,20 @@ export default class BaseEscene extends Phaser.Scene {
 		this.showMapOverlay(this._mapFromTop);
 	}
 
+	startRain() {
+		const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {
+			x: { min: 0, max: this.scale.width },
+			y: 0,
+			lifespan: 1200,
+			speedY: { min: 400, max: 600 },
+			scale: { start: 0.15, end: 0.05 },
+			alpha: { start: 0.7, end: 0 },
+			quantity: 2,
+			frequency: 30,
+			blendMode: 'ADD'
+		});
+			rainParticles.setDepth(999)
+	}
 
 	resolveDepths() {
 
