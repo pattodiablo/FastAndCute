@@ -65,6 +65,7 @@ export default class MapBtn extends Phaser.GameObjects.Image {
 			}
 		});
 	}
+
 	/* END-USER-CODE */
 }
 

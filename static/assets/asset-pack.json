@@ -576,6 +576,46 @@
                 "key": "StopHomeBtn"
             },
             {
+                "url": "assets/Unlock1.png",
+                "type": "image",
+                "key": "Unlock1"
+            },
+            {
+                "url": "assets/Unlock2.png",
+                "type": "image",
+                "key": "Unlock2"
+            },
+            {
+                "url": "assets/Unlock3.png",
+                "type": "image",
+                "key": "Unlock3"
+            },
+            {
+                "url": "assets/Unlock4.png",
+                "type": "image",
+                "key": "Unlock4"
+            },
+            {
+                "url": "assets/Unlock5.png",
+                "type": "image",
+                "key": "Unlock5"
+            },
+            {
+                "url": "assets/Unlock6.png",
+                "type": "image",
+                "key": "Unlock6"
+            },
+            {
+                "url": "assets/Unlock7.png",
+                "type": "image",
+                "key": "Unlock7"
+            },
+            {
+                "url": "assets/Unlock8.png",
+                "type": "image",
+                "key": "Unlock8"
+            },
+            {
                 "url": "assets/unlocks_txt.png",
                 "type": "image",
                 "key": "unlocks_txt"

@@ -35,60 +35,10 @@
             "y": 323
         },
         {
-            "type": "Image",
-            "id": "76fc2b08-1b4d-43bc-a39b-9fce5e3e0761",
-            "label": "mapBtnOn",
-            "texture": {
-                "key": "MapBtnOn"
-            },
-            "x": 274,
-            "y": 136
-        },
-        {
-            "type": "Image",
-            "id": "82f38b0a-b330-4e3c-890b-9c3d0efe9444",
-            "label": "bigCassette",
-            "texture": {
-                "key": "BigCassette"
-            },
-            "x": 821,
-            "y": 118
-        },
-        {
-            "type": "Image",
-            "id": "58e92ec5-6e00-48bd-b39c-0c0da2607fbb",
-            "label": "basePlayer",
-            "texture": {
-                "key": "BasePlayer"
-            },
-            "x": 821,
-            "y": 319
-        },
-        {
-            "prefabId": "1b2d1940-0399-47e1-8ffe-9e6983c97a53",
-            "id": "d9fe07ef-a7e7-487b-8aa3-fef1128055a1",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "mapBtn",
-            "x": 44,
-            "y": 46
-        },
-        {
-            "type": "Image",
-            "id": "bb9e80d6-50ed-4555-b91f-fcdb89ff3797",
-            "label": "mapBtnOn_1",
-            "texture": {
-                "key": "MapBtnOn"
-            },
-            "x": 487,
-            "y": 136
-        },
-        {
             "type": "Container",
             "id": "6d6bc976-c4e7-4743-920e-be4ebf37f476",
             "label": "WholeMap",
+            "scope": "PUBLIC",
             "x": 143,
             "y": 116,
             "list": [
@@ -641,6 +591,159 @@
                     "scaleY": 0.5493458055294465
                 }
             ]
+        },
+        {
+            "type": "Container",
+            "id": "7c860b53-835d-4f09-8d43-e52be1da8d93",
+            "label": "Unlocks",
+            "scope": "PUBLIC",
+            "x": 757,
+            "y": 261,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "c0437a0b-e82a-4997-82fd-0b793615487b",
+                    "label": "unlock1",
+                    "texture": {
+                        "key": "Unlock1"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "4e7ebb77-aa87-4977-a7c7-adc330a5986d",
+                    "label": "unlock2",
+                    "texture": {
+                        "key": "Unlock2"
+                    },
+                    "x": 130
+                },
+                {
+                    "type": "Image",
+                    "id": "c76b82e0-b8df-4126-98c7-c616f122507e",
+                    "label": "unlock3",
+                    "texture": {
+                        "key": "Unlock3"
+                    },
+                    "x": 260
+                },
+                {
+                    "type": "Image",
+                    "id": "2ebee71b-5e9d-4ea2-8118-a51f46a3b739",
+                    "label": "unlock4",
+                    "texture": {
+                        "key": "Unlock4"
+                    },
+                    "x": 390
+                },
+                {
+                    "type": "Image",
+                    "id": "636d0125-8314-4e71-bf39-436f3ce45a92",
+                    "label": "unlock5",
+                    "texture": {
+                        "key": "Unlock5"
+                    },
+                    "y": 135
+                },
+                {
+                    "type": "Image",
+                    "id": "633bc3c4-92fd-48ea-8988-52d2151fa87a",
+                    "label": "unlock6",
+                    "texture": {
+                        "key": "Unlock6"
+                    },
+                    "x": 130,
+                    "y": 135
+                },
+                {
+                    "type": "Image",
+                    "id": "565fda0b-0d44-494b-9cdc-efd62e0e6d81",
+                    "label": "unlock7",
+                    "texture": {
+                        "key": "Unlock7"
+                    },
+                    "x": 260,
+                    "y": 135
+                },
+                {
+                    "type": "Image",
+                    "id": "c1076434-48ac-4b2b-8fa7-7ddc4fe0fe08",
+                    "label": "unlock8",
+                    "texture": {
+                        "key": "Unlock8"
+                    },
+                    "x": 390,
+                    "y": 135
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "82f38b0a-b330-4e3c-890b-9c3d0efe9444",
+            "label": "bigCassette",
+            "texture": {
+                "key": "BigCassette"
+            },
+            "x": 821,
+            "y": 118
+        },
+        {
+            "type": "Image",
+            "id": "5a534be7-ae41-4fef-88a1-8b066132cfc5",
+            "label": "mapDeviceBase_1",
+            "texture": {
+                "key": "MapDeviceBase"
+            },
+            "x": 1124,
+            "y": 323
+        },
+        {
+            "type": "Image",
+            "id": "58e92ec5-6e00-48bd-b39c-0c0da2607fbb",
+            "label": "basePlayer",
+            "texture": {
+                "key": "BasePlayer"
+            },
+            "x": 821,
+            "y": 319
+        },
+        {
+            "prefabId": "1b2d1940-0399-47e1-8ffe-9e6983c97a53",
+            "id": "d9fe07ef-a7e7-487b-8aa3-fef1128055a1",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mapBtn",
+            "x": 44,
+            "y": 46
+        },
+        {
+            "prefabId": "7b0b6c52-dd6f-48d5-95e1-0d5ac528fb49",
+            "id": "bb9e80d6-50ed-4555-b91f-fcdb89ff3797",
+            "unlock": [
+                "x",
+                "y",
+                "ActivateSection"
+            ],
+            "label": "mapBigBtn2",
+            "scope": "PUBLIC",
+            "ActivateSection": "Unlocks",
+            "x": 487,
+            "y": 136
+        },
+        {
+            "prefabId": "7b0b6c52-dd6f-48d5-95e1-0d5ac528fb49",
+            "id": "aec72507-bc4f-498b-beea-5cac272961a4",
+            "unlock": [
+                "x",
+                "y",
+                "ActivateSection"
+            ],
+            "label": "mapBigBtn1",
+            "scope": "PUBLIC",
+            "ActivateSection": "Mundo",
+            "x": 277,
+            "y": 136
         },
         {
             "type": "Image",

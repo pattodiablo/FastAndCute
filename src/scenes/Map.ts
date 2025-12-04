@@ -2,10 +2,11 @@
 
 /* START OF COMPILED CODE */
 
-import MapBtn from "./Prefabs/MapBtn";
 import MapStar from "./Prefabs/MapStar";
 import MapDot from "./Prefabs/MapDot";
 import MapPlayer from "./Prefabs/MapPlayer";
+import MapBtn from "./Prefabs/MapBtn";
+import MapBigBtn from "./Prefabs/MapBigBtn";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -27,22 +28,6 @@ export default class Map extends Phaser.Scene {
 
 		// mapDeviceBase
 		this.add.image(494, 323, "MapDeviceBase");
-
-		// mapBtnOn
-		this.add.image(274, 136, "MapBtnOn");
-
-		// bigCassette
-		this.add.image(821, 118, "BigCassette");
-
-		// basePlayer
-		this.add.image(821, 319, "BasePlayer");
-
-		// mapBtn
-		const mapBtn = new MapBtn(this, 44, 46);
-		this.add.existing(mapBtn);
-
-		// mapBtnOn_1
-		this.add.image(487, 136, "MapBtnOn");
 
 		// WholeMap
 		const wholeMap = this.add.container(143, 116);
@@ -275,6 +260,62 @@ export default class Map extends Phaser.Scene {
 		mapStar_2.scaleY = 0.5493458055294465;
 		wholeMap.add(mapStar_2);
 
+		// Unlocks
+		const unlocks = this.add.container(757, 261);
+
+		// unlock1
+		const unlock1 = this.add.image(0, 0, "Unlock1");
+		unlocks.add(unlock1);
+
+		// unlock2
+		const unlock2 = this.add.image(130, 0, "Unlock2");
+		unlocks.add(unlock2);
+
+		// unlock3
+		const unlock3 = this.add.image(260, 0, "Unlock3");
+		unlocks.add(unlock3);
+
+		// unlock4
+		const unlock4 = this.add.image(390, 0, "Unlock4");
+		unlocks.add(unlock4);
+
+		// unlock5
+		const unlock5 = this.add.image(0, 135, "Unlock5");
+		unlocks.add(unlock5);
+
+		// unlock6
+		const unlock6 = this.add.image(130, 135, "Unlock6");
+		unlocks.add(unlock6);
+
+		// unlock7
+		const unlock7 = this.add.image(260, 135, "Unlock7");
+		unlocks.add(unlock7);
+
+		// unlock8
+		const unlock8 = this.add.image(390, 135, "Unlock8");
+		unlocks.add(unlock8);
+
+		// bigCassette
+		this.add.image(821, 118, "BigCassette");
+
+		// mapDeviceBase_1
+		this.add.image(1124, 323, "MapDeviceBase");
+
+		// basePlayer
+		this.add.image(821, 319, "BasePlayer");
+
+		// mapBtn
+		const mapBtn = new MapBtn(this, 44, 46);
+		this.add.existing(mapBtn);
+
+		// mapBigBtn2
+		const mapBigBtn2 = new MapBigBtn(this, 487, 136);
+		this.add.existing(mapBigBtn2);
+
+		// mapBigBtn1
+		const mapBigBtn1 = new MapBigBtn(this, 277, 136);
+		this.add.existing(mapBigBtn1);
+
 		// new_txt
 		this.add.image(486, 83, "new_txt");
 
@@ -341,6 +382,12 @@ export default class Map extends Phaser.Scene {
 		// mapDot10 (prefab fields)
 		mapDot10.Level = 10;
 
+		// mapBigBtn2 (prefab fields)
+		mapBigBtn2.ActivateSection = "Unlocks";
+
+		// mapBigBtn1 (prefab fields)
+		mapBigBtn1.ActivateSection = "Mundo";
+
 		this.mapDot1 = mapDot1;
 		this.mapDot2 = mapDot2;
 		this.mapDot3 = mapDot3;
@@ -352,6 +399,10 @@ export default class Map extends Phaser.Scene {
 		this.mapDot9 = mapDot9;
 		this.mapDot10 = mapDot10;
 		this.mapPlayer = mapPlayer;
+		this.wholeMap = wholeMap;
+		this.unlocks = unlocks;
+		this.mapBigBtn2 = mapBigBtn2;
+		this.mapBigBtn1 = mapBigBtn1;
 		this.nextBtn = nextBtn;
 		this.playPauseBtn = playPauseBtn;
 		this.prevBtn = prevBtn;
@@ -370,6 +421,10 @@ export default class Map extends Phaser.Scene {
 	public mapDot9!: MapDot;
 	public mapDot10!: MapDot;
 	public mapPlayer!: MapPlayer;
+	public wholeMap!: Phaser.GameObjects.Container;
+	public unlocks!: Phaser.GameObjects.Container;
+	public mapBigBtn2!: MapBigBtn;
+	public mapBigBtn1!: MapBigBtn;
 	public nextBtn!: Phaser.GameObjects.Image;
 	public playPauseBtn!: Phaser.GameObjects.Image;
 	public prevBtn!: Phaser.GameObjects.Image;
@@ -380,12 +435,17 @@ export default class Map extends Phaser.Scene {
 	private currentStationUrl?: string;
 	private radioAudio?: HTMLAudioElement;
 	private radioLog: string[] = [];
+private wholeMapOrigX: number = 0;
+private wholeMapOrigY: number = 0;
 
-	
 
 	create() {
     this.editorCreate();
     this.cameras.main.fadeIn(1200, 0, 0, 0);
+
+    // Registrar posición original del contenedor
+    this.wholeMapOrigX = this.wholeMap.x;
+    this.wholeMapOrigY = this.wholeMap.y;
 
     this._lastSceneKey = (this.registry.get('LastActiveSceneKey') as string) || this.findUnderlyingActiveSceneKey();
 
@@ -620,6 +680,67 @@ private hookRadioButtons() {
         this.prevBtn.on("pointerdown", () => this.loadRadio("lofi"));
     }
 }
+
+
+	public ActivateSection(Section:String)	{	
+
+		console.log("Map button will activate section: " + Section);
+
+		switch(Section) {
+			case "Mundo":
+				this.mapBigBtn2.unclickBtn();
+				this.ActivateMundoSection();
+				break;
+			case "Unlocks":
+				this.mapBigBtn1.unclickBtn();
+				this.ActivateUnlocksSection();
+				break;
+			default:
+				console.warn("Unknown section: " + Section);
+				break;
+		}	
+	}
+
+	public ActivateMundoSection()	{
+		console.log("Activating Mundo Section");
+
+		// Regresar wholeMap a su posición original
+		this.tweens.add({
+			targets: this.wholeMap,
+			x: this.wholeMapOrigX,
+			duration: 550,
+			ease: 'Cubic.Out'
+		});
+
+		this.tweens.add({
+			targets: this.unlocks,
+			x: 757,
+			duration: 550,
+			ease: 'Cubic.Out'
+		});
+		// Lógica para activar la sección Mundo
+		// Por ejemplo, cambiar la vista del mapa o mostrar información adicional
+	}	
+
+	public ActivateUnlocksSection()	{
+		console.log("Activating Unlocks Section");
+		this.tweens.add({
+            targets: this.wholeMap,
+            x: this.wholeMap.x + 600,
+            duration: 550,
+            ease: 'Cubic.Out'
+        });
+
+			this.tweens.add({
+            targets: this.unlocks,
+            x: this.unlocks.x - 570,
+            duration: 550,
+            ease: 'Cubic.Out'
+        });
+
+		// Lógica para activar la sección Unlocks
+		// Por ejemplo, mostrar los elementos desbloqueados o logros
+	}	
 
 /* END-USER-CODE */
 }
