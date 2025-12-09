@@ -125,6 +125,17 @@
             },
             "x": 941,
             "y": 439
+        },
+        {
+            "prefabId": "d406054b-b466-48ea-9e34-e0f9bdc9de07",
+            "id": "c11f5505-c3e8-4d31-a02e-f3704fab29ad",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "catTrack",
+            "x": 561,
+            "y": 425
         }
     ],
     "plainObjects": [],

@@ -17,6 +17,11 @@ export default class MapBigBtn extends Phaser.GameObjects.Image {
 		this.on('pointerdown', () => this.btnClick());
 		this.setInteractive({ useHandCursor: true });
 
+	
+	
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, () => {
+			this.checkIfClicked(this.IsClicked);
+		}, this);
 		/* END-USER-CTR-CODE */
 	}
 
@@ -24,6 +29,14 @@ export default class MapBigBtn extends Phaser.GameObjects.Image {
 	public ActivateSection: string = "Map";
 
 	/* START-USER-CODE */
+	checkIfClicked(isClicked: boolean) {
+	console.log("cheking click status in mapbigbtn: ", isClicked);
+			if (isClicked) {
+			
+				this.setTint(0xffffff);
+					this.setTexture("MapBtnOn");
+			} 
+		};
 
 	btnHover() {
 	this.setTint(0xdddddd);

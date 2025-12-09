@@ -210,7 +210,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 			this.curtainOpen = this.sound.add("CurtainOpen");
 			(this as any).addFx(this.curtainOpen);
-			
+
 	}
 
 	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
@@ -232,6 +232,11 @@ export default class BaseEscene extends Phaser.Scene {
 		this.resolveDepths();
 		this.startingPositions();
 		this.initMapOverlay();
+
+  // Inicializa el flag global para detectar el primer cambio
+    const reg = this.game.registry;
+    reg.set('HasNewTrack', false);
+
 
 
 		this.loadPlayerPrefs();
@@ -271,7 +276,7 @@ export default class BaseEscene extends Phaser.Scene {
         });
 */
   this.openCurtains();
-	
+
 		// Partículas de lluvia
 		//this.startRain();
 		// Al dormir o apagar esta escena, parar su audio propio
@@ -363,6 +368,7 @@ export default class BaseEscene extends Phaser.Scene {
 	public toggleMapOverlay() {
 		this.showMapOverlay(this._mapFromTop);
 	}
+
 
 	startRain() {
 		const rainParticles = this.add.particles(0, 0, 'BubbleParticle', {

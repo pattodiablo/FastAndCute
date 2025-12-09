@@ -58,6 +58,16 @@
                 "key": "CarboardEffect"
             },
             {
+                "url": "assets/CatTrack.png",
+                "type": "image",
+                "key": "CatTrack"
+            },
+            {
+                "url": "assets/CatTrackCover.png",
+                "type": "image",
+                "key": "CatTrackCover"
+            },
+            {
                 "url": [
                     "assets/fx/charging.mp3"
                 ],
@@ -485,6 +495,16 @@
                 "key": "RingStay"
             },
             {
+                "url": "assets/sliderBtn.png",
+                "type": "image",
+                "key": "sliderBtn"
+            },
+            {
+                "url": "assets/sliderOpBack.png",
+                "type": "image",
+                "key": "sliderOpBack"
+            },
+            {
                 "url": "assets/song1Almbum.png",
                 "type": "image",
                 "key": "song1Almbum"
@@ -571,6 +591,11 @@
                 "key": "star"
             },
             {
+                "url": "assets/starParticle.png",
+                "type": "image",
+                "key": "starParticle"
+            },
+            {
                 "url": "assets/StopHomeBtn.png",
                 "type": "image",
                 "key": "StopHomeBtn"
@@ -621,9 +646,24 @@
                 "key": "unlocks_txt"
             },
             {
+                "url": "assets/useLocalText.png",
+                "type": "image",
+                "key": "useLocalText"
+            },
+            {
                 "url": "assets/Vinete.png",
                 "type": "image",
                 "key": "Vinete"
+            },
+            {
+                "url": "assets/VolumeDown.png",
+                "type": "image",
+                "key": "VolumeDown"
+            },
+            {
+                "url": "assets/VolumeUp.png",
+                "type": "image",
+                "key": "VolumeUp"
             },
             {
                 "url": [

@@ -605,7 +605,7 @@
                     "id": "c0437a0b-e82a-4997-82fd-0b793615487b",
                     "label": "unlock1",
                     "texture": {
-                        "key": "Unlock1"
+                        "key": "CatTrackCover"
                     }
                 },
                 {
@@ -737,21 +737,25 @@
             "unlock": [
                 "x",
                 "y",
-                "ActivateSection"
+                "ActivateSection",
+                "IsClicked"
             ],
             "label": "mapBigBtn1",
             "scope": "PUBLIC",
+            "IsClicked": true,
             "ActivateSection": "Mundo",
             "x": 277,
             "y": 136
         },
         {
-            "type": "Image",
+            "prefabId": "c75eb02f-de9c-4e4f-ae94-5e3da3543ee1",
             "id": "86c40a65-effa-4a26-b01e-67393d253950",
-            "label": "new_txt",
-            "texture": {
-                "key": "new_txt"
-            },
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "NewUnlockText",
+            "scope": "PUBLIC",
             "x": 486,
             "y": 83
         },
@@ -817,21 +821,24 @@
         {
             "type": "Image",
             "id": "9b97258d-2b23-4a4a-996a-281618783fd7",
-            "label": "songTimeline",
+            "label": "VolumenSizeBar",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "SongTimeline"
             },
-            "x": 824,
-            "y": 339
+            "x": 738,
+            "y": 339,
+            "originX": 0
         },
         {
             "type": "Image",
             "id": "7d96ee7b-69f9-46dc-930f-91ee81a90207",
-            "label": "songStatusHandle",
+            "label": "SongVolumenHandle",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "SongStatusHandle"
             },
-            "x": 773,
+            "x": 742,
             "y": 339
         },
         {
@@ -853,6 +860,56 @@
             },
             "x": 821,
             "y": 215
+        },
+        {
+            "type": "Image",
+            "id": "8fa60420-678d-4755-90a4-37defe674196",
+            "label": "volumeDown",
+            "texture": {
+                "key": "VolumeDown"
+            },
+            "x": 742,
+            "y": 319
+        },
+        {
+            "type": "Image",
+            "id": "c11b20a3-13b3-4a86-a734-42081555b58e",
+            "label": "volumeUp",
+            "texture": {
+                "key": "VolumeUp"
+            },
+            "x": 901,
+            "y": 319
+        },
+        {
+            "type": "Image",
+            "id": "eed84af8-9449-464f-96e3-476091076179",
+            "label": "useLocalText",
+            "texture": {
+                "key": "useLocalText"
+            },
+            "x": 754,
+            "y": 484
+        },
+        {
+            "type": "Image",
+            "id": "65def031-d533-4fea-b9c3-23a06e6bbbd7",
+            "label": "sliderOpBack",
+            "texture": {
+                "key": "sliderOpBack"
+            },
+            "x": 758,
+            "y": 518
+        },
+        {
+            "type": "Image",
+            "id": "f910edbc-b4ce-4ebf-9c1f-a8080a02c088",
+            "label": "sliderBtn",
+            "texture": {
+                "key": "sliderBtn"
+            },
+            "x": 725,
+            "y": 518
         }
     ],
     "plainObjects": [],

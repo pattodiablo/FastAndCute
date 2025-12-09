@@ -7,6 +7,7 @@ import MapDot from "./Prefabs/MapDot";
 import MapPlayer from "./Prefabs/MapPlayer";
 import MapBtn from "./Prefabs/MapBtn";
 import MapBigBtn from "./Prefabs/MapBigBtn";
+import NewUnlockText from "./Prefabs/NewUnlockText";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -264,7 +265,7 @@ export default class Map extends Phaser.Scene {
 		const unlocks = this.add.container(757, 261);
 
 		// unlock1
-		const unlock1 = this.add.image(0, 0, "Unlock1");
+		const unlock1 = this.add.image(0, 0, "CatTrackCover");
 		unlocks.add(unlock1);
 
 		// unlock2
@@ -316,8 +317,9 @@ export default class Map extends Phaser.Scene {
 		const mapBigBtn1 = new MapBigBtn(this, 277, 136);
 		this.add.existing(mapBigBtn1);
 
-		// new_txt
-		this.add.image(486, 83, "new_txt");
+		// NewUnlockText
+		const newUnlockText = new NewUnlockText(this, 486, 83);
+		this.add.existing(newUnlockText);
 
 		// world_Txt
 		this.add.image(272, 136, "world_Txt");
@@ -340,17 +342,33 @@ export default class Map extends Phaser.Scene {
 		prevBtn.scaleX = 1.2;
 		prevBtn.scaleY = 1.2;
 
-		// songTimeline
-		this.add.image(824, 339, "SongTimeline");
+		// VolumenSizeBar
+		const volumenSizeBar = this.add.image(738, 339, "SongTimeline");
+		volumenSizeBar.setOrigin(0, 0.5);
 
-		// songStatusHandle
-		this.add.image(773, 339, "SongStatusHandle");
+		// SongVolumenHandle
+		const songVolumenHandle = this.add.image(742, 339, "SongStatusHandle");
 
 		// song1Almbum
 		this.add.image(821, 216, "song1Almbum");
 
 		// songPortrait
 		this.add.image(821, 215, "SongPortrait");
+
+		// volumeDown
+		this.add.image(742, 319, "VolumeDown");
+
+		// volumeUp
+		this.add.image(901, 319, "VolumeUp");
+
+		// useLocalText
+		this.add.image(754, 484, "useLocalText");
+
+		// sliderOpBack
+		this.add.image(758, 518, "sliderOpBack");
+
+		// sliderBtn
+		this.add.image(725, 518, "sliderBtn");
 
 		// mapDot1 (prefab fields)
 		mapDot1.IsDotActive = true;
@@ -386,6 +404,7 @@ export default class Map extends Phaser.Scene {
 		mapBigBtn2.ActivateSection = "Unlocks";
 
 		// mapBigBtn1 (prefab fields)
+		mapBigBtn1.IsClicked = true;
 		mapBigBtn1.ActivateSection = "Mundo";
 
 		this.mapDot1 = mapDot1;
@@ -403,9 +422,12 @@ export default class Map extends Phaser.Scene {
 		this.unlocks = unlocks;
 		this.mapBigBtn2 = mapBigBtn2;
 		this.mapBigBtn1 = mapBigBtn1;
+		this.newUnlockText = newUnlockText;
 		this.nextBtn = nextBtn;
 		this.playPauseBtn = playPauseBtn;
 		this.prevBtn = prevBtn;
+		this.volumenSizeBar = volumenSizeBar;
+		this.songVolumenHandle = songVolumenHandle;
 
 		this.events.emit("scene-awake");
 	}
@@ -425,9 +447,12 @@ export default class Map extends Phaser.Scene {
 	public unlocks!: Phaser.GameObjects.Container;
 	public mapBigBtn2!: MapBigBtn;
 	public mapBigBtn1!: MapBigBtn;
+	public newUnlockText!: NewUnlockText;
 	public nextBtn!: Phaser.GameObjects.Image;
 	public playPauseBtn!: Phaser.GameObjects.Image;
 	public prevBtn!: Phaser.GameObjects.Image;
+	public volumenSizeBar!: Phaser.GameObjects.Image;
+	public songVolumenHandle!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -435,8 +460,8 @@ export default class Map extends Phaser.Scene {
 	private currentStationUrl?: string;
 	private radioAudio?: HTMLAudioElement;
 	private radioLog: string[] = [];
-private wholeMapOrigX: number = 0;
-private wholeMapOrigY: number = 0;
+	private wholeMapOrigX: number = 0;
+	private wholeMapOrigY: number = 0;
 
 
 	create() {
@@ -479,6 +504,114 @@ private wholeMapOrigY: number = 0;
             }
         }
     }, this);
+
+
+    this.initVolumeControls(); // activar control de volumen
+
+    // Listener de HasNewTrack (usar el registry global para coincidir con CatTrack)
+    const gameReg = this.game.registry;
+
+    // Función para aplicar visibilidad
+    const applyHasNewTrack = (val?: any) => {
+        const visible = (val === undefined) ? (gameReg.get('HasNewTrack') === true) : (val === true);
+        this.newUnlockText?.setVisible(visible);
+    };
+
+    // Estado inicial
+    applyHasNewTrack();
+
+    // Escuchar cambios
+    const onRegChange = (_p: any, key: string, value: any) => {
+
+        if (key === 'HasNewTrack') applyHasNewTrack(value);
+    };
+    gameReg.events.on('changedata', onRegChange, this);
+
+    // Limpieza al cerrar la escena
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+        gameReg.events.off('changedata', onRegChange, this);
+    });
+}
+
+private initVolumeControls() {
+    // Asegúrate de que existan
+    if (!this.songVolumenHandle || !this.volumenSizeBar) return;
+
+    // Configurar el bar con origin 0, 0.5 (ya lo tienes) para medir desde su x
+    this.volumenSizeBar.setOrigin(0, 0.5);
+
+    // Calcular límites de arrastre en X basados en el ancho del bar
+    const barLeft = this.volumenSizeBar.x;
+    const barRight = barLeft + this.volumenSizeBar.displayWidth;
+    const handleY = this.volumenSizeBar.y;
+
+    // Inicializar posición del handle desde preferencia guardada (0..1)
+    let savedVol = 0.8;
+    try {
+        const raw = localStorage.getItem('MusicVolume');
+        if (raw !== null) savedVol = Phaser.Math.Clamp(parseFloat(raw), 0, 1);
+    } catch {}
+    this.setRadioVolume(savedVol);
+    this.songVolumenHandle.x = Phaser.Math.Linear(barLeft, barRight, savedVol);
+    this.songVolumenHandle.y = handleY;
+
+    // Hacer el handle draggable
+    this.songVolumenHandle.setInteractive({ useHandCursor: true, draggable: true });
+    this.input.setDraggable(this.songVolumenHandle, true);
+
+    // Arrastrar (constricción horizontal al bar)
+    this.songVolumenHandle.on('drag', (_pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
+        // Fijar Y al centro de la barra; limitar X a [barLeft, barRight]
+        const clampedX = Phaser.Math.Clamp(dragX, barLeft, barRight);
+        this.songVolumenHandle.x = clampedX;
+        this.songVolumenHandle.y = handleY;
+
+        // Convertir posición a volumen 0..1 y aplicar
+        const vol = (clampedX - barLeft) / (barRight - barLeft);
+        this.setRadioVolume(vol);
+    });
+
+    // Click directo en la barra mueve el handle y actualiza volumen
+    this.volumenSizeBar.setInteractive({ useHandCursor: true });
+    this.volumenSizeBar.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+        // Convertir coordenadas a espacio del bar
+        const targetX = Phaser.Math.Clamp(pointer.x, barLeft, barRight);
+        this.songVolumenHandle.x = targetX;
+        this.songVolumenHandle.y = handleY;
+
+        const vol = (targetX - barLeft) / (barRight - barLeft);
+        this.setRadioVolume(vol);
+    });
+
+    // Opcional: teclado izquierda/derecha ajusta volumen
+    this.input.keyboard?.on('keydown-LEFT', () => {
+        const vol = Phaser.Math.Clamp(this.getRadioVolume() - 0.05, 0, 1);
+        this.applyVolumeToUI(vol, barLeft, barRight, handleY);
+    });
+    this.input.keyboard?.on('keydown-RIGHT', () => {
+        const vol = Phaser.Math.Clamp(this.getRadioVolume() + 0.05, 0, 1);
+        this.applyVolumeToUI(vol, barLeft, barRight, handleY);
+    });
+}
+
+// Aplica volumen a audio y guarda preferencia
+private setRadioVolume(vol: number) {
+    vol = Phaser.Math.Clamp(vol, 0, 1);
+    if (this.radioAudio) this.radioAudio.volume = vol;
+    try { localStorage.setItem('MusicVolume', String(vol)); } catch {}
+    this.registry.set('MusicVolume', vol);
+}
+
+// Lee volumen actual del audio (fallback 1)
+private getRadioVolume(): number {
+    return this.radioAudio ? this.radioAudio.volume : (this.registry.get('MusicVolume') as number) ?? 1;
+}
+
+// Ajusta UI (handle) y aplica volumen
+private applyVolumeToUI(vol: number, barLeft: number, barRight: number, handleY: number) {
+    this.setRadioVolume(vol);
+    this.songVolumenHandle.x = Phaser.Math.Linear(barLeft, barRight, vol);
+    this.songVolumenHandle.y = handleY;
 }
 
 	// Log con persistencia en registry (y límite de tamaño)

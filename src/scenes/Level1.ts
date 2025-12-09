@@ -6,6 +6,7 @@ import BaseEscene from "./BaseEscene";
 import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
+import CatTrack from "./Prefabs/CatTrack";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -58,6 +59,10 @@ export default class Level1 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(941, 439, "door");
+
+		// catTrack
+		const catTrack = new CatTrack(this, 561, 425);
+		this.add.existing(catTrack);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
