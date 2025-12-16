@@ -131,9 +131,11 @@
             "id": "c11f5505-c3e8-4d31-a02e-f3704fab29ad",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "TrackToUnlock"
             ],
             "label": "catTrack",
+            "TrackToUnlock": "Unlock2",
             "x": 561,
             "y": 425
         }

@@ -5,6 +5,7 @@
 import MapStar from "./Prefabs/MapStar";
 import MapDot from "./Prefabs/MapDot";
 import MapPlayer from "./Prefabs/MapPlayer";
+import CatTrackSlot from "./Prefabs/CatTrackSlot";
 import MapBtn from "./Prefabs/MapBtn";
 import MapBigBtn from "./Prefabs/MapBigBtn";
 import NewUnlockText from "./Prefabs/NewUnlockText";
@@ -265,35 +266,35 @@ export default class Map extends Phaser.Scene {
 		const unlocks = this.add.container(757, 261);
 
 		// unlock1
-		const unlock1 = this.add.image(0, 0, "CatTrackCover");
+		const unlock1 = new CatTrackSlot(this, 0, 0);
 		unlocks.add(unlock1);
 
 		// unlock2
-		const unlock2 = this.add.image(130, 0, "Unlock2");
+		const unlock2 = new CatTrackSlot(this, 130, 0);
 		unlocks.add(unlock2);
 
 		// unlock3
-		const unlock3 = this.add.image(260, 0, "Unlock3");
+		const unlock3 = new CatTrackSlot(this, 260, 0);
 		unlocks.add(unlock3);
 
 		// unlock4
-		const unlock4 = this.add.image(390, 0, "Unlock4");
+		const unlock4 = new CatTrackSlot(this, 390, 0);
 		unlocks.add(unlock4);
 
 		// unlock5
-		const unlock5 = this.add.image(0, 135, "Unlock5");
+		const unlock5 = new CatTrackSlot(this, 0, 135);
 		unlocks.add(unlock5);
 
 		// unlock6
-		const unlock6 = this.add.image(130, 135, "Unlock6");
+		const unlock6 = new CatTrackSlot(this, 130, 135);
 		unlocks.add(unlock6);
 
 		// unlock7
-		const unlock7 = this.add.image(260, 135, "Unlock7");
+		const unlock7 = new CatTrackSlot(this, 260, 135);
 		unlocks.add(unlock7);
 
 		// unlock8
-		const unlock8 = this.add.image(390, 135, "Unlock8");
+		const unlock8 = new CatTrackSlot(this, 390, 135);
 		unlocks.add(unlock8);
 
 		// bigCassette
@@ -349,8 +350,8 @@ export default class Map extends Phaser.Scene {
 		// SongVolumenHandle
 		const songVolumenHandle = this.add.image(742, 339, "SongStatusHandle");
 
-		// song1Almbum
-		this.add.image(821, 216, "song1Almbum");
+		// songAlbum
+		const songAlbum = this.add.image(821, 216, "song1Almbum");
 
 		// songPortrait
 		this.add.image(821, 215, "SongPortrait");
@@ -400,6 +401,37 @@ export default class Map extends Phaser.Scene {
 		// mapDot10 (prefab fields)
 		mapDot10.Level = 10;
 
+		// unlock1 (prefab fields)
+		unlock1.radioPreset = "Lofi";
+
+		// unlock2 (prefab fields)
+		unlock2.TrackToUnlock = "Unlock2";
+		unlock2.CatToUnlock = "BigCat2";
+
+		// unlock3 (prefab fields)
+		unlock3.TrackToUnlock = "Unlock3";
+		unlock3.CatToUnlock = "BigCat3";
+
+		// unlock4 (prefab fields)
+		unlock4.TrackToUnlock = "Unlock4";
+		unlock4.CatToUnlock = "BigCat4";
+
+		// unlock5 (prefab fields)
+		unlock5.TrackToUnlock = "Unlock5";
+		unlock5.CatToUnlock = "BigCat5";
+
+		// unlock6 (prefab fields)
+		unlock6.TrackToUnlock = "Unlock6";
+		unlock6.CatToUnlock = "BigCat6";
+
+		// unlock7 (prefab fields)
+		unlock7.TrackToUnlock = "Unlock7";
+		unlock7.CatToUnlock = "BigCat7";
+
+		// unlock8 (prefab fields)
+		unlock8.TrackToUnlock = "Unlock8";
+		unlock8.CatToUnlock = "BigCat8";
+
 		// mapBigBtn2 (prefab fields)
 		mapBigBtn2.ActivateSection = "Unlocks";
 
@@ -428,6 +460,7 @@ export default class Map extends Phaser.Scene {
 		this.prevBtn = prevBtn;
 		this.volumenSizeBar = volumenSizeBar;
 		this.songVolumenHandle = songVolumenHandle;
+		this.songAlbum = songAlbum;
 
 		this.events.emit("scene-awake");
 	}
@@ -453,6 +486,7 @@ export default class Map extends Phaser.Scene {
 	public prevBtn!: Phaser.GameObjects.Image;
 	public volumenSizeBar!: Phaser.GameObjects.Image;
 	public songVolumenHandle!: Phaser.GameObjects.Image;
+	public songAlbum!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -463,6 +497,8 @@ export default class Map extends Phaser.Scene {
 	private wholeMapOrigX: number = 0;
 	private wholeMapOrigY: number = 0;
 
+	private radioPresets: string[] = [];
+  private radioPresetIndex: number = 0;
 
 	create() {
     this.editorCreate();
@@ -483,7 +519,20 @@ export default class Map extends Phaser.Scene {
 
     this.loadMapState();
     this.locatePlayerOnMap();
-    this.loadRadio("lofi");
+
+    // Asegurar lista inicial desde storage
+    this.ensureUnlockedRadioPresetsList();
+
+    // Estilo inicial
+    const savedStyle = (localStorage.getItem("RadioStylePreset") || "").trim();
+    if (savedStyle) {
+      const idx = this.radioPresets.findIndex(s => s.toLowerCase() === savedStyle.toLowerCase());
+      this.radioPresetIndex = idx >= 0 ? idx : 0;
+    } else {
+      this.radioPresetIndex = 0;
+    }
+
+    this.loadRadio(this.radioPresets[this.radioPresetIndex]);
     this.hookRadioButtons();
 
     // Asegurar estado inicial y sincronizar botón
@@ -521,17 +570,66 @@ export default class Map extends Phaser.Scene {
     applyHasNewTrack();
 
     // Escuchar cambios
-    const onRegChange = (_p: any, key: string, value: any) => {
+const onRegChange = (_p: any, key: string, value: any) => {
+    if (key === "UnlockedRadioPresets") {
+      // Releer y aplicar lista
+      const list = Array.isArray(value) ? value.slice() : this.getUnlockedRadioPresetsFromStorage();
+      this.radioPresets = list;
 
-        if (key === 'HasNewTrack') applyHasNewTrack(value);
-    };
-    gameReg.events.on('changedata', onRegChange, this);
+      // Si el preset actual ya no existe, caer al primero
+      if (!this.radioPresets.length) {
+        this.radioPresets = ["Lofi"];
+      }
+      const current = (localStorage.getItem("RadioStylePreset") || "").trim();
+      const idx = current ? this.radioPresets.findIndex(s => s.toLowerCase() === current.toLowerCase()) : -1;
+      this.radioPresetIndex = idx >= 0 ? idx : 0;
 
-    // Limpieza al cerrar la escena
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-        gameReg.events.off('changedata', onRegChange, this);
-    });
+      // Opcional: actualizar UI del botón next/prev si dependiera de estados
+      // No recargar si quieres mantener la reproducción; si deseas reflejar inmediatamente:
+      this.loadRadio(this.radioPresets[this.radioPresetIndex]);
+      this.logRadio(`Presets updated: ${this.radioPresets.join(", ")}`);
+    }
+    if (key === 'HasNewTrack') {
+      const visible = value === true;
+      this.newUnlockText?.setVisible(visible);
+    }
+    if (key === 'PlayerPaused') {
+      const paused = value === true;
+      if (paused) this.pauseRadio(); else this.playRadio();
+      this.playPauseBtn?.setTexture(paused ? "PlayBtn" : "PauseBtn");
+    }
+    // Solicitud desde CatTrackSlot: cargar preset de radio
+    if (key === "RequestLoadRadio" && typeof value === "string" && value.length) {
+        // Asegurar que esté en la lista actual y seleccionar índice
+        const idx = this.radioPresets.findIndex(s => s.toLowerCase() === value.toLowerCase());
+        if (idx >= 0) this.radioPresetIndex = idx;
+        try { localStorage.setItem("RadioStylePreset", value); } catch {}
+        this.registry.set("RadioStyle", value);
+        this.loadRadio(value);
+        this.logRadio(`Style selected: ${value}`);
+    }
+    // Solicitud desde CatTrackSlot: cambiar textura del álbum
+    if (key === "RequestAlbumTexture" && typeof value === "string" && value.length) {
+        this.songAlbum?.setTexture(value);
+    }
+  };
+  gameReg.events.on('changedata', onRegChange, this);
+
+  this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      gameReg.events.off('changedata', onRegChange, this);
+  });
 }
+
+private getUnlockedRadioPresetsFromStorage(): string[] {
+  try {
+    const stored = JSON.parse(localStorage.getItem("UnlockedRadioPresets") || "[]");
+    const list = Array.isArray(stored) ? stored : [];
+    return list.length ? list : ["Lofi"];
+  } catch {
+    return ["Lofi"];
+  }
+}
+
 
 private initVolumeControls() {
     // Asegúrate de que existan
@@ -744,34 +842,31 @@ private prepareRadioElement() {
 
 private loadRadio(name: string) {
     const stylePretty = name.replace(/\b\w/g, c => c.toUpperCase());
+    this.registry.set("RadioStyle", stylePretty);
     this.logRadio(`Loading music style: ${stylePretty}...`);
 
-     fetch(`https://de1.api.radio-browser.info/json/stations/search?name=${encodeURIComponent(name)}&limit=1`)
-         .then(r => r.json())
-         .then(list => {
-             if (Array.isArray(list) && list.length) {
-                 const station = list[0];
-                 this.currentStationUrl = station.url_resolved;
-                 this.logRadio(`Station loaded: ${station.name}`);
+    fetch(`https://de1.api.radio-browser.info/json/stations/search?name=${encodeURIComponent(name)}&limit=1`)
+        .then(r => r.json())
+        .then(list => {
+            if (Array.isArray(list) && list.length) {
+                const station = list[0];
+                this.currentStationUrl = station.url_resolved;
+                this.logRadio(`Station loaded: ${station.name}`);
                 if (!this.radioAudio || !this.currentStationUrl) return;
                 if (this.radioAudio.src !== this.currentStationUrl) {
                     this.radioAudio.src = this.currentStationUrl;
                 }
-                // Log cuando el <audio> esté listo o empiece a reproducir
                 const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty}`);
                 try {
-                    // @ts-ignore - add once listeners (TS dom lib puede no tiparlo)
                     this.radioAudio.addEventListener('playing', onNowPlaying, { once: true });
-                    // fallback si solo llega a canplay primero
-                    // @ts-ignore
                     this.radioAudio.addEventListener('canplay', onNowPlaying, { once: true });
-                } catch { /* noop */ }
+                } catch {}
                 const playPromise = this.radioAudio.play();
                 if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
-             } else {
+            } else {
                 this.logRadio(`No station found for: ${name}`);
-             }
-         })
+            }
+        })
         .catch(err => this.logRadio(`Error loading style ${name}: ${err?.message || err}`));
 }
 private pauseRadio() {
@@ -790,6 +885,27 @@ private playRadio() {
 		this.logRadio("Play requested");
 }
 
+// Carga la lista UnlockedRadioPresets desde localStorage.
+// Si no existe o es inválida, crea ["Lofi"] y la persiste.
+private ensureUnlockedRadioPresetsList() {
+  let list: string[] = [];
+  try {
+    const raw = localStorage.getItem("UnlockedRadioPresets");
+    list = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(list)) list = [];
+  } catch {
+    list = [];
+  }
+  if (list.length === 0 || !list.includes("Lofi")) {
+    // Garantiza que "Lofi" sea el primer preset
+    list = ["Lofi", ...list.filter(k => k !== "Lofi")];
+  }
+  this.radioPresets = list;
+  try { localStorage.setItem("UnlockedRadioPresets", JSON.stringify(list)); } catch {}
+  // Opcional: reflejar en registry para otros prefabs/escenas
+  this.game.registry.set("UnlockedRadioPresets", list);
+}
+
 private hookRadioButtons() {
     if (this.playPauseBtn) {
         this.playPauseBtn.setInteractive({ useHandCursor: true });
@@ -806,14 +922,26 @@ private hookRadioButtons() {
     }
     if (this.nextBtn) {
         this.nextBtn.setInteractive({ useHandCursor: true });
-        this.nextBtn.on("pointerdown", () => this.loadRadio("chill")); // ejemplo cambia categoría
+        this.nextBtn.on("pointerdown", () => {
+            this.advancePreset(1);
+        });
     }
     if (this.prevBtn) {
         this.prevBtn.setInteractive({ useHandCursor: true });
-        this.prevBtn.on("pointerdown", () => this.loadRadio("lofi"));
+        this.prevBtn.on("pointerdown", () => {
+            this.advancePreset(-1);
+        });
     }
 }
-
+private advancePreset(step: number) {
+    if (!this.radioPresets.length) return;
+    this.radioPresetIndex = (this.radioPresetIndex + step + this.radioPresets.length) % this.radioPresets.length;
+    const style = this.radioPresets[this.radioPresetIndex];
+    try { localStorage.setItem("RadioStylePreset", style); } catch {}
+    this.registry.set("RadioStyle", style);
+    this.loadRadio(style);
+    this.logRadio(`Style selected: ${style}`);
+}
 
 	public ActivateSection(Section:String)	{	
 

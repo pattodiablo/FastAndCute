@@ -1,5 +1,5 @@
 {
-    "id": "d406054b-b466-48ea-9e34-e0f9bdc9de07",
+    "id": "8430f0c5-b071-485a-9411-03c3f8d636c7",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -13,15 +13,15 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "38488b00-9c09-4939-82d6-5d0aee600281",
-            "label": "catTrack",
+            "type": "Sprite",
+            "id": "9f8516d4-85f7-4638-a17f-546b7791d90e",
+            "label": "glow_png0001_png",
             "texture": {
-                "key": "CatTrack"
+                "key": "glow",
+                "frame": "glow.png0001.png"
             },
-            "ArcadeComponent.active": true,
-            "body.width": 58,
-            "body.height": 54
+            "animationPlayMethod": 1,
+            "animationKey": "glow"
         }
     ],
     "plainObjects": [],
@@ -30,17 +30,5 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    },
-    "prefabProperties": [
-        {
-            "name": "TrackToUnlock",
-            "label": "TrackToUnlock",
-            "tooltip": "",
-            "defValue": "Unlock1",
-            "customDefinition": false,
-            "type": {
-                "id": "string"
-            }
-        }
-    ]
+    }
 }

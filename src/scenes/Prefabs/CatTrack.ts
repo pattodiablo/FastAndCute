@@ -33,6 +33,8 @@ export default class CatTrack extends Phaser.GameObjects.Image {
 		/* END-USER-CTR-CODE */
 	}
 
+	public TrackToUnlock: string = "Unlock1";
+
 	/* START-USER-CODE */
 
 	private bobTween?: Phaser.Tweens.Tween;
@@ -62,18 +64,55 @@ export default class CatTrack extends Phaser.GameObjects.Image {
         if (this.collected) return;
         this.collected = true;
 
-        // Deshabilitar cuerpo para evitar múltiples triggers
         if (this.body) this.body.enable = false;
 
-        // Avisar en el registro global que hay un nuevo track
         const gameReg = this.scene.game.registry;
         gameReg.set('HasNewTrack', true);
+
+        // Persistencia de UnlockedTracks (lista) en localStorage y registry
+        try {
+            const key = 'UnlockedTracks';
+            const raw = localStorage.getItem(key);
+            const list: string[] = raw ? JSON.parse(raw) : [];
+            // Añadir si no existe (dedupe)
+            if (!list.includes(this.TrackToUnlock)) {
+                list.push(this.TrackToUnlock);
+                localStorage.setItem(key, JSON.stringify(list));
+                // Reflejar en registry para que Map/otros puedan leerlo al vuelo
+                gameReg.set(key, list);
+            }
+        } catch (e) {
+            // Si falla localStorage, al menos emite en registry
+            const listReg = (gameReg.get('UnlockedTracks') as string[]) || [];
+            if (!listReg.includes(this.TrackToUnlock)) {
+                listReg.push(this.TrackToUnlock);
+                gameReg.set('UnlockedTracks', listReg);
+            }
+        }
 
         // Detener bob
         this.bobTween?.stop();
         this.bobTween = undefined;
 
-        // Lift y salida
+		// Sparks al recoger
+		const sparks = this.scene.add.particles(0, 0, 'starParticle',{
+			x: this.x,
+			y: this.y,
+			speed: { min: 120, max: 260 },
+			angle: { min: 0, max: 360 },
+			scale: { start: 1, end: 0 },
+			alpha: { start: 1, end: 0 },
+			lifespan: { min: 250, max: 500 },
+			quantity: 20,
+			gravityY: -50
+		}); // usa tu textura de spark
+	
+		// Emitir una vez y limpiar
+		sparks.explode(20, this.x, this.y);
+		this.scene.time.delayedCall(600, () => {
+			sparks.destroy();
+		});
+
         this.scene.tweens.add({
             targets: this,
             y: -100,

@@ -1,9 +1,10 @@
 {
-    "id": "d406054b-b466-48ea-9e34-e0f9bdc9de07",
+    "id": "4bf1a354-5888-4405-a521-3407af4e7dab",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
         "autoImport": true,
+        "generateAwakeHandler": true,
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",
@@ -14,14 +15,11 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "38488b00-9c09-4939-82d6-5d0aee600281",
-            "label": "catTrack",
+            "id": "b328a837-6241-404a-b1ae-c2021bca731c",
+            "label": "unlock1",
             "texture": {
-                "key": "CatTrack"
-            },
-            "ArcadeComponent.active": true,
-            "body.width": 58,
-            "body.height": 54
+                "key": "CatTrackCover"
+            }
         }
     ],
     "plainObjects": [],
@@ -37,6 +35,26 @@
             "label": "TrackToUnlock",
             "tooltip": "",
             "defValue": "Unlock1",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "radioPreset",
+            "label": "radioPreset",
+            "tooltip": "",
+            "defValue": "Retrowave",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "CatToUnlock",
+            "label": "CatToUnlock",
+            "tooltip": "",
+            "defValue": "BigCat1",
             "customDefinition": false,
             "type": {
                 "id": "string"

@@ -42,6 +42,46 @@
                 "key": "BigCassette"
             },
             {
+                "url": "assets/BigCat1.png",
+                "type": "image",
+                "key": "BigCat1"
+            },
+            {
+                "url": "assets/BigCat2.png",
+                "type": "image",
+                "key": "BigCat2"
+            },
+            {
+                "url": "assets/BigCat3.png",
+                "type": "image",
+                "key": "BigCat3"
+            },
+            {
+                "url": "assets/BigCat4.png",
+                "type": "image",
+                "key": "BigCat4"
+            },
+            {
+                "url": "assets/BigCat5.png",
+                "type": "image",
+                "key": "BigCat5"
+            },
+            {
+                "url": "assets/BigCat6.png",
+                "type": "image",
+                "key": "BigCat6"
+            },
+            {
+                "url": "assets/BigCat7.png",
+                "type": "image",
+                "key": "BigCat7"
+            },
+            {
+                "url": "assets/BigCat8.png",
+                "type": "image",
+                "key": "BigCat8"
+            },
+            {
                 "url": "assets/BubbleParticle.png",
                 "type": "image",
                 "key": "BubbleParticle"
@@ -226,6 +266,12 @@
                 "url": "assets/gameButtons.png",
                 "type": "image",
                 "key": "gameButtons"
+            },
+            {
+                "atlasURL": "assets/animations/Glow/glow.json",
+                "textureURL": "assets/animations/Glow/glow.png",
+                "type": "atlas",
+                "key": "glow"
             },
             {
                 "url": "assets/spine/KittenPlayer.json",

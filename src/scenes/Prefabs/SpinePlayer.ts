@@ -195,6 +195,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 
 		});
+		this.initCollisionStopper();
 		/* END-USER-CTR-CODE */
 	}
 
@@ -391,9 +392,47 @@ export default class SpinePlayer extends SpineGameObject {
         scheduleBlink();
     }
 
+	private initCollisionStopper() {
+    if (!this.body || !('blocked' in this.body)) return;
+    // Habilita flags de colisión
+    (this.body as Phaser.Physics.Arcade.Body).setCollideWorldBounds(true);
+    (this.body as Phaser.Physics.Arcade.Body).onWorldBounds = true;
+}
+
+	private cancelMovement(reason: string = 'collision') {
+    // Detener tweens o FX de movimiento si existen
+    this.decelTween?.stop?.();
+    this.followParticles?.stop?.();
+
+    // Parar física
+    if (this.body) {
+        (this.body as Phaser.Physics.Arcade.Body).setVelocity(0, 0);
+    }
+
+    // Limpiar objetivo para que no siga intentando avanzar
+    this.targetPos = undefined;
+    this.lastMoveTime = 0;
+
+    // Escala/anim opcional a estado idle si aplica
+    // this.playIdle?.();
+
+    // Debug opcional
+    // console.log('Movement canceled due to', reason);
+}
+
 	preUpdate(time: number, delta: number) {
 		super.preUpdate(time, delta);
+super.preUpdate?.(time, delta);
 
+    const body = this.body as Phaser.Physics.Arcade.Body | undefined;
+    if (!body) return;
+
+    // Si había objetivo y estamos bloqueados o tocando algo, detener
+    if (this.targetPos &&
+        (body.blocked.left || body.blocked.right || body.blocked.down ||
+         body.touching.left || body.touching.right || body.touching.down)) {
+        this.cancelMovement('collision');
+    }
 
 		if (!this.MovementLinear) {
 			const maxTilt = 0.25;

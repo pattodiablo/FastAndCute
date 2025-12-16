@@ -1902,6 +1902,161 @@
             "skipMissedFrames": true,
             "repeat": -1,
             "randomFrame": false
+        },
+        {
+            "key": "glow",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "glow",
+                    "frame": "glow.png0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "glow",
+                    "frame": "glow.png0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "showOnStart": true,
+            "randomFrame": false
         }
     ],
     "globalTimeScale": 1,

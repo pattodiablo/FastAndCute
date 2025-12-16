@@ -64,6 +64,27 @@ export default class Star extends Phaser.GameObjects.Image {
 	}
 
 	collectStar(player: any, star: any) {
+
+		// Sparks al recoger
+		const sparks = this.scene.add.particles(0, 0, 'starParticle',{
+			x: this.x,
+			y: this.y,
+			speed: { min: 120, max: 260 },
+			angle: { min: 0, max: 360 },
+			scale: { start: 1, end: 0 },
+			alpha: { start: 1, end: 0 },
+			lifespan: { min: 250, max: 500 },
+			quantity: 20,
+			gravityY: -50
+		}); // usa tu textura de spark
+	
+		// Emitir una vez y limpiar
+		sparks.explode(5, this.x, this.y);
+		this.scene.time.delayedCall(600, () => {
+			sparks.destroy();
+		});
+
+
 		if (this.isCollected) return; // Evita ejecuciones múltiples
 		this.isCollected = true;
 

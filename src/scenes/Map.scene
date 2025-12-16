@@ -601,76 +601,120 @@
             "y": 261,
             "list": [
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "c0437a0b-e82a-4997-82fd-0b793615487b",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "radioPreset"
+                    ],
                     "label": "unlock1",
-                    "texture": {
-                        "key": "CatTrackCover"
-                    }
+                    "radioPreset": "Lofi",
+                    "x": 0,
+                    "y": 0
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "4e7ebb77-aa87-4977-a7c7-adc330a5986d",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock2",
-                    "texture": {
-                        "key": "Unlock2"
-                    },
-                    "x": 130
+                    "TrackToUnlock": "Unlock2",
+                    "CatToUnlock": "BigCat2",
+                    "x": 130,
+                    "y": 0
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "c76b82e0-b8df-4126-98c7-c616f122507e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock3",
-                    "texture": {
-                        "key": "Unlock3"
-                    },
-                    "x": 260
+                    "TrackToUnlock": "Unlock3",
+                    "CatToUnlock": "BigCat3",
+                    "x": 260,
+                    "y": 0
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "2ebee71b-5e9d-4ea2-8118-a51f46a3b739",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock4",
-                    "texture": {
-                        "key": "Unlock4"
-                    },
-                    "x": 390
+                    "TrackToUnlock": "Unlock4",
+                    "CatToUnlock": "BigCat4",
+                    "x": 390,
+                    "y": 0
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "636d0125-8314-4e71-bf39-436f3ce45a92",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock5",
-                    "texture": {
-                        "key": "Unlock5"
-                    },
+                    "TrackToUnlock": "Unlock5",
+                    "CatToUnlock": "BigCat5",
+                    "x": 0,
                     "y": 135
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "633bc3c4-92fd-48ea-8988-52d2151fa87a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock6",
-                    "texture": {
-                        "key": "Unlock6"
-                    },
+                    "TrackToUnlock": "Unlock6",
+                    "CatToUnlock": "BigCat6",
                     "x": 130,
                     "y": 135
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "565fda0b-0d44-494b-9cdc-efd62e0e6d81",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock7",
-                    "texture": {
-                        "key": "Unlock7"
-                    },
+                    "TrackToUnlock": "Unlock7",
+                    "CatToUnlock": "BigCat7",
                     "x": 260,
                     "y": 135
                 },
                 {
-                    "type": "Image",
+                    "prefabId": "4bf1a354-5888-4405-a521-3407af4e7dab",
                     "id": "c1076434-48ac-4b2b-8fa7-7ddc4fe0fe08",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "TrackToUnlock",
+                        "CatToUnlock"
+                    ],
                     "label": "unlock8",
-                    "texture": {
-                        "key": "Unlock8"
-                    },
+                    "TrackToUnlock": "Unlock8",
+                    "CatToUnlock": "BigCat8",
                     "x": 390,
                     "y": 135
                 }
@@ -844,7 +888,8 @@
         {
             "type": "Image",
             "id": "98ca3051-e8d9-47d0-a248-3b53c36987ad",
-            "label": "song1Almbum",
+            "label": "songAlbum",
+            "scope": "PUBLIC",
             "texture": {
                 "key": "song1Almbum"
             },

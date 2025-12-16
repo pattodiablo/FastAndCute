@@ -64,6 +64,9 @@ export default class Level1 extends BaseEscene {
 		const catTrack = new CatTrack(this, 561, 425);
 		this.add.existing(catTrack);
 
+		// catTrack (prefab fields)
+		catTrack.TrackToUnlock = "Unlock2";
+
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
 		this.doorOrigin = doorOrigin;
