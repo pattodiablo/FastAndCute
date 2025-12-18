@@ -7,6 +7,8 @@ import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import CatTrack from "./Prefabs/CatTrack";
+import { SkinsAndAnimationBoundsProvider } from "@esotericsoftware/spine-phaser";
+import { SpineGameObject } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -63,6 +65,10 @@ export default class Level1 extends BaseEscene {
 		// catTrack
 		const catTrack = new CatTrack(this, 561, 425);
 		this.add.existing(catTrack);
+
+		// ranaEnemy
+		const ranaEnemy = this.add.spine(764, 443, "RanaEnemy", "RanaEnemy-atlas", new SkinsAndAnimationBoundsProvider(null, ["default"]));
+		ranaEnemy.skeleton.setSkinByName("default");
 
 		// catTrack (prefab fields)
 		catTrack.TrackToUnlock = "Unlock2";

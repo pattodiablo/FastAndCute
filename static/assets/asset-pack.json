@@ -522,6 +522,17 @@
                 "key": "PrevBtn"
             },
             {
+                "url": "assets/spine/Ranaenemy/RanaEnemy.json",
+                "type": "spineJson",
+                "key": "RanaEnemy",
+                "previewAtlasKey": "RanaEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/Ranaenemy/RanaEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "RanaEnemy-atlas"
+            },
+            {
                 "url": [
                     "assets/fx/realPop.mp3"
                 ],

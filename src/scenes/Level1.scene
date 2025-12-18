@@ -138,6 +138,18 @@
             "TrackToUnlock": "Unlock2",
             "x": 561,
             "y": 425
+        },
+        {
+            "type": "SpineGameObject",
+            "id": "59c3509d-a69c-4e56-ae11-2e29335d7ac4",
+            "label": "ranaEnemy",
+            "dataKey": "RanaEnemy",
+            "atlasKey": "RanaEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "x": 764,
+            "y": 443
         }
     ],
     "plainObjects": [],
