@@ -5,14 +5,13 @@
 import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
-import Enemy1 from "./Prefabs/Enemy1";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class Level2 extends BaseEscene {
+export default class Level3 extends BaseEscene {
 
 	constructor() {
-		super("Level2");
+		super("Level3");
 
 		/* START-USER-CTR-CODE */
         // Write your code here.
@@ -22,15 +21,15 @@ export default class Level2 extends BaseEscene {
 	editorCreate(): void {
 
 		// platform_3
-		const platform_3 = new DefaultPlatform(this, 116, 322);
+		const platform_3 = new DefaultPlatform(this, 480, 388);
 		this.add.existing(platform_3);
 
 		// platform
-		const platform = new DefaultPlatform(this, 946, 509);
+		const platform = new DefaultPlatform(this, 119, 615);
 		this.add.existing(platform);
 
 		// star
-		const star = new Star(this, 132, 481);
+		const star = new Star(this, 487, 518);
 		this.add.existing(star);
 
 		// frontLayer
@@ -41,18 +40,14 @@ export default class Level2 extends BaseEscene {
 		this.add.existing(star_1);
 
 		// star_2
-		const star_2 = new Star(this, 530, 117);
+		const star_2 = new Star(this, 96, 80);
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(137, 164, "CloseChestanimation", "CloseChest0031.png");
-
-		// enemy1
-		const enemy1 = new Enemy1(this, 539, 321);
-		this.add.existing(enemy1);
+		const chestOrigin = this.add.image(532, 231, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(947, 376, "door");
+		const doorOrigin = this.add.image(65, 482, "door");
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
@@ -67,7 +62,7 @@ export default class Level2 extends BaseEscene {
 
 	/* START-USER-CODE */
 
-		public nextLevel: string = "Level3";
+		public nextLevel: string = "Level1";
 
     // Write your code here
 

@@ -1,0 +1,115 @@
+{
+    "id": "cbc195b5-ae0e-4682-83da-ff9f05e0fe1a",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 261,
+        "snapHeight": 154,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseEscene",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level3",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform_3",
+            "x": 480,
+            "y": 388
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "23d544e3-81fb-4671-9353-b995b260933a",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform",
+            "x": 119,
+            "y": 615
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star",
+            "x": 487,
+            "y": 518
+        },
+        {
+            "type": "Image",
+            "id": "342c300e-7046-4fcd-b9bc-c39de864a873",
+            "label": "frontLayer",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "FrontLayer"
+            },
+            "x": 511,
+            "y": 568
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "ca78feeb-d500-48ee-b2c3-b9f6d750d581",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_1",
+            "x": 927,
+            "y": 106
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "5071d28c-3c3e-47c8-96ce-9005307b4c3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_2",
+            "x": 96,
+            "y": 80
+        },
+        {
+            "type": "Image",
+            "id": "a58b948e-57d3-417a-a712-4af137abcdc7",
+            "label": "ChestOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "CloseChestanimation",
+                "frame": "CloseChest0031.png"
+            },
+            "x": 532,
+            "y": 231
+        },
+        {
+            "type": "Image",
+            "id": "481168fb-b158-4787-9461-c9d93fa3135a",
+            "label": "DoorOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "door"
+            },
+            "x": 65,
+            "y": 482
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
