@@ -1,70 +1,33 @@
 RanaEnemy.png
-size:391,142
+size:90,142
 filter:Linear,Linear
 pma:true
 Boca
-bounds:78,29,36,13
-offsets:1,1,38,15
-Layer 12
-bounds:138,6,38,52
-offsets:1,1,40,54
-rotate:90
-Layer 13
-bounds:334,12,41,55
-offsets:1,1,43,57
-rotate:90
-Layer 16
-bounds:138,46,133,94
-offsets:1,1,135,96
-Layer 17
-bounds:2,44,134,96
-offsets:1,1,136,98
-Layer 19
-bounds:246,20,24,24
-offsets:1,1,26,26
-Layer 20
-bounds:330,2,22,8
+bounds:42,8,22,8
 offsets:1,1,24,10
-Layer 26
-bounds:2,7,35,36
-offsets:1,1,37,39
-rotate:90
-Layer 27
-bounds:78,13,14,14
-offsets:1,1,16,16
-Layer 28
-bounds:354,3,7,7
-offsets:1,1,9,9
-Layer 3
-bounds:334,55,85,55
-offsets:1,1,88,58
-rotate:90
-Layer 31
-bounds:40,7,35,36
-offsets:1,1,37,39
-rotate:90
-Layer 32
-bounds:94,13,14,14
-offsets:1,1,16,16
-Layer 33
-bounds:363,3,7,7
-offsets:1,1,9,9
-Layer 5
-bounds:273,51,89,59
-offsets:1,1,91,61
-rotate:90
-Layer 8
-bounds:192,6,38,52
-offsets:2,1,41,54
-rotate:90
-Layer 9
-bounds:273,8,41,55
-offsets:1,1,43,57
-rotate:90
+Cara
+bounds:2,81,83,59
+offsets:1,1,85,61
+Cuerpo
+bounds:2,43,55,36
+offsets:1,1,57,38
+OjoDerecho
+bounds:30,18,22,23
+offsets:1,1,24,25
+OjoIzquierdo
+bounds:54,18,22,23
+offsets:1,1,24,25
+PataDerecha
+bounds:2,6,26,35
+offsets:1,1,28,37
+PataIzquierda
+bounds:59,44,26,35
+offsets:1,1,28,37
 SonrojoDerecho
-bounds:246,2,22,16
-offsets:1,1,24,19
+bounds:78,29,13,10
+offsets:1,1,15,12
+rotate:90
 SonrojoIzquierdo
-bounds:116,20,22,16
-offsets:1,1,24,19
+bounds:30,2,14,10
+offsets:1,1,16,12
 rotate:90
