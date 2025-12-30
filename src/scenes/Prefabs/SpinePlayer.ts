@@ -242,12 +242,12 @@ export default class SpinePlayer extends SpineGameObject {
 	private ChargingSound?: Phaser.Sound.BaseSound;
 
 	public impulseStrength: number = 420;   // fuerza base del click
-public boostMultiplier: number = 2.0;   // multiplicador si usas powerups
-public airDragX: number = 30;          // “rozamiento con el aire” en X
-public airDragY: number = 30;          // “rozamiento con el aire” en Y
-public bounceDamping: number = 0.55;    // rebote en colisiones
-public maxSpeed: number = 460;          // velocidad tope
-public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
+	public boostMultiplier: number = 2.0;   // multiplicador si usas powerups
+	public airDragX: number = 30;          // “rozamiento con el aire” en X
+	public airDragY: number = 30;          // “rozamiento con el aire” en Y
+	public bounceDamping: number = 0.55;    // rebote en colisiones
+	public maxSpeed: number = 460;          // velocidad tope
+	public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 
 	// Estela de burbujas
 
@@ -344,6 +344,8 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 			console.log("Player starts moving");
 			this.setVisible(true);
 			this.CanMove = true;
+			this.body.checkCollision.none = false;
+			this.body.enable = true;
 			this.body.setGravityY(this.originalGravityY);
 			this.moveSpeed = this.OriginalMoveSpeed;
 			this.body.collideWorldBounds = true;
@@ -357,6 +359,8 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 		} else {
 
 			this.body.collideWorldBounds = true;
+			this.body.checkCollision.none = false;
+			this.body.enable = true;
 			this.CanMove = true;
 			this.setVisible(true);
 			this.skeleton.setAttachment("Bubble", "Bubble");
@@ -397,6 +401,11 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 
 	preUpdate(time: number, delta: number) {
 		super.preUpdate(time, delta);
+
+		// Si está muerto, no procesar movimiento ni inputs; deja solo la física caer
+		if (this.IsDead) {
+			return;
+		}
 
 
 		if (!this.MovementLinear) {
@@ -487,8 +496,13 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 		if (this.IsDead) return; // Evita múltiples muertes
 		this.IsDead = true;
 		this.CanMove = false;
+		// Deshabilitar física e interacciones
 		this.body.setVelocity(0, 0);
-
+		this.body.setGravity(0, 0);
+		this.body.setBounce(0, 0);
+		this.body.setDrag(0, 0);
+		this.body.checkCollision.none = true;
+		this.body.enable = false; // solo tween visual
 		// Detén el loop de parpadeo
 		if (this.blinkTimer) {
 			this.blinkTimer.remove();
@@ -497,17 +511,28 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 
 		console.log("Player has died");
 		this.body.collideWorldBounds = false;
-		this.setActive(false);
+		this.setActive(true); // mantiene el GameObject vivo para el tween
 		this.rotation = 0;
 		this.skeleton.setAttachment("Bubble", "");
 
+		const offscreenY = this.scene.scale.height + 200;
+		const landingX = this.x; // conserva el X donde muere
+		const hopHeight = 70;
+
 		this.scene.tweens.add({
 			targets: this,
-			y: this.y - 60, // Sube 60 píxeles (ajusta a gusto)
-			duration: 500,
+			x: landingX,
+			y: this.y - hopHeight,
+			duration: 220,
 			ease: 'Quad.Out',
 			onComplete: () => {
-				this.body.setGravityY(1000); // Aplica gravedad fuerte después del tween
+				this.scene.tweens.add({
+					targets: this,
+					x: landingX,
+					y: offscreenY,
+					duration: 780,
+					ease: 'Cubic.In'
+				});
 			}
 		});
 		//this.animationState.setAnimation(0, "Cry", true);
@@ -555,6 +580,8 @@ public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
 	resetPlayer() {
 		(this.scene as any).chest.resetChest(); // Llama al método resetChest del cofre
 		this.setVisible(false);
+		this.body.checkCollision.none = false;
+		this.body.enable = true;
 
 
 

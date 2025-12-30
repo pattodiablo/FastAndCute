@@ -38,6 +38,8 @@ export default class RanaEnemy extends SpineGameObject {
 		body.setMaxVelocity(300, 1200);  // evita límites bajos
 		body.setOffset(body.offset.x, body.offset.y - 15);
 
+			this.scene.physics.add.overlap((this.scene as any).player, this, this.killPlayer, undefined, this);
+
 		// Añadir automáticamente al grupo de enemigos para colisionar con plataformas
 		const base = scene as BaseEscene;
 		if (typeof base.addCollidingEnemy === 'function') {
@@ -64,6 +66,10 @@ export default class RanaEnemy extends SpineGameObject {
 		// Iniciar bucle de salto cada ~5s
 		this.initJumpLoop();
 		/* END-USER-CTR-CODE */
+	}
+
+		killPlayer(player: any, spike: any) {
+		(player as any).Die();
 	}
 
 	/* START-USER-CODE */
