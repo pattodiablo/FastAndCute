@@ -123,8 +123,13 @@ export default class BaseEscene extends Phaser.Scene {
 	private _mapVisible = false;
 	private _mapFromTop = true; // true: entra por arriba; false: por abajo
 
+	public collidingEnemies: Phaser.GameObjects.GameObject[] = [];
+	public enemiesGroup!: Phaser.Physics.Arcade.Group;
+
     BaseCreate(): void {
 
+		
+		this.collidingEnemies = [];
 		// gameBg
 		const gameBg = this.add.tileSprite(-48, -22, 1031, 580, "bg1");
 		gameBg.scaleX = 1.1;
@@ -227,12 +232,16 @@ export default class BaseEscene extends Phaser.Scene {
 
 		this.plataformas = this.physics.add.staticGroup();
 
+		// Grupo de enemigos
+		this.enemiesGroup = this.physics.add.group();
+		this.physics.add.collider(this.enemiesGroup, this.plataformas);
+
 		this.BaseCreate();
 		this.editorCreate();
 		this.resolveDepths();
 		this.startingPositions();
 		this.initMapOverlay();
-
+  this.physics.world.gravity.y = 100; // gravedad global Arcade
   // Inicializa el flag global para detectar el primer cambio
     const reg = this.game.registry;
     reg.set('HasNewTrack', false);
@@ -275,6 +284,11 @@ export default class BaseEscene extends Phaser.Scene {
             }
         });
 */
+
+
+
+
+
   this.openCurtains();
 
 		// Partículas de lluvia
@@ -368,6 +382,53 @@ export default class BaseEscene extends Phaser.Scene {
 	public toggleMapOverlay() {
 		this.showMapOverlay(this._mapFromTop);
 	}
+
+
+public addCollidingEnemy(go: Phaser.GameObjects.GameObject) {
+    // Asegura que el grupo exista
+    if (!this.enemiesGroup) {
+        this.enemiesGroup = this.physics.add.group();
+        // Si aún no hay collider global, puedes asegurarlo aquí (opcional)
+        if (this.plataformas) this.physics.add.collider(this.enemiesGroup, this.plataformas);
+    }
+
+    // Asegura cuerpo de física para el enemigo
+    if (!(go as any).body) {
+        this.physics.add.existing(go);
+    }
+
+    // Evita duplicados en el grupo
+    const group = this.enemiesGroup as Phaser.Physics.Arcade.Group;
+    if (!group.getChildren().includes(go)) {
+        group.add(go);
+        // Evento opcional para que otras partes reaccionen a nuevos enemigos
+        this.events.emit('colliding-enemy-added', go);
+    }
+}
+
+public removeCollidingEnemy(go: Phaser.GameObjects.GameObject) {
+    // Quitar del grupo de enemigos (sin destruir ni sacar de la escena)
+    if (this.enemiesGroup) {
+        const group = this.enemiesGroup as Phaser.Physics.Arcade.Group;
+        if (group.getChildren().includes(go)) {
+            group.remove(go, false, false);
+            this.events.emit('colliding-enemy-removed', go);
+        }
+    }
+    // Compatibilidad con la lista vieja
+    const i = this.collidingEnemies.indexOf(go);
+    if (i !== -1) this.collidingEnemies.splice(i, 1);
+}
+
+public clearCollidingEnemies() {
+    // Vaciar el grupo de enemigos (sin destruir ni sacar de la escena)
+    if (this.enemiesGroup) {
+        const group = this.enemiesGroup as Phaser.Physics.Arcade.Group;
+        group.clear(false, false);
+    }
+    // Compatibilidad con la lista vieja
+    this.collidingEnemies.length = 0;
+}
 
 
 	startRain() {

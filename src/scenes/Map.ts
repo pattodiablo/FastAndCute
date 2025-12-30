@@ -524,15 +524,18 @@ export default class Map extends Phaser.Scene {
     this.ensureUnlockedRadioPresetsList();
 
     // Estilo inicial
-    const savedStyle = (localStorage.getItem("RadioStylePreset") || "").trim();
-    if (savedStyle) {
-      const idx = this.radioPresets.findIndex(s => s.toLowerCase() === savedStyle.toLowerCase());
-      this.radioPresetIndex = idx >= 0 ? idx : 0;
-    } else {
-      this.radioPresetIndex = 0;
-    }
+		const savedStyle = (localStorage.getItem("RadioStylePreset") || "").trim();
+		if (savedStyle && savedStyle.toLowerCase() === "lofi") {
+			const idx = this.radioPresets.findIndex(s => s.toLowerCase() === savedStyle.toLowerCase());
+			this.radioPresetIndex = idx >= 0 ? idx : 0;
+		} else {
+			// Fuerza Lofi como inicial y persiste
+			this.radioPresetIndex = 0;
+			try { localStorage.setItem("RadioStylePreset", "Lofi"); } catch {}
+			this.registry.set("RadioStyle", "Lofi");
+		}
 
-    this.loadRadio(this.radioPresets[this.radioPresetIndex]);
+		this.loadRadio(this.radioPresets[this.radioPresetIndex]);
     this.hookRadioButtons();
 
     // Asegurar estado inicial y sincronizar botón
@@ -845,29 +848,83 @@ private loadRadio(name: string) {
     this.registry.set("RadioStyle", stylePretty);
     this.logRadio(`Loading music style: ${stylePretty}...`);
 
-    fetch(`https://de1.api.radio-browser.info/json/stations/search?name=${encodeURIComponent(name)}&limit=1`)
-        .then(r => r.json())
-        .then(list => {
-            if (Array.isArray(list) && list.length) {
-                const station = list[0];
-                this.currentStationUrl = station.url_resolved;
-                this.logRadio(`Station loaded: ${station.name}`);
-                if (!this.radioAudio || !this.currentStationUrl) return;
-                if (this.radioAudio.src !== this.currentStationUrl) {
-                    this.radioAudio.src = this.currentStationUrl;
-                }
-                const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty}`);
-                try {
-                    this.radioAudio.addEventListener('playing', onNowPlaying, { once: true });
-                    this.radioAudio.addEventListener('canplay', onNowPlaying, { once: true });
-                } catch {}
-                const playPromise = this.radioAudio.play();
-                if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
-            } else {
-                this.logRadio(`No station found for: ${name}`);
-            }
-        })
-        .catch(err => this.logRadio(`Error loading style ${name}: ${err?.message || err}`));
+	const mirrors = [
+		"https://de1.api.radio-browser.info",
+		"https://de2.api.radio-browser.info",
+		"https://nl1.api.radio-browser.info",
+		"https://fr1.api.radio-browser.info"
+	];
+
+	const tryMirror = (idx: number) => {
+		if (idx >= mirrors.length) {
+			this.fallbackToLocalTrack(`All mirrors failed for ${name}`);
+			return;
+		}
+
+		const base = mirrors[idx];
+		const searchUrl = `${base}/json/stations/search?name=${encodeURIComponent(name)}&limit=1`;
+		this.logRadio(`Trying mirror ${base} ...`);
+
+		fetch(searchUrl)
+			.then(r => {
+				if (!r.ok) {
+					throw new Error(`HTTP ${r.status}`);
+				}
+				return r.json();
+			})
+			.then(list => {
+				if (Array.isArray(list) && list.length) {
+					const station = list[0];
+					this.currentStationUrl = station.url_resolved;
+					this.logRadio(`Station loaded from ${base}: ${station.name}`);
+					if (!this.radioAudio || !this.currentStationUrl) return;
+					if (this.radioAudio.src !== this.currentStationUrl) {
+						this.radioAudio.src = this.currentStationUrl;
+					}
+					const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty}`);
+					try {
+						this.radioAudio.addEventListener('playing', onNowPlaying, { once: true });
+						this.radioAudio.addEventListener('canplay', onNowPlaying, { once: true });
+					} catch {}
+					const playPromise = this.radioAudio.play();
+					if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
+				} else {
+					this.logRadio(`No station found for: ${name} on ${base}`);
+					tryMirror(idx + 1);
+				}
+			})
+			.catch(err => {
+				this.logRadio(`Error on ${base} for ${name}: ${err?.message || err}`);
+				tryMirror(idx + 1);
+			});
+	};
+
+	tryMirror(0);
+}
+
+private fallbackToLocalTrack(reason: string) {
+	this.logRadio(`Falling back to local track (music1). Reason: ${reason}`);
+
+	// Si por alguna razón el elemento de audio no existe, intenta recrearlo
+	if (!this.radioAudio) {
+		this.prepareRadioElement();
+	}
+
+	const localUrl = "assets/music/music1.mp3";
+	this.currentStationUrl = localUrl;
+
+	if (!this.radioAudio) return;
+
+	this.radioAudio.loop = true;
+	if (this.radioAudio.src !== localUrl) {
+		this.radioAudio.src = localUrl;
+	}
+
+	// Respeta el volumen configurado previamente
+	this.radioAudio.volume = this.getRadioVolume();
+
+	const playPromise = this.radioAudio.play();
+	if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked (fallback): ${e?.message || e}`));
 }
 private pauseRadio() {
     if (this.radioAudio) {

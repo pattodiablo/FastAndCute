@@ -1,0 +1,41 @@
+{
+    "id": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "SpineGameObject",
+            "id": "3b66e6a7-76b1-4d5a-9861-57781992f765",
+            "label": "ranaEnemy",
+            "dataKey": "RanaEnemy",
+            "atlasKey": "RanaEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "bpSkin": 0,
+            "bpAnimation": "Idle",
+            "previewAnimation": "",
+            "scaleX": 0.4786267887723732,
+            "scaleY": 0.4786267887723732,
+            "ArcadeComponent.active": true,
+            "body.gravity.y": 100,
+            "body.width": 83.0000027382022,
+            "body.height": 76.49000000953671
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

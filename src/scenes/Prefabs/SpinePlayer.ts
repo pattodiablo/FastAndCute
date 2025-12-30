@@ -30,6 +30,12 @@ export default class SpinePlayer extends SpineGameObject {
 		this.body.bounce.y = 0.1;
 		this.body.collideWorldBounds = true;
 		this.body.setCircle(35);
+		    const body = this.body as Phaser.Physics.Arcade.Body;
+    body.setBounce(this.bounceDamping, this.bounceDamping);
+    body.setDrag(this.airDragX, this.airDragY);
+    body.setMaxVelocity(this.maxSpeed, this.maxSpeed);
+    body.setAllowGravity(false);
+	
 
 		/* START-USER-CTR-CODE */
 		// this.scene.input.enableDebug(this);
@@ -235,6 +241,14 @@ export default class SpinePlayer extends SpineGameObject {
 	private nextClickBoost: boolean = false;
 	private ChargingSound?: Phaser.Sound.BaseSound;
 
+	public impulseStrength: number = 420;   // fuerza base del click
+public boostMultiplier: number = 2.0;   // multiplicador si usas powerups
+public airDragX: number = 30;          // “rozamiento con el aire” en X
+public airDragY: number = 30;          // “rozamiento con el aire” en Y
+public bounceDamping: number = 0.55;    // rebote en colisiones
+public maxSpeed: number = 460;          // velocidad tope
+public minSpeedCutoff: number = 12;     // velocidad mínima antes de parar
+
 	// Estela de burbujas
 
 	private startLongPressCountdown() {
@@ -304,17 +318,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 	}
 
-	// Detiene la estela (opcionalmente destruye todo)
-	private stopBubbleTrail(destroyAll = false) {
-		if (this.bubbleTrail) {
-			this.bubbleTrail.stop();
-			if (destroyAll) {
-				this.bubbleTrail.destroy();
-				this.bubbleTrail = undefined;
-			}
-		}
-
-	}
+	
 
 	// Dispara la estela por un tiempo; si se vuelve a hacer click, reinicia el contador
 
@@ -425,49 +429,50 @@ export default class SpinePlayer extends SpineGameObject {
 			}
 		} else {
 
-			if (this.CanMove && this.targetPos) {
-				const toTarget = new Phaser.Math.Vector2(
-					this.targetPos.x - this.x,
-					this.targetPos.y - this.y
-				);
-				const dist = toTarget.length();
-				if (dist < 4) {
+            const body = this.body as Phaser.Physics.Arcade.Body;
 
-					this.targetPos = null;
-					//this.body.setVelocity(0, 0);
-					const proxy = { vx: this.body.velocity.x, vy: this.body.velocity.y };
-					this.decelTween = this.scene.tweens.add({
-						targets: proxy,
-						vx: 0,
-						vy: 0,
-						duration: 1500,
-						ease: 'Quad.Out',
-						onUpdate: () => this.body.setVelocity(proxy.vx, proxy.vy)
+            if (this.CanMove && this.targetPos) {
+                const dir = new Phaser.Math.Vector2(
+                    this.targetPos.x - this.x,
+                    this.targetPos.y - this.y
+                );
+                const dist = dir.length();
 
-					});
+                // Consumir el destino en un solo impulso
+                this.targetPos = null;
 
-					this.lastMoveTime = time;
-				} else {
-					toTarget.normalize();
-					// Movimiento flotado (ligero “ease” en rotación)
-					this.body.setVelocity(toTarget.x * this.moveSpeed, toTarget.y * this.moveSpeed);
-					const maxTilt = 0.25;
-					if (Math.abs(toTarget.x) > 0.05) {
-						this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(toTarget.x), 0.15);
-					}
-				}
-			} else {
-				// Flotado idle (oscilación vertical suave)
-				this.idleFloatPhase += delta * 0.0025;
-				const vy = Math.sin(this.idleFloatPhase) * 25; // amplitud
-				//this.body.setVelocityX(0);
-				this.body.setVelocityY(vy);
-				this.body.setGravityY(this.originalGravityY);
-				// Relajar rotación progresivamente
-				this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.08);
-			}
+                if (dist >= 4) {
+                    dir.scale(1 / dist);
 
-		}
+                    // Impulso momentáneo hacia el click
+                    body.setVelocity(dir.x * this.moveSpeed, dir.y * this.moveSpeed);
+
+                    // Tilt ligero
+                    const maxTilt = 0.25;
+                    if (Math.abs(dir.x) > 0.05) {
+                        this.rotation = Phaser.Math.Linear(this.rotation, maxTilt * Math.sign(dir.x), 0.15);
+                    }
+                }
+
+                this.lastMoveTime = time;
+            } else {
+                // Deja que el drag lo frene; si ya casi está detenido, cortamos velocidad y hacemos un idle suave
+                const vx = body.velocity.x || 0;
+                const vy = body.velocity.y || 0;
+                const speed = Math.hypot(vx, vy);
+
+                if (speed < this.minSpeedCutoff) {
+                    body.setVelocity(0, 0);
+                    this.idleFloatPhase += delta * 0.0025;
+                    const vyFloat = Math.sin(this.idleFloatPhase) * 25;
+                    body.setVelocityY(vyFloat);
+                }
+
+                // Relajar rotación progresivamente
+                this.rotation = Phaser.Math.Linear(this.rotation, 0, 0.08);
+            }
+
+        }
 
 		// Activar/desactivar la estela según se esté moviendo realmente
 		const vx = this.body.velocity.x || 0;

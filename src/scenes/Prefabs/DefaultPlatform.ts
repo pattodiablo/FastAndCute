@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -33,8 +32,35 @@ export default class DefaultPlatform extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 
 	create() {
-	
-			this.scene.physics.add.collider((this.scene as any).player, this);
+		// Collider con el player
+		this.scene.physics.add.collider((this.scene as any).player, this);
+
+		// Asegurar que el body sea inamovible (mejor respuesta de colisión)
+		this.body.setImmovable(true);
+
+		// Collider permanente contra el grupo de enemigos
+		const base = this.scene as any;
+
+		const attachEnemiesCollider = () => {
+			const group = base.enemiesGroup as Phaser.Physics.Arcade.Group | undefined;
+			if (group) {
+				this.scene.physics.add.collider(group, this);
+				return true;
+			}
+			return false;
+		};
+
+		// Intento inmediato
+		if (!attachEnemiesCollider()) {
+			// Reintentar algunas veces hasta que el grupo exista
+			const retry = this.scene.time.addEvent({
+				delay: 100,
+				repeat: 30,
+				callback: () => {
+					if (attachEnemiesCollider()) retry.remove(false);
+				}
+			});
+		}
 	}
 
 

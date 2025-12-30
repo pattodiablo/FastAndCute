@@ -2,6 +2,8 @@
     "id": "b685c081-ee5f-4b67-b583-415922c9e2c4",
     "sceneType": "SCENE",
     "settings": {
+        "snapWidth": 134.00000222768992,
+        "snapHeight": 123.99999999999997,
         "exportClass": true,
         "autoImport": true,
         "superClassName": "BaseEscene",
@@ -140,16 +142,20 @@
             "y": 425
         },
         {
-            "type": "SpineGameObject",
-            "id": "59c3509d-a69c-4e56-ae11-2e29335d7ac4",
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "87a9c5b6-9bd7-4c45-9207-e54ed7e5da32",
+            "unlock": [
+                "x",
+                "y",
+                "body.gravity.x",
+                "body.gravity.y"
+            ],
             "label": "ranaEnemy",
-            "dataKey": "RanaEnemy",
-            "atlasKey": "RanaEnemy-atlas",
-            "skinName": "default",
-            "bpType": 1,
-            "previewAnimation": "",
-            "x": 764,
-            "y": 443
+            "scope": "PUBLIC",
+            "x": 852,
+            "y": 424,
+            "body.gravity.x": 0,
+            "body.gravity.y": 10
         }
     ],
     "plainObjects": [],
