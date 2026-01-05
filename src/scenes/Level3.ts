@@ -5,6 +5,7 @@
 import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
+import RanaEnemy from "./Prefabs/RanaEnemy";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -48,6 +49,10 @@ export default class Level3 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(65, 482, "door");
+
+		// ranaEnemy
+		const ranaEnemy = new RanaEnemy(this, this.spine, 182, 522);
+		this.add.existing(ranaEnemy);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

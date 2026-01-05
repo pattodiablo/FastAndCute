@@ -103,6 +103,17 @@
             },
             "x": 65,
             "y": 482
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "7ea34061-f638-41c4-b52c-fd96a668c3a8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy",
+            "x": 182,
+            "y": 522
         }
     ],
     "plainObjects": [],
