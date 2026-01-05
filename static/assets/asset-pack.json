@@ -17,6 +17,28 @@
                 "key": "BasePlayer"
             },
             {
+                "url": "assets/spine/BatEnemy/BatEnemy.json",
+                "type": "spineJson",
+                "key": "BatEnemy",
+                "previewAtlasKey": "BatEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/BatEnemy/BatEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "BatEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/BeeEnemy/BeeEnemy.json",
+                "type": "spineJson",
+                "key": "BeeEnemy",
+                "previewAtlasKey": "BeeEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/BeeEnemy/BeeEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "BeeEnemy-atlas"
+            },
+            {
                 "url": "assets/bg1.png",
                 "type": "image",
                 "key": "bg1"
@@ -93,9 +115,31 @@
                 "key": "BubblePop"
             },
             {
+                "url": "assets/spine/CactusEnemy/CactusEnemy.json",
+                "type": "spineJson",
+                "key": "CactusEnemy",
+                "previewAtlasKey": "CactusEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/CactusEnemy/CactusEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "CactusEnemy-atlas"
+            },
+            {
                 "url": "assets/CarboardEffect.png",
                 "type": "image",
                 "key": "CarboardEffect"
+            },
+            {
+                "url": "assets/spine/CarrotEnemy/CarrotEnemy.json",
+                "type": "spineJson",
+                "key": "CarrotEnemy",
+                "previewAtlasKey": "CarrotEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/CarrotEnemy/CarrotEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "CarrotEnemy-atlas"
             },
             {
                 "url": "assets/CatTrack.png",
@@ -272,6 +316,28 @@
                 "textureURL": "assets/animations/Glow/glow.png",
                 "type": "atlas",
                 "key": "glow"
+            },
+            {
+                "url": "assets/spine/HedgeHogEnemy/HedgehogEnemy.json",
+                "type": "spineJson",
+                "key": "HedgehogEnemy",
+                "previewAtlasKey": "HedgehogEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/HedgeHogEnemy/HedgehogEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "HedgehogEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/HelloCatEnemy/HelloCatEnemy.json",
+                "type": "spineJson",
+                "key": "HelloCatEnemy",
+                "previewAtlasKey": "HelloCatEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/HelloCatEnemy/HelloCatEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "HelloCatEnemy-atlas"
             },
             {
                 "url": "assets/spine/KittenPlayer.json",
@@ -641,6 +707,17 @@
                 "url": "assets/spikes.png",
                 "type": "image",
                 "key": "spikes"
+            },
+            {
+                "url": "assets/spine/SporeEnemy/SporeEnemy.json",
+                "type": "spineJson",
+                "key": "SporeEnemy",
+                "previewAtlasKey": "SporeEnemy-atlas"
+            },
+            {
+                "url": "assets/spine/SporeEnemy/SporeEnemy.atlas",
+                "type": "spineAtlas",
+                "key": "SporeEnemy-atlas"
             },
             {
                 "url": "assets/star.png",

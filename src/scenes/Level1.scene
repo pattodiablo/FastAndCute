@@ -142,20 +142,16 @@
             "y": 425
         },
         {
-            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
-            "id": "87a9c5b6-9bd7-4c45-9207-e54ed7e5da32",
-            "unlock": [
-                "x",
-                "y",
-                "body.gravity.x",
-                "body.gravity.y"
-            ],
-            "label": "ranaEnemy",
-            "scope": "PUBLIC",
-            "x": 852,
-            "y": 424,
-            "body.gravity.x": 0,
-            "body.gravity.y": 10
+            "type": "SpineGameObject",
+            "id": "a2d59a07-2062-4c53-8b90-f840a05f4d23",
+            "label": "beeEnemy",
+            "dataKey": "BeeEnemy",
+            "atlasKey": "BeeEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "x": 667,
+            "y": 396
         }
     ],
     "plainObjects": [],

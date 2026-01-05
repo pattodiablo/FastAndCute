@@ -7,7 +7,7 @@ import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import CatTrack from "./Prefabs/CatTrack";
-import RanaEnemy from "./Prefabs/RanaEnemy";
+import { SkinsAndAnimationBoundsProvider } from "@esotericsoftware/spine-phaser";
 import { SpineGameObject } from "@esotericsoftware/spine-phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -66,11 +66,9 @@ export default class Level1 extends BaseEscene {
 		const catTrack = new CatTrack(this, 561, 425);
 		this.add.existing(catTrack);
 
-		// ranaEnemy
-		const ranaEnemy = new RanaEnemy(this, this.spine, 852, 424);
-		this.add.existing(ranaEnemy);
-		ranaEnemy.body.gravity.x = 0;
-		ranaEnemy.body.gravity.y = 10;
+		// beeEnemy
+		const beeEnemy = this.add.spine(667, 396, "BeeEnemy", "BeeEnemy-atlas", new SkinsAndAnimationBoundsProvider(null, ["default"]));
+		beeEnemy.skeleton.setSkinByName("default");
 
 		// catTrack (prefab fields)
 		catTrack.TrackToUnlock = "Unlock2";
@@ -78,7 +76,6 @@ export default class Level1 extends BaseEscene {
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
 		this.doorOrigin = doorOrigin;
-		this.ranaEnemy = ranaEnemy;
 
 		this.events.emit("scene-awake");
 	}
@@ -86,7 +83,6 @@ export default class Level1 extends BaseEscene {
 	public frontLayer!: Phaser.GameObjects.Image;
 	public chestOrigin!: Phaser.GameObjects.Image;
 	public doorOrigin!: Phaser.GameObjects.Image;
-	public ranaEnemy!: RanaEnemy;
 
 	/* START-USER-CODE */
 
