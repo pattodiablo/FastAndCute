@@ -7,8 +7,7 @@ import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import CatTrack from "./Prefabs/CatTrack";
-import { SkinsAndAnimationBoundsProvider } from "@esotericsoftware/spine-phaser";
-import { SpineGameObject } from "@esotericsoftware/spine-phaser";
+import BatCaveGenerator from "./Prefabs/BatCaveGenerator";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -66,9 +65,9 @@ export default class Level1 extends BaseEscene {
 		const catTrack = new CatTrack(this, 561, 425);
 		this.add.existing(catTrack);
 
-		// beeEnemy
-		const beeEnemy = this.add.spine(667, 396, "BeeEnemy", "BeeEnemy-atlas", new SkinsAndAnimationBoundsProvider(null, ["default"]));
-		beeEnemy.skeleton.setSkinByName("default");
+		// batCave
+		const batCave = new BatCaveGenerator(this, 57, 452);
+		this.add.existing(batCave);
 
 		// catTrack (prefab fields)
 		catTrack.TrackToUnlock = "Unlock2";

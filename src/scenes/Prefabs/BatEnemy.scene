@@ -1,0 +1,38 @@
+{
+    "id": "3cce3abd-6e68-4cec-8a26-1c4bbdf40c63",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "SpineGameObject",
+            "id": "75cde601-70fb-487a-909a-3c907e67fded",
+            "label": "batEnemy",
+            "dataKey": "BatEnemy",
+            "atlasKey": "BatEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "scaleX": 0.4,
+            "scaleY": 0.4,
+            "ArcadeComponent.active": true,
+            "body.width": 143.0000019028185,
+            "body.height": 117.99999999999997
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

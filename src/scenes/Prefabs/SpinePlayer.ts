@@ -34,7 +34,9 @@ export default class SpinePlayer extends SpineGameObject {
     body.setBounce(this.bounceDamping, this.bounceDamping);
     body.setDrag(this.airDragX, this.airDragY);
     body.setMaxVelocity(this.maxSpeed, this.maxSpeed);
-    body.setAllowGravity(false);
+		body.setAllowGravity(false);
+		body.checkCollision.none = true; // deshabilitado hasta que empiece a moverse
+		body.enable = false;
 	
 
 		/* START-USER-CTR-CODE */
@@ -580,8 +582,8 @@ export default class SpinePlayer extends SpineGameObject {
 	resetPlayer() {
 		(this.scene as any).chest.resetChest(); // Llama al método resetChest del cofre
 		this.setVisible(false);
-		this.body.checkCollision.none = false;
-		this.body.enable = true;
+		this.body.checkCollision.none = true;
+		this.body.enable = false;
 
 
 

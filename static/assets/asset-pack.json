@@ -17,6 +17,11 @@
                 "key": "BasePlayer"
             },
             {
+                "url": "assets/BatCave.png",
+                "type": "image",
+                "key": "BatCave"
+            },
+            {
                 "url": "assets/spine/BatEnemy/BatEnemy.json",
                 "type": "spineJson",
                 "key": "BatEnemy",

@@ -70,7 +70,6 @@ export default class BaseEscene extends Phaser.Scene {
 		const carboardEffect = this.add.image(0, 0, "CarboardEffect");
 		carboardEffect.blendMode = Phaser.BlendModes.MULTIPLY;
 		carboardEffect.setOrigin(0, 0);
-		carboardEffect.visible = false;
 
 		// curtain1
 		const curtain1 = this.add.image(515, -218, "Curtain1");
@@ -128,7 +127,7 @@ export default class BaseEscene extends Phaser.Scene {
 
     BaseCreate(): void {
 
-		
+
 		this.collidingEnemies = [];
 		// gameBg
 		const gameBg = this.add.tileSprite(-48, -22, 1031, 580, "bg1");

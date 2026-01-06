@@ -142,16 +142,15 @@
             "y": 425
         },
         {
-            "type": "SpineGameObject",
-            "id": "a2d59a07-2062-4c53-8b90-f840a05f4d23",
-            "label": "beeEnemy",
-            "dataKey": "BeeEnemy",
-            "atlasKey": "BeeEnemy-atlas",
-            "skinName": "default",
-            "bpType": 1,
-            "previewAnimation": "",
-            "x": 667,
-            "y": 396
+            "prefabId": "c9a1661b-011f-4e70-bded-1daebc649c86",
+            "id": "763ee50e-bd22-4254-86fb-48fb0bed39c2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "batCave",
+            "x": 57,
+            "y": 452
         }
     ],
     "plainObjects": [],
