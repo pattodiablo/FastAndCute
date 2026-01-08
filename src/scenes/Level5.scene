@@ -1,0 +1,220 @@
+{
+    "id": "0e39221e-d82a-4004-a168-f855c01466b4",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 261,
+        "snapHeight": 154,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseEscene",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level5",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_3",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 620,
+            "y": 499
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "23d544e3-81fb-4671-9353-b995b260933a",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform",
+            "x": 107,
+            "y": 302
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "8008efe9-87e1-4b25-9f78-c40e1a0084a4",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_1",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 421,
+            "y": 521
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "8dbe5ac6-2ded-429a-a5ed-2e16f1d43331",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_2",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 831,
+            "y": 516
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star",
+            "x": 92,
+            "y": 489
+        },
+        {
+            "type": "Image",
+            "id": "342c300e-7046-4fcd-b9bc-c39de864a873",
+            "label": "frontLayer",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "FrontLayer"
+            },
+            "x": 511,
+            "y": 568
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "ca78feeb-d500-48ee-b2c3-b9f6d750d581",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_1",
+            "x": 927,
+            "y": 106
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "5071d28c-3c3e-47c8-96ce-9005307b4c3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_2",
+            "x": 620,
+            "y": 220
+        },
+        {
+            "type": "Image",
+            "id": "a58b948e-57d3-417a-a712-4af137abcdc7",
+            "label": "ChestOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "CloseChestanimation",
+                "frame": "CloseChest0031.png"
+            },
+            "x": 115,
+            "y": 144
+        },
+        {
+            "type": "Image",
+            "id": "481168fb-b158-4787-9461-c9d93fa3135a",
+            "label": "DoorOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "door"
+            },
+            "x": 417,
+            "y": 378
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "7ea34061-f638-41c4-b52c-fd96a668c3a8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy",
+            "x": 831,
+            "y": 407
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "c1254e93-3357-4ce7-8eb7-c2fad714be07",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform2",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 131,
+            "y": 474,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "a0622684-faee-4321-9023-04e4d6e97650",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy_1",
+            "x": 620,
+            "y": 395
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "5dc92769-f7fe-4547-bf10-bb86fcd1cea8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_3",
+            "x": 829,
+            "y": 276
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "db401bb7-3787-4e36-942f-7f547e6ff421",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_4",
+            "texture": {
+                "key": "cloud3"
+            },
+            "x": 922,
+            "y": 71,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

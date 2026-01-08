@@ -1,0 +1,224 @@
+{
+    "id": "1fc61296-d30b-496a-8736-2a447bb3d575",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 261,
+        "snapHeight": 154,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseEscene",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level7",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "4edd9729-ad58-4e8e-aac8-49b69a053d84",
+            "unlock": [
+                "x",
+                "y",
+                "angle"
+            ],
+            "label": "spikes",
+            "x": 456,
+            "y": 55,
+            "angle": 90
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "angle"
+            ],
+            "label": "platform_3",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 527,
+            "y": 77,
+            "angle": -180
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "23d544e3-81fb-4671-9353-b995b260933a",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform",
+            "x": 119,
+            "y": 615
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "4e06c520-f313-434b-ae88-1fa982aa98aa",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform_1",
+            "x": 920,
+            "y": 546
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star",
+            "x": 487,
+            "y": 518
+        },
+        {
+            "type": "Image",
+            "id": "342c300e-7046-4fcd-b9bc-c39de864a873",
+            "label": "frontLayer",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "FrontLayer"
+            },
+            "x": 511,
+            "y": 568
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "ca78feeb-d500-48ee-b2c3-b9f6d750d581",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_1",
+            "x": 927,
+            "y": 106
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "5071d28c-3c3e-47c8-96ce-9005307b4c3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_2",
+            "x": 96,
+            "y": 80
+        },
+        {
+            "type": "Image",
+            "id": "a58b948e-57d3-417a-a712-4af137abcdc7",
+            "label": "ChestOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "CloseChestanimation",
+                "frame": "CloseChest0031.png"
+            },
+            "x": 923,
+            "y": 389
+        },
+        {
+            "type": "Image",
+            "id": "481168fb-b158-4787-9461-c9d93fa3135a",
+            "label": "DoorOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "door"
+            },
+            "x": 65,
+            "y": 482
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "7ea34061-f638-41c4-b52c-fd96a668c3a8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy",
+            "x": 182,
+            "y": 522
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "c1254e93-3357-4ce7-8eb7-c2fad714be07",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform2",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 112,
+            "y": 94,
+            "scaleX": 0.4914675624384814,
+            "scaleY": 0.4914675624384814
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "6333f9e9-2e26-48a4-a7ba-1f3cd5178a03",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_2",
+            "texture": {
+                "key": "cloud2"
+            },
+            "x": 480,
+            "y": 510,
+            "scaleX": 0.4914675624384814,
+            "scaleY": 0.4914675624384814
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "a386d11a-b445-4f72-9dcd-af514d004e49",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_4",
+            "texture": {
+                "key": "cloud3"
+            },
+            "x": 930,
+            "y": 106,
+            "scaleX": 0.4914675624384814,
+            "scaleY": 0.4914675624384814
+        },
+        {
+            "prefabId": "c9a1661b-011f-4e70-bded-1daebc649c86",
+            "id": "a13b4716-d9f0-4f23-be3b-674dd346950c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "batCaveGenerator",
+            "x": 528,
+            "y": 223
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

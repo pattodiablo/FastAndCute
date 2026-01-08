@@ -6,8 +6,6 @@ import BaseEscene from "./BaseEscene";
 import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
-import CatTrack from "./Prefabs/CatTrack";
-import BatCaveGenerator from "./Prefabs/BatCaveGenerator";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -28,8 +26,10 @@ export default class Level1 extends BaseEscene {
 		this.add.existing(spikes);
 
 		// platform_3
-		const platform_3 = new DefaultPlatform(this, 116, 322);
+		const platform_3 = new DefaultPlatform(this, 116, 322, "Platform1");
 		this.add.existing(platform_3);
+		platform_3.scaleX = 1;
+		platform_3.scaleY = 1;
 
 		// platform
 		const platform = new DefaultPlatform(this, 939, 573);
@@ -60,17 +60,6 @@ export default class Level1 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(941, 439, "door");
-
-		// catTrack
-		const catTrack = new CatTrack(this, 561, 425);
-		this.add.existing(catTrack);
-
-		// batCave
-		const batCave = new BatCaveGenerator(this, 57, 452);
-		this.add.existing(batCave);
-
-		// catTrack (prefab fields)
-		catTrack.TrackToUnlock = "Unlock2";
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

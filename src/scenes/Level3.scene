@@ -1,5 +1,5 @@
 {
-    "id": "cbc195b5-ae0e-4682-83da-ff9f05e0fe1a",
+    "id": "5878de3c-9e57-4643-b46f-83c6321a3d77",
     "sceneType": "SCENE",
     "settings": {
         "snapWidth": 261,
@@ -114,6 +114,25 @@
             "label": "ranaEnemy",
             "x": 182,
             "y": 522
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "c1254e93-3357-4ce7-8eb7-c2fad714be07",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform2",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 917,
+            "y": 116,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
         }
     ],
     "plainObjects": [],

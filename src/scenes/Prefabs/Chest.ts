@@ -14,7 +14,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 		this.setInteractive({ useHandCursor: true });
 		// Escucha el evento de pointerdown (clic/tap)
 		this.on('pointerdown', () => {
-			if (!this.IsOpen) {
+			if (!this.IsOpen && !this.isOpening) {
 						this.OpenChest();
 			}
 	
@@ -27,12 +27,14 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 	}
 
 	public IsOpen: boolean = false;
+	private isOpening: boolean = false;
 	private OpenChestSound?: Phaser.Sound.BaseSound;	
 	private CloseChestSound?: Phaser.Sound.BaseSound;
 	/* START-USER-CODE */
 
 		OpenChest() {
 			// Aquí va la lógica para abrir el cofre, por ejemplo:
+			this.isOpening = true;
 
 		
 			this.play("OpenChest");
@@ -66,6 +68,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 
 		public resetChest() {
 			this.IsOpen = false;
+			this.isOpening = false;
 			this.play("CloseChest");
 				this.CloseChestSound?.play()	
 		}

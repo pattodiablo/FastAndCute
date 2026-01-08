@@ -75,8 +75,9 @@ export default class RanaEnemy extends SpineGameObject {
 	/* START-USER-CODE */
 	// Impulso vertical hacia arriba (en píxeles/segundo). Se usa como -jumpImpulse en Y.
 	public jumpImpulse: number = 200;
-	// Intervalo del bucle de salto (ms)
-	public jumpIntervalMs: number = 6000;
+	// Intervalo aleatorio del bucle de salto (ms)
+	public jumpIntervalMin: number = 3000;
+	public jumpIntervalMax: number = 6000;
 
 	private _addedToList = false;
 	private jumpTimer?: Phaser.Time.TimerEvent;
@@ -95,29 +96,26 @@ export default class RanaEnemy extends SpineGameObject {
 						// Volver a Idle en loop
 						try { this.animationState.setAnimation(0, "Idle", true); } catch {}
 						this.isJumping = false;
+						
+						// Programar el siguiente salto con delay aleatorio
+						this.scheduleNextJump();
 					}
 				}
 			});
 		} catch {}
 
-		// Timer que dispara el salto periódicamente
+		// Programar el primer salto
+		this.scheduleNextJump();
+	}
+
+	private scheduleNextJump() {
+		// Generar delay aleatorio entre min y max
+		const randomDelay = Phaser.Math.Between(this.jumpIntervalMin, this.jumpIntervalMax);
+		
 		this.jumpTimer = this.scene.time.addEvent({
-			delay: this.jumpIntervalMs,
-			loop: true,
+			delay: randomDelay,
 			callback: () => this.triggerJump()
 		});
-	}
-	// Opcional: actualizar el intervalo en runtime
-	public setJumpInterval(ms: number) {
-		this.jumpIntervalMs = Math.max(100, ms);
-		if (this.jumpTimer) {
-			this.jumpTimer.remove(false);
-			this.jumpTimer = this.scene.time.addEvent({
-				delay: this.jumpIntervalMs,
-				loop: true,
-				callback: () => this.triggerJump()
-			});
-		}
 	}
 
 	private triggerJump() {
@@ -132,6 +130,9 @@ export default class RanaEnemy extends SpineGameObject {
 			if (body) body.setVelocityY(-this.jumpImpulse);
 			try { this.animationState.setAnimation(0, "Idle", true); } catch {}
 			this.isJumping = false;
+			
+			// Programar el siguiente salto
+			this.scheduleNextJump();
 		}
 	}
 	/* END-USER-CODE */

@@ -61,6 +61,25 @@ export default class DefaultPlatform extends Phaser.GameObjects.Sprite {
 				}
 			});
 		}
+
+			this.fitBodyToTexture();
+
+	}
+
+
+	private fitBodyToTexture() {
+		const body = this.body as Phaser.Physics.Arcade.Body | undefined;
+		const frame = this.frame;
+
+		if (!body || !frame) return;
+
+		const scaleX = Math.abs(this.scaleX) || 1;
+		const scaleY = Math.abs(this.scaleY) || 1;
+		const width = (frame.realWidth ?? frame.width) * scaleX;
+		const height = (frame.realHeight ?? frame.height) * scaleY;
+
+		// Ajusta el collider al bounding box rectangular de la textura actual
+		body.setSize(width, height, true);
 	}
 
 

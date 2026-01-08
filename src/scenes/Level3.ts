@@ -6,6 +6,7 @@ import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import RanaEnemy from "./Prefabs/RanaEnemy";
+import Platform2 from "./Prefabs/Platform2";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -54,6 +55,12 @@ export default class Level3 extends BaseEscene {
 		const ranaEnemy = new RanaEnemy(this, this.spine, 182, 522);
 		this.add.existing(ranaEnemy);
 
+		// platform2
+		const platform2 = new Platform2(this, 917, 116, "cloud1");
+		this.add.existing(platform2);
+		platform2.scaleX = 0.8365933650783711;
+		platform2.scaleY = 0.8365933650783711;
+
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
 		this.doorOrigin = doorOrigin;
@@ -67,7 +74,7 @@ export default class Level3 extends BaseEscene {
 
 	/* START-USER-CODE */
 
-		public nextLevel: string = "Level1";
+		public nextLevel: string = "Level4";
 
     // Write your code here
 

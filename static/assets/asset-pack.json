@@ -226,6 +226,21 @@
                 "key": "CloseChestanimation"
             },
             {
+                "url": "assets/cloud1.png",
+                "type": "image",
+                "key": "cloud1"
+            },
+            {
+                "url": "assets/cloud2.png",
+                "type": "image",
+                "key": "cloud2"
+            },
+            {
+                "url": "assets/cloud3.png",
+                "type": "image",
+                "key": "cloud3"
+            },
+            {
                 "url": [
                     "assets/fx/collectStar.mp3"
                 ],
@@ -571,6 +586,16 @@
                 "url": "assets/Platform1.png",
                 "type": "image",
                 "key": "Platform1"
+            },
+            {
+                "url": "assets/Platform2.png",
+                "type": "image",
+                "key": "Platform2"
+            },
+            {
+                "url": "assets/Platform3.png",
+                "type": "image",
+                "key": "Platform3"
             },
             {
                 "url": "assets/PlayBtn.png",
