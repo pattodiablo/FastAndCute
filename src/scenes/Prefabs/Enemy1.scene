@@ -152,5 +152,17 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "NumberOfCannons",
+            "label": "NumberOfCannons",
+            "tooltip": "only: 1,2,4 u 8",
+            "defValue": 2,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
 }

@@ -1,0 +1,63 @@
+{
+    "id": "e9d5c336-35d8-4a78-8860-f08476981572",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "8f7d6bc3-1a29-4756-a5fa-0abd89e7967d",
+            "label": "platform_3",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 202,
+            "hitArea.height": 155,
+            "texture": {
+                "key": "CristalBlock"
+            },
+            "ArcadeComponent.active": true,
+            "allowGravity": false,
+            "collideWorldBounds": true,
+            "allowDrag": false,
+            "allowRotation": false,
+            "body.width": 80,
+            "body.height": 80
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "isFalling",
+            "label": "isFalling",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "IsCristalPlatform",
+            "label": "IsCristalPlatform",
+            "tooltip": "",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

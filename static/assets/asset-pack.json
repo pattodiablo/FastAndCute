@@ -109,6 +109,16 @@
                 "key": "BigCat8"
             },
             {
+                "url": "assets/Block1.png",
+                "type": "image",
+                "key": "Block1"
+            },
+            {
+                "url": "assets/Block2.png",
+                "type": "image",
+                "key": "Block2"
+            },
+            {
                 "url": "assets/BubbleParticle.png",
                 "type": "image",
                 "key": "BubbleParticle"
@@ -246,6 +256,16 @@
                 ],
                 "type": "audio",
                 "key": "collectStar"
+            },
+            {
+                "url": "assets/CristalBlock.png",
+                "type": "image",
+                "key": "CristalBlock"
+            },
+            {
+                "url": "assets/CristalBlock2.png",
+                "type": "image",
+                "key": "CristalBlock2"
             },
             {
                 "url": "assets/Curtain1.png",

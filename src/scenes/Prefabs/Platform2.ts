@@ -12,11 +12,8 @@ export default interface Platform2 {
 
 export default class Platform2 extends Phaser.GameObjects.Sprite {
 
-	private hasBurst = false;
-	private heartbeatTween?: Phaser.Tweens.Tween;
-
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "Platform2", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "cloud1", frame);
 
 		scene.physics.add.existing(this, false);
 		this.body.moves = false;
@@ -34,7 +31,11 @@ export default class Platform2 extends Phaser.GameObjects.Sprite {
 		//this.scene.events.on("update", () => this.update())
 		/* END-USER-CTR-CODE */
 	}
-public explodeFx!: any;
+
+	public explodeFx!: any;
+	public heartbeatTween!: any;
+	public hasBurst: boolean = false;
+
 	/* START-USER-CODE */
 
 	create() {
@@ -83,11 +84,11 @@ public explodeFx!: any;
 		// Calcular radio del círculo y centrarlo
 		const diameter = this.displayHeight;
 		const radius = diameter / 1.5;
-		
+
 		// setCircle automáticamente centra el círculo, solo necesitamos offset para ajustar al sprite
 		const offsetX = width / 2 - radius;
 		const offsetY = 0;
-		
+
 		body.setCircle(radius, offsetX, offsetY);
 	}
 
@@ -109,7 +110,7 @@ public explodeFx!: any;
 
 		const pBody = player?.body as Phaser.Physics.Arcade.Body | undefined;
 		const platBody = this.body as Phaser.Physics.Arcade.Body;
-			
+
 		if (!pBody || this.hasBurst) return;
 
 		const charged = !!player?.chargeMode;

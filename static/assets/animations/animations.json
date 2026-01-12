@@ -392,7 +392,7 @@
                     "keyframe": false
                 }
             ],
-            "frameRate": 24,
+            "frameRate": 32,
             "skipMissedFrames": true,
             "showOnStart": true,
             "randomFrame": false

@@ -217,7 +217,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	}
 
-	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
+	public plataformas!: Phaser.Physics.Arcade.Group;
 	public starsGroup!: Phaser.Physics.Arcade.Group;
 
 	public music?: Phaser.Sound.BaseSound;
@@ -229,7 +229,7 @@ export default class BaseEscene extends Phaser.Scene {
 	create() {
 
 
-		this.plataformas = this.physics.add.staticGroup();
+		this.plataformas = this.physics.add.group();
 
 		// Grupo de enemigos
 		this.enemiesGroup = this.physics.add.group();

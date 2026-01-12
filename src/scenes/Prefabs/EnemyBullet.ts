@@ -38,7 +38,8 @@ export default class EnemyBullet extends Phaser.GameObjects.Sprite {
 	create() {
 	
 		this.scene.physics.add.overlap((this.scene as any).player, this, this.killPlayer, undefined, this);
-			this.scene.physics.add.collider((this.scene as any).plataformas, this, this.killBullet, undefined, this);
+		this.scene.physics.add.collider((this.scene as any).plataformas, this, this.killBullet, undefined, this);
+        		
 	}
 
 	killPlayer(player: any, spike: any) {
@@ -46,9 +47,27 @@ export default class EnemyBullet extends Phaser.GameObjects.Sprite {
 	}
 
 	killBullet(platform: any, bullet: any) {
-		if (bullet instanceof EnemyBullet) {
-			bullet.destroy();
-		}
+		// Efecto de partículas de estrellas antes de destruir
+		const sparks = this.scene.add.particles(0, 0, 'starParticle', {
+			x: this.x,
+			y: this.y,
+			speed: { min: 120, max: 260 },
+			angle: { min: 0, max: 360 },
+			scale: { start: 1, end: 0 },
+			alpha: { start: 1, end: 0 },
+			lifespan: { min: 250, max: 500 },
+			quantity: 20,
+			gravityY: -50
+		});
+		
+		// Emitir una vez y limpiar
+		sparks.explode(5, this.x, this.y);
+		this.scene.time.delayedCall(600, () => {
+			sparks.destroy();
+		});
+		
+		// Destruir la bala (this)
+		this.destroy();
 	}
 
     // Dispara desde un cañón, usando su posición/rotación en el mundo, con offset opcional

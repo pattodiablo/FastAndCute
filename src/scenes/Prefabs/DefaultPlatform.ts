@@ -21,6 +21,7 @@ export default class DefaultPlatform extends Phaser.GameObjects.Sprite {
 		this.body.allowDrag = false;
 		this.body.allowRotation = false;
 		this.body.pushable = false;
+		this.body.immovable = true;
 		this.body.setSize(261, 154, false);
 
 		/* START-USER-CTR-CODE */
@@ -41,6 +42,11 @@ export default class DefaultPlatform extends Phaser.GameObjects.Sprite {
 		// Collider permanente contra el grupo de enemigos
 		const base = this.scene as any;
 
+
+		// Añadir esta plataforma al grupo de plataformas
+		if (base.plataformas) {
+			base.plataformas.add(this);
+		}
 		const attachEnemiesCollider = () => {
 			const group = base.enemiesGroup as Phaser.Physics.Arcade.Group | undefined;
 			if (group) {

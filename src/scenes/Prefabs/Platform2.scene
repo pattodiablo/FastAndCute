@@ -17,7 +17,7 @@
             "id": "8f7d6bc3-1a29-4756-a5fa-0abd89e7967d",
             "label": "platform_3",
             "texture": {
-                "key": "Platform2"
+                "key": "cloud1"
             },
             "ArcadeComponent.active": true,
             "moves": false,
@@ -35,5 +35,39 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "explodeFx",
+            "label": "explodeFx",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "heartbeatTween",
+            "label": "heartbeatTween",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "hasBurst",
+            "label": "hasBurst",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
 }

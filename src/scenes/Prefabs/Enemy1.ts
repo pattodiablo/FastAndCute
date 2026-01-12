@@ -71,7 +71,7 @@ export default class Enemy1 extends Phaser.GameObjects.Container {
             this.cannon5, this.cannon6, this.cannon7, this.cannon8
         ];
 
-        this.configureCannons(4); // Llama con 1, 2, 4 u 8 según necesites
+        this.configureCannons(this.NumberOfCannons); // Llama con 1, 2, 4 u 8 según necesites
         /* END-USER-CTR-CODE */
 	}
 
@@ -83,6 +83,7 @@ export default class Enemy1 extends Phaser.GameObjects.Container {
 	private cannon6: EnemyCannon;
 	private cannon7: EnemyCannon;
 	private cannon8: EnemyCannon;
+	public NumberOfCannons: number = 2;
 
 	/* START-USER-CODE */
     private sequenceTimer?: Phaser.Time.TimerEvent;
