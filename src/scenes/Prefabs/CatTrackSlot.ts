@@ -306,6 +306,14 @@ export default class CatTrackSlot extends Phaser.GameObjects.Image {
                                 try { localStorage.setItem(key, JSON.stringify(list)); } catch {}
                             }
                             this.scene.game.registry.set(key, list);
+                            
+                            // Cargar la radio automáticamente después del flip
+                            try { localStorage.setItem("RadioStylePreset", this.radioPreset); } catch {}
+                            const reg = this.scene.game.registry;
+                            reg.set("RequestLoadRadio", this.radioPreset);
+                            if (this.TrackToUnlock) {
+                                reg.set("RequestAlbumTexture", this.CatToUnlock);
+                            }
                         }
 
                         this.applyInteractivityByUnlock();

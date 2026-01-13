@@ -3,6 +3,9 @@
 /* START OF COMPILED CODE */
 
 import BaseEscene from "./BaseEscene";
+import Spikes from "./Prefabs/Spikes";
+import Cristal_Platform from "./Prefabs/Cristal_Platform";
+import Fall_Platform from "./Prefabs/Fall_Platform";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import RanaEnemy from "./Prefabs/RanaEnemy";
@@ -21,6 +24,19 @@ export default class Level5 extends BaseEscene {
 	}
 
 	editorCreate(): void {
+
+		// spikes
+		const spikes = new Spikes(this, 240, 305);
+		this.add.existing(spikes);
+		spikes.angle = -90;
+
+		// cristal_Platform
+		const cristal_Platform = new Cristal_Platform(this, 921, 466);
+		this.add.existing(cristal_Platform);
+
+		// fall_Platform
+		const fall_Platform = new Fall_Platform(this, 825, 84);
+		this.add.existing(fall_Platform);
 
 		// platform_3
 		const platform_3 = new DefaultPlatform(this, 620, 499, "Platform3");
@@ -74,11 +90,11 @@ export default class Level5 extends BaseEscene {
 		this.add.existing(ranaEnemy_1);
 
 		// star_3
-		const star_3 = new Star(this, 829, 276);
+		const star_3 = new Star(this, 963, 537);
 		this.add.existing(star_3);
 
 		// platform_4
-		const platform_4 = new Platform2(this, 922, 71, "cloud3");
+		const platform_4 = new Platform2(this, 805, 71, "cloud3");
 		this.add.existing(platform_4);
 		platform_4.scaleX = 0.8365933650783711;
 		platform_4.scaleY = 0.8365933650783711;

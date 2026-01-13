@@ -16,6 +16,41 @@
     },
     "displayList": [
         {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "c64bc6a7-6ef8-472e-8833-e62e39b06759",
+            "unlock": [
+                "x",
+                "y",
+                "angle"
+            ],
+            "label": "spikes",
+            "x": 240,
+            "y": 305,
+            "angle": -90
+        },
+        {
+            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
+            "id": "35835872-932c-43e8-be4f-e3c696c9cf0a",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "cristal_Platform",
+            "x": 921,
+            "y": 466
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "80a84267-a7c3-464f-a677-a63a69c7e573",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform",
+            "x": 825,
+            "y": 84
+        },
+        {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
             "unlock": [
@@ -187,8 +222,8 @@
                 "y"
             ],
             "label": "star_3",
-            "x": 829,
-            "y": 276
+            "x": 963,
+            "y": 537
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
@@ -204,7 +239,7 @@
             "texture": {
                 "key": "cloud3"
             },
-            "x": 922,
+            "x": 805,
             "y": 71,
             "scaleX": 0.8365933650783711,
             "scaleY": 0.8365933650783711

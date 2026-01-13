@@ -37,7 +37,12 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	private swayTween?: Phaser.Tweens.Tween;
 	private originalX: number = 0;
+	private originalY: number = 0;
+	private originalTexture: string = "";
 	private playerCollider?: Phaser.Physics.Arcade.Collider;
+	private regenerating: boolean = false;
+	private carryEnabled: boolean = false;
+	private pendingDespawn: boolean = false;
 
 	create() {
 		// Collider con el player
@@ -51,6 +56,8 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 		// Guardar posición original y comenzar movimiento de balanceo
 		this.originalX = this.x;
+		this.originalY = this.y;
+		this.originalTexture = this.texture.key;
 		this.startSwayMotion();
 
 		// Collider permanente contra el grupo de enemigos
@@ -110,26 +117,24 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const pBody = player?.body as Phaser.Physics.Arcade.Body | undefined;
 		const platBody = this.body as Phaser.Physics.Arcade.Body;
 
-		// Prevenir múltiples golpes - solo procesar si no está cayendo aún
-		if (!pBody || this.isFalling) return;
+		if (!pBody) return;
 
+		// Si ya está cayendo, no hacer nada aquí (se maneja en preUpdate)
+		if (this.isFalling) return;
+
+		// Solo procesar inicio de caída si no está cayendo aún
 		const charged = !!player?.chargeMode;
 		console.log(`Fall_Platform: jugador hit. Charged: ${charged}`);
 		if (charged) {
 			console.log("Fall_Platform: jugador cargado, plataforma cae");
 			this.isFalling = true;
+			this.carryEnabled = true;
 
 			// Cambiar textura
 			this.setTexture("Block2");
 
 			// Detener el movimiento de balanceo
 			this.stopSwayMotion();
-
-			// Deshabilitar colisión con el player
-			if (this.playerCollider) {
-				this.playerCollider.destroy();
-				this.playerCollider = undefined;
-			}
 
 			const base = this.scene as any;
 
@@ -143,10 +148,19 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			platBody.pushable = true;
 			platBody.moves = true;
 			platBody.allowGravity = true;
-			platBody.setGravityY(1200);
-			platBody.setVelocity(0, 0);
-			platBody.setMaxVelocity(0, 800);
-			platBody.setBounce(0.3, 0.3);
+			platBody.allowRotation = true;
+			platBody.setGravityY(800);
+			// Tomar la dirección/velocidad horizontal del jugador al iniciar la caída
+			//platBody.setVelocity(pBody.velocity.x, 0);
+			platBody.setMaxVelocity(100, 400);
+		//	platBody.setBounce(0.85, 0.9); // más rebote para hacer "cabecitas"
+
+			// Dar velocidad angular según lado del golpe
+			const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
+			const platformCenterX = platBody.center?.x ?? this.x;
+			const hitDir = playerCenterX < platformCenterX ? 1 : -1; // golpe por izquierda => gira horario
+			platBody.setAngularVelocity(hitDir * 100);
+			platBody.setAngularDrag(180);
 
 
 
@@ -160,10 +174,25 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	private handlePlatformCollision(platform1: any, platform2: any) {
 		// Solo procesar si ya está cayendo
-		if (!this.isFalling) return;
+		if (!this.isFalling || this.regenerating || this.pendingDespawn) return;
+		this.pendingDespawn = true;
 
 		// Determinar cuál es la otra plataforma (la que NO es this)
 		const otherPlatform = platform1 === this ? platform2 : platform1;
+		const otherBody = otherPlatform?.body as Phaser.Physics.Arcade.Body | undefined;
+		const platBody = this.body as Phaser.Physics.Arcade.Body;
+
+		// Solo considerar impacto desde arriba
+		if (!otherBody) {
+			this.pendingDespawn = false;
+			return;
+		}
+		const landingTolerance = 10;
+		const landedFromAbove = platBody.bottom <= otherBody.top + landingTolerance && platBody.velocity.y >= 0;
+		if (!landedFromAbove) {
+			this.pendingDespawn = false;
+			return; // ignorar choques laterales
+		}
 
 		// Si la otra plataforma es de cristal, destruirla
 		if (otherPlatform && otherPlatform.IsCristalPlatform) {
@@ -171,19 +200,37 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			if (typeof otherPlatform.destroyByCrush === 'function') {
 				otherPlatform.destroyByCrush();
 			}
+			// Seguir cayendo; liberar el flag para permitir nuevas colisiones
+			this.pendingDespawn = false;
 			return;
 		}
 
-		const platBody = this.body as Phaser.Physics.Arcade.Body;
-
-		// Detener la caída cuando colisiona con otra plataforma
+		// Detener la caída y programar regeneración
 		platBody.moves = false;
 		platBody.pushable = false;
 		platBody.allowGravity = false;
-		platBody.setVelocity(0, 0);
-		platBody.setImmovable(true);
+		platBody.setDrag(0);
+		
+		this.isFalling = false;
 
-		console.log("Fall_Platform: detenida al colisionar con otra plataforma");
+		console.log("Fall_Platform: detenida al colisionar, titileo diferido antes de regenerar");
+		// Esperar 2s, luego titilar ~4s antes de desaparecer
+		this.scene.time.delayedCall(2000, () => {
+			const flicker = this.scene.tweens.add({
+				targets: this,
+				alpha: 0.3,
+				yoyo: true,
+				duration: 120,
+				repeat: -1
+			});
+
+			this.scene.time.delayedCall(4000, () => {
+				flicker.stop();
+				this.setAlpha(1);
+				this.spawnStarBurst();
+				this.scheduleRegeneration();
+			});
+		});
 	}
 
 	private startSwayMotion() {
@@ -194,7 +241,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const shake = () => {
 			this.scene.tweens.add({
 				targets: this,
-				x: this.originalX + 10,
+				x: this.originalX + 5,
 				duration: 50,
 				ease: 'Linear',
 				yoyo: true,
@@ -229,12 +276,113 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.x = this.originalX;
 	}
 
+	private scheduleRegeneration() {
+		this.regenerating = true;
+		
+		// Hacer invisible inmediatamente
+		this.setVisible(false);
+		this.setActive(false);
+		
+		// Desactivar física temporalmente
+		this.body.enable = false;
+		
+		console.log("Fall_Platform: programando regeneración en 3 segundos");
+		
+		// Regenerar después de 3 segundos
+		this.scene.time.delayedCall(3000, () => {
+			this.regenerate();
+		});
+	}
+
+	private regenerate() {
+		console.log("Fall_Platform: regenerando en posición original");
+		
+		// Restaurar posición original (sprite y body)
+		this.x = this.originalX;
+		this.y = this.originalY;
+		
+		// Restaurar textura original
+		this.setTexture(this.originalTexture);
+		
+		// Restaurar estado de caída
+		this.isFalling = false;
+		this.carryEnabled = false;
+		this.regenerating = false;
+		this.pendingDespawn = false;
+
+		// Comenzar desde escala 0
+		this.setScale(0);
+
+		// Restaurar física estática antes de mostrar
+		const platBody = this.body as Phaser.Physics.Arcade.Body;
+		platBody.enable = true;
+		platBody.reset(this.originalX, this.originalY);
+		platBody.setImmovable(true);
+		platBody.moves = false;
+		platBody.pushable = false;
+		platBody.allowGravity = false;
+		platBody.allowRotation = false;
+		platBody.setVelocity(0, 0);
+		platBody.setGravityY(0);
+		platBody.setBounce(0, 0);
+		platBody.setAngularVelocity(0);
+		platBody.setAngularDrag(0);
+		this.setRotation(0);
+		platBody.setMaxVelocity(100, 800);
+
+		// Hacer visible nuevamente
+		this.setVisible(true);
+		this.setActive(true);
+		
+		// Re-agregar al grupo de plataformas
+		const base = this.scene as any;
+		if (base.plataformas && !base.plataformas.contains(this)) {
+			base.plataformas.add(this);
+		}
+		
+		// Recrear collider con el player
+		if (!this.playerCollider) {
+			this.playerCollider = base.physics.add.collider((this.scene as any).player, this, this.handlePlayerHit, undefined, this);
+		}
+		
+		// Efecto de escalado suave desde 0 hasta 1
+		this.scene.tweens.add({
+			targets: this,
+			scale: 1,
+			duration: 500,
+			ease: 'Back.Out',
+			onComplete: () => {
+				// Reiniciar movimiento de balanceo después de la animación
+				this.startSwayMotion();
+			}
+		});
+	}
+
 	preUpdate(time: number, delta: number) {
 		super.preUpdate(time, delta);
 
-		// Destruir solo si está cayendo y salió de la pantalla
-		if (this.isFalling && this.y > this.scene.scale.height + 200) {
-			this.destroy();
+		// Si está cayendo, verificar si el player está debajo transportándola
+		if (this.isFalling && this.carryEnabled && !this.regenerating) {
+			const player = (this.scene as any).player;
+			const platBody = this.body as Phaser.Physics.Arcade.Body;
+
+			if (player && player.body) {
+				const pBody = player.body as Phaser.Physics.Arcade.Body;
+				// Mantener giro mientras se transporta: dirección según lado del player
+				const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
+				const platformCenterX = platBody.center?.x ?? this.x;
+				const dir = playerCenterX < platformCenterX ? 1 : -1;
+				const targetAngular = dir * 220;
+				platBody.setAngularVelocity(Phaser.Math.Linear(platBody.angularVelocity, targetAngular, 0.1));
+				// Usar la rotación para empujar en X
+				const pushX = Phaser.Math.Clamp(platBody.angularVelocity * 0.2, -300, 300);
+				platBody.setVelocityX(pushX);
+			}
+
+			// Regenerar si salió de la pantalla
+			if (this.y > this.scene.scale.height + 200) {
+				this.scheduleRegeneration();
+			}
 		}
 	}
 
@@ -254,6 +402,27 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		});
 
 		this.scene.time.delayedCall(1500, () => particles.destroy());
+	}
+
+	private spawnStarBurst() {
+
+		const sparks = this.scene.add.particles(0, 0, 'starParticle', {
+			x: this.x,
+			y: this.y,
+			speed: { min: 120, max: 260 },
+			angle: { min: 0, max: 360 },
+			scale: { start: 1, end: 0 },
+			alpha: { start: 1, end: 0 },
+			lifespan: { min: 250, max: 500 },
+			quantity: 20,
+			gravityY: -50
+		});
+
+		// Emitir una vez y limpiar
+		sparks.explode(5, this.x, this.y);
+		this.scene.time.delayedCall(600, () => {
+			sparks.destroy();
+		});
 	}
 
 	/* END-USER-CODE */

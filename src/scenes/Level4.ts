@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 import BaseEscene from "./BaseEscene";
+import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
 import RanaEnemy from "./Prefabs/RanaEnemy";
@@ -21,6 +22,11 @@ export default class Level4 extends BaseEscene {
 	}
 
 	editorCreate(): void {
+
+		// spikes
+		const spikes = new Spikes(this, 572, 342);
+		this.add.existing(spikes);
+		spikes.angle = -90;
 
 		// platform_3
 		const platform_3 = new DefaultPlatform(this, 100, 512, "Platform2");
