@@ -38,6 +38,28 @@
             "y": 509
         },
         {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "b41adbf2-b0e8-4d37-b836-e8a7566e2aac",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "spikes",
+            "x": 542,
+            "y": 49
+        },
+        {
+            "type": "Image",
+            "id": "27a39a38-5f65-4874-98fb-a7996dbe50b9",
+            "label": "platform3",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 540,
+            "y": -42,
+            "angle": -180
+        },
+        {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
             "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
             "unlock": [
@@ -155,21 +177,6 @@
             },
             "x": 940,
             "y": 77
-        },
-        {
-            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
-            "id": "672985b5-6cb6-43fc-930a-bb1c2090c74a",
-            "unlock": [
-                "x",
-                "y",
-                "texture"
-            ],
-            "label": "cristal_Platform_1",
-            "texture": {
-                "key": "CristalBlock2"
-            },
-            "x": 704,
-            "y": 503
         }
     ],
     "plainObjects": [],

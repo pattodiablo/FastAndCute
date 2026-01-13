@@ -4,6 +4,7 @@
 
 import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
+import Spikes from "./Prefabs/Spikes";
 import Star from "./Prefabs/Star";
 import Enemy1 from "./Prefabs/Enemy1";
 import Cristal_Platform from "./Prefabs/Cristal_Platform";
@@ -31,6 +32,14 @@ export default class Level2 extends BaseEscene {
 		// platform
 		const platform = new DefaultPlatform(this, 946, 509);
 		this.add.existing(platform);
+
+		// spikes
+		const spikes = new Spikes(this, 542, 49);
+		this.add.existing(spikes);
+
+		// platform3
+		const platform3 = this.add.image(540, -42, "Platform3");
+		platform3.angle = -180;
 
 		// star
 		const star = new Star(this, 132, 481);
@@ -68,10 +77,6 @@ export default class Level2 extends BaseEscene {
 		// platform2
 		const platform2 = new Platform2(this, 940, 77, "cloud1");
 		this.add.existing(platform2);
-
-		// cristal_Platform_1
-		const cristal_Platform_1 = new Cristal_Platform(this, 704, 503, "CristalBlock2");
-		this.add.existing(cristal_Platform_1);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

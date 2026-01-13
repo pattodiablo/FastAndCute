@@ -69,12 +69,6 @@ export default class Level3 extends BaseEscene {
 		// ChestOrigin
 		const chestOrigin = this.add.image(536, 228, "CloseChestanimation", "CloseChest0031.png");
 
-		// platform2
-		const platform2 = new Platform2(this, 888, 503, "cloud2");
-		this.add.existing(platform2);
-		platform2.scaleX = 0.8365933650783711;
-		platform2.scaleY = 0.8365933650783711;
-
 		// platform_4
 		const platform_4 = new Platform2(this, 684, 71, "cloud1");
 		this.add.existing(platform_4);

@@ -27,6 +27,17 @@
             "y": 224
         },
         {
+            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
+            "id": "a6f0204c-3bc5-41e3-b606-a99165449002",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "cristal_Platform",
+            "x": 890,
+            "y": 421
+        },
+        {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "23d544e3-81fb-4671-9353-b995b260933a",
             "unlock": [
@@ -58,6 +69,23 @@
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "8e89cb90-efb8-42df-9f6f-52f0409b8add",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "angle"
+            ],
+            "label": "platform_6",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 692,
+            "y": 612,
+            "angle": -180
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "97d99ea2-fda6-428e-a1bc-9725e55b0d83",
             "unlock": [
                 "x",
@@ -68,8 +96,8 @@
             "texture": {
                 "key": "Platform3"
             },
-            "x": 686,
-            "y": 504
+            "x": 692,
+            "y": 432
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -112,8 +140,8 @@
                 "y"
             ],
             "label": "star_1",
-            "x": 504,
-            "y": 165
+            "x": 887,
+            "y": 508
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -137,6 +165,17 @@
             },
             "x": 79,
             "y": 68
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "49da1a5d-1e98-409d-925e-e2e8241c734c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform",
+            "x": 499,
+            "y": 45
         },
         {
             "type": "Image",
@@ -163,8 +202,8 @@
             "texture": {
                 "key": "cloud1"
             },
-            "x": 516,
-            "y": 151,
+            "x": 501,
+            "y": 63,
             "scaleX": 0.8365933650783711,
             "scaleY": 0.8365933650783711
         },

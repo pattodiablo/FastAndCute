@@ -4,7 +4,9 @@
 
 import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
+import Cristal_Platform from "./Prefabs/Cristal_Platform";
 import Star from "./Prefabs/Star";
+import Fall_Platform from "./Prefabs/Fall_Platform";
 import Platform2 from "./Prefabs/Platform2";
 import BatCaveGenerator from "./Prefabs/BatCaveGenerator";
 import RanaEnemy from "./Prefabs/RanaEnemy";
@@ -27,6 +29,10 @@ export default class Level6 extends BaseEscene {
 		const platform_3 = new DefaultPlatform(this, 55, 224);
 		this.add.existing(platform_3);
 
+		// cristal_Platform
+		const cristal_Platform = new Cristal_Platform(this, 890, 421);
+		this.add.existing(cristal_Platform);
+
 		// platform
 		const platform = new DefaultPlatform(this, 356, 504, "Platform3");
 		this.add.existing(platform);
@@ -35,8 +41,13 @@ export default class Level6 extends BaseEscene {
 		const platform_1 = new DefaultPlatform(this, 514, 504, "Platform3");
 		this.add.existing(platform_1);
 
+		// platform_6
+		const platform_6 = new DefaultPlatform(this, 692, 612, "Platform3");
+		this.add.existing(platform_6);
+		platform_6.angle = -180;
+
 		// platform_2
-		const platform_2 = new DefaultPlatform(this, 686, 504, "Platform3");
+		const platform_2 = new DefaultPlatform(this, 692, 432, "Platform3");
 		this.add.existing(platform_2);
 
 		// platform_5
@@ -51,7 +62,7 @@ export default class Level6 extends BaseEscene {
 		const frontLayer = this.add.image(591, 565, "FrontLayer");
 
 		// star_1
-		const star_1 = new Star(this, 504, 165);
+		const star_1 = new Star(this, 887, 508);
 		this.add.existing(star_1);
 
 		// star_2
@@ -61,11 +72,15 @@ export default class Level6 extends BaseEscene {
 		// ChestOrigin
 		const chestOrigin = this.add.image(79, 68, "CloseChestanimation", "CloseChest0031.png");
 
+		// fall_Platform
+		const fall_Platform = new Fall_Platform(this, 499, 45);
+		this.add.existing(fall_Platform);
+
 		// DoorOrigin
 		const doorOrigin = this.add.image(65, 482, "door");
 
 		// platform2
-		const platform2 = new Platform2(this, 516, 151, "cloud1");
+		const platform2 = new Platform2(this, 501, 63, "cloud1");
 		this.add.existing(platform2);
 		platform2.scaleX = 0.8365933650783711;
 		platform2.scaleY = 0.8365933650783711;

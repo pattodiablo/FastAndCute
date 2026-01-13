@@ -27,7 +27,7 @@ export default class Level10 extends BaseEscene {
 	editorCreate(): void {
 
 		// cristal_Platform
-		const cristal_Platform = new Cristal_Platform(this, 555, 260);
+		const cristal_Platform = new Cristal_Platform(this, 485, 263);
 		this.add.existing(cristal_Platform);
 
 		// platform_3
@@ -46,20 +46,12 @@ export default class Level10 extends BaseEscene {
 		const frontLayer = this.add.image(511, 568, "FrontLayer");
 
 		// star_1
-		const star_1 = new Star(this, 927, 106);
+		const star_1 = new Star(this, 554, 510);
 		this.add.existing(star_1);
 
 		// star_2
 		const star_2 = new Star(this, 249, 47);
 		this.add.existing(star_2);
-
-		// platform_4
-		const platform_4 = new DefaultPlatform(this, 358, 555, "Platform3");
-		this.add.existing(platform_4);
-
-		// platform_5
-		const platform_5 = new DefaultPlatform(this, 355, 238, "Platform3");
-		this.add.existing(platform_5);
 
 		// ChestOrigin
 		const chestOrigin = this.add.image(98, 456, "CloseChestanimation", "CloseChest0031.png");
@@ -68,7 +60,7 @@ export default class Level10 extends BaseEscene {
 		const doorOrigin = this.add.image(976, 441, "door");
 
 		// fall_Platform
-		const fall_Platform = new Fall_Platform(this, 666, 26);
+		const fall_Platform = new Fall_Platform(this, 69, 66);
 		this.add.existing(fall_Platform);
 
 		// ranaEnemy
@@ -76,13 +68,13 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(ranaEnemy);
 
 		// platform2
-		const platform2 = new Platform2(this, 679, 58, "cloud1");
+		const platform2 = new Platform2(this, 55, 32, "cloud1");
 		this.add.existing(platform2);
 		platform2.scaleX = 0.8365933650783711;
 		platform2.scaleY = 0.8365933650783711;
 
 		// enemy1
-		const enemy1 = new Enemy1(this, 531, 496);
+		const enemy1 = new Enemy1(this, 891, 106);
 		this.add.existing(enemy1);
 
 		// platform_1
@@ -90,8 +82,12 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(platform_1);
 
 		// platform_2
-		const platform_2 = new DefaultPlatform(this, 359, 378, "Platform3");
+		const platform_2 = new DefaultPlatform(this, 323, 388, "Platform3");
 		this.add.existing(platform_2);
+
+		// platform_4
+		const platform_4 = new DefaultPlatform(this, 323, 554, "Platform3");
+		this.add.existing(platform_4);
 
 		// star_3
 		const star_3 = new Star(this, 959, 285);
@@ -114,7 +110,7 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(star_4);
 
 		// catTrack
-		const catTrack = new CatTrack(this, 531, 345);
+		const catTrack = new CatTrack(this, 459, 391);
 		this.add.existing(catTrack);
 
 		// enemy1 (prefab fields)

@@ -147,25 +147,6 @@
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
-            "id": "c1254e93-3357-4ce7-8eb7-c2fad714be07",
-            "unlock": [
-                "x",
-                "y",
-                "texture",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "platform2",
-            "texture": {
-                "key": "cloud2"
-            },
-            "x": 888,
-            "y": 503,
-            "scaleX": 0.8365933650783711,
-            "scaleY": 0.8365933650783711
-        },
-        {
-            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
             "id": "9f473082-3d11-4c2e-9691-f1488262de07",
             "unlock": [
                 "x",

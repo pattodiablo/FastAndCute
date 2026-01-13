@@ -43,6 +43,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private regenerating: boolean = false;
 	private carryEnabled: boolean = false;
 	private pendingDespawn: boolean = false;
+	private respawnTimer?: Phaser.Time.TimerEvent;
 
 	create() {
 		// Collider con el player
@@ -290,74 +291,27 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 		console.log("Fall_Platform: programando regeneración en 3 segundos");
 
-		// Regenerar después de 3 segundos
-		this.scene.time.delayedCall(3000, () => {
-			this.regenerate();
+
+		// Programar reemplazo nuevo después de 3 segundos
+		this.respawnTimer = this.scene.time.delayedCall(3000, () => {
+			this.spawnReplacement();
 		});
 	}
 
-	private regenerate() {
-		console.log("Fall_Platform: regenerando en posición original");
-
-		// Restaurar posición original (sprite y body)
-		this.x = this.originalX;
-		this.y = this.originalY;
-
-		// Restaurar textura original
-		this.setTexture(this.originalTexture);
-
-		// Restaurar estado de caída
-		this.isFalling = false;
-		this.carryEnabled = false;
-		this.regenerating = false;
-		this.pendingDespawn = false;
-
-		// Comenzar desde escala 0
-		this.setScale(0);
-
-		// Restaurar física estática antes de mostrar
-		const platBody = this.body as Phaser.Physics.Arcade.Body;
-		platBody.enable = true;
-		platBody.reset(this.originalX, this.originalY);
-		platBody.setImmovable(true);
-		platBody.moves = false;
-		platBody.pushable = false;
-		platBody.allowGravity = false;
-		platBody.allowRotation = false;
-		platBody.setVelocity(0, 0);
-		platBody.setGravityY(0);
-		platBody.setBounce(0, 0);
-		platBody.setAngularVelocity(0);
-		platBody.setAngularDrag(0);
-		this.setRotation(0);
-		platBody.setMaxVelocity(100, 800);
-
-		// Hacer visible nuevamente
-		this.setVisible(true);
-		this.setActive(true);
-
-		// Re-agregar al grupo de plataformas
+	private spawnReplacement() {
 		const base = this.scene as any;
-		if (base.plataformas && !base.plataformas.contains(this)) {
-			base.plataformas.add(this);
+		// Crear nueva instancia en la posición original
+		const fresh = new Fall_Platform(this.scene, this.originalX, this.originalY, this.originalTexture);
+		this.scene.add.existing(fresh);
+		if (base.plataformas) {
+			base.plataformas.add(fresh);
 		}
-
-		// Recrear collider con el player
-		if (!this.playerCollider) {
-			this.playerCollider = base.physics.add.collider((this.scene as any).player, this, this.handlePlayerHit, undefined, this);
+		// Limpiar timers/tweens y destruir esta instancia
+		if (this.respawnTimer) {
+			this.respawnTimer.remove(false);
+			this.respawnTimer = undefined;
 		}
-
-		// Efecto de escalado suave desde 0 hasta 1
-		this.scene.tweens.add({
-			targets: this,
-			scale: 1,
-			duration: 500,
-			ease: 'Back.Out',
-			onComplete: () => {
-				// Reiniciar movimiento de balanceo después de la animación
-				this.startSwayMotion();
-			}
-		});
+		this.destroy();
 	}
 
 	preUpdate(time: number, delta: number) {
