@@ -13,7 +13,7 @@ export default interface Fall_Platform {
 export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "Block2", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "Block3", frame);
 
 		this.setInteractive(new Phaser.Geom.Rectangle(0, 0, 202, 155), Phaser.Geom.Rectangle.Contains);
 		scene.physics.add.existing(this, false);
@@ -35,6 +35,10 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	/* START-USER-CODE */
 
+	private swayTween?: Phaser.Tweens.Tween;
+	private originalX: number = 0;
+	private playerCollider?: Phaser.Physics.Arcade.Collider;
+
 	create() {
 		// Collider con el player
 		this.fitBodyToTexture();
@@ -45,6 +49,10 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.body.pushable = false;
 		this.body.allowGravity = false;
 
+		// Guardar posición original y comenzar movimiento de balanceo
+		this.originalX = this.x;
+		this.startSwayMotion();
+
 		// Collider permanente contra el grupo de enemigos
 		const base = this.scene as any;
 
@@ -53,7 +61,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			base.plataformas.add(this);
 		}
 
-	base.physics.add.collider((this.scene as any).player, this, this.handlePlayerHit, undefined, this);
+	this.playerCollider = base.physics.add.collider((this.scene as any).player, this, this.handlePlayerHit, undefined, this);
 
 		// Collider con plataformas que detiene la caída
 		base.physics.add.collider(base.plataformas, this, this.handlePlatformCollision, undefined, this);
@@ -111,6 +119,18 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			console.log("Fall_Platform: jugador cargado, plataforma cae");
 			this.isFalling = true;
 
+			// Cambiar textura
+			this.setTexture("Block2");
+
+			// Detener el movimiento de balanceo
+			this.stopSwayMotion();
+
+			// Deshabilitar colisión con el player
+			if (this.playerCollider) {
+				this.playerCollider.destroy();
+				this.playerCollider = undefined;
+			}
+
 			const base = this.scene as any;
 
 			// Remover del grupo estático antes de hacerla dinámica
@@ -164,6 +184,49 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		platBody.setImmovable(true);
 
 		console.log("Fall_Platform: detenida al colisionar con otra plataforma");
+	}
+
+	private startSwayMotion() {
+		// Evitar crear múltiples tweens
+		if (this.swayTween) return;
+
+		// Sacudida rápida cada 3 segundos
+		const shake = () => {
+			this.scene.tweens.add({
+				targets: this,
+				x: this.originalX + 10,
+				duration: 50,
+				ease: 'Linear',
+				yoyo: true,
+				repeat: 3, // Se sacude 4 veces (ida y vuelta)
+				onComplete: () => {
+					this.x = this.originalX; // Asegurar que vuelva a la posición original
+				}
+			});
+		};
+
+		// Ejecutar la primera sacudida inmediatamente
+		shake();
+
+		// Repetir cada 3 segundos
+		this.swayTween = this.scene.time.addEvent({
+			delay: 3000,
+			callback: shake,
+			loop: true
+		}) as any;
+	}
+
+	private stopSwayMotion() {
+		if (this.swayTween) {
+			if (typeof this.swayTween.remove === 'function') {
+				this.swayTween.remove();
+			} else if (typeof this.swayTween.stop === 'function') {
+				this.swayTween.stop();
+			}
+			this.swayTween = undefined;
+		}
+		// Asegurar que vuelva a la posición original
+		this.x = this.originalX;
 	}
 
 	preUpdate(time: number, delta: number) {

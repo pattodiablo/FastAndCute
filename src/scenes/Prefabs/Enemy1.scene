@@ -137,6 +137,7 @@
                         "key": "EnemyFace",
                         "frame": "Enemy10001.png"
                     },
+                    "x": 1,
                     "animationPlayMethod": 1,
                     "animationKey": "EnemyFace",
                     "animationCustomConfig": true,

@@ -20,7 +20,7 @@
             "hitArea.width": 202,
             "hitArea.height": 155,
             "texture": {
-                "key": "Block2"
+                "key": "Block3"
             },
             "ArcadeComponent.active": true,
             "allowGravity": false,
@@ -28,7 +28,8 @@
             "allowDrag": false,
             "allowRotation": false,
             "body.width": 80,
-            "body.height": 80
+            "body.height": 80,
+            "animationPreview": true
         }
     ],
     "plainObjects": [],

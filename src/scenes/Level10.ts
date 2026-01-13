@@ -3,11 +3,14 @@
 /* START OF COMPILED CODE */
 
 import BaseEscene from "./BaseEscene";
+import Cristal_Platform from "./Prefabs/Cristal_Platform";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Star from "./Prefabs/Star";
+import Fall_Platform from "./Prefabs/Fall_Platform";
 import RanaEnemy from "./Prefabs/RanaEnemy";
 import Platform2 from "./Prefabs/Platform2";
 import Enemy1 from "./Prefabs/Enemy1";
+import CatTrack from "./Prefabs/CatTrack";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -23,8 +26,12 @@ export default class Level10 extends BaseEscene {
 
 	editorCreate(): void {
 
+		// cristal_Platform
+		const cristal_Platform = new Cristal_Platform(this, 555, 260);
+		this.add.existing(cristal_Platform);
+
 		// platform_3
-		const platform_3 = new DefaultPlatform(this, 764, 539);
+		const platform_3 = new DefaultPlatform(this, 769, 512);
 		this.add.existing(platform_3);
 
 		// platform
@@ -46,24 +53,36 @@ export default class Level10 extends BaseEscene {
 		const star_2 = new Star(this, 249, 47);
 		this.add.existing(star_2);
 
+		// platform_4
+		const platform_4 = new DefaultPlatform(this, 358, 555, "Platform3");
+		this.add.existing(platform_4);
+
+		// platform_5
+		const platform_5 = new DefaultPlatform(this, 355, 238, "Platform3");
+		this.add.existing(platform_5);
+
 		// ChestOrigin
 		const chestOrigin = this.add.image(98, 456, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(976, 441, "door");
 
+		// fall_Platform
+		const fall_Platform = new Fall_Platform(this, 666, 26);
+		this.add.existing(fall_Platform);
+
 		// ranaEnemy
 		const ranaEnemy = new RanaEnemy(this, this.spine, 221, 519);
 		this.add.existing(ranaEnemy);
 
 		// platform2
-		const platform2 = new Platform2(this, 895, 97, "cloud1");
+		const platform2 = new Platform2(this, 679, 58, "cloud1");
 		this.add.existing(platform2);
 		platform2.scaleX = 0.8365933650783711;
 		platform2.scaleY = 0.8365933650783711;
 
 		// enemy1
-		const enemy1 = new Enemy1(this, 479, 291);
+		const enemy1 = new Enemy1(this, 531, 496);
 		this.add.existing(enemy1);
 
 		// platform_1
@@ -71,7 +90,7 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(platform_1);
 
 		// platform_2
-		const platform_2 = new DefaultPlatform(this, 471, 576, "Platform3");
+		const platform_2 = new DefaultPlatform(this, 359, 378, "Platform3");
 		this.add.existing(platform_2);
 
 		// star_3
@@ -79,20 +98,30 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(star_3);
 
 		// ranaEnemy_1
-		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 677, 446);
+		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 684, 381);
 		this.add.existing(ranaEnemy_1);
 
 		// ranaEnemy_2
-		const ranaEnemy_2 = new RanaEnemy(this, this.spine, 762, 446);
+		const ranaEnemy_2 = new RanaEnemy(this, this.spine, 769, 381);
 		this.add.existing(ranaEnemy_2);
 
 		// ranaEnemy_3
-		const ranaEnemy_3 = new RanaEnemy(this, this.spine, 840, 446);
+		const ranaEnemy_3 = new RanaEnemy(this, this.spine, 847, 381);
 		this.add.existing(ranaEnemy_3);
 
 		// star_4
 		const star_4 = new Star(this, 477, 100);
 		this.add.existing(star_4);
+
+		// catTrack
+		const catTrack = new CatTrack(this, 531, 345);
+		this.add.existing(catTrack);
+
+		// enemy1 (prefab fields)
+		enemy1.NumberOfCannons = 8;
+
+		// catTrack (prefab fields)
+		catTrack.TrackToUnlock = "Unlock2";
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

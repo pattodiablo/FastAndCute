@@ -524,18 +524,15 @@ export default class Map extends Phaser.Scene {
     this.ensureUnlockedRadioPresetsList();
 
     // Estilo inicial
-		const savedStyle = (localStorage.getItem("RadioStylePreset") || "").trim();
-		if (savedStyle && savedStyle.toLowerCase() === "lofi") {
-			const idx = this.radioPresets.findIndex(s => s.toLowerCase() === savedStyle.toLowerCase());
-			this.radioPresetIndex = idx >= 0 ? idx : 0;
-		} else {
-			// Fuerza Lofi como inicial y persiste
-			this.radioPresetIndex = 0;
-			try { localStorage.setItem("RadioStylePreset", "Lofi"); } catch {}
-			this.registry.set("RadioStyle", "Lofi");
-		}
+    const savedStyle = (localStorage.getItem("RadioStylePreset") || "").trim();
+    if (savedStyle) {
+      const idx = this.radioPresets.findIndex(s => s.toLowerCase() === savedStyle.toLowerCase());
+      this.radioPresetIndex = idx >= 0 ? idx : 0;
+    } else {
+      this.radioPresetIndex = 0;
+    }
 
-		this.loadRadio(this.radioPresets[this.radioPresetIndex]);
+    this.loadRadio(this.radioPresets[this.radioPresetIndex]);
     this.hookRadioButtons();
 
     // Asegurar estado inicial y sincronizar botón
@@ -725,20 +722,35 @@ private applyVolumeToUI(vol: number, barLeft: number, barRight: number, handleY:
 		this.registry.set('RadioLog', this.radioLog);
 	}
 
-	private locatePlayerOnMap() {
-		// Mover el mapPlayer al MapDot del nivel actual
-		const currentLevel = this.registry.get('PlayerMaxLevel') as number || 1;
-		const targetMapDot = this.getMapDot(currentLevel);
-		if (targetMapDot) {
-			this.mapPlayer.x = targetMapDot.x;
-			this.mapPlayer.y = targetMapDot.y - 20; // Ajuste vertical para que no se superponga
-			console.log(`Player located on MapDot for level ${currentLevel}`);
-			this.mapPlayer.startFloating(targetMapDot.y - 40);
+	public locatePlayerOnMap() {
+		// Buscar el último MapDot habilitado (IsDotActive = true)
+		let lastActiveDot: MapDot | undefined = undefined;
+		let lastActiveLevel = 1;
+		
+		for (let i = 1; i <= 10; i++) {
+			const mapDot = this.getMapDot(i);
+			if (mapDot && mapDot.IsDotActive) {
+				lastActiveDot = mapDot;
+				lastActiveLevel = i;
+			}
+		}
+		
+		if (lastActiveDot) {
+			this.mapPlayer.x = lastActiveDot.x;
+			this.mapPlayer.y = lastActiveDot.y - 20; // Ajuste vertical para que no se superponga
+			console.log(`Player located on MapDot for level ${lastActiveLevel}`);
+			this.mapPlayer.startFloating(lastActiveDot.y);
 		} else {
-			console.warn(`No MapDot found for level ${currentLevel}`);
+			console.warn(`No active MapDot found, defaulting to level 1`);
+			const fallbackDot = this.getMapDot(1);
+			if (fallbackDot) {
+				this.mapPlayer.x = fallbackDot.x;
+				this.mapPlayer.y = fallbackDot.y - 20;
+				this.mapPlayer.startFloating(fallbackDot.y);
+			}
 		}
 	}
-	loadMapState() {
+	public loadMapState() {
 
 		let PlayerMaxLevel = 1;
 		try {

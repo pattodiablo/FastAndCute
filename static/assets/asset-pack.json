@@ -119,6 +119,11 @@
                 "key": "Block2"
             },
             {
+                "url": "assets/Block3.png",
+                "type": "image",
+                "key": "Block3"
+            },
+            {
                 "url": "assets/BubbleParticle.png",
                 "type": "image",
                 "key": "BubbleParticle"

@@ -26,7 +26,7 @@ export default class MapPlayer extends Phaser.GameObjects.Image {
     private floatTween?: Phaser.Tweens.Tween;
 
     public startFloating(fromY?: number) {
-        const amplitude = 40;
+        const amplitude = 20;
         const baseDuration = 1000;
         let fromYFinal = fromY; 
         // Guardar la posición original (si no está definida)

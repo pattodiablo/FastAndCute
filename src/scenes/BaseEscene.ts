@@ -330,10 +330,16 @@ export default class BaseEscene extends Phaser.Scene {
 	// Muestra el mapa deslizándolo dentro (desde arriba o abajo)
 	public showMapOverlay(fromTop: boolean = true) {
         this._mapFromTop = fromTop;
-        const mapScene = this.scene.get('Map') as Phaser.Scene;
+        const mapScene = this.scene.get('Map') as any;
         const w = this.scale.width;
         const h = this.scale.height;
         const startY = fromTop ? -h : h;
+
+        // Actualizar estado del mapa antes de mostrarlo
+        if (mapScene && typeof mapScene.loadMapState === 'function' && typeof mapScene.locatePlayerOnMap === 'function') {
+            mapScene.loadMapState();
+            mapScene.locatePlayerOnMap();
+        }
 
         // preparar viewport del mapa y traerlo al frente
         mapScene.cameras.main.setViewport(0, startY, w, h);

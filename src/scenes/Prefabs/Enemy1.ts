@@ -51,7 +51,7 @@ export default class Enemy1 extends Phaser.GameObjects.Container {
 		this.add(cannon8);
 
 		// enemyFace
-		const enemyFace = scene.add.sprite(0, 0, "EnemyFace", "Enemy10001.png");
+		const enemyFace = scene.add.sprite(1, 0, "EnemyFace", "Enemy10001.png");
 		enemyFace.play({"key":"EnemyFace","frameRate":12,"yoyo":true});
 		this.add(enemyFace);
 
@@ -71,7 +71,7 @@ export default class Enemy1 extends Phaser.GameObjects.Container {
             this.cannon5, this.cannon6, this.cannon7, this.cannon8
         ];
 
-        this.configureCannons(this.NumberOfCannons); // Llama con 1, 2, 4 u 8 según necesites
+	this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.create, this);
         /* END-USER-CTR-CODE */
 	}
 
@@ -90,6 +90,12 @@ export default class Enemy1 extends Phaser.GameObjects.Container {
     private allCannons: EnemyCannon[] = [];
     private activeCannons: EnemyCannon[] = [];
 
+    create() {
+        // Inicia la secuencia de disparo de cañones
+
+        this.configureCannons(this.NumberOfCannons); // Llama con 1, 2, 4 u 8 según necesites
+   
+    }
     // Configura cuántos cañones están activos: 1 => [1], 2 => [1,4], 4 => [1,3,5,7], 8 => todos
     public configureCannons(count: number) {
         const allowed = (count === 1 || count === 2 || count === 4 || count === 8) ? count : 8;

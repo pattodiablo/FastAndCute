@@ -66,7 +66,7 @@ export default class Level2 extends BaseEscene {
 		this.add.existing(fall_Platform);
 
 		// platform2
-		const platform2 = new Platform2(this, 330, 494, "cloud1");
+		const platform2 = new Platform2(this, 940, 77, "cloud1");
 		this.add.existing(platform2);
 
 		this.frontLayer = frontLayer;
