@@ -155,6 +155,21 @@
             },
             "x": 940,
             "y": 77
+        },
+        {
+            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
+            "id": "672985b5-6cb6-43fc-930a-bb1c2090c74a",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "cristal_Platform_1",
+            "texture": {
+                "key": "CristalBlock2"
+            },
+            "x": 704,
+            "y": 503
         }
     ],
     "plainObjects": [],

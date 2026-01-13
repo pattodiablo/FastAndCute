@@ -20,15 +20,16 @@
             "hitArea.width": 202,
             "hitArea.height": 155,
             "texture": {
-                "key": "Block3"
+                "key": "BlockRockl"
             },
             "ArcadeComponent.active": true,
             "allowGravity": false,
             "collideWorldBounds": true,
             "allowDrag": false,
             "allowRotation": false,
-            "body.width": 80,
-            "body.height": 80,
+            "bodyGeometry": 0,
+            "body.width": 128,
+            "body.height": 128,
             "animationPreview": true
         }
     ],

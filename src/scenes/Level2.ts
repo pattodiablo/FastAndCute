@@ -69,6 +69,10 @@ export default class Level2 extends BaseEscene {
 		const platform2 = new Platform2(this, 940, 77, "cloud1");
 		this.add.existing(platform2);
 
+		// cristal_Platform_1
+		const cristal_Platform_1 = new Cristal_Platform(this, 704, 503, "CristalBlock2");
+		this.add.existing(cristal_Platform_1);
+
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
 		this.doorOrigin = doorOrigin;

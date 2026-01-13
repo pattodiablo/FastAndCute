@@ -13,7 +13,7 @@ export default interface Fall_Platform {
 export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "Block3", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "BlockRockl", frame);
 
 		this.setInteractive(new Phaser.Geom.Rectangle(0, 0, 202, 155), Phaser.Geom.Rectangle.Contains);
 		scene.physics.add.existing(this, false);
@@ -21,7 +21,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.body.allowDrag = false;
 		this.body.allowRotation = false;
 		this.body.collideWorldBounds = true;
-		this.body.setSize(80, 80, false);
+		this.body.setCircle(64);
 
 		/* START-USER-CTR-CODE */
 			this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.create, this);
@@ -106,8 +106,11 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const width = this.displayWidth;
 		const height = this.displayHeight;
 
-		// Ajusta el collider al bounding box rectangular de la textura actual
-		body.setSize(width, height, true);
+		// Collider circular centrado
+		const radius = Math.min(width, height) * 0.5;
+		const offsetX = width * 0.5 - radius;
+		const offsetY = height * 0.5 - radius;
+		body.setCircle(radius, offsetX, offsetY);
 	}
 
 
@@ -131,7 +134,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			this.carryEnabled = true;
 
 			// Cambiar textura
-			this.setTexture("Block2");
+			//this.setTexture("Block2");
 
 			// Detener el movimiento de balanceo
 			this.stopSwayMotion();
@@ -149,18 +152,18 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			platBody.moves = true;
 			platBody.allowGravity = true;
 			platBody.allowRotation = true;
-			platBody.setGravityY(800);
+			platBody.setGravityY(0);
 			// Tomar la dirección/velocidad horizontal del jugador al iniciar la caída
 			//platBody.setVelocity(pBody.velocity.x, 0);
 			platBody.setMaxVelocity(100, 400);
-		//	platBody.setBounce(0.85, 0.9); // más rebote para hacer "cabecitas"
+			platBody.setBounce(0.2, 0.7); // más rebote para hacer "cabecitas"
 
 			// Dar velocidad angular según lado del golpe
 			const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
 			const platformCenterX = platBody.center?.x ?? this.x;
 			const hitDir = playerCenterX < platformCenterX ? 1 : -1; // golpe por izquierda => gira horario
-			platBody.setAngularVelocity(hitDir * 100);
-			platBody.setAngularDrag(180);
+			platBody.setAngularVelocity(hitDir * 20);
+			platBody.setAngularDrag(10);
 
 
 
@@ -182,6 +185,16 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const otherBody = otherPlatform?.body as Phaser.Physics.Arcade.Body | undefined;
 		const platBody = this.body as Phaser.Physics.Arcade.Body;
 
+		// Si es cristal, romperla siempre (sin checar desde dónde llegó)
+		if (otherPlatform && otherPlatform.IsCristalPlatform) {
+			console.log("Fall_Platform: golpeó plataforma de cristal, destruyéndola");
+			if (typeof otherPlatform.destroyByCrush === 'function') {
+				otherPlatform.destroyByCrush();
+			}
+			this.pendingDespawn = false;
+			return;
+		}
+
 		// Solo considerar impacto desde arriba
 		if (!otherBody) {
 			this.pendingDespawn = false;
@@ -194,23 +207,12 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			return; // ignorar choques laterales
 		}
 
-		// Si la otra plataforma es de cristal, destruirla
-		if (otherPlatform && otherPlatform.IsCristalPlatform) {
-			console.log("Fall_Platform: golpeó plataforma de cristal, destruyéndola");
-			if (typeof otherPlatform.destroyByCrush === 'function') {
-				otherPlatform.destroyByCrush();
-			}
-			// Seguir cayendo; liberar el flag para permitir nuevas colisiones
-			this.pendingDespawn = false;
-			return;
-		}
-
 		// Detener la caída y programar regeneración
 		platBody.moves = false;
 		platBody.pushable = false;
 		platBody.allowGravity = false;
 		platBody.setDrag(0);
-		
+
 		this.isFalling = false;
 
 		console.log("Fall_Platform: detenida al colisionar, titileo diferido antes de regenerar");
@@ -241,7 +243,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const shake = () => {
 			this.scene.tweens.add({
 				targets: this,
-				x: this.originalX + 5,
+				x: this.originalX + 2,
 				duration: 50,
 				ease: 'Linear',
 				yoyo: true,
@@ -278,16 +280,16 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	private scheduleRegeneration() {
 		this.regenerating = true;
-		
+
 		// Hacer invisible inmediatamente
 		this.setVisible(false);
 		this.setActive(false);
-		
+
 		// Desactivar física temporalmente
 		this.body.enable = false;
-		
+
 		console.log("Fall_Platform: programando regeneración en 3 segundos");
-		
+
 		// Regenerar después de 3 segundos
 		this.scene.time.delayedCall(3000, () => {
 			this.regenerate();
@@ -296,14 +298,14 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	private regenerate() {
 		console.log("Fall_Platform: regenerando en posición original");
-		
+
 		// Restaurar posición original (sprite y body)
 		this.x = this.originalX;
 		this.y = this.originalY;
-		
+
 		// Restaurar textura original
 		this.setTexture(this.originalTexture);
-		
+
 		// Restaurar estado de caída
 		this.isFalling = false;
 		this.carryEnabled = false;
@@ -333,18 +335,18 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		// Hacer visible nuevamente
 		this.setVisible(true);
 		this.setActive(true);
-		
+
 		// Re-agregar al grupo de plataformas
 		const base = this.scene as any;
 		if (base.plataformas && !base.plataformas.contains(this)) {
 			base.plataformas.add(this);
 		}
-		
+
 		// Recrear collider con el player
 		if (!this.playerCollider) {
 			this.playerCollider = base.physics.add.collider((this.scene as any).player, this, this.handlePlayerHit, undefined, this);
 		}
-		
+
 		// Efecto de escalado suave desde 0 hasta 1
 		this.scene.tweens.add({
 			targets: this,
