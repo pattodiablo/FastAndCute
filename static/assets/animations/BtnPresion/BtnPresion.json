@@ -1,0 +1,252 @@
+{"frames": [
+
+{
+	"filename": "BtnPresion0001.png",
+	"frame": {"x":2,"y":2,"w":280,"h":49},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":280,"h":49},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0002.png",
+	"frame": {"x":284,"y":2,"w":280,"h":49},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":280,"h":49},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0003.png",
+	"frame": {"x":566,"y":2,"w":280,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":280,"h":47},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0004.png",
+	"frame": {"x":848,"y":2,"w":280,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":280,"h":47},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0005.png",
+	"frame": {"x":1130,"y":2,"w":280,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":280,"h":45},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0006.png",
+	"frame": {"x":2,"y":53,"w":280,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":280,"h":45},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0007.png",
+	"frame": {"x":284,"y":53,"w":280,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":280,"h":43},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0008.png",
+	"frame": {"x":566,"y":53,"w":280,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":280,"h":43},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0009.png",
+	"frame": {"x":848,"y":53,"w":280,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":280,"h":41},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0010.png",
+	"frame": {"x":1130,"y":53,"w":280,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":280,"h":41},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0011.png",
+	"frame": {"x":2,"y":100,"w":280,"h":39},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":280,"h":39},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0012.png",
+	"frame": {"x":284,"y":100,"w":280,"h":39},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":280,"h":39},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0013.png",
+	"frame": {"x":566,"y":100,"w":280,"h":37},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":12,"w":280,"h":37},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0014.png",
+	"frame": {"x":848,"y":100,"w":280,"h":37},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":12,"w":280,"h":37},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0015.png",
+	"frame": {"x":1130,"y":100,"w":280,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":14,"w":280,"h":35},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0016.png",
+	"frame": {"x":2,"y":141,"w":280,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":14,"w":280,"h":35},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0017.png",
+	"frame": {"x":284,"y":141,"w":280,"h":33},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":16,"w":280,"h":33},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0018.png",
+	"frame": {"x":566,"y":141,"w":280,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":18,"w":280,"h":31},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0019.png",
+	"frame": {"x":848,"y":141,"w":280,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":18,"w":280,"h":31},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0020.png",
+	"frame": {"x":1130,"y":141,"w":280,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":20,"w":280,"h":29},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0021.png",
+	"frame": {"x":2,"y":178,"w":280,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":20,"w":280,"h":29},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0022.png",
+	"frame": {"x":284,"y":178,"w":280,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":22,"w":280,"h":27},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0023.png",
+	"frame": {"x":566,"y":178,"w":280,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":22,"w":280,"h":27},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0024.png",
+	"frame": {"x":848,"y":178,"w":280,"h":25},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":24,"w":280,"h":25},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0025.png",
+	"frame": {"x":1130,"y":178,"w":280,"h":25},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":24,"w":280,"h":25},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0026.png",
+	"frame": {"x":2,"y":209,"w":280,"h":23},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":26,"w":280,"h":23},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0027.png",
+	"frame": {"x":284,"y":209,"w":280,"h":23},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":26,"w":280,"h":23},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0028.png",
+	"frame": {"x":566,"y":209,"w":280,"h":21},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":28,"w":280,"h":21},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0029.png",
+	"frame": {"x":848,"y":209,"w":280,"h":21},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":28,"w":280,"h":21},
+	"sourceSize": {"w":280,"h":49}
+},
+{
+	"filename": "BtnPresion0030.png",
+	"frame": {"x":1130,"y":209,"w":280,"h":19},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":30,"w":280,"h":19},
+	"sourceSize": {"w":280,"h":49}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "BtnPresion.png",
+	"format": "RGBA8888",
+	"size": {"w":1412,"h":234},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:26532840b585b2fd752556cb0da95891:7d35a25bc15575e7ff3ca6a0a8b20930:1e100d6207b2e49bd0969432404e03f6$"
+}
+}
