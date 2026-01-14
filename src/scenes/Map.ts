@@ -332,6 +332,7 @@ export default class Map extends Phaser.Scene {
 		const nextBtn = this.add.image(886, 409, "NextBtn");
 		nextBtn.scaleX = 1.2;
 		nextBtn.scaleY = 1.2;
+		nextBtn.visible = false;
 
 		// PlayPauseBtn
 		const playPauseBtn = this.add.image(827, 409, "PauseBtn");
@@ -342,6 +343,7 @@ export default class Map extends Phaser.Scene {
 		const prevBtn = this.add.image(766, 409, "PrevBtn");
 		prevBtn.scaleX = 1.2;
 		prevBtn.scaleY = 1.2;
+		prevBtn.visible = false;
 
 		// VolumenSizeBar
 		const volumenSizeBar = this.add.image(738, 339, "SongTimeline");
@@ -363,13 +365,16 @@ export default class Map extends Phaser.Scene {
 		this.add.image(901, 319, "VolumeUp");
 
 		// useLocalText
-		this.add.image(754, 484, "useLocalText");
+		const useLocalText = this.add.image(754, 484, "useLocalText");
+		useLocalText.visible = false;
 
 		// sliderOpBack
-		this.add.image(758, 518, "sliderOpBack");
+		const sliderOpBack = this.add.image(758, 518, "sliderOpBack");
+		sliderOpBack.visible = false;
 
 		// sliderBtn
-		this.add.image(725, 518, "sliderBtn");
+		const sliderBtn = this.add.image(725, 518, "sliderBtn");
+		sliderBtn.visible = false;
 
 		// mapDot1 (prefab fields)
 		mapDot1.IsDotActive = true;
@@ -406,6 +411,7 @@ export default class Map extends Phaser.Scene {
 
 		// unlock2 (prefab fields)
 		unlock2.TrackToUnlock = "Unlock2";
+		unlock2.radioPreset = "Synthwave";
 		unlock2.CatToUnlock = "BigCat2";
 
 		// unlock3 (prefab fields)
@@ -726,7 +732,7 @@ private applyVolumeToUI(vol: number, barLeft: number, barRight: number, handleY:
 		// Buscar el último MapDot habilitado (IsDotActive = true)
 		let lastActiveDot: MapDot | undefined = undefined;
 		let lastActiveLevel = 1;
-		
+
 		for (let i = 1; i <= 10; i++) {
 			const mapDot = this.getMapDot(i);
 			if (mapDot && mapDot.IsDotActive) {
@@ -734,7 +740,7 @@ private applyVolumeToUI(vol: number, barLeft: number, barRight: number, handleY:
 				lastActiveLevel = i;
 			}
 		}
-		
+
 		if (lastActiveDot) {
 			this.mapPlayer.x = lastActiveDot.x;
 			this.mapPlayer.y = lastActiveDot.y - 20; // Ajuste vertical para que no se superponga

@@ -620,10 +620,12 @@
                         "x",
                         "y",
                         "TrackToUnlock",
-                        "CatToUnlock"
+                        "CatToUnlock",
+                        "radioPreset"
                     ],
                     "label": "unlock2",
                     "TrackToUnlock": "Unlock2",
+                    "radioPreset": "Synthwave",
                     "CatToUnlock": "BigCat2",
                     "x": 130,
                     "y": 0
@@ -834,7 +836,8 @@
             "x": 886,
             "y": 409,
             "scaleX": 1.2,
-            "scaleY": 1.2
+            "scaleY": 1.2,
+            "visible": false
         },
         {
             "type": "Image",
@@ -860,7 +863,8 @@
             "x": 766,
             "y": 409,
             "scaleX": 1.2,
-            "scaleY": 1.2
+            "scaleY": 1.2,
+            "visible": false
         },
         {
             "type": "Image",
@@ -934,7 +938,8 @@
                 "key": "useLocalText"
             },
             "x": 754,
-            "y": 484
+            "y": 484,
+            "visible": false
         },
         {
             "type": "Image",
@@ -944,7 +949,8 @@
                 "key": "sliderOpBack"
             },
             "x": 758,
-            "y": 518
+            "y": 518,
+            "visible": false
         },
         {
             "type": "Image",
@@ -954,7 +960,8 @@
                 "key": "sliderBtn"
             },
             "x": 725,
-            "y": 518
+            "y": 518,
+            "visible": false
         }
     ],
     "plainObjects": [],
