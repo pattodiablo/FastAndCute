@@ -1,0 +1,44 @@
+{
+    "id": "615b2ff7-682d-4294-9738-1cfab1f1bea4",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": false,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 1031,
+        "borderHeight": 580,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "SpineGameObject",
+            "id": "ccbe2209-2414-4ab3-846c-c41792f5e928",
+            "label": "sporeEnemy",
+            "dataKey": "SporeEnemy",
+            "atlasKey": "SporeEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "x": 0,
+            "y": 0,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

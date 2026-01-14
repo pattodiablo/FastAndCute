@@ -4,8 +4,12 @@
 
 import BaseEscene from "./BaseEscene";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
+import Spikes from "./Prefabs/Spikes";
 import Star from "./Prefabs/Star";
 import Enemy1 from "./Prefabs/Enemy1";
+import Cristal_Platform from "./Prefabs/Cristal_Platform";
+import Fall_Platform from "./Prefabs/Fall_Platform";
+import Platform2 from "./Prefabs/Platform2";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -22,12 +26,20 @@ export default class Level2 extends BaseEscene {
 	editorCreate(): void {
 
 		// platform_3
-		const platform_3 = new DefaultPlatform(this, 116, 322);
+		const platform_3 = new DefaultPlatform(this, 111, 363);
 		this.add.existing(platform_3);
 
 		// platform
 		const platform = new DefaultPlatform(this, 946, 509);
 		this.add.existing(platform);
+
+		// spikes
+		const spikes = new Spikes(this, 542, 49);
+		this.add.existing(spikes);
+
+		// platform3
+		const platform3 = this.add.image(540, -42, "Platform3");
+		platform3.angle = -180;
 
 		// star
 		const star = new Star(this, 132, 481);
@@ -45,7 +57,7 @@ export default class Level2 extends BaseEscene {
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(137, 164, "CloseChestanimation", "CloseChest0031.png");
+		const chestOrigin = this.add.image(112, 203, "CloseChestanimation", "CloseChest0031.png");
 
 		// enemy1
 		const enemy1 = new Enemy1(this, 539, 321);
@@ -53,6 +65,18 @@ export default class Level2 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(947, 376, "door");
+
+		// cristal_Platform
+		const cristal_Platform = new Cristal_Platform(this, 274, 504, "CristalBlock2");
+		this.add.existing(cristal_Platform);
+
+		// fall_Platform
+		const fall_Platform = new Fall_Platform(this, 346, 92);
+		this.add.existing(fall_Platform);
+
+		// platform2
+		const platform2 = new Platform2(this, 940, 77, "cloud1");
+		this.add.existing(platform2);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

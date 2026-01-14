@@ -17,6 +17,11 @@
                 "key": "BasePlayer"
             },
             {
+                "url": "assets/BatCave.png",
+                "type": "image",
+                "key": "BatCave"
+            },
+            {
                 "url": "assets/spine/BatEnemy/BatEnemy.json",
                 "type": "spineJson",
                 "key": "BatEnemy",
@@ -102,6 +107,26 @@
                 "url": "assets/BigCat8.png",
                 "type": "image",
                 "key": "BigCat8"
+            },
+            {
+                "url": "assets/Block1.png",
+                "type": "image",
+                "key": "Block1"
+            },
+            {
+                "url": "assets/Block2.png",
+                "type": "image",
+                "key": "Block2"
+            },
+            {
+                "url": "assets/Block3.png",
+                "type": "image",
+                "key": "Block3"
+            },
+            {
+                "url": "assets/BlockRockl.png",
+                "type": "image",
+                "key": "BlockRockl"
             },
             {
                 "url": "assets/BubbleParticle.png",
@@ -221,11 +246,36 @@
                 "key": "CloseChestanimation"
             },
             {
+                "url": "assets/cloud1.png",
+                "type": "image",
+                "key": "cloud1"
+            },
+            {
+                "url": "assets/cloud2.png",
+                "type": "image",
+                "key": "cloud2"
+            },
+            {
+                "url": "assets/cloud3.png",
+                "type": "image",
+                "key": "cloud3"
+            },
+            {
                 "url": [
                     "assets/fx/collectStar.mp3"
                 ],
                 "type": "audio",
                 "key": "collectStar"
+            },
+            {
+                "url": "assets/CristalBlock.png",
+                "type": "image",
+                "key": "CristalBlock"
+            },
+            {
+                "url": "assets/CristalBlock2.png",
+                "type": "image",
+                "key": "CristalBlock2"
             },
             {
                 "url": "assets/Curtain1.png",
@@ -566,6 +616,16 @@
                 "url": "assets/Platform1.png",
                 "type": "image",
                 "key": "Platform1"
+            },
+            {
+                "url": "assets/Platform2.png",
+                "type": "image",
+                "key": "Platform2"
+            },
+            {
+                "url": "assets/Platform3.png",
+                "type": "image",
+                "key": "Platform3"
             },
             {
                 "url": "assets/PlayBtn.png",

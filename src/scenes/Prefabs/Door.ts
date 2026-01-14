@@ -58,7 +58,9 @@ this.AppearDoorSound = this.scene.sound.add("DoorAppear");
         this.IsOpen = true;
         this.play("OpenDoor");
 
+
         (player as any).CompleteLevel(this.x, this.y);
+        player.body.enable = false; // Deshabilita la física del jugador al abrir la puerta
     }
 
     AppearDoor() {

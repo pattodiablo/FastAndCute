@@ -1,0 +1,44 @@
+{
+    "id": "44d35144-b87a-4793-9e94-7b493fd6dc4d",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": false,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 1031,
+        "borderHeight": 580,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "SpineGameObject",
+            "id": "6103e9e4-8036-4e4a-bddc-94b30051e865",
+            "label": "hedgehogEnemy",
+            "dataKey": "HedgehogEnemy",
+            "atlasKey": "HedgehogEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "x": 0,
+            "y": 0,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

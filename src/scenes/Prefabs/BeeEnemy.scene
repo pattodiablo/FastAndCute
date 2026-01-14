@@ -1,0 +1,45 @@
+{
+    "id": "7da6864c-472d-4ef6-a1ba-2485e24e1bae",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": false,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 1031,
+        "borderHeight": 580,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "SpineGameObject",
+            "id": "f8cf403c-fb2c-4eeb-a595-70b6b06e5bb6",
+            "label": "beeEnemy",
+            "dataKey": "BeeEnemy",
+            "atlasKey": "BeeEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "bpAnimation": "Idle",
+            "previewAnimation": "",
+            "x": 0,
+            "y": 0,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

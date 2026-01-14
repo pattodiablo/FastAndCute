@@ -70,7 +70,6 @@ export default class BaseEscene extends Phaser.Scene {
 		const carboardEffect = this.add.image(0, 0, "CarboardEffect");
 		carboardEffect.blendMode = Phaser.BlendModes.MULTIPLY;
 		carboardEffect.setOrigin(0, 0);
-		carboardEffect.visible = false;
 
 		// curtain1
 		const curtain1 = this.add.image(515, -218, "Curtain1");
@@ -128,7 +127,7 @@ export default class BaseEscene extends Phaser.Scene {
 
     BaseCreate(): void {
 
-		
+
 		this.collidingEnemies = [];
 		// gameBg
 		const gameBg = this.add.tileSprite(-48, -22, 1031, 580, "bg1");
@@ -218,7 +217,7 @@ export default class BaseEscene extends Phaser.Scene {
 
 	}
 
-	public plataformas!: Phaser.Physics.Arcade.StaticGroup;
+	public plataformas!: Phaser.Physics.Arcade.Group;
 	public starsGroup!: Phaser.Physics.Arcade.Group;
 
 	public music?: Phaser.Sound.BaseSound;
@@ -230,7 +229,7 @@ export default class BaseEscene extends Phaser.Scene {
 	create() {
 
 
-		this.plataformas = this.physics.add.staticGroup();
+		this.plataformas = this.physics.add.group();
 
 		// Grupo de enemigos
 		this.enemiesGroup = this.physics.add.group();
@@ -331,10 +330,16 @@ export default class BaseEscene extends Phaser.Scene {
 	// Muestra el mapa deslizándolo dentro (desde arriba o abajo)
 	public showMapOverlay(fromTop: boolean = true) {
         this._mapFromTop = fromTop;
-        const mapScene = this.scene.get('Map') as Phaser.Scene;
+        const mapScene = this.scene.get('Map') as any;
         const w = this.scale.width;
         const h = this.scale.height;
         const startY = fromTop ? -h : h;
+
+        // Actualizar estado del mapa antes de mostrarlo
+        if (mapScene && typeof mapScene.loadMapState === 'function' && typeof mapScene.locatePlayerOnMap === 'function') {
+            mapScene.loadMapState();
+            mapScene.locatePlayerOnMap();
+        }
 
         // preparar viewport del mapa y traerlo al frente
         mapScene.cameras.main.setViewport(0, startY, w, h);

@@ -23,8 +23,8 @@
                 "y"
             ],
             "label": "platform_3",
-            "x": 116,
-            "y": 322
+            "x": 111,
+            "y": 363
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -36,6 +36,28 @@
             "label": "platform",
             "x": 946,
             "y": 509
+        },
+        {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "b41adbf2-b0e8-4d37-b836-e8a7566e2aac",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "spikes",
+            "x": 542,
+            "y": 49
+        },
+        {
+            "type": "Image",
+            "id": "27a39a38-5f65-4874-98fb-a7996dbe50b9",
+            "label": "platform3",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 540,
+            "y": -42,
+            "angle": -180
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -90,8 +112,8 @@
                 "key": "CloseChestanimation",
                 "frame": "CloseChest0031.png"
             },
-            "x": 137,
-            "y": 164
+            "x": 112,
+            "y": 203
         },
         {
             "prefabId": "af839178-cccb-4df1-ab7b-f3aa7aea4f6d",
@@ -114,6 +136,47 @@
             },
             "x": 947,
             "y": 376
+        },
+        {
+            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
+            "id": "cde3a03a-3fba-46e8-a03c-3760f4fb771c",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "cristal_Platform",
+            "texture": {
+                "key": "CristalBlock2"
+            },
+            "x": 274,
+            "y": 504
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "196066b8-2a2d-4345-9988-2cb75d87e195",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform",
+            "x": 346,
+            "y": 92
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "d9ff6b46-cd07-468a-ab3d-c27c322310e1",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform2",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 940,
+            "y": 77
         }
     ],
     "plainObjects": [],

@@ -30,12 +30,6 @@ export default class SpinePlayer extends SpineGameObject {
 		this.body.bounce.y = 0.1;
 		this.body.collideWorldBounds = true;
 		this.body.setCircle(35);
-		    const body = this.body as Phaser.Physics.Arcade.Body;
-    body.setBounce(this.bounceDamping, this.bounceDamping);
-    body.setDrag(this.airDragX, this.airDragY);
-    body.setMaxVelocity(this.maxSpeed, this.maxSpeed);
-    body.setAllowGravity(false);
-	
 
 		/* START-USER-CTR-CODE */
 		// this.scene.input.enableDebug(this);
@@ -118,6 +112,10 @@ export default class SpinePlayer extends SpineGameObject {
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
 			// En Player.ts (constructor)
 
+		// Cada click arranca sin charge; si se usa boost se marcará true
+		this.chargeMode = false;
+		this.scene.registry?.set('chargeMode', false);
+
 		this.startLongPressCountdown();
 			if (this.clickingOnPlayer) return; // Ignora si el click fue sobre el jugador
 			// BOOST si hay Ring activo (antes de fijar targetPos)
@@ -128,7 +126,7 @@ export default class SpinePlayer extends SpineGameObject {
 			}
 
 			if (!this.MovementLinear) {
-			
+
 
 				this.addFloatingSound();
 
@@ -192,6 +190,8 @@ export default class SpinePlayer extends SpineGameObject {
 				if (this.nextClickBoost) {
 					this.moveSpeed = this.OriginalMoveSpeed * 2.5;
 					this.nextClickBoost = false; // se consume aquí; siguiente click ya normal
+					this.chargeMode = true;
+					this.scene.registry?.set('chargeMode', true);
 				} else {
 					this.moveSpeed = this.OriginalMoveSpeed;
 				}
@@ -239,6 +239,7 @@ export default class SpinePlayer extends SpineGameObject {
 	private currentRing?: RingTimer;
 	private clickingOnPlayer: boolean = false;
 	private nextClickBoost: boolean = false;
+	public chargeMode: boolean = false;
 	private ChargingSound?: Phaser.Sound.BaseSound;
 
 	public impulseStrength: number = 420;   // fuerza base del click
@@ -318,7 +319,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 	}
 
-	
+
 
 	// Dispara la estela por un tiempo; si se vuelve a hacer click, reinicia el contador
 
@@ -336,7 +337,7 @@ export default class SpinePlayer extends SpineGameObject {
 			this.floatFX.play()
 		}
 
-      
+
     }
 	public startMoving() {
 
@@ -361,6 +362,8 @@ export default class SpinePlayer extends SpineGameObject {
 			this.body.collideWorldBounds = true;
 			this.body.checkCollision.none = false;
 			this.body.enable = true;
+			this.body.setAllowGravity(false); // Desactivar gravedad en modo linear
+			this.body.setGravityY(0);
 			this.CanMove = true;
 			this.setVisible(true);
 			this.skeleton.setAttachment("Bubble", "Bubble");
@@ -580,8 +583,8 @@ export default class SpinePlayer extends SpineGameObject {
 	resetPlayer() {
 		(this.scene as any).chest.resetChest(); // Llama al método resetChest del cofre
 		this.setVisible(false);
-		this.body.checkCollision.none = false;
-		this.body.enable = true;
+		this.body.checkCollision.none = true;
+		this.body.enable = false;
 
 
 

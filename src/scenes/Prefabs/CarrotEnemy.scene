@@ -1,0 +1,44 @@
+{
+    "id": "76b98656-f80d-47ae-8f3a-7053945e54b9",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": false,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 1031,
+        "borderHeight": 580,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "SpineGameObject",
+            "id": "66fc8945-4861-428b-a27d-58fda3fd34ad",
+            "label": "carrotEnemy",
+            "dataKey": "CarrotEnemy",
+            "atlasKey": "CarrotEnemy-atlas",
+            "skinName": "default",
+            "bpType": 1,
+            "previewAnimation": "",
+            "x": 0,
+            "y": 0,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

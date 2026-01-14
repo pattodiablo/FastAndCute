@@ -1,0 +1,250 @@
+{
+    "id": "69875993-daab-4454-bf74-e2e35316433a",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 261,
+        "snapHeight": 154,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "BaseEscene",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level9",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_3",
+            "x": 949,
+            "y": 158,
+            "scaleX": 0.6753246753246753,
+            "scaleY": 0.6753246753246753
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "23d544e3-81fb-4671-9353-b995b260933a",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform",
+            "texture": {
+                "key": "Platform2"
+            },
+            "x": 144,
+            "y": 276
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "11bd3d4e-d791-4f11-b998-3ca20dc67ee7",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_1",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 370,
+            "y": 511
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "9ac8337e-8e75-4d88-9107-fa930a5d6d5c",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_2",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 823,
+            "y": 510
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "15d272bb-09fc-407e-b1ae-6b15f25ddb99",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_4",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 1016,
+            "y": 498
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star",
+            "x": 487,
+            "y": 518
+        },
+        {
+            "type": "Image",
+            "id": "342c300e-7046-4fcd-b9bc-c39de864a873",
+            "label": "frontLayer",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "FrontLayer"
+            },
+            "x": 511,
+            "y": 568
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "ca78feeb-d500-48ee-b2c3-b9f6d750d581",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_1",
+            "x": 144,
+            "y": 460
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "5071d28c-3c3e-47c8-96ce-9005307b4c3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_2",
+            "x": 113,
+            "y": 62
+        },
+        {
+            "type": "Image",
+            "id": "a58b948e-57d3-417a-a712-4af137abcdc7",
+            "label": "ChestOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "CloseChestanimation",
+                "frame": "CloseChest0031.png"
+            },
+            "x": 946,
+            "y": 22
+        },
+        {
+            "type": "Image",
+            "id": "481168fb-b158-4787-9461-c9d93fa3135a",
+            "label": "DoorOrigin",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "door"
+            },
+            "x": 815,
+            "y": 365
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "7ea34061-f638-41c4-b52c-fd96a668c3a8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy",
+            "x": 333,
+            "y": 404
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "c1254e93-3357-4ce7-8eb7-c2fad714be07",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform2",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 637,
+            "y": 501,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "05882554-4dee-4849-9eb1-251e32b958f1",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy_1",
+            "x": 990,
+            "y": 390
+        },
+        {
+            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
+            "id": "235adf33-9249-4a93-9a9d-ad0ff66ca325",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "ranaEnemy_2",
+            "x": 169,
+            "y": 182
+        },
+        {
+            "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
+            "id": "f6e495a1-fcff-416d-866a-f89c9cc7b99d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "star_3",
+            "x": 977,
+            "y": 276
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "16e7cda7-b3d4-43c2-910f-111978d12d39",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_5",
+            "texture": {
+                "key": "cloud2"
+            },
+            "x": 144,
+            "y": 467,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

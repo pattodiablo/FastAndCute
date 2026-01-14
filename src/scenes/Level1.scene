@@ -31,11 +31,19 @@
             "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
             ],
             "label": "platform_3",
+            "texture": {
+                "key": "Platform1"
+            },
             "x": 116,
-            "y": 322
+            "y": 322,
+            "scaleX": 1,
+            "scaleY": 1
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -127,31 +135,6 @@
             },
             "x": 941,
             "y": 439
-        },
-        {
-            "prefabId": "d406054b-b466-48ea-9e34-e0f9bdc9de07",
-            "id": "c11f5505-c3e8-4d31-a02e-f3704fab29ad",
-            "unlock": [
-                "x",
-                "y",
-                "TrackToUnlock"
-            ],
-            "label": "catTrack",
-            "TrackToUnlock": "Unlock2",
-            "x": 561,
-            "y": 425
-        },
-        {
-            "type": "SpineGameObject",
-            "id": "a2d59a07-2062-4c53-8b90-f840a05f4d23",
-            "label": "beeEnemy",
-            "dataKey": "BeeEnemy",
-            "atlasKey": "BeeEnemy-atlas",
-            "skinName": "default",
-            "bpType": 1,
-            "previewAnimation": "",
-            "x": 667,
-            "y": 396
         }
     ],
     "plainObjects": [],

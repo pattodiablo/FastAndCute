@@ -1,5 +1,5 @@
 {
-    "id": "cbc195b5-ae0e-4682-83da-ff9f05e0fe1a",
+    "id": "5878de3c-9e57-4643-b46f-83c6321a3d77",
     "sceneType": "SCENE",
     "settings": {
         "snapWidth": 261,
@@ -16,6 +16,19 @@
     },
     "displayList": [
         {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "524b7f8d-b275-4c0e-9863-558c449f63a4",
+            "unlock": [
+                "x",
+                "y",
+                "angle"
+            ],
+            "label": "spikes_1",
+            "x": 682,
+            "y": 519,
+            "angle": -90
+        },
+        {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
             "unlock": [
@@ -23,8 +36,8 @@
                 "y"
             ],
             "label": "platform_3",
-            "x": 480,
-            "y": 388
+            "x": 610,
+            "y": 390
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -38,6 +51,45 @@
             "y": 615
         },
         {
+            "prefabId": "38b9599b-688c-4b74-a2f3-54ed7d39fb14",
+            "id": "2e8fc345-bdee-4d3b-a8a1-3087524c254e",
+            "unlock": [
+                "x",
+                "y",
+                "angle"
+            ],
+            "label": "spikes",
+            "x": 675,
+            "y": 123,
+            "angle": -180
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "cba1aaab-0dda-44a8-8bad-c32115a9f7ee",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_1",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 675,
+            "y": 226
+        },
+        {
+            "prefabId": "e9d5c336-35d8-4a78-8860-f08476981572",
+            "id": "1ec4096f-ea67-43da-9756-1aa751ae363b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "cristal_Platform",
+            "x": 889,
+            "y": 399
+        },
+        {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
             "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
             "unlock": [
@@ -45,8 +97,8 @@
                 "y"
             ],
             "label": "star",
-            "x": 487,
-            "y": 518
+            "x": 877,
+            "y": 507
         },
         {
             "type": "Image",
@@ -90,8 +142,53 @@
                 "key": "CloseChestanimation",
                 "frame": "CloseChest0031.png"
             },
-            "x": 532,
-            "y": 231
+            "x": 536,
+            "y": 228
+        },
+        {
+            "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
+            "id": "9f473082-3d11-4c2e-9691-f1488262de07",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "platform_4",
+            "texture": {
+                "key": "cloud1"
+            },
+            "x": 684,
+            "y": 71,
+            "scaleX": 0.8365933650783711,
+            "scaleY": 0.8365933650783711
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "61d66ebd-db17-41e0-a66c-99fbb0418b13",
+            "unlock": [
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "platform_5",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 604,
+            "y": 494
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "129504f2-3716-4c0a-8c94-ae3a39adf2b9",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform",
+            "x": 897,
+            "y": 67
         },
         {
             "type": "Image",
