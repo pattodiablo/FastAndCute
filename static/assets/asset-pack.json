@@ -129,6 +129,12 @@
                 "key": "BlockRockl"
             },
             {
+                "atlasURL": "assets/animations/BtnPresion/BtnPresion.json",
+                "textureURL": "assets/animations/BtnPresion/BtnPresion.png",
+                "type": "atlas",
+                "key": "BtnPresion"
+            },
+            {
                 "url": "assets/BubbleParticle.png",
                 "type": "image",
                 "key": "BubbleParticle"

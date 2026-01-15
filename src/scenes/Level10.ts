@@ -117,7 +117,7 @@ export default class Level10 extends BaseEscene {
 		enemy1.NumberOfCannons = 8;
 
 		// catTrack (prefab fields)
-		catTrack.TrackToUnlock = "Unlock2";
+		catTrack.TrackToUnlock = "Synthwave";
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

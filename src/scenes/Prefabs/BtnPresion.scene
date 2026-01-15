@@ -1,0 +1,50 @@
+{
+    "id": "214a4bff-628a-430b-837e-1e2b1bcbb9e1",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "82ee3020-d492-49c0-965e-d16e89e20751",
+            "label": "BtnPresion",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 280,
+            "hitArea.height": 49,
+            "texture": {
+                "key": "BtnPresion",
+                "frame": "BtnPresion0001.png"
+            },
+            "ArcadeComponent.active": true,
+            "body.width": 280,
+            "body.height": 49
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "IsBtnPresion",
+            "label": "IsBtnPresion",
+            "tooltip": "",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

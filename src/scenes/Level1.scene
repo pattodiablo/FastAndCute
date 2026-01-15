@@ -70,6 +70,32 @@
             "angle": -180
         },
         {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "770cd9f6-7562-4694-92d0-3d4f216b4f79",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform_2",
+            "x": 526,
+            "y": 510
+        },
+        {
+            "prefabId": "214a4bff-628a-430b-837e-1e2b1bcbb9e1",
+            "id": "e9c65519-b428-4319-a38c-87bd71d8b8b6",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "BtnPresion",
+            "x": 523,
+            "y": 423,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        },
+        {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
             "id": "b916887b-29a4-4a8a-9e7f-fabfe922ec9d",
             "unlock": [
@@ -135,6 +161,17 @@
             },
             "x": 941,
             "y": 439
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "1d5bd682-985b-4cae-9d46-5d243b9a2fec",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform",
+            "x": 509,
+            "y": 251
         }
     ],
     "plainObjects": [],
