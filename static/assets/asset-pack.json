@@ -407,6 +407,12 @@
                 "key": "KittenPlayer-atlas"
             },
             {
+                "atlasURL": "assets/animations/LateralDoor/LateralDoor.json",
+                "textureURL": "assets/animations/LateralDoor/LateralDoor.png",
+                "type": "atlas",
+                "key": "LateralDoor"
+            },
+            {
                 "url": "assets/MapBase.png",
                 "type": "image",
                 "key": "MapBase"

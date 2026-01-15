@@ -172,6 +172,17 @@
             "label": "fall_Platform",
             "x": 509,
             "y": 251
+        },
+        {
+            "type": "Image",
+            "id": "6d0ce838-6869-488c-9a0b-a0e842e9461f",
+            "label": "lateralDoor_png",
+            "texture": {
+                "key": "LateralDoor",
+                "frame": "LateralDoor.png"
+            },
+            "x": 648,
+            "y": 401
         }
     ],
     "plainObjects": [],

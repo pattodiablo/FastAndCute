@@ -77,6 +77,9 @@ export default class Level1 extends BaseEscene {
 		const fall_Platform = new Fall_Platform(this, 509, 251);
 		this.add.existing(fall_Platform);
 
+		// lateralDoor_png
+		this.add.image(648, 401, "LateralDoor", "LateralDoor.png");
+
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;
 		this.doorOrigin = doorOrigin;
