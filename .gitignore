@@ -1,3 +1,5 @@
 node_modules/
 dist/
 .DS_Store
+originals/bioma1.afdesign~lock~
+originals/enemies.af~lock~
