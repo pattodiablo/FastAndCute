@@ -10,7 +10,7 @@ import SpinePlayer from "./SpinePlayer";
 export default class RingTimer extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "RingLoad", frame ?? "Ring20012.png");
+		super(scene, x ?? 0, y ?? 0, texture || "RingLoad", frame ?? "Ring0001.png");
 
 		this.scaleX = 0.4322736032890191;
 		this.scaleY = 0.4322736032890191;

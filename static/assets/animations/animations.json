@@ -2057,6 +2057,195 @@
             "repeat": -1,
             "showOnStart": true,
             "randomFrame": false
+        },
+        {
+            "key": "BtnPresionDown",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0013.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0014.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0015.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0016.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0017.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0018.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0019.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0020.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0021.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0022.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0023.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0024.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0025.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0026.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0027.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0028.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0029.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "BtnPresion",
+                    "frame": "BtnPresion0030.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "randomFrame": false
         }
     ],
     "globalTimeScale": 1,

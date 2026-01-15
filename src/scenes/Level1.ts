@@ -5,7 +5,9 @@
 import BaseEscene from "./BaseEscene";
 import Spikes from "./Prefabs/Spikes";
 import DefaultPlatform from "./Prefabs/DefaultPlatform";
+import BtnPresion from "./Prefabs/BtnPresion";
 import Star from "./Prefabs/Star";
+import Fall_Platform from "./Prefabs/Fall_Platform";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -40,6 +42,16 @@ export default class Level1 extends BaseEscene {
 		this.add.existing(platform_1);
 		platform_1.angle = -180;
 
+		// platform_2
+		const platform_2 = new DefaultPlatform(this, 526, 510);
+		this.add.existing(platform_2);
+
+		// BtnPresion
+		const btnPresion = new BtnPresion(this, 523, 423);
+		this.add.existing(btnPresion);
+		btnPresion.scaleX = 0.5;
+		btnPresion.scaleY = 0.5;
+
 		// star
 		const star = new Star(this, 539, 290);
 		this.add.existing(star);
@@ -60,6 +72,10 @@ export default class Level1 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(941, 439, "door");
+
+		// fall_Platform
+		const fall_Platform = new Fall_Platform(this, 509, 251);
+		this.add.existing(fall_Platform);
 
 		this.frontLayer = frontLayer;
 		this.chestOrigin = chestOrigin;

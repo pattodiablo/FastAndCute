@@ -14,6 +14,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "BlockRockl", frame);
+		this.hostScene = scene;
 
 		this.setInteractive(new Phaser.Geom.Rectangle(0, 0, 202, 155), Phaser.Geom.Rectangle.Contains);
 		scene.physics.add.existing(this, false);
@@ -44,10 +45,12 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private carryEnabled: boolean = false;
 	private pendingDespawn: boolean = false;
 	private respawnTimer?: Phaser.Time.TimerEvent;
+	private blinkTween?: Phaser.Tweens.Tween;
+	private hostScene: Phaser.Scene;
+	private playerCollisionDisabled: boolean = false;
 
 	create() {
-		// Collider con el player
-		this.fitBodyToTexture();
+		this.startSpawnScale();
 
 		// Asegurar que el body sea inamovable y estático hasta ser golpeado
 		this.body.setImmovable(true);
@@ -94,6 +97,23 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 				}
 			});
 		}
+	}
+
+	private startSpawnScale() {
+		// Arranca deshabilitado y sin escala para animar su entrada
+		this.body.enable = false;
+		this.setScale(0);
+
+		this.scene.tweens.add({
+			targets: this,
+			scale: 1,
+			duration: 250,
+			ease: 'Back.Out',
+			onComplete: () => {
+				this.fitBodyToTexture();
+				this.body.enable = true;
+			}
+		});
 	}
 
 
@@ -186,6 +206,13 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const otherBody = otherPlatform?.body as Phaser.Physics.Arcade.Body | undefined;
 		const platBody = this.body as Phaser.Physics.Arcade.Body;
 
+		// Si es un BtnPresion, ejecutar su handler y salir
+		if (otherPlatform && otherPlatform.IsBtnPresion && typeof otherPlatform.handlePlatformCollision === 'function') {
+			otherPlatform.handlePlatformCollision(otherPlatform, this);
+			this.pendingDespawn = false;
+			return;
+		}
+
 		// Si es cristal, romperla siempre (sin checar desde dónde llegó)
 		if (otherPlatform && otherPlatform.IsCristalPlatform) {
 			console.log("Fall_Platform: golpeó plataforma de cristal, destruyéndola");
@@ -219,6 +246,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		console.log("Fall_Platform: detenida al colisionar, titileo diferido antes de regenerar");
 		// Esperar 2s, luego titilar ~4s antes de desaparecer
 		this.scene.time.delayedCall(2000, () => {
+			this.disablePlayerCollisionDuringBlink();
 			const flicker = this.scene.tweens.add({
 				targets: this,
 				alpha: 0.3,
@@ -280,29 +308,86 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	}
 
 	private scheduleRegeneration() {
+		const scene = this.hostScene || this.scene;
+		if (!scene) return;
 		this.regenerating = true;
+		this.pendingDespawn = true;
 
 		// Hacer invisible inmediatamente
 		this.setVisible(false);
 		this.setActive(false);
 
 		// Desactivar física temporalmente
-		this.body.enable = false;
+		const body = this.body as Phaser.Physics.Arcade.Body | undefined;
+		if (body) {
+			body.enable = false;
+		}
 
 		console.log("Fall_Platform: programando regeneración en 3 segundos");
 
 
 		// Programar reemplazo nuevo después de 3 segundos
-		this.respawnTimer = this.scene.time.delayedCall(3000, () => {
+		this.respawnTimer = scene.time.delayedCall(3000, () => {
 			this.spawnReplacement();
 		});
 	}
 
+	public blinkThenRegenerate(blinkDuration: number = 1200) {
+		const scene = this.hostScene || this.scene;
+		if (!scene) return;
+		if (this.regenerating) return;
+		this.disablePlayerCollisionDuringBlink();
+
+		// Evitar múltiples parpadeos simultáneos
+		if (this.blinkTween) {
+			this.blinkTween.stop();
+			this.blinkTween = undefined;
+		}
+
+		this.isFalling = false;
+		this.pendingDespawn = true;
+
+		this.blinkTween = scene.tweens.add({
+			targets: this,
+			alpha: 0.3,
+			yoyo: true,
+			duration: 100,
+			repeat: -1
+		});
+
+		scene.time.delayedCall(blinkDuration, () => {
+			this.blinkTween?.stop();
+			this.blinkTween = undefined;
+			this.setAlpha(1);
+			this.scheduleRegeneration();
+		});
+	}
+
+	private disablePlayerCollisionDuringBlink() {
+		if (this.playerCollisionDisabled) return;
+		if (this.playerCollider) {
+			this.playerCollider.active = false;
+		}
+		this.playerCollisionDisabled = true;
+	}
+
+	public destroy(fromScene?: boolean) {
+		this.blinkTween?.stop();
+		this.blinkTween = undefined;
+		this.respawnTimer?.remove(false);
+		this.respawnTimer = undefined;
+		super.destroy(fromScene);
+	}
+
 	private spawnReplacement() {
-		const base = this.scene as any;
+		const scene = this.hostScene || this.scene;
+		if (!scene || !(scene as any).sys) {
+			return;
+		}
+		const base = scene as any;
 		// Crear nueva instancia en la posición original
-		const fresh = new Fall_Platform(this.scene, this.originalX, this.originalY, this.originalTexture);
-		this.scene.add.existing(fresh);
+		const fresh = new Fall_Platform(scene, this.originalX, this.originalY, this.originalTexture);
+		scene.add.existing(fresh);
 		if (base.plataformas) {
 			base.plataformas.add(fresh);
 		}

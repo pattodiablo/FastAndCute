@@ -110,6 +110,7 @@ export default class SpinePlayer extends SpineGameObject {
 
 
 		scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+			this.spawnClickRipple(pointer.x, pointer.y);
 			// En Player.ts (constructor)
 
 		// Cada click arranca sin charge; si se usa boost se marcará true
@@ -204,6 +205,19 @@ export default class SpinePlayer extends SpineGameObject {
 		/* END-USER-CTR-CODE */
 	}
 
+	private spawnClickRipple(x: number, y: number) {
+		const circle = this.scene.add.circle(x, y, 12, 0xffffff, 0.45);
+		circle.setDepth(10000);
+		this.scene.tweens.add({
+			targets: circle,
+			scale: 1.8,
+			alpha: 0,
+			duration: 240,
+			ease: 'Cubic.Out',
+			onComplete: () => circle.destroy()
+		});
+	}
+
 	public targetPos: any = null;;
 	public moveSpeed: number = 175;
 	public originalGravityY: number = -300;
@@ -235,7 +249,7 @@ export default class SpinePlayer extends SpineGameObject {
 	decelTween?: Phaser.Tweens.Tween;
 	private longPressTimer?: Phaser.Time.TimerEvent;
 	private isPressing: boolean = false;
-	public LONG_PRESS_THRESHOLD = 500; // ms
+	public LONG_PRESS_THRESHOLD = 250; // ms
 	private currentRing?: RingTimer;
 	private clickingOnPlayer: boolean = false;
 	private nextClickBoost: boolean = false;
