@@ -47,23 +47,8 @@
                 "y"
             ],
             "label": "fall_Platform",
-            "x": 825,
-            "y": 84
-        },
-        {
-            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
-            "id": "de5dbbae-57a3-405a-8168-f51f81af96af",
-            "unlock": [
-                "x",
-                "y",
-                "texture"
-            ],
-            "label": "platform_3",
-            "texture": {
-                "key": "Platform3"
-            },
-            "x": 620,
-            "y": 499
+            "x": 950,
+            "y": 89
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -97,14 +82,16 @@
             "unlock": [
                 "x",
                 "y",
-                "texture"
+                "texture",
+                "angle"
             ],
             "label": "platform_2",
             "texture": {
                 "key": "Platform3"
             },
-            "x": 831,
-            "y": 516
+            "x": 817,
+            "y": 204,
+            "angle": -180
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -136,8 +123,8 @@
                 "y"
             ],
             "label": "star_1",
-            "x": 927,
-            "y": 106
+            "x": 951,
+            "y": 254
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -147,8 +134,8 @@
                 "y"
             ],
             "label": "star_2",
-            "x": 620,
-            "y": 220
+            "x": 584,
+            "y": 68
         },
         {
             "type": "Image",
@@ -172,17 +159,6 @@
             },
             "x": 417,
             "y": 378
-        },
-        {
-            "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
-            "id": "7ea34061-f638-41c4-b52c-fd96a668c3a8",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "ranaEnemy",
-            "x": 831,
-            "y": 407
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
@@ -211,8 +187,8 @@
                 "y"
             ],
             "label": "ranaEnemy_1",
-            "x": 620,
-            "y": 395
+            "x": 658,
+            "y": 410
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -239,10 +215,75 @@
             "texture": {
                 "key": "cloud3"
             },
-            "x": 805,
-            "y": 71,
+            "x": 580,
+            "y": 66,
             "scaleX": 0.8365933650783711,
             "scaleY": 0.8365933650783711
+        },
+        {
+            "prefabId": "55de9694-d3db-4299-b5ab-0f3bd96d3162",
+            "id": "f5da5454-bbe1-4818-a461-3774b05cb153",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "lateralDoor",
+            "x": 849,
+            "y": 364
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "5c3b201e-60ab-47ed-a7cb-badef3b2b4b7",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "platform_5",
+            "x": 573,
+            "y": 521
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "52149b61-341f-4bf5-bd97-ffa59640305a",
+            "unlock": [
+                "x",
+                "y",
+                "texture",
+                "angle"
+            ],
+            "label": "platform_6",
+            "texture": {
+                "key": "Platform3"
+            },
+            "x": 816,
+            "y": 26,
+            "angle": -180
+        },
+        {
+            "prefabId": "214a4bff-628a-430b-837e-1e2b1bcbb9e1",
+            "id": "d90e42d3-a51a-4330-b5ae-a04f7c74f638",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "btnPresion",
+            "x": 566,
+            "y": 435,
+            "scaleX": 0.4,
+            "scaleY": 0.4
+        },
+        {
+            "prefabId": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+            "id": "90b81f5e-2fbf-4e5b-be61-37fcba2435f6",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fall_Platform_1",
+            "x": 300,
+            "y": 69
         }
     ],
     "plainObjects": [],

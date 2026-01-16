@@ -319,6 +319,18 @@
                 "key": "DoorAppear"
             },
             {
+                "atlasURL": "assets/animations/LateralDoor/DoorGlow/DoorGlow.json",
+                "textureURL": "assets/animations/LateralDoor/DoorGlow/DoorGlow.png",
+                "type": "atlas",
+                "key": "DoorGlow"
+            },
+            {
+                "atlasURL": "assets/animations/LateralDoor/DoorOpens/DoorOpens.json",
+                "textureURL": "assets/animations/LateralDoor/DoorOpens/DoorOpens.png",
+                "type": "atlas",
+                "key": "DoorOpens"
+            },
+            {
                 "atlasURL": "assets/animations/DoorShine/DoorShine.json",
                 "textureURL": "assets/animations/DoorShine/DoorShine.png",
                 "type": "atlas",

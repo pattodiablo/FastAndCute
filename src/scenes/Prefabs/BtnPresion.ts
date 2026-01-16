@@ -13,7 +13,6 @@ export default interface BtnPresion {
 
 export default class BtnPresion extends Phaser.GameObjects.Sprite {
 
-
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "BtnPresion", frame ?? "BtnPresion0001.png");
 
@@ -36,6 +35,7 @@ export default class BtnPresion extends Phaser.GameObjects.Sprite {
 	}
 
 	public IsBtnPresion: boolean = true;
+	public DoorToActivate: string = "Door1";
 
 	/* START-USER-CODE */
 
@@ -64,12 +64,13 @@ create() {
 		platform.body.allowGravity = false;	
 		platform.body.pushable = false;
 		platform.y = btn.y - btn.displayHeight / 2 - platform.displayHeight / 2 + 5;
-		
-	
+
+
 		this.isTouching = true;
 		if (!this.isPressed) {
 			this.isPressed = true;
 			this.play("BtnPresionDown", true);
+			this.openLinkedDoor();
 		}
 
 		if (platform?.IsFallingPlatform) {
@@ -97,6 +98,37 @@ create() {
 		if (this.isPressed && !touchingNow) {
 			this.isPressed = false;
 			this.playReverse?.("BtnPresionDown");
+			this.closeLinkedDoor();
+		}
+	}
+
+	private openLinkedDoor() {
+		const base = this.scene as any;
+		if (!base?.plataformas) return;
+		const door = base.plataformas.getChildren()?.find((p: any) => p?.DoorName === this.DoorToActivate);
+		if (!door) return;
+
+		if (door.body) {
+			(door.body as Phaser.Physics.Arcade.Body | Phaser.Physics.Arcade.StaticBody).checkCollision.none = true;
+			(door.body as any).enable = false;
+		}
+		if (typeof door.play === "function") {
+			door.play("OpenLateralDoor", true);
+		}
+	}
+
+	private closeLinkedDoor() {
+		const base = this.scene as any;
+		if (!base?.plataformas) return;
+		const door = base.plataformas.getChildren()?.find((p: any) => p?.DoorName === this.DoorToActivate);
+		if (!door) return;
+
+		if (door.body) {
+			(door.body as Phaser.Physics.Arcade.Body | Phaser.Physics.Arcade.StaticBody).checkCollision.none = false;
+			(door.body as any).enable = true;
+		}
+		if (typeof door.play === "function") {
+			door.playReverse?.("OpenLateralDoor");
 		}
 	}
 
