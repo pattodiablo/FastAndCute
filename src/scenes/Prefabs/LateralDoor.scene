@@ -1,5 +1,5 @@
 {
-    "id": "cd42b23c-cae7-44a9-a832-983cf9796ad3",
+    "id": "55de9694-d3db-4299-b5ab-0f3bd96d3162",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,24 +14,22 @@
     "displayList": [
         {
             "type": "Sprite",
-            "id": "8f7d6bc3-1a29-4756-a5fa-0abd89e7967d",
-            "label": "platform_3",
+            "id": "16b5fdd4-3219-4c90-84be-41a4b14fd73e",
+            "label": "lateralDoor0001_png",
             "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 202,
-            "hitArea.height": 155,
+            "hitArea.width": 68,
+            "hitArea.height": 141,
             "texture": {
-                "key": "BlockRockl"
+                "key": "DoorGlow",
+                "frame": "LateralDoor0001.png"
             },
-            "x": 1,
             "ArcadeComponent.active": true,
+            "moves": false,
             "allowGravity": false,
-            "collideWorldBounds": true,
-            "allowDrag": false,
-            "allowRotation": false,
-            "bodyGeometry": 0,
-            "body.width": 128,
-            "body.height": 128,
-            "animationPreview": true
+            "pushable": false,
+            "immovable": true,
+            "body.width": 68,
+            "body.height": 141
         }
     ],
     "plainObjects": [],
@@ -43,23 +41,24 @@
     },
     "prefabProperties": [
         {
-            "name": "isFalling",
-            "label": "isFalling",
+            "name": "DoorName",
+            "label": "DoorName",
             "tooltip": "",
-            "defValue": false,
+            "defValue": "Door1",
             "customDefinition": false,
             "type": {
-                "id": "boolean"
+                "id": "string"
             }
         },
         {
-            "name": "IsFallingPlatform",
-            "label": "IsFallingPlatform",
+            "name": "flickTimer",
+            "label": "flickTimer",
             "tooltip": "",
-            "defValue": true,
+            "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "boolean"
+                "id": "expression",
+                "expressionType": "any"
             }
         }
     ]

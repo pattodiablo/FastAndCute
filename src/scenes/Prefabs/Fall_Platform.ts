@@ -13,8 +13,7 @@ export default interface Fall_Platform {
 export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "BlockRockl", frame);
-		this.hostScene = scene;
+		super(scene, x ?? 1, y ?? 0, texture || "BlockRockl", frame);
 
 		this.setInteractive(new Phaser.Geom.Rectangle(0, 0, 202, 155), Phaser.Geom.Rectangle.Contains);
 		scene.physics.add.existing(this, false);
@@ -46,7 +45,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private pendingDespawn: boolean = false;
 	private respawnTimer?: Phaser.Time.TimerEvent;
 	private blinkTween?: Phaser.Tweens.Tween;
-	private hostScene: Phaser.Scene;
+	private hostScene?: Phaser.Scene;
 	private playerCollisionDisabled: boolean = false;
 
 	create() {

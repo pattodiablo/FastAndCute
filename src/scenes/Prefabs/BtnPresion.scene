@@ -45,6 +45,16 @@
             "type": {
                 "id": "boolean"
             }
+        },
+        {
+            "name": "DoorToActivate",
+            "label": "DoorToActivate",
+            "tooltip": "",
+            "defValue": "Door1",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
         }
     ]
 }
