@@ -153,7 +153,9 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			const hitDir = playerCenterX < platformCenterX ? 1 : -1;
 			this.carryDirection = hitDir;
 			this.carryEnabled = true;
-			platBody.setAngularVelocity(hitDir * 20);
+			const currentSpin = platBody.angularVelocity || 0;
+			const baseSpin = Math.max(Math.abs(currentSpin), 40); // conserva inercia y evita quedarse atascado
+			platBody.setAngularVelocity(baseSpin * hitDir);
 			platBody.setAngularDrag(10);
 			return;
 		}
