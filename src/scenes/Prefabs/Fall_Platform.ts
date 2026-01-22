@@ -42,6 +42,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private playerCollider?: Phaser.Physics.Arcade.Collider;
 	private regenerating: boolean = false;
 	private carryEnabled: boolean = false;
+	private carryDirection: number = 0;
 	private pendingDespawn: boolean = false;
 	private respawnTimer?: Phaser.Time.TimerEvent;
 	private blinkTween?: Phaser.Tweens.Tween;
@@ -182,6 +183,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
 			const platformCenterX = platBody.center?.x ?? this.x;
 			const hitDir = playerCenterX < platformCenterX ? 1 : -1; // golpe por izquierda => gira horario
+			this.carryDirection = hitDir;
 			platBody.setAngularVelocity(hitDir * 20);
 			platBody.setAngularDrag(10);
 
@@ -403,18 +405,11 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 		// Si está cayendo, verificar si el player está debajo transportándola
 		if (this.isFalling && this.carryEnabled && !this.regenerating) {
-			const player = (this.scene as any).player;
 			const platBody = this.body as Phaser.Physics.Arcade.Body;
-
-			if (player && player.body) {
-				const pBody = player.body as Phaser.Physics.Arcade.Body;
-				// Mantener giro mientras se transporta: dirección según lado del player
-				const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
-				const platformCenterX = platBody.center?.x ?? this.x;
-				const dir = playerCenterX < platformCenterX ? 1 : -1;
+			const dir = this.carryDirection || 0;
+			if (dir !== 0) {
 				const targetAngular = dir * 220;
 				platBody.setAngularVelocity(Phaser.Math.Linear(platBody.angularVelocity, targetAngular, 0.1));
-				// Usar la rotación para empujar en X
 				const pushX = Phaser.Math.Clamp(platBody.angularVelocity * 0.2, -300, 300);
 				platBody.setVelocityX(pushX);
 			}

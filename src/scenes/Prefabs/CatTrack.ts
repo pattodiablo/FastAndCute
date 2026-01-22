@@ -69,26 +69,26 @@ export default class CatTrack extends Phaser.GameObjects.Image {
         const gameReg = this.scene.game.registry;
         gameReg.set('HasNewTrack', true);
 
-        // Persistencia de UnlockedTracks (lista) en localStorage y registry
-        try {
-            const key = 'UnlockedTracks';
-            const raw = localStorage.getItem(key);
-            const list: string[] = raw ? JSON.parse(raw) : [];
-            // Añadir si no existe (dedupe)
-            if (!list.includes(this.TrackToUnlock)) {
-                list.push(this.TrackToUnlock);
-                localStorage.setItem(key, JSON.stringify(list));
-                // Reflejar en registry para que Map/otros puedan leerlo al vuelo
-                gameReg.set(key, list);
-            }
-        } catch (e) {
-            // Si falla localStorage, al menos emite en registry
-            const listReg = (gameReg.get('UnlockedTracks') as string[]) || [];
-            if (!listReg.includes(this.TrackToUnlock)) {
-                listReg.push(this.TrackToUnlock);
-                gameReg.set('UnlockedTracks', listReg);
-            }
-        }
+		// Persistencia de UnlockedTracks (lista) en localStorage y registry
+		try {
+			const key = 'UnlockedTracks';
+			const raw = localStorage.getItem(key);
+			const list: string[] = raw ? JSON.parse(raw) : [];
+			// Añadir si no existe (dedupe)
+			if (!list.includes(this.TrackToUnlock)) {
+				list.push(this.TrackToUnlock);
+				localStorage.setItem(key, JSON.stringify(list));
+				// Reflejar en registry para que Map/otros puedan leerlo al vuelo
+				gameReg.set(key, list);
+			}
+		} catch (e) {
+			// Si falla localStorage, al menos emite en registry
+			const listReg = (gameReg.get('UnlockedTracks') as string[]) || [];
+			if (!listReg.includes(this.TrackToUnlock)) {
+				listReg.push(this.TrackToUnlock);
+				gameReg.set('UnlockedTracks', listReg);
+			}
+		}
 
         // Detener bob
         this.bobTween?.stop();
