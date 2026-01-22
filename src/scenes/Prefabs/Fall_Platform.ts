@@ -143,12 +143,22 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 
 		if (!pBody) return;
 
-		// Si ya está cayendo, no hacer nada aquí (se maneja en preUpdate)
-		if (this.isFalling) return;
-
-		// Solo procesar inicio de caída si no está cayendo aún
 		const charged = !!player?.chargeMode;
 		console.log(`Fall_Platform: jugador hit. Charged: ${charged}`);
+
+		// Si ya está cayendo, cualquier golpe del player actualiza dirección
+		if (this.isFalling) {
+			const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
+			const platformCenterX = platBody.center?.x ?? this.x;
+			const hitDir = playerCenterX < platformCenterX ? 1 : -1;
+			this.carryDirection = hitDir;
+			this.carryEnabled = true;
+			platBody.setAngularVelocity(hitDir * 20);
+			platBody.setAngularDrag(10);
+			return;
+		}
+
+		// Solo procesar inicio de caída si no está cayendo aún
 		if (charged) {
 			console.log("Fall_Platform: jugador cargado, plataforma cae");
 			this.isFalling = true;
@@ -177,7 +187,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			// Tomar la dirección/velocidad horizontal del jugador al iniciar la caída
 			//platBody.setVelocity(pBody.velocity.x, 0);
 			platBody.setMaxVelocity(100, 400);
-			platBody.setBounce(0.2, 0.7); // más rebote para hacer "cabecitas"
+			platBody.setBounce(0.1, 0.35); // rebote reducido
 
 			// Dar velocidad angular según lado del golpe
 			const playerCenterX = pBody.center?.x ?? (pBody.x + pBody.width * 0.5);
