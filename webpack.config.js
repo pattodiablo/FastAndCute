@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-const isProd = process.env.NODE_ENV === "production";
-
 module.exports = {
     entry: {
         main: "./src/index.ts"
@@ -30,7 +28,7 @@ module.exports = {
         path: path.resolve(__dirname, "docs"),
         filename: "[name]-[contenthash].bundle.js",
         assetModuleFilename: "asset-packs/[name]-[hash][ext][query]",
-        publicPath: isProd ? "./" : "/"
+        publicPath: "./"
     },
     module: {
         rules: [
@@ -53,7 +51,7 @@ module.exports = {
         historyApiFallback: true,
         allowedHosts: 'all',
         static: {
-            directory: path.resolve(__dirname, "./static"),
+            directory: path.resolve(__dirname, "./docs"),
         },
         open: true,
         hot: true,
