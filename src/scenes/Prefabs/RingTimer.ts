@@ -10,17 +10,17 @@ import SpinePlayer from "./SpinePlayer";
 export default class RingTimer extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "RingLoad", frame ?? "Ring0001.png");
+		super(scene, x ?? 0, y ?? 0, texture || "RingLoad2", frame ?? "Ring20012.png");
 
 		this.scaleX = 0.4322736032890191;
 		this.scaleY = 0.4322736032890191;
-		this.play("RingLoad");
+		this.play("LoadRing");
 
 		/* START-USER-CTR-CODE */
 		// Al terminar RingLoad reproducir inmediatamente RingStay
 		this.on(Phaser.Animations.Events.ANIMATION_COMPLETE, (anim: Phaser.Animations.Animation) => {
-			if (anim.key === "RingLoad") {
-				this.play("RingStay");
+			if (anim.key === "LoadRing") {
+				this.play("StayRing");
 			}
 		});
 
@@ -53,7 +53,7 @@ export default class RingTimer extends Phaser.GameObjects.Sprite {
 		super.destroy(fromScene);
 	}
 
-	
+
 
 	/* END-USER-CODE */
 }

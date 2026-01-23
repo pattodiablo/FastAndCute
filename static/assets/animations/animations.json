@@ -2624,6 +2624,169 @@
             "frameRate": 30,
             "skipMissedFrames": true,
             "randomFrame": false
+        },
+        {
+            "key": "LoadRing",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingLoad2",
+                    "frame": "Ring20012.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "randomFrame": false
+        },
+        {
+            "key": "StayRing",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0001.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0002.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0003.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0004.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0005.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0006.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0007.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0008.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0009.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0010.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0011.png",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "RingStay2",
+                    "frame": "Ring2 copia0012.png",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 24,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "randomFrame": false
         }
     ],
     "globalTimeScale": 1,

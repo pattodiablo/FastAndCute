@@ -690,10 +690,22 @@
                 "key": "RingLoad"
             },
             {
+                "atlasURL": "assets/animations/RingLoad2/RingLoad2.json",
+                "textureURL": "assets/animations/RingLoad2/RingLoad2.png",
+                "type": "atlas",
+                "key": "RingLoad2"
+            },
+            {
                 "atlasURL": "assets/animations/RingStay/RingStay.json",
                 "textureURL": "assets/animations/RingStay/RingStay.png",
                 "type": "atlas",
                 "key": "RingStay"
+            },
+            {
+                "atlasURL": "assets/animations/RingStay2/RingStay2.json",
+                "textureURL": "assets/animations/RingStay2/RingStay2.png",
+                "type": "atlas",
+                "key": "RingStay2"
             },
             {
                 "url": "assets/sliderBtn.png",

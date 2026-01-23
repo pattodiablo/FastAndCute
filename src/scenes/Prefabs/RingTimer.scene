@@ -19,7 +19,7 @@
             "id": "ce99d372-3bd7-4eaf-9f5d-7ea322cd4fd5",
             "label": "RingTimer",
             "texture": {
-                "key": "RingLoad",
+                "key": "RingLoad2",
                 "frame": "Ring20012.png"
             },
             "scaleX": 0.4322736032890191,
