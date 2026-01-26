@@ -103,6 +103,7 @@ export default class Star extends Phaser.GameObjects.Image {
 			duration: 400,
 			ease: 'Back.easeIn',
 			onComplete: () => {
+				this.scene.events.emit("star-collected", this);
 				if (levelScene && levelScene.starsGroup) {
 					levelScene.starsGroup.remove(this, true, true);
 				}
