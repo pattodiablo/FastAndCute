@@ -124,6 +124,7 @@ export default class SpinePlayer extends SpineGameObject {
 				this.currentRing.destroy();
 				this.currentRing = undefined;
 				this.nextClickBoost = true; // habilita boost SOLO para el siguiente click de movimiento
+				this.scene.events.emit("player-charge-ready", this);
 			}
 
 			if (!this.MovementLinear) {
@@ -193,6 +194,7 @@ export default class SpinePlayer extends SpineGameObject {
 					this.nextClickBoost = false; // se consume aquí; siguiente click ya normal
 					this.chargeMode = true;
 					this.scene.registry?.set('chargeMode', true);
+					
 				} else {
 					this.moveSpeed = this.OriginalMoveSpeed;
 				}
@@ -278,6 +280,7 @@ export default class SpinePlayer extends SpineGameObject {
 				this.onLongPress();
 				this.emit('longpress');
 				this.ChargingSound?.play();
+				this.scene.events.emit("player-charged", this);
 			}
 		});
 	}
