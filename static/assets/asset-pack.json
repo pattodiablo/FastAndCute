@@ -386,6 +386,18 @@
                 "key": "glow"
             },
             {
+                "atlasURL": "assets/animations/HandClick/HandClick.json",
+                "textureURL": "assets/animations/HandClick/HandClick.png",
+                "type": "atlas",
+                "key": "HandClick"
+            },
+            {
+                "atlasURL": "assets/animations/HandHold/HandHold.json",
+                "textureURL": "assets/animations/HandHold/HandHold.png",
+                "type": "atlas",
+                "key": "HandHold"
+            },
+            {
                 "url": "assets/spine/HedgeHogEnemy/HedgehogEnemy.json",
                 "type": "spineJson",
                 "key": "HedgehogEnemy",
