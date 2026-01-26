@@ -32,11 +32,6 @@ export default class Level1 extends BaseEscene {
 		const platform = new DefaultPlatform(this, 939, 573);
 		this.add.existing(platform);
 
-		// platform_1
-		const platform_1 = new DefaultPlatform(this, 545, 65);
-		this.add.existing(platform_1);
-		platform_1.angle = -180;
-
 		// platform_2
 		const platform_2 = new DefaultPlatform(this, 526, 510);
 		this.add.existing(platform_2);
