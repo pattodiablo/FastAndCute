@@ -28,7 +28,7 @@ module.exports = {
         path: path.resolve(__dirname, "docs"),
         filename: "[name]-[contenthash].bundle.js",
         assetModuleFilename: "asset-packs/[name]-[hash][ext][query]",
-        publicPath: process.env.NODE_ENV === "production" ? "./" : "/"
+        publicPath: "./"
     },
     module: {
         rules: [
@@ -51,7 +51,7 @@ module.exports = {
         historyApiFallback: true,
         allowedHosts: 'all',
         static: {
-            directory: path.resolve(__dirname, "static"),
+            directory: path.resolve(__dirname, "./docs"),
         },
         open: true,
         hot: true,

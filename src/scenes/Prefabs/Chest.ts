@@ -48,7 +48,6 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 			
 
 				this.IsOpen = true;
-				this.scene.events.emit("chest-opened", this);
 				this.scene.add.particles(0, 0, 'BubbleParticle', {
 				x: this.x,
 				y: this.y,
