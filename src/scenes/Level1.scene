@@ -58,6 +58,19 @@
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
+            "id": "880fe86b-9316-4b3d-b03f-52d9e8c7aa37",
+            "unlock": [
+                "x",
+                "y",
+                "angle"
+            ],
+            "label": "platform_1",
+            "x": 545,
+            "y": 65,
+            "angle": -180
+        },
+        {
+            "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
             "id": "770cd9f6-7562-4694-92d0-3d4f216b4f79",
             "unlock": [
                 "x",
