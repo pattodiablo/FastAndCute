@@ -50,6 +50,7 @@ export default class TitleScene extends Phaser.Scene {
 
 		// intro_Star_1
 		const intro_Star_1 = this.add.image(122, 142, "Intro_Star");
+		intro_Star_1.angle = -52.99999999999994;
 
 		// mishiko
 		const mishiko = this.add.image(317, 464, "Mishiko");
@@ -97,6 +98,7 @@ export default class TitleScene extends Phaser.Scene {
 		this.startTitleIntro();
 		this.startReadyIntro();
 		this.wireReadyButton();
+		this.startBubbleRise();
 	}
 
 	private startFadeIn() {
@@ -329,6 +331,39 @@ export default class TitleScene extends Phaser.Scene {
 		float(this.titleCloud2, 0.05, 2800, 200);
 		float(this.titleCloud, 0.05, 2400, 120);
 		float(this.titleCloud_1, 0.04, 3000, 320);
+	}
+
+	private startBubbleRise() {
+		const total = 8;
+		const bubbles: Phaser.GameObjects.Image[] = [this.bubble];
+		for (let i = 1; i < total; i++) {
+			const clone = this.add.image(this.bubble.x, this.bubble.y, this.bubble.texture.key);
+			bubbles.push(clone);
+		}
+
+		bubbles.forEach((b, idx) => this.launchBubble(b, idx * 200));
+	}
+
+	private launchBubble(bubble: Phaser.GameObjects.Image, delay: number = 0) {
+		const padding = 40;
+		const startX = Phaser.Math.Between(padding, this.scale.width - padding);
+		const startY = this.scale.height + Phaser.Math.Between(120, 220);
+		const targetY = -160;
+		const scale = Phaser.Math.FloatBetween(0.5, 1);
+		const duration = Phaser.Math.Between(5000, 9500);
+
+		bubble.setPosition(startX, startY);
+		bubble.setScale(scale);
+		bubble.setAlpha(0.9);
+
+		this.tweens.add({
+			targets: bubble,
+			y: targetY,
+			duration,
+			ease: "Sine.InOut",
+			delay,
+			onComplete: () => this.launchBubble(bubble)
+		});
 	}
 
 	/* END-USER-CODE */
