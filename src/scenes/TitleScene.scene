@@ -1,0 +1,148 @@
+{
+    "id": "b0d2c65b-49c1-425d-9a86-ee88a06570bd",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TitleScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "5cadc2f4-536d-4f59-b8ac-3a40ac9c603b",
+            "label": "backGround",
+            "scope": "CLASS",
+            "texture": {
+                "key": "BackGround"
+            },
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "90e9d8a1-e254-4207-9730-858306eed6e7",
+            "label": "bubble",
+            "scope": "CLASS",
+            "texture": {
+                "key": "Bubble"
+            },
+            "x": 947,
+            "y": 559
+        },
+        {
+            "type": "Image",
+            "id": "c6ae186a-e997-4967-9e60-7b184e64429f",
+            "label": "titleCloud1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "TitleCloud1"
+            },
+            "x": 900,
+            "y": 537
+        },
+        {
+            "type": "Image",
+            "id": "0c115325-e27e-4e68-945b-126cfbc70e65",
+            "label": "titleCloud2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "TitleCloud2"
+            },
+            "x": 781,
+            "y": 550
+        },
+        {
+            "type": "Image",
+            "id": "62319567-276c-42ab-8f8c-c85c8aea14ce",
+            "label": "titleCloud",
+            "scope": "CLASS",
+            "texture": {
+                "key": "TitleCloud1"
+            },
+            "x": 134,
+            "y": 541,
+            "scaleX": -1
+        },
+        {
+            "type": "Image",
+            "id": "beeab2b8-eac3-4a88-a6f5-d7658ba78d54",
+            "label": "titleCloud_1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "TitleCloud2"
+            },
+            "x": 283,
+            "y": 575,
+            "scaleX": -1
+        },
+        {
+            "type": "Image",
+            "id": "3dba5fe6-1b2e-40fb-b5b1-2ae015813f53",
+            "label": "textTitle",
+            "scope": "CLASS",
+            "texture": {
+                "key": "TextTitle"
+            },
+            "x": 530,
+            "y": 269
+        },
+        {
+            "type": "Image",
+            "id": "5e6df4e9-aec3-46cd-b6d5-3d4f59098055",
+            "label": "readyButton",
+            "scope": "CLASS",
+            "texture": {
+                "key": "ReadyButton"
+            },
+            "x": 534,
+            "y": 461
+        },
+        {
+            "type": "Image",
+            "id": "12eb3423-f984-447f-a1b8-50d0e3b8f621",
+            "label": "intro_Star",
+            "scope": "CLASS",
+            "texture": {
+                "key": "Intro_Star"
+            },
+            "x": 922,
+            "y": 214
+        },
+        {
+            "type": "Image",
+            "id": "3a73387d-f61b-4538-928a-15b4475b9fdc",
+            "label": "intro_Star_1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "Intro_Star"
+            },
+            "x": 122,
+            "y": 142
+        },
+        {
+            "type": "Image",
+            "id": "085f5393-cf44-4975-b638-bd18f74aa259",
+            "label": "mishiko",
+            "scope": "CLASS",
+            "texture": {
+                "key": "Mishiko"
+            },
+            "x": 317,
+            "y": 464,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

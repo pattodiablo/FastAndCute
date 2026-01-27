@@ -2,9 +2,44 @@
     "section1": {
         "files": [
             {
-                "url": "assets/guapen.png",
+                "url": "assets/IntroScene/BackGround.png",
                 "type": "image",
-                "key": "guapen"
+                "key": "BackGround"
+            },
+            {
+                "url": "assets/IntroScene/Bubble.png",
+                "type": "image",
+                "key": "Bubble"
+            },
+            {
+                "url": "assets/IntroScene/cloud1.png",
+                "type": "image",
+                "key": "TitleCloud1"
+            },
+            {
+                "url": "assets/IntroScene/cloud2.png",
+                "type": "image",
+                "key": "TitleCloud2"
+            },
+            {
+                "url": "assets/IntroScene/Intro_Star.png",
+                "type": "image",
+                "key": "Intro_Star"
+            },
+            {
+                "url": "assets/IntroScene/Mishiko.png",
+                "type": "image",
+                "key": "Mishiko"
+            },
+            {
+                "url": "assets/IntroScene/ReadyButton.png",
+                "type": "image",
+                "key": "ReadyButton"
+            },
+            {
+                "url": "assets/IntroScene/TextTitle.png",
+                "type": "image",
+                "key": "TextTitle"
             }
         ]
     },
@@ -13,6 +48,7 @@
         "contentType": "phasereditor2d.pack.core.AssetContentType",
         "url": "https://phasereditor2d.com",
         "version": 2,
-        "showAllFilesInBlocks": false
+        "showAllFilesInBlocks": false,
+        "visible": true
     }
 }

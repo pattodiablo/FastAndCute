@@ -17,36 +17,50 @@ export default class Preload extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
-	editorCreate(): void {
+		editorCreate(): void {
 
-		// guapen
-		const guapen = this.add.image(505.0120544433594, 360, "guapen");
-		guapen.scaleX = 0.32715486817515643;
-		guapen.scaleY = 0.32715486817515643;
+		const centerX = this.scale.width * 0.5;
+		const centerY = this.scale.height * 0.5;
+		const barWidth = Math.min(this.scale.width * 0.55, 360);
+		const barHeight = 28;
+		const borderColor = 0x6b4ea5;
+		const fillColor = 0xc982c4;
 
-		// progressBar
-		const progressBar = this.add.rectangle(553.0120849609375, 361, 256, 20);
-		progressBar.setOrigin(0, 0);
-		progressBar.isFilled = true;
-		progressBar.fillColor = 14737632;
-
-		// progressBarBg
-		const progressBarBg = this.add.rectangle(553.0120849609375, 361, 256, 20);
-		progressBarBg.setOrigin(0, 0);
-		progressBarBg.fillColor = 14737632;
+		// progressBarBg (borde)
+		const progressBarBg = this.add.rectangle(centerX, centerY, barWidth, barHeight);
+		progressBarBg.setOrigin(0.5, 0.5);
+		progressBarBg.isFilled = true;
+		progressBarBg.fillColor = 0x000000;
+		progressBarBg.fillAlpha = 0.15;
 		progressBarBg.isStroked = true;
+		progressBarBg.strokeColor = borderColor;
+		progressBarBg.lineWidth = 4;
+
+		// progressBar (relleno)
+		const progressBar = this.add.rectangle(centerX - barWidth * 0.5, centerY, barWidth, barHeight);
+		progressBar.setOrigin(0, 0.5);
+		progressBar.isFilled = true;
+		progressBar.fillColor = fillColor;
+		progressBar.isStroked = true;
+		progressBar.strokeColor = borderColor;
+		progressBar.lineWidth = 2;
 
 		// loadingText
-		const loadingText = this.add.text(552.0120849609375, 329, "", {});
+		const loadingText = this.add.text(centerX, centerY - 40, "", {});
 		loadingText.text = "Loading...";
-		loadingText.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "20px" });
+		loadingText.setOrigin(0.5, 0.5);
+		loadingText.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "22px", "fontStyle": "bold" });
 
 		this.progressBar = progressBar;
+		this.progressBarBg = progressBarBg;
+		this.loadingText = loadingText;
 
 		this.events.emit("scene-awake");
 	}
 
 	private progressBar!: Phaser.GameObjects.Rectangle;
+	private progressBarBg!: Phaser.GameObjects.Rectangle;
+	private loadingText!: Phaser.GameObjects.Text;
 
 	/* START-USER-CODE */
 
@@ -61,7 +75,6 @@ export default class Preload extends Phaser.Scene {
 		const width = this.progressBar.width;
 
 		this.load.on("progress", (value: number) => {
-
 			this.progressBar.width = width * value;
 		});
 	}
@@ -81,7 +94,7 @@ export default class Preload extends Phaser.Scene {
 			}
 		}
 
-		this.scene.start("Level1");
+		this.scene.start("TitleScene");
 	}
 
 	/* END-USER-CODE */
