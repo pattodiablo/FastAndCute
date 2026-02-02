@@ -418,7 +418,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.destroy();
 	}
 
-	private startFallLifetimeTimer(lifetimeMs: number = 10000) {
+	private startFallLifetimeTimer(lifetimeMs: number = 5000) {
 		this.clearFallLifetimeTimer();
 		this.fallLifetimeTimer = this.scene.time.delayedCall(lifetimeMs, () => {
 			if (this.regenerating || this.pendingDespawn) return;

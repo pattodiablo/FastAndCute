@@ -393,6 +393,35 @@ export default class SpinePlayer extends SpineGameObject {
 
 	}
 
+	public startFromChest(chestX: number, chestY: number) {
+		// Colocar en el cofre y flotar suave antes de habilitar movimiento
+		this.targetPos = null;
+		this.CanMove = false;
+		this.body.enable = false;
+		this.body.checkCollision.none = true;
+		this.body.setVelocity(0, 0);
+		this.body.setGravityY(0);
+		this.setPosition(chestX, chestY);
+		this.setVisible(true);
+		this.setActive(true);
+
+		const floatUp = 20;
+		this.scene.tweens.add({
+			targets: this,
+			y: chestY - floatUp,
+			duration: 320,
+			ease: 'Sine.Out',
+			yoyo: true,
+			repeat: 1,
+			onComplete: () => {
+				this.body.enable = true;
+				this.body.checkCollision.none = false;
+				this.body.setGravityY(this.originalGravityY);
+				this.startMoving();
+			}
+		});
+	}
+
 	public SetOriginalPosition(x: number, y: number) {
 		this.OriginalX = x;
 		this.OriginalY = y;

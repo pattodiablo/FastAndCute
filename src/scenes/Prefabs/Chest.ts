@@ -43,7 +43,12 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 	
 			this.once("animationcomplete-OpenChest", () => {
 				// Aquí va la lógica para abrir el cofre (por ejemplo, mostrar el premio, etc.)
-				(this.scene as any).player.startMoving(); // Llama al método startMoving del jugador
+				const player = (this.scene as any).player;
+				if (player?.startFromChest) {
+					player.startFromChest(this.x, this.y);
+				} else {
+					player?.startMoving?.();
+				}
 			
 			
 
