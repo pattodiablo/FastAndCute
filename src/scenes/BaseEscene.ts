@@ -238,6 +238,7 @@ export default class BaseEscene extends Phaser.Scene {
 		this.BaseCreate();
 		this.editorCreate();
 		this.resolveDepths();
+		this.time.delayedCall(120, () => this.bringUiToFront());
 		this.startingPositions();
 		this.initMapOverlay();
   this.physics.world.gravity.y = 100; // gravedad global Arcade
@@ -456,6 +457,22 @@ public clearCollidingEnemies() {
 		this.curtain1.setDepth(1000);
 		this.curtain2.setDepth(1000);
 		this.player.setDepth(10);
+	}
+
+	private bringUiToFront() {
+		const uiDepth = 2000;
+		const uiElements: Phaser.GameObjects.GameObject[] = [
+			this.fxON,
+			this.musicON,
+			this.mapBtn,
+			this.homePlayer
+		];
+		for (const go of uiElements) {
+			const obj = go as any;
+			if (!obj || typeof obj.setDepth !== 'function') continue;
+			obj.setDepth(uiDepth);
+			try { this.children.bringToTop(obj); } catch {}
+		}
 	}
 
 	startingPositions() {

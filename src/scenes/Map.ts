@@ -729,6 +729,21 @@ private applyVolumeToUI(vol: number, barLeft: number, barRight: number, handleY:
 	}
 
 	public locatePlayerOnMap() {
+		// Primero, intenta ubicar según la escena activa (ej. "LevelX") guardada en el registry
+		const lastActiveKey = this.registry.get('LastActiveSceneKey') as string | undefined;
+		const levelMatch = lastActiveKey?.match(/^Level(\d+)$/);
+		if (levelMatch) {
+			const levelNum = Phaser.Math.Clamp(parseInt(levelMatch[1], 10), 1, 10);
+			const currentDot = this.getMapDot(levelNum);
+			if (currentDot) {
+				this.mapPlayer.x = currentDot.x;
+				this.mapPlayer.y = currentDot.y - 20;
+				console.log(`Player located on current level ${levelNum} from LastActiveSceneKey`);
+				this.mapPlayer.startFloating(currentDot.y);
+				return;
+			}
+		}
+
 		// Buscar el último MapDot habilitado (IsDotActive = true)
 		let lastActiveDot: MapDot | undefined = undefined;
 		let lastActiveLevel = 1;

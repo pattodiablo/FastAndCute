@@ -48,6 +48,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private blinkTween?: Phaser.Tweens.Tween;
 	private hostScene?: Phaser.Scene;
 	private playerCollisionDisabled: boolean = false;
+	private fallLifetimeTimer?: Phaser.Time.TimerEvent;
 
 	create() {
 		this.startSpawnScale();
@@ -165,6 +166,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			console.log("Fall_Platform: jugador cargado, plataforma cae");
 			this.isFalling = true;
 			this.carryEnabled = true;
+			this.startFallLifetimeTimer();
 
 			// Cambiar textura
 			//this.setTexture("Block2");
@@ -213,6 +215,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		// Solo procesar si ya está cayendo
 		if (!this.isFalling || this.regenerating || this.pendingDespawn) return;
 		this.pendingDespawn = true;
+		this.clearFallLifetimeTimer();
 
 		// Determinar cuál es la otra plataforma (la que NO es this)
 		const otherPlatform = platform1 === this ? platform2 : platform1;
@@ -325,6 +328,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		if (!scene) return;
 		this.regenerating = true;
 		this.pendingDespawn = true;
+		this.clearFallLifetimeTimer();
 
 		// Hacer invisible inmediatamente
 		this.setVisible(false);
@@ -350,6 +354,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		if (!scene) return;
 		if (this.regenerating) return;
 		this.disablePlayerCollisionDuringBlink();
+		this.clearFallLifetimeTimer();
 
 		// Evitar múltiples parpadeos simultáneos
 		if (this.blinkTween) {
@@ -389,6 +394,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.blinkTween = undefined;
 		this.respawnTimer?.remove(false);
 		this.respawnTimer = undefined;
+		this.clearFallLifetimeTimer();
 		super.destroy(fromScene);
 	}
 
@@ -410,6 +416,22 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 			this.respawnTimer = undefined;
 		}
 		this.destroy();
+	}
+
+	private startFallLifetimeTimer(lifetimeMs: number = 10000) {
+		this.clearFallLifetimeTimer();
+		this.fallLifetimeTimer = this.scene.time.delayedCall(lifetimeMs, () => {
+			if (this.regenerating || this.pendingDespawn) return;
+			console.log("Fall_Platform: lifetime reached, forcing regeneration");
+			this.blinkThenRegenerate();
+		});
+	}
+
+	private clearFallLifetimeTimer() {
+		if (this.fallLifetimeTimer) {
+			this.fallLifetimeTimer.remove(false);
+			this.fallLifetimeTimer = undefined;
+		}
 	}
 
 	preUpdate(time: number, delta: number) {

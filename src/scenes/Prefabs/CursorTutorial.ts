@@ -37,9 +37,16 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		});
 
 		// Espera a que el jugador abra el cofre para mover el cursor a la siguiente posición
-		this.scene.events.once("chest-opened", () => this.onChestOpened());
-		this.scene.events.on("star-collected", (star: any) => this.onStarCollected(star));
-		this.scene.events.on("player-charged", () => this.onPlayerCharged());
+		this.scene.events.once("chest-opened", this.handleChestOpened);
+		this.scene.events.on("star-collected", this.handleStarCollected);
+		this.scene.events.on("player-charged", this.handlePlayerCharged);
+
+		this.once(Phaser.GameObjects.Events.DESTROY, () => {
+			const events = this.scene?.events;
+			events?.off("chest-opened", this.handleChestOpened);
+			events?.off("star-collected", this.handleStarCollected);
+			events?.off("player-charged", this.handlePlayerCharged);
+		});
 		/* END-USER-CTR-CODE */
 	}
 
@@ -50,8 +57,12 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	private hasHandledStar1: boolean = false;
 	private waitingForSecondStar: boolean = false;
 	private waitingForCharge: boolean = false;
+	private readonly handleChestOpened = () => this.onChestOpened();
+	private readonly handleStarCollected = (star: any) => this.onStarCollected(star);
+	private readonly handlePlayerCharged = () => this.onPlayerCharged();
 
 	private startFloat() {
+		if (!this.scene) return;
 		// Movimiento flotante muy lento relativo a la posición actual
 		this.floatTween?.stop();
 		this.floatTween = this.scene.tweens.add({
@@ -65,7 +76,8 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	}
 
 	private moveToChestOrigin() {
-		const chest = (this.scene as any).chest;
+		if (!this.scene) return;
+		const chest = (this.scene as any)?.chest;
 		if (!chest || typeof chest.x !== "number" || typeof chest.y !== "number") return;
 
 		this.floatTween?.stop();
@@ -102,7 +114,9 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		this.anims?.stop();
 		this.setFrame("ClickHand0001.png");
 
-		const star = (this.scene as any).star1;
+		const sceneAny = this.scene as any;
+		if (!sceneAny) return;
+		const star = sceneAny.star1;
 		if (!star || typeof star.x !== "number" || typeof star.y !== "number") return;
 
 		this.scene.tweens.add({
@@ -116,8 +130,10 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	}
 
 	private onStarCollected(star: any) {
-		const sceneStar1 = (this.scene as any).star1;
-		const sceneStar2 = (this.scene as any).star2;
+		const sceneAny = this.scene as any;
+		if (!sceneAny) return;
+		const sceneStar1 = sceneAny.star1;
+		const sceneStar2 = sceneAny.star2;
 
 		if (!sceneStar1 || !sceneStar2) return;
 
@@ -204,6 +220,9 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	private onPlayerCharged() {
 		if (!this.waitingForCharge) return;
 		this.waitingForCharge = false;
+
+		const sceneAny = this.scene as any;
+		if (!sceneAny) return;
 
 		const lastStar = this.findLastStar();
 		if (!lastStar) {

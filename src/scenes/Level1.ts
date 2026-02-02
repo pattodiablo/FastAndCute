@@ -86,6 +86,20 @@ export default class Level1 extends BaseEscene {
 
 		public nextLevel: string = "Level2";
 
+		public override create() {
+			super.create();
+			// Muestra el mapa al iniciar (como si se presionara el botón) pero espera a que la escena Map esté lista
+			const mapScene = this.scene.get('Map') as Phaser.Scene | undefined;
+			const openMap = () => this.toggleMapOverlay();
+			if (mapScene && mapScene.sys.isActive()) {
+				this.time.delayedCall(0, openMap);
+			} else if (mapScene) {
+				mapScene.events.once(Phaser.Scenes.Events.CREATE, openMap);
+			} else {
+				this.time.delayedCall(150, openMap);
+			}
+		}
+
     // Write your code here
 
 
