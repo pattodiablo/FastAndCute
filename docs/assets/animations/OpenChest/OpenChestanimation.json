@@ -1,0 +1,388 @@
+{"frames": [
+
+{
+	"filename": "OpenChestAnimation0001.png",
+	"frame": {"x":144,"y":352,"w":144,"h":104},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":66,"w":144,"h":104},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0002.png",
+	"frame": {"x":432,"y":160,"w":144,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":80,"w":144,"h":90},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0003.png",
+	"frame": {"x":0,"y":74,"w":144,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":94,"w":144,"h":76},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0004.png",
+	"frame": {"x":144,"y":74,"w":144,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":94,"w":144,"h":76},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0005.png",
+	"frame": {"x":288,"y":74,"w":144,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":94,"w":144,"h":76},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0006.png",
+	"frame": {"x":576,"y":160,"w":144,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":80,"w":144,"h":90},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0007.png",
+	"frame": {"x":0,"y":352,"w":144,"h":104},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":66,"w":144,"h":104},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0008.png",
+	"frame": {"x":288,"y":470,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0009.png",
+	"frame": {"x":576,"y":470,"w":144,"h":120},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":120},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0010.png",
+	"frame": {"x":288,"y":590,"w":144,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":46,"w":144,"h":124},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0011.png",
+	"frame": {"x":432,"y":590,"w":144,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":44,"w":144,"h":126},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0012.png",
+	"frame": {"x":144,"y":590,"w":144,"h":122},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":48,"w":144,"h":122},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0013.png",
+	"frame": {"x":720,"y":352,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0014.png",
+	"frame": {"x":0,"y":470,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0015.png",
+	"frame": {"x":144,"y":470,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0016.png",
+	"frame": {"x":432,"y":470,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0017.png",
+	"frame": {"x":0,"y":250,"w":144,"h":96},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":74,"w":144,"h":96},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0018.png",
+	"frame": {"x":720,"y":0,"w":144,"h":74},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":96,"w":144,"h":74},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0019.png",
+	"frame": {"x":0,"y":0,"w":144,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":118,"w":144,"h":52},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0020.png",
+	"frame": {"x":144,"y":0,"w":144,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":102,"w":144,"h":68},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0021.png",
+	"frame": {"x":720,"y":74,"w":144,"h":86},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":84,"w":144,"h":86},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0022.png",
+	"frame": {"x":720,"y":250,"w":144,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":68,"w":144,"h":102},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0023.png",
+	"frame": {"x":0,"y":590,"w":144,"h":120},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":120},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0024.png",
+	"frame": {"x":576,"y":352,"w":144,"h":108},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":108},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0025.png",
+	"frame": {"x":432,"y":250,"w":144,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":52,"w":144,"h":98},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0026.png",
+	"frame": {"x":720,"y":160,"w":144,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":90},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0027.png",
+	"frame": {"x":576,"y":74,"w":144,"h":80},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":80},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0028.png",
+	"frame": {"x":576,"y":0,"w":144,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":51,"w":144,"h":68},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0029.png",
+	"frame": {"x":288,"y":0,"w":144,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":51,"w":144,"h":68},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0030.png",
+	"frame": {"x":432,"y":0,"w":144,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":51,"w":144,"h":68},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0031.png",
+	"frame": {"x":0,"y":160,"w":144,"h":86},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":86},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0032.png",
+	"frame": {"x":576,"y":250,"w":144,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":51,"w":144,"h":102},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0033.png",
+	"frame": {"x":720,"y":470,"w":144,"h":120},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":50,"w":144,"h":120},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0034.png",
+	"frame": {"x":288,"y":352,"w":144,"h":108},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":62,"w":144,"h":108},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0035.png",
+	"frame": {"x":288,"y":250,"w":144,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":72,"w":144,"h":98},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0036.png",
+	"frame": {"x":144,"y":160,"w":144,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":82,"w":144,"h":88},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0037.png",
+	"frame": {"x":432,"y":74,"w":144,"h":78},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":92,"w":144,"h":78},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0038.png",
+	"frame": {"x":288,"y":160,"w":144,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":82,"w":144,"h":88},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0039.png",
+	"frame": {"x":144,"y":250,"w":144,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":72,"w":144,"h":98},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0040.png",
+	"frame": {"x":432,"y":352,"w":144,"h":108},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":62,"w":144,"h":108},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0041.png",
+	"frame": {"x":576,"y":590,"w":142,"h":134},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":36,"w":142,"h":134},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0042.png",
+	"frame": {"x":0,"y":734,"w":142,"h":146},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":24,"w":142,"h":146},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0043.png",
+	"frame": {"x":284,"y":734,"w":142,"h":158},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":12,"w":142,"h":158},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0044.png",
+	"frame": {"x":568,"y":734,"w":142,"h":170},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":142,"h":170},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0045.png",
+	"frame": {"x":426,"y":734,"w":142,"h":162},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":8,"w":142,"h":162},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0046.png",
+	"frame": {"x":142,"y":734,"w":142,"h":152},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":18,"w":142,"h":152},
+	"sourceSize": {"w":150,"h":172}
+},
+{
+	"filename": "OpenChestAnimation0047.png",
+	"frame": {"x":718,"y":590,"w":142,"h":144},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":26,"w":142,"h":144},
+	"sourceSize": {"w":150,"h":172}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "OpenChestanimation.png",
+	"format": "RGBA8888",
+	"size": {"w":904,"h":904},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:733c90b73273bb4c42ffc41a7db3bb81:8d5d93dc4e6dec373636424d317bdb64:9e097267b030d6b163be8ecd0d04d9de$"
+}
+}
