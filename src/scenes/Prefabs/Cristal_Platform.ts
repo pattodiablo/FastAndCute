@@ -32,6 +32,7 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 
 	public isFalling: boolean = false;
 	public IsCristalPlatform: boolean = true;
+	private shineFx?: any;
 
 	/* START-USER-CODE */
 
@@ -78,6 +79,8 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 				}
 			});
 		}
+
+		this.setupShineFx();
 	}
 
 
@@ -184,6 +187,24 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 		});
 
 		this.scene.time.delayedCall(1500, () => particles.destroy());
+	}
+
+	private setupShineFx() {
+		const fx = (this as any).postFX;
+		if (!fx || typeof fx.addShine !== 'function') return;
+		if (this.shineFx) return;
+		// intensity, thickness, speed, offset, light, color
+		this.shineFx = fx.addShine(0.3, 0.2, 14, 0.5, 0.5, 0.5);
+	}
+
+	public destroy(fromScene?: boolean) {
+		try {
+			if (this.shineFx && (this as any).postFX?.remove) {
+				(this as any).postFX.remove(this.shineFx);
+			}
+		} catch {}
+		this.shineFx = undefined;
+		super.destroy(fromScene);
 	}
 
 	/* END-USER-CODE */
