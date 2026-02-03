@@ -22,6 +22,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		// Intro: espera 2s y aparece con escala 0->1, luego flota
 		this.setScale(0);
 		this.setAlpha(0);
+		this.createInstructionText();
 		this.scene.time.delayedCall(2000, () => {
 			this.scene.tweens.add({
 				targets: this,
@@ -46,6 +47,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 			events?.off("chest-opened", this.handleChestOpened);
 			events?.off("star-collected", this.handleStarCollected);
 			events?.off("player-charged", this.handlePlayerCharged);
+			this.instructionText?.destroy();
 		});
 		/* END-USER-CTR-CODE */
 	}
@@ -53,6 +55,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 
 	private floatTween?: Phaser.Tweens.Tween;
+	private instructionText?: Phaser.GameObjects.Text;
 	private hasHandledChestOpen: boolean = false;
 	private hasHandledStar1: boolean = false;
 	private waitingForSecondStar: boolean = false;
@@ -108,6 +111,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	private onChestOpened() {
 		if (this.hasHandledChestOpen) return;
 		this.hasHandledChestOpen = true;
+		this.updateInstruction(2);
 
 		// Detener cualquier flotado o animación para moverse al nuevo punto
 		this.floatTween?.stop();
@@ -160,6 +164,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		// Segundo pick: ahora sí arranca la animación de mantener
 		if (this.waitingForSecondStar && star === sceneStar2) {
 			this.waitingForSecondStar = false;
+			this.updateInstruction(3);
 			this.floatTween?.stop();
 			this.anims?.stop();
 			this.setFrame("ClickHand0001.png");
@@ -168,6 +173,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 
 		// Si ya no quedan estrellas, dirigir la mano a la puerta
 		if (this.isLastStar(star)) {
+			this.updateInstruction(5);
 			const doorTarget = this.getDoorTarget();
 			if (!doorTarget) return;
 
@@ -220,6 +226,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	private onPlayerCharged() {
 		if (!this.waitingForCharge) return;
 		this.waitingForCharge = false;
+		this.updateInstruction(4);
 
 		const sceneAny = this.scene as any;
 		if (!sceneAny) return;
@@ -257,6 +264,33 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 			return { x: door.x, y: door.y };
 		}
 		return undefined;
+	}
+
+	private createInstructionText() {
+		const { width, height } = this.scene.scale;
+		this.instructionText = this.scene.add.text(width * 0.5, height * 0.35, this.getInstruction(1), {
+			fontFamily: "Arial",
+			fontSize: "26px",
+			color: "#ffffff",
+			align: "center",
+			wordWrap: { width: width * 0.7 }
+		}).setOrigin(0.5, 0.5).setDepth(2000);
+	}
+
+	private getInstruction(step: number): string {
+		switch (step) {
+			case 1: return "Step 1: Open the chest";
+			case 2: return "Step 2: Collect two stars";
+			case 3: return "Step 3: Find the third star and use Charge";
+			case 4: return "Step 4: Collect the last star";
+			case 5: return "Step 5: Enter the door";
+			default: return "";
+		}
+	}
+
+	private updateInstruction(step: number) {
+		if (!this.instructionText) return;
+		this.instructionText.setText(this.getInstruction(step));
 	}
 
 	/* END-USER-CODE */
