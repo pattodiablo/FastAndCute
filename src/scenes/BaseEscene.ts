@@ -255,18 +255,6 @@ export default class BaseEscene extends Phaser.Scene {
 		this.carboardEffect.visible = true;
 		this.starsGroup = this.physics.add.group();
 
-
-		this.input.once('pointerdown', () => {
-			if (
-				!this.sys.game.device.os.desktop &&
-				!this.scale.isFullscreen &&
-				this.scale.fullscreen.available
-			) {
-				this.scale.startFullscreen();
-			}
-
-		});
-
 		// --- FADE IN DESDE NEGRO ---
 		/* const fadeRect = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000)
 			.setOrigin(0, 0)

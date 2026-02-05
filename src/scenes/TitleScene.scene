@@ -137,6 +137,30 @@
             "y": 464,
             "scaleX": 0.5,
             "scaleY": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "c1418e32-5bed-46a9-a7f3-aa2d2762eb1f",
+            "label": "bestWith",
+            "texture": {
+                "key": "bestWith"
+            },
+            "x": 904,
+            "y": 533,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "20380500-d6b7-42ec-a5f3-dff5e46d3095",
+            "label": "listeExplorePlayTitle",
+            "texture": {
+                "key": "ListeExplorePlayTitle"
+            },
+            "x": 517,
+            "y": 118,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         }
     ],
     "plainObjects": [],

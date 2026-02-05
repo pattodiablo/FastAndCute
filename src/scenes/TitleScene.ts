@@ -57,6 +57,16 @@ export default class TitleScene extends Phaser.Scene {
 		mishiko.scaleX = 0.5;
 		mishiko.scaleY = 0.5;
 
+		// bestWith
+		const bestWith = this.add.image(904, 533, "bestWith");
+		bestWith.scaleX = 0.5;
+		bestWith.scaleY = 0.5;
+
+		// listeExplorePlayTitle
+		const listeExplorePlayTitle = this.add.image(517, 118, "ListeExplorePlayTitle");
+		listeExplorePlayTitle.scaleX = 0.5;
+		listeExplorePlayTitle.scaleY = 0.5;
+
 		this.backGround = backGround;
 		this.bubble = bubble;
 		this.titleCloud1 = titleCloud1;
@@ -99,6 +109,7 @@ export default class TitleScene extends Phaser.Scene {
 		this.startReadyIntro();
 		this.wireReadyButton();
 		this.startBubbleRise();
+		this.enableFullscreenOnFirstTap();
 	}
 
 	private startFadeIn() {
@@ -213,6 +224,18 @@ export default class TitleScene extends Phaser.Scene {
 
 	private readyShakeActive = false;
 	private mishikoFloatTween?: Phaser.Tweens.Tween;
+
+	private enableFullscreenOnFirstTap() {
+		this.input.once('pointerdown', () => {
+			if (
+				!this.sys.game.device.os.desktop &&
+				!this.scale.isFullscreen &&
+				this.scale.fullscreen.available
+			) {
+				this.scale.startFullscreen();
+			}
+		});
+	}
 
 	private startReadyIntro() {
 		const targetY = this.readyButton.y;

@@ -41,12 +41,19 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		this.scene.events.once("chest-opened", this.handleChestOpened);
 		this.scene.events.on("star-collected", this.handleStarCollected);
 		this.scene.events.on("player-charged", this.handlePlayerCharged);
+		this.scene.events.once("door-entered", this.handleDoorEntered);
+
+		// Si el cofre ya se abrió antes de que aparezca la mano, saltar este paso
+		if (this.chestIsOpen()) {
+			this.onChestOpened();
+		}
 
 		this.once(Phaser.GameObjects.Events.DESTROY, () => {
 			const events = this.scene?.events;
 			events?.off("chest-opened", this.handleChestOpened);
 			events?.off("star-collected", this.handleStarCollected);
 			events?.off("player-charged", this.handlePlayerCharged);
+			events?.off("door-entered", this.handleDoorEntered);
 			this.instructionText?.destroy();
 		});
 		/* END-USER-CTR-CODE */
@@ -56,6 +63,8 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 
 	private floatTween?: Phaser.Tweens.Tween;
 	private instructionText?: Phaser.GameObjects.Text;
+	private instructionLang: "en" | "es" = "en";
+	private readonly handleDoorEntered = () => this.clearInstructionText();
 	private hasHandledChestOpen: boolean = false;
 	private hasHandledStar1: boolean = false;
 	private waitingForSecondStar: boolean = false;
@@ -80,6 +89,10 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 
 	private moveToChestOrigin() {
 		if (!this.scene) return;
+		if (this.hasHandledChestOpen || this.chestIsOpen()) {
+			this.onChestOpened();
+			return;
+		}
 		const chest = (this.scene as any)?.chest;
 		if (!chest || typeof chest.x !== "number" || typeof chest.y !== "number") return;
 
@@ -94,6 +107,11 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 				this.playClickAnimation(false);
 			}
 		});
+	}
+
+	private chestIsOpen(): boolean {
+		const chest = (this.scene as any)?.chest;
+		return !!chest?.IsOpen;
 	}
 
 	private playClickAnimation(resumeFloat: boolean) {
@@ -268,6 +286,7 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 
 	private createInstructionText() {
 		const { width, height } = this.scene.scale;
+		this.instructionLang = this.detectLanguage();
 		this.instructionText = this.scene.add.text(width * 0.5, height * 0.35, this.getInstruction(1), {
 			fontFamily: "Arial",
 			fontSize: "26px",
@@ -277,20 +296,39 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 		}).setOrigin(0.5, 0.5).setDepth(2000);
 	}
 
+	private detectLanguage(): "en" | "es" {
+		const lang = (typeof navigator !== "undefined" && navigator.language) ? navigator.language.toLowerCase() : "en";
+		return lang.startsWith("es") ? "es" : "en";
+	}
+
 	private getInstruction(step: number): string {
-		switch (step) {
-			case 1: return "Step 1: Open the chest";
-			case 2: return "Step 2: Collect two stars";
-			case 3: return "Step 3: Find the third star and use Charge";
-			case 4: return "Step 4: Collect the last star";
-			case 5: return "Step 5: Enter the door";
-			default: return "";
-		}
+		const en = {
+			1: "Step 1: Open the chest",
+			2: "Step 2: Collect two stars",
+			3: "Step 3: Find the third star, keep holding and use Charge",
+			4: "Step 4: Collect the last star",
+			5: "Step 5: Enter the door"
+		};
+		const es = {
+			1: "Paso 1: Abre el cofre",
+			2: "Paso 2: Junta dos estrellas",
+			3: "Paso 3: Busca la tercera estrella, mantén presionado y usa Charge",
+			4: "Paso 4: Toma la última estrella",
+			5: "Paso 5: Entra por la puerta"
+		};
+		const dict = this.instructionLang === "es" ? es : en;
+		return (dict as any)[step] || "";
 	}
 
 	private updateInstruction(step: number) {
 		if (!this.instructionText) return;
 		this.instructionText.setText(this.getInstruction(step));
+	}
+
+	private clearInstructionText() {
+		if (!this.instructionText) return;
+		this.instructionText.destroy();
+		this.instructionText = undefined;
 	}
 
 	/* END-USER-CODE */

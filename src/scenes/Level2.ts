@@ -7,8 +7,6 @@ import DefaultPlatform from "./Prefabs/DefaultPlatform";
 import Spikes from "./Prefabs/Spikes";
 import Star from "./Prefabs/Star";
 import Enemy1 from "./Prefabs/Enemy1";
-import Cristal_Platform from "./Prefabs/Cristal_Platform";
-import Fall_Platform from "./Prefabs/Fall_Platform";
 import Platform2 from "./Prefabs/Platform2";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -65,14 +63,6 @@ export default class Level2 extends BaseEscene {
 
 		// DoorOrigin
 		const doorOrigin = this.add.image(947, 376, "door");
-
-		// cristal_Platform
-		const cristal_Platform = new Cristal_Platform(this, 274, 504, "CristalBlock2");
-		this.add.existing(cristal_Platform);
-
-		// fall_Platform
-		const fall_Platform = new Fall_Platform(this, 346, 92);
-		this.add.existing(fall_Platform);
 
 		// platform2
 		const platform2 = new Platform2(this, 940, 77, "cloud1");
