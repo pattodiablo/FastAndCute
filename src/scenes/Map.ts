@@ -505,6 +505,20 @@ export default class Map extends Phaser.Scene {
 
 	private radioPresets: string[] = [];
   private radioPresetIndex: number = 0;
+	private setContainerInput(container: Phaser.GameObjects.Container | undefined, enabled: boolean) {
+		if (!container) return;
+		const items = (container as any).list as Phaser.GameObjects.GameObject[] | undefined;
+		if (!items) return;
+		for (const obj of items) {
+			const anyObj = obj as any;
+			if (anyObj?.input) {
+				anyObj.input.enabled = enabled;
+			}
+			if (anyObj.list) {
+				this.setContainerInput(anyObj as Phaser.GameObjects.Container, enabled);
+			}
+		}
+	}
 
 	create() {
     this.editorCreate();
@@ -562,6 +576,10 @@ export default class Map extends Phaser.Scene {
 
 
     this.initVolumeControls(); // activar control de volumen
+
+	// Estado inicial de interactividad por panel
+	this.setContainerInput(this.wholeMap, true);
+	this.setContainerInput(this.unlocks, false);
 
     // Listener de HasNewTrack (usar el registry global para coincidir con CatTrack)
     const gameReg = this.game.registry;
@@ -1055,6 +1073,10 @@ private advancePreset(step: number) {
 	public ActivateMundoSection()	{
 		console.log("Activating Mundo Section");
 
+		// Habilita clicks solo en el panel de Mundo
+		this.setContainerInput(this.wholeMap, true);
+		this.setContainerInput(this.unlocks, false);
+
 		// Regresar wholeMap a su posición original
 		this.tweens.add({
 			targets: this.wholeMap,
@@ -1075,6 +1097,9 @@ private advancePreset(step: number) {
 
 	public ActivateUnlocksSection()	{
 		console.log("Activating Unlocks Section");
+		// Habilita clicks solo en el panel de Unlocks
+		this.setContainerInput(this.wholeMap, false);
+		this.setContainerInput(this.unlocks, true);
 		this.tweens.add({
             targets: this.wholeMap,
             x: this.wholeMap.x + 600,

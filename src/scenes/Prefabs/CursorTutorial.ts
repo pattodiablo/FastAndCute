@@ -304,14 +304,14 @@ export default class CursorTutorial extends Phaser.GameObjects.Sprite {
 	private getInstruction(step: number): string {
 		const en = {
 			1: "Step 1: Open the chest",
-			2: "Step 2: Collect two stars",
+			2: "Step 2: Collect two stars, tap the cat if need to stop it",
 			3: "Step 3: Find the third star, keep holding and use Charge",
 			4: "Step 4: Collect the last star",
 			5: "Step 5: Enter the door"
 		};
 		const es = {
 			1: "Paso 1: Abre el cofre",
-			2: "Paso 2: Junta dos estrellas",
+			2: "Paso 2: Junta dos estrellas, toca al gato si necesitas pararlo",
 			3: "Paso 3: Busca la tercera estrella, mantén presionado y usa Charge",
 			4: "Paso 4: Toma la última estrella",
 			5: "Paso 5: Entra por la puerta"
