@@ -386,6 +386,13 @@
                 "key": "glow"
             },
             {
+                "url": [
+                    "assets/fx/GotCard.mp3"
+                ],
+                "type": "audio",
+                "key": "GotCard"
+            },
+            {
                 "atlasURL": "assets/animations/HandClick/HandClick.json",
                 "textureURL": "assets/animations/HandClick/HandClick.png",
                 "type": "atlas",
@@ -418,6 +425,13 @@
                 "url": "assets/spine/HelloCatEnemy/HelloCatEnemy.atlas",
                 "type": "spineAtlas",
                 "key": "HelloCatEnemy-atlas"
+            },
+            {
+                "url": [
+                    "assets/fx/iceBroken.mp3"
+                ],
+                "type": "audio",
+                "key": "iceBroken"
             },
             {
                 "url": "assets/spine/KittenPlayer.json",

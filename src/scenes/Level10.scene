@@ -78,8 +78,8 @@
                 "y"
             ],
             "label": "star_1",
-            "x": 554,
-            "y": 510
+            "x": 496,
+            "y": 346
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -123,8 +123,8 @@
                 "y"
             ],
             "label": "fall_Platform",
-            "x": 69,
-            "y": 66
+            "x": 138,
+            "y": 137
         },
         {
             "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
@@ -151,8 +151,8 @@
             "texture": {
                 "key": "cloud1"
             },
-            "x": 55,
-            "y": 32,
+            "x": 130,
+            "y": 126,
             "scaleX": 0.8365933650783711,
             "scaleY": 0.8365933650783711
         },
@@ -166,8 +166,8 @@
             ],
             "label": "enemy1",
             "NumberOfCannons": 8,
-            "x": 891,
-            "y": 106
+            "x": 815,
+            "y": 136
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -233,8 +233,8 @@
                 "y"
             ],
             "label": "ranaEnemy_1",
-            "x": 684,
-            "y": 381
+            "x": 295,
+            "y": 282
         },
         {
             "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
@@ -279,8 +279,8 @@
             ],
             "label": "catTrack",
             "TrackToUnlock": "Unlock2",
-            "x": 459,
-            "y": 391
+            "x": 532,
+            "y": 460
         }
     ],
     "plainObjects": [],

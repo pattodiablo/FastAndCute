@@ -123,6 +123,7 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 
 			// Generar burst de burbujas
 			this.spawnBubbleBurst();
+			this.playBreakSound();
 
 			// Hacer invisible y destruir
 			this.setVisible(false);
@@ -147,6 +148,7 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 		
 		// Generar burst de burbujas
 		this.spawnBubbleBurst();
+		this.playBreakSound();
 		
 		// Hacer invisible y destruir
 		this.setVisible(false);
@@ -187,6 +189,12 @@ export default class Cristal_Platform extends Phaser.GameObjects.Sprite {
 		});
 
 		this.scene.time.delayedCall(1500, () => particles.destroy());
+	}
+
+	private playBreakSound() {
+		const s = this.scene.sound.add("iceBroken");
+		(this.scene as any).addFx(s);
+		s.play();
 	}
 
 	private setupShineFx() {

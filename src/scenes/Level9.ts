@@ -56,14 +56,14 @@ export default class Level9 extends BaseEscene {
 		this.add.existing(star_1);
 
 		// star_2
-		const star_2 = new Star(this, 113, 62);
+		const star_2 = new Star(this, 341, 241);
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(946, 22, "CloseChestanimation", "CloseChest0031.png");
+		const chestOrigin = this.add.image(144, 117, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(815, 365, "door");
+		const doorOrigin = this.add.image(803, 364, "door");
 
 		// ranaEnemy
 		const ranaEnemy = new RanaEnemy(this, this.spine, 333, 404);
@@ -80,7 +80,7 @@ export default class Level9 extends BaseEscene {
 		this.add.existing(ranaEnemy_1);
 
 		// ranaEnemy_2
-		const ranaEnemy_2 = new RanaEnemy(this, this.spine, 169, 182);
+		const ranaEnemy_2 = new RanaEnemy(this, this.spine, 871, 402);
 		this.add.existing(ranaEnemy_2);
 
 		// star_3

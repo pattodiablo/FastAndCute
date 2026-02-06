@@ -120,8 +120,8 @@
                 "key": "CloseChestanimation",
                 "frame": "CloseChest0031.png"
             },
-            "x": 923,
-            "y": 389
+            "x": 75,
+            "y": 455
         },
         {
             "type": "Image",
@@ -131,8 +131,8 @@
             "texture": {
                 "key": "door"
             },
-            "x": 65,
-            "y": 482
+            "x": 943,
+            "y": 414
         },
         {
             "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
@@ -142,8 +142,8 @@
                 "y"
             ],
             "label": "ranaEnemy",
-            "x": 182,
-            "y": 522
+            "x": 821,
+            "y": 453
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",

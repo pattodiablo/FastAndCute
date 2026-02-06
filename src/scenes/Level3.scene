@@ -142,8 +142,8 @@
                 "key": "CloseChestanimation",
                 "frame": "CloseChest0031.png"
             },
-            "x": 536,
-            "y": 228
+            "x": 189,
+            "y": 455
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
@@ -209,8 +209,8 @@
                 "y"
             ],
             "label": "ranaEnemy",
-            "x": 182,
-            "y": 522
+            "x": 521,
+            "y": 294
         }
     ],
     "plainObjects": [],

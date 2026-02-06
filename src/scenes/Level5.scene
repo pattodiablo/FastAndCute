@@ -44,11 +44,15 @@
             "id": "80a84267-a7c3-464f-a677-a63a69c7e573",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "scaleX",
+                "scaleY"
             ],
             "label": "fall_Platform",
             "x": 950,
-            "y": 89
+            "y": 89,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         },
         {
             "prefabId": "1fd4f62c-bfef-46c5-8a6d-49f2c02acb7a",
@@ -157,8 +161,8 @@
             "texture": {
                 "key": "door"
             },
-            "x": 417,
-            "y": 378
+            "x": 656,
+            "y": 388
         },
         {
             "prefabId": "81f4dad2-860f-4876-a5f8-f8e45534af37",
@@ -187,8 +191,8 @@
                 "y"
             ],
             "label": "ranaEnemy_1",
-            "x": 658,
-            "y": 410
+            "x": 413,
+            "y": 414
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -269,8 +273,8 @@
                 "scaleY"
             ],
             "label": "btnPresion",
-            "x": 566,
-            "y": 435,
+            "x": 552,
+            "y": 436,
             "scaleX": 0.4,
             "scaleY": 0.4
         },

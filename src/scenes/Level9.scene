@@ -131,8 +131,8 @@
                 "y"
             ],
             "label": "star_2",
-            "x": 113,
-            "y": 62
+            "x": 341,
+            "y": 241
         },
         {
             "type": "Image",
@@ -143,8 +143,8 @@
                 "key": "CloseChestanimation",
                 "frame": "CloseChest0031.png"
             },
-            "x": 946,
-            "y": 22
+            "x": 144,
+            "y": 117
         },
         {
             "type": "Image",
@@ -154,8 +154,8 @@
             "texture": {
                 "key": "door"
             },
-            "x": 815,
-            "y": 365
+            "x": 803,
+            "y": 364
         },
         {
             "prefabId": "23e9e15e-fc52-44a1-9d83-ae909ea65ef4",
@@ -206,8 +206,8 @@
                 "y"
             ],
             "label": "ranaEnemy_2",
-            "x": 169,
-            "y": 182
+            "x": 871,
+            "y": 402
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",

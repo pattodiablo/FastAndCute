@@ -279,8 +279,10 @@ export default class BaseEscene extends Phaser.Scene {
 
   this.openCurtains();
 
-		// Partículas de lluvia
-		//this.startRain();
+		// Partículas de lluvia (10% de probabilidad)
+		if (Math.random() < 0.1) {
+			this.startRain();
+		}
 		// Al dormir o apagar esta escena, parar su audio propio
 		this.events.on(Phaser.Scenes.Events.SLEEP, () => {
 			try { this.music?.stop(); } catch {}

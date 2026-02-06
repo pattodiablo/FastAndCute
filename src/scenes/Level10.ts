@@ -46,7 +46,7 @@ export default class Level10 extends BaseEscene {
 		const frontLayer = this.add.image(511, 568, "FrontLayer");
 
 		// star_1
-		const star_1 = new Star(this, 554, 510);
+		const star_1 = new Star(this, 496, 346);
 		this.add.existing(star_1);
 
 		// star_2
@@ -60,7 +60,7 @@ export default class Level10 extends BaseEscene {
 		const doorOrigin = this.add.image(976, 441, "door");
 
 		// fall_Platform
-		const fall_Platform = new Fall_Platform(this, 69, 66);
+		const fall_Platform = new Fall_Platform(this, 138, 137);
 		this.add.existing(fall_Platform);
 
 		// ranaEnemy
@@ -68,13 +68,13 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(ranaEnemy);
 
 		// platform2
-		const platform2 = new Platform2(this, 55, 32, "cloud1");
+		const platform2 = new Platform2(this, 130, 126, "cloud1");
 		this.add.existing(platform2);
 		platform2.scaleX = 0.8365933650783711;
 		platform2.scaleY = 0.8365933650783711;
 
 		// enemy1
-		const enemy1 = new Enemy1(this, 891, 106);
+		const enemy1 = new Enemy1(this, 815, 136);
 		this.add.existing(enemy1);
 
 		// platform_1
@@ -94,7 +94,7 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(star_3);
 
 		// ranaEnemy_1
-		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 684, 381);
+		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 295, 282);
 		this.add.existing(ranaEnemy_1);
 
 		// ranaEnemy_2
@@ -110,7 +110,7 @@ export default class Level10 extends BaseEscene {
 		this.add.existing(star_4);
 
 		// catTrack
-		const catTrack = new CatTrack(this, 459, 391);
+		const catTrack = new CatTrack(this, 532, 460);
 		this.add.existing(catTrack);
 
 		// enemy1 (prefab fields)

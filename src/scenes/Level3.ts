@@ -67,7 +67,7 @@ export default class Level3 extends BaseEscene {
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(536, 228, "CloseChestanimation", "CloseChest0031.png");
+		const chestOrigin = this.add.image(189, 455, "CloseChestanimation", "CloseChest0031.png");
 
 		// platform_4
 		const platform_4 = new Platform2(this, 684, 71, "cloud1");
@@ -87,7 +87,7 @@ export default class Level3 extends BaseEscene {
 		const doorOrigin = this.add.image(65, 482, "door");
 
 		// ranaEnemy
-		const ranaEnemy = new RanaEnemy(this, this.spine, 182, 522);
+		const ranaEnemy = new RanaEnemy(this, this.spine, 521, 294);
 		this.add.existing(ranaEnemy);
 
 		this.frontLayer = frontLayer;

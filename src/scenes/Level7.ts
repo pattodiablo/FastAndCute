@@ -58,13 +58,13 @@ export default class Level7 extends BaseEscene {
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(923, 389, "CloseChestanimation", "CloseChest0031.png");
+		const chestOrigin = this.add.image(75, 455, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(65, 482, "door");
+		const doorOrigin = this.add.image(943, 414, "door");
 
 		// ranaEnemy
-		const ranaEnemy = new RanaEnemy(this, this.spine, 182, 522);
+		const ranaEnemy = new RanaEnemy(this, this.spine, 821, 453);
 		this.add.existing(ranaEnemy);
 
 		// platform2

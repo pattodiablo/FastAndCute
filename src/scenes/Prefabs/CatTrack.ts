@@ -113,6 +113,11 @@ export default class CatTrack extends Phaser.GameObjects.Image {
 			sparks.destroy();
 		});
 
+		// Sonido al obtener la card
+		const s = this.scene.sound.add("GotCard");
+		(this.scene as any).addFx(s);
+		s.play();
+
         this.scene.tweens.add({
             targets: this,
             y: -100,

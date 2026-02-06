@@ -39,6 +39,8 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	private originalX: number = 0;
 	private originalY: number = 0;
 	private originalTexture: string = "";
+	private originalScaleX: number = 1;
+	private originalScaleY: number = 1;
 	private playerCollider?: Phaser.Physics.Arcade.Collider;
 	private regenerating: boolean = false;
 	private carryEnabled: boolean = false;
@@ -101,13 +103,18 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 	}
 
 	private startSpawnScale() {
-		// Arranca deshabilitado y sin escala para animar su entrada
+		// Arranca deshabilitado y sin escala para animar su entrada respetando escala original
 		this.body.enable = false;
+		const targetScaleX = this.scaleX || 1;
+		const targetScaleY = this.scaleY || 1;
+		this.originalScaleX = targetScaleX;
+		this.originalScaleY = targetScaleY;
 		this.setScale(0);
 
 		this.scene.tweens.add({
 			targets: this,
-			scale: 1,
+			scaleX: targetScaleX,
+			scaleY: targetScaleY,
 			duration: 250,
 			ease: 'Back.Out',
 			onComplete: () => {
@@ -406,6 +413,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		const base = scene as any;
 		// Crear nueva instancia en la posición original
 		const fresh = new Fall_Platform(scene, this.originalX, this.originalY, this.originalTexture);
+		fresh.setScale(this.originalScaleX, this.originalScaleY);
 		scene.add.existing(fresh);
 		if (base.plataformas) {
 			base.plataformas.add(fresh);
@@ -418,7 +426,7 @@ export default class Fall_Platform extends Phaser.GameObjects.Sprite {
 		this.destroy();
 	}
 
-	private startFallLifetimeTimer(lifetimeMs: number = 5000) {
+	private startFallLifetimeTimer(lifetimeMs: number = 10000) {
 		this.clearFallLifetimeTimer();
 		this.fallLifetimeTimer = this.scene.time.delayedCall(lifetimeMs, () => {
 			if (this.regenerating || this.pendingDespawn) return;

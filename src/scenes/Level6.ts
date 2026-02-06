@@ -26,7 +26,7 @@ export default class Level6 extends BaseEscene {
 	editorCreate(): void {
 
 		// platform_3
-		const platform_3 = new DefaultPlatform(this, 55, 224);
+		const platform_3 = new DefaultPlatform(this, 46, 257);
 		this.add.existing(platform_3);
 
 		// cristal_Platform
@@ -70,14 +70,14 @@ export default class Level6 extends BaseEscene {
 		this.add.existing(star_2);
 
 		// ChestOrigin
-		const chestOrigin = this.add.image(79, 68, "CloseChestanimation", "CloseChest0031.png");
+		const chestOrigin = this.add.image(79, 456, "CloseChestanimation", "CloseChest0031.png");
 
 		// fall_Platform
 		const fall_Platform = new Fall_Platform(this, 499, 45);
 		this.add.existing(fall_Platform);
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(65, 482, "door");
+		const doorOrigin = this.add.image(79, 124, "door");
 
 		// platform2
 		const platform2 = new Platform2(this, 501, 63, "cloud1");

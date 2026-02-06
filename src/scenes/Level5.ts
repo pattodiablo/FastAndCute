@@ -39,6 +39,8 @@ export default class Level5 extends BaseEscene {
 		// fall_Platform
 		const fall_Platform = new Fall_Platform(this, 950, 89);
 		this.add.existing(fall_Platform);
+		fall_Platform.scaleX = 0.5;
+		fall_Platform.scaleY = 0.5;
 
 		// platform
 		const platform = new DefaultPlatform(this, 107, 302);
@@ -72,7 +74,7 @@ export default class Level5 extends BaseEscene {
 		const chestOrigin = this.add.image(115, 144, "CloseChestanimation", "CloseChest0031.png");
 
 		// DoorOrigin
-		const doorOrigin = this.add.image(417, 378, "door");
+		const doorOrigin = this.add.image(656, 388, "door");
 
 		// platform2
 		const platform2 = new Platform2(this, 131, 474, "cloud1");
@@ -81,7 +83,7 @@ export default class Level5 extends BaseEscene {
 		platform2.scaleY = 0.8365933650783711;
 
 		// ranaEnemy_1
-		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 658, 410);
+		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 413, 414);
 		this.add.existing(ranaEnemy_1);
 
 		// star_3
@@ -108,7 +110,7 @@ export default class Level5 extends BaseEscene {
 		platform_6.angle = -180;
 
 		// btnPresion
-		const btnPresion = new BtnPresion(this, 566, 435);
+		const btnPresion = new BtnPresion(this, 552, 436);
 		this.add.existing(btnPresion);
 		btnPresion.scaleX = 0.4;
 		btnPresion.scaleY = 0.4;

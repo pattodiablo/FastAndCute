@@ -22,6 +22,7 @@ export default class Chest extends Phaser.GameObjects.Sprite {
 	this.OpenChestSound = this.scene.sound.add("chestOpening");
 	this.CloseChestSound = this.scene.sound.add("closeChest");		
 				(this.scene as any).addFx(this.OpenChestSound);
+				(this.scene as any).addFx(this.CloseChestSound);
 
 		/* END-USER-CTR-CODE */
 	}
