@@ -107,6 +107,7 @@ export default class TitleScene extends Phaser.Scene {
 		this.startCloudFloat();
 		this.startTitleIntro();
 		this.startReadyIntro();
+		this.lastLevelKey = this.getLastLevelKey();
 		this.wireReadyButton();
 		this.startBubbleRise();
 		this.enableFullscreenOnFirstTap();
@@ -291,8 +292,23 @@ export default class TitleScene extends Phaser.Scene {
 	private wireReadyButton() {
 		this.readyButton.setInteractive({ useHandCursor: true });
 		this.readyButton.on(Phaser.Input.Events.POINTER_UP, () => {
-			this.scene.start("Level1");
+			const key = this.lastLevelKey || "Level1";
+			this.scene.start(key);
 		});
+	}
+
+	private getLastLevelKey(): string {
+		let maxLevel = 1;
+		try {
+			const raw = localStorage.getItem("PlayerMaxLevel");
+			maxLevel = raw ? Math.max(1, Number(raw)) : 1;
+		} catch {}
+		const regVal = this.registry.get("PlayerMaxLevel");
+		if (typeof regVal === "number") {
+			maxLevel = Math.max(maxLevel, Math.max(1, regVal));
+		}
+		const clamped = Phaser.Math.Clamp(Math.floor(maxLevel), 1, 10);
+		return `Level${clamped}`;
 	}
 
 	private startMishikoIntro() {
@@ -388,6 +404,8 @@ export default class TitleScene extends Phaser.Scene {
 			onComplete: () => this.launchBubble(bubble)
 		});
 	}
+
+	private lastLevelKey: string = "Level1";
 
 	/* END-USER-CODE */
 }

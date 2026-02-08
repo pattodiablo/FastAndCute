@@ -132,7 +132,7 @@ export default class Level10 extends BaseEscene {
 
 	/* START-USER-CODE */
 
-		public nextLevel: string = "Level1";
+		public nextLevel: string = "FinalScreen";
 
     // Write your code here
 

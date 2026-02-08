@@ -38,14 +38,21 @@ export default class HomePlayer extends Phaser.GameObjects.Container {
 				ease: 'Cubic.Out'
 			});
 		});
-		// Actualiza el texto con el último mensaje de RadioLog
-		this._onRegChange = (_parent: any, key: string, value: string[]) => {
-			if (key === 'RadioLog') this.updateMusicStyleText(value);
+		// Actualiza el texto con el estilo de música actual (y solo eso)
+		this._onRegChange = (_parent: any, key: string, value: string | string[]) => {
+			if (key === 'RadioStyle') this.updateMusicStyleText(value as string);
 		};
 		this.scene.registry.events.on('changedata', this._onRegChange, this);
 
-		// Valor inicial desde el registry
-		this.updateMusicStyleText(this.scene.registry.get('RadioLog') as string[] | undefined);
+		// Valor inicial desde el registry o localStorage (por si el Map aún no se abrió en esta sesión)
+		const initialStyle = this.scene.registry.get('RadioStyle') as string | undefined;
+		if (typeof initialStyle === 'string' && initialStyle.trim().length) {
+			this.updateMusicStyleText(initialStyle);
+		} else {
+			let stored: string | undefined;
+			try { stored = localStorage.getItem('RadioStylePreset') || undefined; } catch {}
+			this.updateMusicStyleText(stored);
+		}
 
 		// Limpieza al destruir
 		this.once(Phaser.GameObjects.Events.DESTROY, () => {
@@ -77,13 +84,10 @@ export default class HomePlayer extends Phaser.GameObjects.Container {
 
 	private _onRegChange?: (parent: any, key: string, value: any) => void;
 
-	private updateMusicStyleText(log?: string[]) {
-		let text = "Loading music style . . .";
-		if (Array.isArray(log) && log.length) {
-			const last = log[log.length - 1] as string;
-			// Quita el prefijo "[Radio] " si existe
-			text = last.replace(/^\[Radio\]\s*/i, "");
-		}
+	private updateMusicStyleText(style?: string | string[]) {
+		const text = typeof style === 'string' && style.trim().length
+			? style
+			: "Loading music style . . .";
 		this.musicStyleText.setText(text);
 	}
 

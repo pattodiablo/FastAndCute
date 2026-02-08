@@ -10,6 +10,7 @@ import Level8 from "./scenes/Level8";
 import Level9 from "./scenes/Level9";
 import Level10 from "./scenes/Level10";
 import TitleScene from "./scenes/TitleScene";
+import FinalScreen from "./scenes/FinalScreen";
 
 
 import Map from "./scenes/Map";
@@ -68,7 +69,7 @@ window.addEventListener('load', function () {
                 
             },
         
-		scene: [Boot, Preload,TitleScene,BaseEscene, Map, Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10]
+		scene: [Boot, Preload,TitleScene,BaseEscene, Map, Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10,FinalScreen]
 	});
 
 	game.scene.start("Boot");

@@ -355,6 +355,51 @@
                 "key": "EnemyFace"
             },
             {
+                "url": "assets/FinalScreenBiomas.png",
+                "type": "image",
+                "key": "FinalScreenBiomas"
+            },
+            {
+                "url": "assets/FinalScreenCarrots.png",
+                "type": "image",
+                "key": "FinalScreenCarrots"
+            },
+            {
+                "url": "assets/FinalScreenEnemies.png",
+                "type": "image",
+                "key": "FinalScreenEnemies"
+            },
+            {
+                "url": "assets/FinalScreenFeedBack.png",
+                "type": "image",
+                "key": "FinalScreenFeedBack"
+            },
+            {
+                "url": "assets/FinalScreenHelloCAt.png",
+                "type": "image",
+                "key": "FinalScreenHelloCAt"
+            },
+            {
+                "url": "assets/FinalScreenMishiko.png",
+                "type": "image",
+                "key": "FinalScreenMishiko"
+            },
+            {
+                "url": "assets/FinalScreenMusic.png",
+                "type": "image",
+                "key": "FinalScreenMusic"
+            },
+            {
+                "url": "assets/FinalScreenWhatsNext.png",
+                "type": "image",
+                "key": "FinalScreenWhatsNext"
+            },
+            {
+                "url": "assets/FinalScrenBigText.png",
+                "type": "image",
+                "key": "FinalScrenBigText"
+            },
+            {
                 "url": "assets/FrontLayer.png",
                 "type": "image",
                 "key": "FrontLayer"

@@ -1,0 +1,123 @@
+{
+    "id": "d37885d1-f70a-4045-a00d-c810a018c2ea",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "FinalScreen",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1031,
+        "borderHeight": 580
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "6c0601da-a80b-4bd7-924c-ad94c1b59f5d",
+            "label": "mapBg",
+            "texture": {
+                "key": "MapBg"
+            },
+            "x": 516,
+            "y": 288
+        },
+        {
+            "type": "Image",
+            "id": "c0831fb4-6a6d-48db-a763-e7b92e8827e2",
+            "label": "finalScreenBiomas",
+            "texture": {
+                "key": "FinalScreenBiomas"
+            },
+            "x": 514,
+            "y": 336
+        },
+        {
+            "type": "Image",
+            "id": "9761554b-739f-40a5-8cf9-8f1eba3660c0",
+            "label": "finalScreenCarrots",
+            "texture": {
+                "key": "FinalScreenCarrots"
+            },
+            "x": 924,
+            "y": 109
+        },
+        {
+            "type": "Image",
+            "id": "961861c0-8c6d-4b19-bbc4-e9d29880251e",
+            "label": "finalScreenEnemies",
+            "texture": {
+                "key": "FinalScreenEnemies"
+            },
+            "x": 764,
+            "y": 335
+        },
+        {
+            "type": "Image",
+            "id": "c5c6e214-797d-42db-b3e9-2db0cc844916",
+            "label": "finalScreenFeedBack",
+            "texture": {
+                "key": "FinalScreenFeedBack"
+            },
+            "x": 281,
+            "y": 496
+        },
+        {
+            "type": "Image",
+            "id": "7ad0aea2-2851-4444-b36f-9c36d4e58932",
+            "label": "finalScreenHelloCAt",
+            "texture": {
+                "key": "FinalScreenHelloCAt"
+            },
+            "x": 951,
+            "y": 554
+        },
+        {
+            "type": "Image",
+            "id": "b6c8ab5c-53c1-45f4-a3a5-bd5aef1fa760",
+            "label": "finalScreenMishiko",
+            "texture": {
+                "key": "FinalScreenMishiko"
+            },
+            "x": 150,
+            "y": 121
+        },
+        {
+            "type": "Image",
+            "id": "cba639db-a00e-4ec5-8b4f-4bb683f7bd0a",
+            "label": "finalScreenMusic",
+            "texture": {
+                "key": "FinalScreenMusic"
+            },
+            "x": 233,
+            "y": 337
+        },
+        {
+            "type": "Image",
+            "id": "6438fa33-75a0-4ce5-8eff-6fd796df1675",
+            "label": "finalScreenWhatsNext",
+            "texture": {
+                "key": "FinalScreenWhatsNext"
+            },
+            "x": 758,
+            "y": 494
+        },
+        {
+            "type": "Image",
+            "id": "8836a20e-257f-4488-b764-43055a54eff2",
+            "label": "finalScrenBigText",
+            "texture": {
+                "key": "FinalScrenBigText"
+            },
+            "x": 515,
+            "y": 156
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
