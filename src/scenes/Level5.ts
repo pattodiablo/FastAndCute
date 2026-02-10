@@ -83,7 +83,7 @@ export default class Level5 extends BaseEscene {
 		platform2.scaleY = 0.8365933650783711;
 
 		// ranaEnemy_1
-		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 413, 414);
+		const ranaEnemy_1 = new RanaEnemy(this, this.spine, 537, 426);
 		this.add.existing(ranaEnemy_1);
 
 		// star_3
@@ -110,7 +110,7 @@ export default class Level5 extends BaseEscene {
 		platform_6.angle = -180;
 
 		// btnPresion
-		const btnPresion = new BtnPresion(this, 552, 436);
+		const btnPresion = new BtnPresion(this, 423, 422);
 		this.add.existing(btnPresion);
 		btnPresion.scaleX = 0.4;
 		btnPresion.scaleY = 0.4;

@@ -191,8 +191,8 @@
                 "y"
             ],
             "label": "ranaEnemy_1",
-            "x": 413,
-            "y": 414
+            "x": 537,
+            "y": 426
         },
         {
             "prefabId": "38937b30-11f4-4f6b-a0ca-9a9d46e831a3",
@@ -273,8 +273,8 @@
                 "scaleY"
             ],
             "label": "btnPresion",
-            "x": 552,
-            "y": 436,
+            "x": 423,
+            "y": 422,
             "scaleX": 0.4,
             "scaleY": 0.4
         },
