@@ -875,7 +875,7 @@
                 "key": "SongTimeline"
             },
             "x": 738,
-            "y": 339,
+            "y": 348,
             "originX": 0
         },
         {
@@ -887,7 +887,9 @@
                 "key": "SongStatusHandle"
             },
             "x": 742,
-            "y": 339
+            "y": 348,
+            "scaleX": 2,
+            "scaleY": 2
         },
         {
             "type": "Image",

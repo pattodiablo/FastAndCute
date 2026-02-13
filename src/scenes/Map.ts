@@ -346,11 +346,13 @@ export default class Map extends Phaser.Scene {
 		prevBtn.visible = false;
 
 		// VolumenSizeBar
-		const volumenSizeBar = this.add.image(738, 339, "SongTimeline");
+		const volumenSizeBar = this.add.image(738, 348, "SongTimeline");
 		volumenSizeBar.setOrigin(0, 0.5);
 
 		// SongVolumenHandle
-		const songVolumenHandle = this.add.image(742, 339, "SongStatusHandle");
+		const songVolumenHandle = this.add.image(742, 348, "SongStatusHandle");
+		songVolumenHandle.scaleX = 2;
+		songVolumenHandle.scaleY = 2;
 
 		// songAlbum
 		const songAlbum = this.add.image(821, 216, "song1Almbum");
@@ -906,15 +908,30 @@ private loadRadio(name: string) {
 		"https://fr1.api.radio-browser.info"
 	];
 
-	const tryMirror = (idx: number) => {
+	const tag = this.getPresetTag(name);
+
+	const buildUrl = (mode: "tag" | "name", base: string) => {
+		const common = "order=votes&reverse=true&hidebroken=true";
+		if (mode === "tag" && tag) {
+			return `${base}/json/stations/bytag/${encodeURIComponent(tag)}?${common}&limit=20`;
+		}
+		return `${base}/json/stations/search?name=${encodeURIComponent(name)}&${common}&limit=10`;
+	};
+
+	const tryMirror = (idx: number, mode: "tag" | "name") => {
 		if (idx >= mirrors.length) {
+			if (mode === "tag") {
+				this.logRadio(`Tag search failed for ${name}, falling back to name search`);
+				tryMirror(0, "name");
+				return;
+			}
 			this.fallbackToLocalTrack(`All mirrors failed for ${name}`);
 			return;
 		}
 
 		const base = mirrors[idx];
-		const searchUrl = `${base}/json/stations/search?name=${encodeURIComponent(name)}&limit=1`;
-		this.logRadio(`Trying mirror ${base} ...`);
+		const searchUrl = buildUrl(mode, base);
+		this.logRadio(`Trying ${mode === "tag" ? "tag" : "name"} lookup on ${base} ...`);
 
 		fetch(searchUrl)
 			.then(r => {
@@ -924,10 +941,10 @@ private loadRadio(name: string) {
 				return r.json();
 			})
 			.then(list => {
-				if (Array.isArray(list) && list.length) {
-					const station = list[0];
+				const station = this.selectStationFromList(list, { tag, name });
+				if (station) {
 					this.currentStationUrl = station.url_resolved;
-					this.logRadio(`Station loaded from ${base}: ${station.name}`);
+					this.logRadio(`Station loaded from ${base}: ${station.name || "Unknown"}`);
 					if (!this.radioAudio || !this.currentStationUrl) return;
 					if (this.radioAudio.src !== this.currentStationUrl) {
 						this.radioAudio.src = this.currentStationUrl;
@@ -940,17 +957,70 @@ private loadRadio(name: string) {
 					const playPromise = this.radioAudio.play();
 					if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
 				} else {
-					this.logRadio(`No station found for: ${name} on ${base}`);
-					tryMirror(idx + 1);
+					this.logRadio(`No station found for ${mode} search on ${base}`);
+					tryMirror(idx + 1, mode);
 				}
 			})
 			.catch(err => {
 				this.logRadio(`Error on ${base} for ${name}: ${err?.message || err}`);
-				tryMirror(idx + 1);
+				tryMirror(idx + 1, mode);
 			});
 	};
 
-	tryMirror(0);
+	if (tag) {
+		tryMirror(0, "tag");
+	} else {
+		tryMirror(0, "name");
+	}
+}
+
+private getPresetTag(name: string): string | undefined {
+	if (!name) return undefined;
+	const normalized = name.trim().toLowerCase();
+	if (!normalized) return undefined;
+	const map: Record<string, string> = {
+		lofi: "lofi",
+		synthwave: "synthwave",
+		chill: "chill",
+		"lo-fi": "lofi",
+	};
+	return map[normalized] || normalized.replace(/\s+/g, "-");
+}
+
+private selectStationFromList(list: any, opts: { tag?: string; name: string }): any | undefined {
+	if (!Array.isArray(list)) return undefined;
+	const tagLower = opts.tag?.toLowerCase();
+	const nameLower = opts.name.trim().toLowerCase();
+	const forbidden = ["news", "info", "information", "talk", "sports", "sport", "traffic", "weather", "finance", "politics"];
+	const goodKeywords = ["music", "beats", "radio", "chill", "synth", "lofi"];
+	const candidates = list
+		.map(station => {
+			if (!station || typeof station.url_resolved !== "string" || !station.url_resolved.length) {
+				return undefined;
+			}
+			const url = station.url_resolved.trim();
+			const tagsRaw = typeof station.tags === "string" ? station.tags : "";
+			const tags = tagsRaw.split(",").map((t: string) => t.trim().toLowerCase()).filter(Boolean);
+			const stationName = (station.name || "").toString().toLowerCase();
+			let score = 0;
+			if (tagLower && (tags.includes(tagLower) || stationName.includes(tagLower))) score += 5;
+			if (nameLower && stationName.includes(nameLower)) score += 3;
+			if (goodKeywords.some(word => tags.includes(word) || stationName.includes(word))) score += 1;
+			if (forbidden.some(word => tags.includes(word) || stationName.includes(word))) score -= 4;
+			const bitrate = Number(station.bitrate) || 0;
+			if (bitrate >= 256) score += 2;
+			else if (bitrate >= 96) score += 1;
+			const votes = Number(station.votes) || 0;
+			score += Math.min(votes, 6000) / 2000;
+			if (station.lastcheckok !== 1) score -= 3;
+			const codec = (station.codec || "").toString().toUpperCase();
+			if (["MP3", "AAC", "OGG", "OPUS"].includes(codec)) score += 1;
+			if (url.startsWith("https://")) score += 1; else score -= 0.5;
+			return { station, score };
+		})
+		.filter((entry): entry is { station: any; score: number } => !!entry)
+		.sort((a, b) => b.score - a.score);
+	return candidates[0]?.station;
 }
 
 private fallbackToLocalTrack(reason: string) {
