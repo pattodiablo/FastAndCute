@@ -41,6 +41,8 @@ export default class BtnPresion extends Phaser.GameObjects.Sprite {
 
 	private isPressed: boolean = false;
 	private isTouching: boolean = false;
+	private blinkTimer?: Phaser.Time.TimerEvent;
+	private blinkTween?: Phaser.Tweens.Tween;
 
 create() {
 			const base = this.scene as any;
@@ -53,6 +55,7 @@ create() {
 			if (base.plataformas) {
 				//base.physics.add.collider(this, base.plataformas, this.handlePlatformCollision, undefined, this);
 			}
+			this.startIdleBlink();
 	}
 
 	public handlePlatformCollision(btn: any, platform: any) {
@@ -130,6 +133,43 @@ create() {
 		if (typeof door.play === "function") {
 			door.playReverse?.("OpenLateralDoor");
 		}
+	}
+
+	private startIdleBlink() {
+		this.blinkTimer?.remove(false);
+		this.blinkTimer = this.scene.time.addEvent({
+			delay: 6000,
+			loop: true,
+			callback: this.flashButton,
+			callbackScope: this
+		});
+	}
+
+	private flashButton() {
+		if (this.isPressed) {
+			return;
+		}
+		this.blinkTween?.stop();
+		this.setAlpha(1);
+		this.blinkTween = this.scene.tweens.add({
+			targets: this,
+			alpha: { from: 1, to: 0.45 },
+			duration: 120,
+			yoyo: true,
+			repeat: 3,
+			onComplete: () => {
+				this.setAlpha(1);
+				this.blinkTween = undefined;
+			}
+		});
+	}
+
+	destroy(fromScene?: boolean) {
+		this.blinkTimer?.remove(false);
+		this.blinkTimer = undefined;
+		this.blinkTween?.stop();
+		this.blinkTween = undefined;
+		super.destroy(fromScene);
 	}
 
 	/* END-USER-CODE */
