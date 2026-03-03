@@ -918,6 +918,9 @@ private loadRadio(name: string) {
 		return `${base}/json/stations/search?name=${encodeURIComponent(name)}&${common}&limit=10`;
 	};
 
+	// Mientras esperamos una estación remota, reproducir la pista local
+	this.ensureLocalFallbackWhileLoading(stylePretty);
+
 	const tryMirror = (idx: number, mode: "tag" | "name") => {
 		if (idx >= mirrors.length) {
 			if (mode === "tag") {
@@ -925,7 +928,7 @@ private loadRadio(name: string) {
 				tryMirror(0, "name");
 				return;
 			}
-			this.fallbackToLocalTrack(`All mirrors failed for ${name}`);
+			this.fallbackToLocalTrack(`All Radio Browser mirrors failed for ${name}`);
 			return;
 		}
 
@@ -933,29 +936,18 @@ private loadRadio(name: string) {
 		const searchUrl = buildUrl(mode, base);
 		this.logRadio(`Trying ${mode === "tag" ? "tag" : "name"} lookup on ${base} ...`);
 
-		fetch(searchUrl)
-			.then(r => {
-				if (!r.ok) {
-					throw new Error(`HTTP ${r.status}`);
-				}
-				return r.json();
-			})
+		this.fetchStationsWithCorsFallback(searchUrl)
 			.then(list => {
 				const station = this.selectStationFromList(list, { tag, name });
 				if (station) {
-					this.currentStationUrl = station.url_resolved;
-					this.logRadio(`Station loaded from ${base}: ${station.name || "Unknown"}`);
-					if (!this.radioAudio || !this.currentStationUrl) return;
-					if (this.radioAudio.src !== this.currentStationUrl) {
-						this.radioAudio.src = this.currentStationUrl;
+					const urlResolved = station.url_resolved || station.url;
+					if (typeof urlResolved === "string" && urlResolved.length) {
+						this.logRadio(`Station loaded from ${base}: ${station.name || "Unknown"}`);
+						this.playStationStream(urlResolved, station.name || "RadioBrowser", stylePretty);
+					} else {
+						this.logRadio(`Station from ${base} missing url_resolved, skipping`);
+						tryMirror(idx + 1, mode);
 					}
-					const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty}`);
-					try {
-						this.radioAudio.addEventListener('playing', onNowPlaying, { once: true });
-						this.radioAudio.addEventListener('canplay', onNowPlaying, { once: true });
-					} catch {}
-					const playPromise = this.radioAudio.play();
-					if (playPromise) playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
 				} else {
 					this.logRadio(`No station found for ${mode} search on ${base}`);
 					tryMirror(idx + 1, mode);
@@ -972,6 +964,70 @@ private loadRadio(name: string) {
 	} else {
 		tryMirror(0, "name");
 	}
+}
+
+private playStationStream(url: string, label: string, stylePretty: string) {
+	const trimmedUrl = (url || "").trim();
+	if (!trimmedUrl) return;
+	if (!this.radioAudio) {
+		this.prepareRadioElement();
+	}
+	if (!this.radioAudio) return;
+
+	this.currentStationUrl = trimmedUrl;
+	if (this.radioAudio.src !== trimmedUrl) {
+		this.radioAudio.src = trimmedUrl;
+	}
+
+	const onNowPlaying = () => this.logRadio(`Now playing ${stylePretty} (${label})`);
+	try {
+		this.radioAudio.addEventListener("playing", onNowPlaying, { once: true });
+		this.radioAudio.addEventListener("canplay", onNowPlaying, { once: true });
+	} catch {}
+
+	const playPromise = this.radioAudio.play();
+	if (playPromise) {
+		playPromise.catch(e => this.logRadio(`Autoplay blocked: ${e?.message || e}`));
+	}
+}
+
+private ensureLocalFallbackWhileLoading(stylePretty: string) {
+	const localUrl = "assets/music/music1.mp3";
+	if (this.currentStationUrl === localUrl && this.radioAudio && !this.radioAudio.paused) {
+		return;
+	}
+	this.fallbackToLocalTrack(`Using local track while fetching ${stylePretty}`);
+}
+
+private fetchStationsWithCorsFallback(url: string): Promise<any> {
+	const routes = [
+		{ label: "corsproxy.io", builder: (target: string) => `https://corsproxy.io/?${encodeURIComponent(target)}` },
+		{ label: "thingproxy", builder: (target: string) => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(target)}` },
+		{ label: "allorigins", builder: (target: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(target)}` },
+		{ label: "direct", builder: (target: string) => target }
+	];
+
+	const attempt = (index: number): Promise<any> => {
+		if (index >= routes.length) {
+			return Promise.reject(new Error("All request routes failed"));
+		}
+		const route = routes[index];
+		const targetUrl = route.builder(url);
+		this.logRadio(`Fetching stations via ${route.label}`);
+		return fetch(targetUrl, { mode: "cors", credentials: "omit", cache: "no-store" })
+			.then(response => {
+				if (!response.ok) {
+					throw new Error(`HTTP ${response.status}`);
+				}
+				return response.json();
+			})
+			.catch(err => {
+				this.logRadio(`Route ${route.label} failed: ${err?.message || err}`);
+				return attempt(index + 1);
+			});
+	};
+
+	return attempt(0);
 }
 
 private getPresetTag(name: string): string | undefined {
